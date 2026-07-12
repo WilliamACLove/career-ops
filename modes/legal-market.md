@@ -37,6 +37,7 @@ For each **enabled** tracked company in `portals.yml`:
 ### 4. Discovery: employers not yet tracked (up to 6 queries)
 
 - Check legal.io (`site:legal.io/organizations` counsel openings), legalalphabet.com, and GoInhouse.com for legal employers with active counsel roles that are not in `portals.yml`.
+- Spot-check the richest VC portfolio boards (`site:jobs.accel.com counsel`, `indexventures.com/startup-jobs/legal/`) for portfolio companies with counsel openings that are not yet tracked — each hit is a candidate `tracked_companies` addition (find its own ATS board, don't track the VC board itself). For a zero-token deep sweep, suggest the user run `node scan-ats-full.mjs --seeds yc,a16z` (probes YC/a16z portfolio companies' own ATS boards through the legal title filter; see seeds/README.md).
 - For each candidate employer, note its ATS (Greenhouse/Ashby/Lever slug if discoverable) and one live legal role as evidence.
 - **Propose** additions — company name, `careers_url`, `api:` endpoint, evidence — never write them unprompted. Beware slug traps (Greenhouse `relativity` is Relativity Space, not the eDiscovery company).
 

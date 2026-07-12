@@ -2,6 +2,8 @@
 
 A complementary discovery path for startup job-seekers: pull a **public VC portfolio company list** and probe each company's ATS for openings, feeding results into the same pipeline as tracked companies in `portals.yml`.
 
+This works for any role type the `title_filter` in `portals.yml` targets — with the legal-edition defaults (Counsel, Attorney, etc.), `node scan-ats-full.mjs --seeds yc,a16z` becomes a zero-token in-house-counsel sweep across hundreds of YC/a16z portfolio companies. Startups post their first legal hires on their own ATS boards long before those roles reach legal job boards, which makes this one of the richer counsel-discovery paths. (For VC firms whose portfolio job boards we scan via `site:` queries instead — Accel, Index, Bessemer, Sequoia — see the "VC portfolio job boards" section in `templates/portals.example.yml`.)
+
 ## What this does
 
 `scan-ats-full.mjs` normally discovers companies by walking public ATS directories (Greenhouse, Lever, Ashby, Workday). The `seeds/` layer adds a **high-signal starting point for startup roles**: rather than waiting for companies to appear in ATS directories, we seed the universe from well-known VC portfolios — giving you instant coverage of hundreds of YC/a16z-backed companies.

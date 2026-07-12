@@ -14,7 +14,8 @@ are shared helpers and are not loaded as providers.
 > | Bar associations & practice-area boards | ACC Jobline, AIPLA, INTA, ACEDS, FBA, AHLA, NBA/HNBA/NAPABA/LGBTQ+ Bar, Association Career Network, NALP — several run on YM Careers, which exposes a saved-search RSS pattern (`/jobs/rss/{search-id}/{slug}`, proven on `careers.fedbar.org`) | PSJD: partial paywall (full descriptions free only for subscriber-school students/alumni) |
 > | Academic / university counsel | NACUA, HigherEdJobs Legal Affairs | Free, no login; HigherEdJobs bot-blocks direct fetch |
 > | Flexible / interim / return-to-work | The Mom Project, Paragon Legal, Latitude Legal, Axiom (tracked company, unverified Greenhouse slug) | Public listings |
-> | Startup & tech in-house | Built In, Welcome to the Jungle, YC Work at a Startup, Wellfound | Wellfound: login-gated browse, stale indexed postings — always liveness-check |
+> | Startup & tech in-house | Built In, Welcome to the Jungle, YC Work at a Startup, Wellfound, Startup.jobs, TopStartups.io | Wellfound: login-gated browse, stale indexed postings — always liveness-check |
+> | VC portfolio boards | Accel (richest counsel inventory), Index Ventures (dedicated legal-function page), Bessemer, a16z, Sequoia, General Catalyst, Lightspeed (+ second-tier Khosla/Craft/Greylock/First Round, disabled) — plus `node scan-ats-full.mjs --seeds yc,a16z` to probe YC/a16z portfolio companies' own ATS boards zero-token | Getro/Consider boards are JS-rendered — `site:` queries only; their JSON endpoints are unverified |
 > | Legal ops | Legal Operators, Legal.io Legal-Operations persona, CLOC | Board public, community/membership paid |
 > | Aggregator APIs (future providers, not yet wired up) | Adzuna, Jooble | Free API keys, rate-limited |
 >

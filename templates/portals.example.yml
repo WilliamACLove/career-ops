@@ -449,6 +449,67 @@ search_queries:
     notes: "FLAG: browse UI is login-gated and indexed postings are frequently STALE — always liveness-check before adding a hit to the tracker."
     enabled: false  # disabled by default — see stale-posting flag above
 
+  # -- VC portfolio job boards --
+  # Each board aggregates openings across a VC firm's whole portfolio (hundreds
+  # of startups per board) — a rich in-house-counsel source. Two platforms
+  # dominate: Getro (jobs.accel.com, jobs.generalcatalyst.com — ships a Legal
+  # job-function filter) and Consider (jobs.a16z.com, jobs.sequoiacap.com,
+  # jobs.lsvp.com). Both render client-side, so site: queries are the reliable
+  # scan mechanism (their JSON endpoints are untested — see the techniques
+  # block below). Related zero-token path: `node scan-ats-full.mjs --seeds
+  # yc,a16z` probes YC/a16z portfolio companies' OWN ATS boards directly with
+  # this file's title_filter — see seeds/README.md.
+
+  - name: Accel portfolio — counsel
+    query: 'site:jobs.accel.com counsel'
+    notes: "Richest counsel inventory of the VC boards checked: GC, AGC Compliance, Senior Legal Counsel, Product Counsel roles observed across portfolio (Scale AI, Webflow, Anthropic, Dropbox). Getro platform."
+    enabled: true
+
+  - name: Index Ventures — legal function
+    query: 'site:indexventures.com/startup-jobs (counsel OR legal)'
+    notes: "Dedicated legal-function page (indexventures.com/startup-jobs/legal/ — 273 legal jobs observed: Discord, DeepL, Revolut). Custom platform on the main site, not a jobs.* subdomain."
+    enabled: true
+
+  - name: Bessemer portfolio — counsel
+    query: 'site:jobs.bvp.com counsel'
+    notes: "Counsel roles observed (Deputy GC at ServiceTitan). Legacy jobdetail.php URL scheme — different scraper selectors than Getro/Consider."
+    enabled: true
+
+  - name: a16z portfolio — counsel
+    query: 'site:jobs.a16z.com "counsel"'
+    notes: "Large Consider-platform board. NOISE WARNING: portfolio company 'Counsel Health' matches the keyword — filter hits by title. Sibling portfoliojobs.a16z.com is a redundant legacy board — skip it."
+    enabled: true
+
+  - name: Sequoia portfolio — counsel
+    query: 'site:jobs.sequoiacap.com ("legal counsel" OR counsel)'
+    notes: "Consider platform. Counsel inventory unconfirmed at last check — kept for breadth (large portfolio incl. Harvey, Finch)."
+    enabled: true
+
+  - name: General Catalyst portfolio — counsel
+    query: 'site:jobs.generalcatalyst.com counsel'
+    notes: "Getro platform, 800+ portfolio companies, Legal job-function filter available on the board UI."
+    enabled: true
+
+  - name: Lightspeed portfolio — counsel
+    query: 'site:jobs.lsvp.com counsel'
+    notes: "Consider platform. Counsel inventory unconfirmed — portfolio includes Carta, Glean, Helsing."
+    enabled: true
+
+  - name: VC portfolio boards — second tier
+    query: 'site:jobs.khoslaventures.com OR site:jobs.craftventures.com OR site:jobs.greylock.com OR site:jobs.firstround.com counsel'
+    notes: "Khosla + Craft (Getro) and Greylock + First Round (Consider) in one query. Smaller portfolios, counsel inventory unconfirmed — enable for maximum breadth. Kleiner Perkins (jobs.kleinerperkins.com) is mid-platform-migration with mixed URL schemes; add it once it settles. Benchmark has NO portfolio job board (jobs.benchmark.com is dead — do not add)."
+    enabled: false
+
+  - name: Startup.jobs — legal counsel
+    query: 'site:startup.jobs (counsel OR "legal counsel")'
+    notes: "Startup-only aggregator with live legal inventory (startup.jobs/legal-jobs and /roles/legal-counsel both active). JS site — site: query is the mechanism."
+    enabled: true
+
+  - name: TopStartups.io — legal
+    query: 'site:topstartups.io legal'
+    notes: "Startup-only board with a Legal role filter (topstartups.io/jobs/?role=Legal — 'Funded by Sequoia, YC, A16Z'). JS-rendered; search-index yield unverified — check the filter URL manually if the query returns nothing."
+    enabled: false
+
   # -- Flexible / interim / return-to-work --
   - name: The Mom Project — legal/counsel projects
     query: 'site:themomproject.com/projects (counsel OR attorney)'
@@ -1167,12 +1228,19 @@ tracked_companies:
 #   - FlexJobs Legal                      — flexjobs.com/remote-jobs/legal — CANDIDATE-PAID FLAG ($23.95/4wk); jobs
 #                                            are usually findable free at their origin source — discovery reference
 #                                            only, don't recommend paying
+#   - TechGC / The L Suite                — jobs.techgc.co + jobs.lsuite.co (GC/CLO community job board; browse
+#                                            pages like /jobs/search/Associate-Counsel are publicly indexed but the
+#                                            4,500-member network itself is invitation-only — high relevance for
+#                                            first-legal-hire and GC roles, treat as a manual check)
 #
 # Skip / dead (do not add):
 #   - Hired.com          — DEAD, shut down May 2024, folded into LHH.
 #   - iHireLegal         — FLAG: paid tier, complaints of recycled/stale postings + spam. Exclude.
 #   - Symplicity         — law-school career boards, LOGIN-WALLED behind school credentials. Skip.
 #   - LawClerk.legal / Hire an Esquire — signup-gated marketplaces, no scannable inventory. Skip.
+#   - Underdog.io        — alive (acquired Jan 2026) but signup-gated matching marketplace, tech/business focus,
+#                          no legal category. Skip.
+#   - Benchmark portfolio board — does not exist (jobs.benchmark.com is dead / squatted names only).
 
 # ── Zero-token feed & API techniques (future providers) ───────────────
 # Techniques worth building a provider/parser around later, plus an
@@ -1198,13 +1266,29 @@ tracked_companies:
 #     /v1/api/jobs/us/categories before wiring up a provider.
 #   - Jooble API — POST jooble.org/api/{api_key} {"keywords":"attorney"}.
 #     Free key at jooble.org/api/about. Second aggregator for cross-check.
+#   - Getro board pattern (VC portfolio boards): /jobs?q={kw} search + a
+#     standard Legal job-function filter on every board (per Getro's docs);
+#     job detail URLs /companies/{co}/jobs/{id}-{slug}. JS-rendered, so plain
+#     HTTP GET won't see listings — a Playwright-based provider could. Getro's
+#     official Network Data API is paid/partner-gated; the community-reported
+#     anonymous endpoint (POST api.getro.com/api/v2/collections/{id}/search/jobs)
+#     is UNVERIFIED — do not rely on it.
+#   - Consider board pattern (jobs.a16z.com, jobs.sequoiacap.com, jobs.lsvp.com,
+#     jobs.greylock.com, jobs.firstround.com): /jobs + /companies indexes,
+#     /jobs/{company-slug} pages. Community-reported internal API
+#     (POST {board}/api-boards/search-jobs) is UNVERIFIED/untested.
+#   - VC-portfolio ATS seed sweep (works TODAY, zero-token): `node
+#     scan-ats-full.mjs --seeds yc,a16z` pulls the public YC/a16z portfolio
+#     company lists and probes each company's own ATS board through this
+#     file's title_filter — no new provider needed. See seeds/README.md.
 #
 # Untested-endpoint retest list (run once from an unblocked network):
 #   naag.org/job/feed/, blog.psjd.org/feed, paragonlegal.com/jobs/feed/,
 #   inhouseblog.com/feed, jobslegaloperators.com/feed/,
 #   boards-api.greenhouse.io/v1/boards/axiomlaw/jobs (the Axiom Greenhouse
 #   slug above), YM Careers /jobs/rss/ saved-search URLs, Adzuna
-#   /v1/api/jobs/us/categories (confirm the legal-jobs slug).
+#   /v1/api/jobs/us/categories (confirm the legal-jobs slug), Getro/Consider
+#   JSON endpoints noted above.
 
 # ── Job Boards ────────────────────────────────────────────────────────
 # Multi-employer aggregators. Unlike tracked_companies (one entry = one employer),
@@ -1212,6 +1296,21 @@ tracked_companies:
 # Same title/location filtering and dedup apply.
 
 job_boards:
+
+  # ── Startup aggregators (native providers, zero-token) ──────────────
+  # Both confirmed to carry counsel/legal inventory — the title_filter above
+  # does the narrowing.
+
+  - name: EchoJobs
+    provider: echojobs
+    max_pages: 3
+    enabled: true
+    notes: "Aggregates from company ATS boards; confirmed NOT engineering-only — counsel roles observed (Databricks Senior Legal Counsel, Serve Robotics GC, Tubi AGC Privacy, DuckDuckGo Legal Counsel). Some non-startup employers mixed in."
+
+  - name: Himalayas
+    provider: himalayas
+    enabled: true
+    notes: "Remote-global board with a dedicated legal category (himalayas.app/jobs/legal); active counsel inventory observed. Skews remote-worldwide — pair with location_filter if you need US-only."
 
   # ── SolidJobs (Polish market) ──────────────────────────────────────
   # Public API — no auth needed. Division in URL path, campaign=career-ops for tracking.
