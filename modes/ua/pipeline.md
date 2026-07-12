@@ -25,13 +25,13 @@
 ## Очікуючі
 
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://dou.ua/vacancies/company-role/ | Компанія | Senior Backend
+- [ ] https://robota.ua/company/vacancy-123 | Компанія | Юрисконсульт
 - [!] https://private.url/job — Помилка: потрібна авторизація
 
 ## Оброблені
 
-- [x] #143 | https://jobs.example.com/posting/789 | Acme Corp | AI PM | 4.2/5 | PDF ✅
-- [x] #144 | https://djinni.co/jobs/123456 | BigCo | Backend | 2.1/5 | PDF ❌
+- [x] #143 | https://jobs.example.com/posting/789 | Acme Corp | Юрист — M&A | 4.2/5 | PDF ✅
+- [x] #144 | https://djinni.co/jobs/123456 | BigCo | Inhouse-юрисконсульт | 2.1/5 | PDF ❌
 ```
 
 ## Визначення JD з URL
@@ -42,8 +42,8 @@
 
 **Особливі випадки:**
 
-- **DOU.ua**: Парсити сторінку вакансії через Playwright
-- **Djinni.co**: Може вимагати логін → позначити `[!]`, попросити вставити текст
+- **robota.ua / work.ua** (основні дошки для юридичних вакансій в Україні): Парсити сторінку вакансії через Playwright
+- **DOU.ua / Djinni.co** (релевантні для legal tech та inhouse-юридичних ролей у tech-компаніях): Djinni.co може вимагати логін → позначити `[!]`, попросити вставити текст
 - **LinkedIn**: Може вимагати логін → позначити `[!]`, попросити вставити текст
 - **PDF**: Якщо URL на PDF — прочитати через Read tool
 - **`local:` префікс**: Читати локальний файл. Приклад: `local:jds/company-role.md`
