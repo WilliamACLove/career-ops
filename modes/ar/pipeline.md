@@ -28,12 +28,12 @@
 ```markdown
 ## Pending
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://boards.greenhouse.io/company/jobs/456 | Company Inc | Senior PM
+- [ ] https://boards.greenhouse.io/company/jobs/456 | Company Inc | Senior Commercial Counsel
 - [!] https://private.url/job — Error: login required
 
 ## Processed
-- [x] #143 | https://jobs.example.com/posting/789 | Acme Corp | AI PM | 4.2/5 | PDF ✅
-- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | SA | 2.1/5 | PDF ❌
+- [x] #143 | https://jobs.example.com/posting/789 | Acme Corp | In-House Counsel | 4.2/5 | PDF ✅
+- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | Litigation Associate | 2.1/5 | PDF ❌
 ```
 
 ---
@@ -47,7 +47,7 @@
 **حالات خاصة:**
 - **LinkedIn:** قد تطلب المنصة تسجيل الدخول لقراءة محتوى الوصف الوظيفي ← في هذه الحالة، ضع العلامة `[!]` واطلب من المستخدم نسخ ولصق نص الإعلان يدوياً في المحادثة.
 - **ملفات PDF:** إذا كان الرابط يشير مباشرة إلى ملف PDF، فاستخدم أداة قراءة الملفات مباشرة لقراءة محتوياته.
-- **البادئة `local:`:** لقراءة ملف محلي على الجهاز. مثال: `local:jds/linkedin-pm-ai.md` ← سيقوم النظام بفتح وقراءة الملف المحلي `jds/linkedin-pm-ai.md`.
+- **البادئة `local:`:** لقراءة ملف محلي على الجهاز. مثال: `local:jds/linkedin-commercial-counsel.md` ← سيقوم النظام بفتح وقراءة الملف المحلي `jds/linkedin-commercial-counsel.md`.
 
 ---
 
