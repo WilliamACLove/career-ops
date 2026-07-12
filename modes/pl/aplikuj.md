@@ -13,7 +13,7 @@ Tryb interaktywny na moment, gdy kandydat wypełnia formularz aplikacyjny w Chro
 1. WYKRYJ       -> Przeczytaj aktywną kartę Chrome (zrzut/URL/tytuł)
 2. ZIDENTYFIKUJ -> Wyciągnij firmę + rolę ze strony
 3. WYSZUKAJ     -> Dopasuj do istniejących reportów w reports/
-4. ZAŁADUJ      -> Przeczytaj pełny report + Blok G (jeśli istnieje)
+4. ZAŁADUJ      -> Przeczytaj pełny report + Blok H (jeśli istnieje)
 5. PORÓWNAJ     -> Czy rola na ekranie odpowiada ocenionej? Jeśli zmiana -> ostrzeż
 6. PRZEANALIZUJ -> Zidentyfikuj WSZYSTKIE widoczne pytania formularza
 7. WYGENERUJ    -> Dla każdego pytania wygeneruj spersonalizowaną odpowiedź
@@ -34,16 +34,24 @@ Tryb interaktywny na moment, gdy kandydat wypełnia formularz aplikacyjny w Chro
 1. Wyciągnij nazwę firmy i tytuł stanowiska ze strony
 2. Wyszukaj w `reports/` po nazwie firmy (Grep case-insensitive)
 3. Jeśli dopasowanie -> załaduj pełny report
-4. Jeśli Blok G obecny -> załaduj poprzednie szkice odpowiedzi jako bazę
+4. Jeśli Blok H obecny -> załaduj poprzednie szkice odpowiedzi jako bazę
 5. Jeśli BRAK dopasowania -> ostrzeż kandydata i zaproponuj szybki auto-pipeline
+
+## Krok 2.5 -- Sprawdź blokadę kanału rekrutacji (referral-source lock)
+
+Zanim wygenerujesz jakąkolwiek treść, sprawdź `legal.recruiter_channel` w `config/profile.yml` (pola bloku `legal:` pozostają po angielsku) oraz pole `via=` w `data/applications.md` dla tej firmy. Jeśli kandydat jest już zgłoszony do tej samej kancelarii/firmy przez headhuntera (Antal, Michael Page Legal, Alexander Hughes, Grant Thornton, boutique'ową agencję prawniczą itd.) lub jest w trakcie tego zgłoszenia, **zatrzymaj się i zapytaj kandydata wprost**, zanim przygotujesz odpowiedzi do bezpośredniego formularza aplikacyjnego tej samej firmy:
+
+> "Widzę, że {Firma} ma już zapisany kanał `via={Agencja}` w trackerze. Podwójne zgłoszenie (bezpośrednio i przez rekrutera) bywa traktowane jako proces-killer -- rekruter zwykle 'przypisuje' sobie kandydaturę na kilka miesięcy. Czy na pewno chcesz kontynuować aplikację bezpośrednią, czy wolisz to skoordynować z rekruterem?"
+
+Kontynuuj wypełnianie formularza tylko po jednoznacznym potwierdzeniu kandydata.
 
 ## Krok 3 -- Wykryj zmiany roli
 
 Jeśli rola na ekranie różni się od ocenionej:
 - **Ostrzeż kandydata**: "Rola zmieniła się z [X] na [Y]. Czy chcesz, żebym ocenił ją ponownie, czy dostosował odpowiedzi do nowego tytułu?"
 - **Jeśli dostosować**: Dostosuj odpowiedzi do nowej roli bez ponownej oceny
-- **Jeśli ocenić ponownie**: Uruchom pełną ocenę A-F, zaktualizuj report, wygeneruj ponownie Blok G
-- **Zaktualizuj tracker**: Zmień tytuł roli w applications.md, jeśli to konieczne
+- **Jeśli ocenić ponownie**: Uruchom pełną ocenę A-G, zaktualizuj report, wygeneruj ponownie Blok H (szkice odpowiedzi)
+- **Zaktualizuj tracker**: Zmień tytuł roli w applications.md, jeśli to konieczne (kanonicznie przez `node set-status.mjs`, nie ręczną edycją tabeli)
 
 ## Krok 4 -- Przeanalizuj pytania formularza
 
@@ -55,7 +63,7 @@ Zidentyfikuj WSZYSTKIE widoczne pytania:
 - Pola upload (CV, list motywacyjny PDF, referencje)
 
 Sklasyfikuj każde pytanie:
-- **Już odpowiedziane w Bloku G** -> wykorzystaj istniejącą odpowiedź
+- **Już odpowiedziane w Bloku H** -> wykorzystaj istniejącą odpowiedź
 - **Nowe pytanie** -> wygeneruj odpowiedź z reportu + `cv.md`
 
 ## Krok 5 -- Wygeneruj odpowiedzi
@@ -63,17 +71,19 @@ Sklasyfikuj każde pytanie:
 Dla każdego pytania zbuduj odpowiedź według tego schematu:
 
 1. **Kontekst z reportu**: Użyj proof points z bloku B, historii STAR z bloku F
-2. **Poprzedni Blok G**: Jeśli szkic istnieje, weź go jako bazę i dopracuj
+2. **Poprzedni Blok H**: Jeśli szkic istnieje, weź go jako bazę i dopracuj
 3. **Ton "To ja wybieram Was"**: ten sam framework co w auto-pipeline -- pewny siebie, nie błagalny
 4. **Konkretność**: zacytuj coś konkretnego z oferty widocznej na ekranie
 5. **career-ops proof point**: dołącz w "Informacje dodatkowe", jeśli takie pole istnieje
 
-**Pola specyficzne dla typowych polskich formularzy:**
+**Pola specyficzne dla typowych polskich formularzy prawniczych:**
 - **Oczekiwania płacowe** -> Widełki z `profile.yml`, w PLN, z zaznaczeniem, czy netto czy brutto (oraz UoP/B2B) i dopiskiem "do negocjacji w zależności od całego pakietu"
-- **Data dostępności** -> Realistyczna data uwzględniająca okres wypowiedzenia (często 2 tygodnie do 3 miesięcy)
+- **Uprawnienia zawodowe / wpis na listę** -> Dokładny status: "radca prawny, wpis OIRP {miasto}, {rok}" / "adwokat, wpis ORA {miasto}, {rok}" / "aplikant {radcowski/adwokacki}, rok aplikacji {N}, egzamin zawodowy planowany {rok}". Nie zaokrąglaj ani nie zgaduj -- czytaj wprost z `cv.md`/`profile.yml`
+- **Data dostępności** -> Realistyczna data uwzględniająca okres wypowiedzenia (często 2 tygodnie do 3 miesięcy; przy lateralach kancelaryjnych doliczaj czas na zamknięcie bieżących spraw/klientów)
 - **Pozwolenie na pracę / Obywatelstwo** -> Uczciwie i zwięźle; dla obywateli UE: "Brak wymogu zezwolenia na pracę (obywatel UE)"
-- **Języki** -> Poziomy według ESOKJ/CEFR (A1-C2)
-- **Mobilność** -> Sprecyzuj akceptowalny obszar geograficzny i częstotliwość wyjazdów
+- **Języki** -> Poziomy według ESOKJ/CEFR (A1-C2); dla ról transakcyjnych i in-house często wymagany biegły angielski prawniczy -- odnotuj poziom precyzyjnie
+- **Konflikt interesów** -> Jeśli formularz pyta wprost, odpowiadaj uczciwie i zwięźle; nie spekuluj o konfliktach, których kandydat nie zgłosił
+- **Mobilność** -> Sprecyzuj akceptowalny obszar geograficzny i częstotliwość wyjazdów (rozprawy poza siedzibą, wizyty u klienta)
 
 **Format wyjścia:**
 
@@ -103,7 +113,7 @@ Notatki:
 
 Jeśli kandydat potwierdzi, że aplikacja została wysłana:
 1. Zaktualizuj status na "Applied" kanonicznym CLI: `node set-status.mjs <report#> Applied` (nie edytuj tabeli `applications.md` ręcznie)
-2. Zaktualizuj Blok G reportu finalnymi odpowiedziami
+2. Zaktualizuj Blok H reportu finalnymi odpowiedziami
 3. Zasugeruj następny krok: `/career-ops contacto` dla LinkedIn outreach do hiring managera
 
 ## Obsługa przewijania

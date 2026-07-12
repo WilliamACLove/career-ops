@@ -57,6 +57,8 @@
 
 ## Co to jest
 
+> **Ta edycja jest ukierunkowana na kariery prawnicze** -- prawników kancelaryjnych, prawników in-house, compliance i regulatory, prawników sektora publicznego/interesu publicznego oraz role legal tech. Archetypy, lista portali, źródła danych o wynagrodzeniach oraz bramki oceny (uprawnienia zawodowe/wpis na listę, dopasowanie stażu, konflikty interesów) poniżej są dostrojone do polskiego rynku prawniczego. Silnik pod spodem jest niezależny od kariery i w pełni konfigurowalny do dowolnej ścieżki zawodowej -- wystarczy poprosić swój AI CLI o zmianę archetypów. Oryginalna edycja AI/inżynierska, z której powstał ten projekt, pozostaje open source i jest utrzymywana przez [santifer](https://santifer.io) (zobacz "O autorze" poniżej).
+
 Career-Ops ([career-ops.org](https://career-ops.org), znany też jako **careerops**) zamienia dowolne AI CLI w pełne centrum dowodzenia poszukiwaniem pracy. Zamiast ręcznego śledzenia aplikacji w arkuszu kalkulacyjnym, dostajesz pipeline zasilany AI, który:
 
 - **Ocenia oferty** przy pomocy strukturyzowanego systemu A–F (10 ważonych wymiarów)
@@ -82,7 +84,7 @@ Zbudowany przez kogoś, kto użył go do oceny 740+ ofert pracy, wygenerowania 1
 | **Bank historii do rozmów**    | Gromadzi historie STAR+Reflection — 5–10 historii mistrzowskich odpowiadających na każde pytanie behawioralne                                   |
 | **Skrypty negocjacyjne**       | Frameworki negocjacji wynagrodzenia, odparcie dyskonta geograficznego, wykorzystanie konkurencyjnych ofert                                      |
 | **Generowanie PDF pod ATS**    | CV z wstrzyknięciem słów kluczowych, design Space Grotesk + DM Sans                                                                            |
-| **Skaner portali**             | 45+ firm skonfigurowanych (Anthropic, OpenAI, ElevenLabs, Retool, n8n…) + zapytania przez Ashby, Greenhouse, Lever, Wellfound                  |
+| **Skaner portali**             | 45+ firm skonfigurowanych -- legal tech (Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Clio, Relativity…), zespoły prawne in-house w firmach technologicznych (Anthropic, OpenAI, Coinbase, Databricks, Stripe…), plus sektor publiczny i izby zawodowe + zapytania przez Ashby, Greenhouse, Lever, Workday                  |
 | **Przetwarzanie wsadowe**      | Równoległa ocena przez workery `claude -p`                                                                                                      |
 | **Dashboard TUI**              | Terminalowy UI do przeglądania, filtrowania i sortowania pipeline'u                                                                             |
 | **Human-in-the-Loop**          | AI ocenia i rekomenduje, ty decydujesz i działasz. System nigdy nie wysyła aplikacji — ostatnie słowo zawsze należy do ciebie                  |
@@ -152,8 +154,8 @@ Wklejasz URL oferty lub jej opis
         │
         ▼
 ┌──────────────────┐
-│  Wykrywanie      │  Klasyfikacja: Frontend / Backend / DevOps / PM / SA / ML
-│  archetypu       │
+│  Wykrywanie      │  Klasyfikacja: Prawnik kancelaryjny (Transakcyjny/Litigation) /
+│  archetypu       │  In-house / Compliance / Sektor publiczny / Legal Tech
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -196,14 +198,11 @@ Career-ops uwzględnia specyfikę polskiego rynku pracy przy ocenianiu ofert:
 
 Skaner zawiera **45+ firm** gotowych do skanowania i **19 zapytań** przez główne portale z ofertami. Skopiuj `templates/portals.example.yml` do `portals.yml` i dodaj swoje:
 
-**AI Labs:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
-**AI Platforms:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
-**Contact Center:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
-**Enterprise:** Salesforce, Twilio, Gong, Dialpad
-**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
-**Automation:** n8n, Zapier, Make.com
-**European:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
+**Legal tech:** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
+**Zespoły prawne in-house:** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
+**Boards:** USAJOBS (administracja federalna USA, w tym justice.gov), GoInhouse, Lawjobs, LawCrossing, LateralHub, centra karier ABA i izb stanowych (USA). Pokrywane też przez `search_queries`: boardy administracji/prokuratury, centra karier izb prawniczych i praktyk specjalistycznych, boardy uczelnianych działów prawnych, giełdy pracy elastycznej/powrotu do zawodu, boardy legal-ops
+
+> **Uwaga o lateralach kancelaryjnych:** duże kancelarie międzynarodowe prowadzą własne, branżowe systemy ATS (viRecruit, LawCruit) bez publicznego API, więc oferty laterale w największych kancelariach płyną głównie przez rekruterów lub agregatory, nie przez ten skaner. Mocną stroną skanera są role legal tech i in-house w firmach obecnych na publicznych ATS-ach, plus realne API sektora publicznego (np. USAJOBS). Dla polskiego rynku prawniczego uzupełnij `portals.yml` o Pracuj.pl, LinkedIn i strony kariery kancelarii -- patrz sekcja "Polskie portale z ofertami pracy" powyżej.
 
 **Przeszukiwane portale:** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront
 

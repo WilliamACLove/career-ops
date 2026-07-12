@@ -8,7 +8,9 @@
      prawniczej (kancelarie, in-house, compliance, sektor
      publiczny, legal tech). Zanim użyjesz career-ops, MUSISZ:
      1. Wypełnić config/profile.yml swoimi danymi osobowymi
-        (w tym blok `legal:` -- uprawnienia, wpis na listę, PQE)
+        (w tym blok `legal:` -- pola pozostają po angielsku:
+        class_year, bar_admissions, patent_bar, practice_areas,
+        recruiter_channel)
      2. Utworzyć cv.md w katalogu głównym projektu (CV w Markdown)
      3. (Opcjonalnie) Utworzyć article-digest.md ze swoimi proof points
      4. Dostosować sekcje oznaczone [PERSONALIZUJ] poniżej
@@ -136,21 +138,21 @@ W polskich ogłoszeniach prawniczych i negocjacjach pojawiają się terminy zawo
 
 ### Twarde bramki prawnicze (hard gates -- pass/fail, nigdy nie uśredniaj ich w cichy sposób)
 
-Sprawdzaj PRZED ważeniem wymiarów. Czytają blok `legal:` z `config/profile.yml` (`lata_doswiadczenia`/`pqe`, `uprawnienia` -- radca prawny/adwokat/aplikant, `rzecznik_patentowy`, `praktyki`, `kanal_rekrutera`). Nieprzejście bramki musi pojawić się WYRAŹNIE w wymiarze Red flags ORAZ jako osobna linia w reporcie -- silne dopasowanie CV nigdy nie kompensuje ani nie zaciera nieprzejścia bramki.
+Sprawdzaj PRZED ważeniem wymiarów. Czytają blok `legal:` z `config/profile.yml` -- schemat pól jest wspólny dla wszystkich wersji językowych i pozostaje po angielsku: `class_year` (poziom doświadczenia / PQE), `bar_admissions` (uprawnienia/wpis na listę -- radca prawny/adwokat/aplikant), `patent_bar` (uprawnienia rzecznika patentowego), `practice_areas` (specjalizacje), `recruiter_channel` (kanał rekrutacji). Nieprzejście bramki musi pojawić się WYRAŹNIE w wymiarze Red flags ORAZ jako osobna linia w reporcie -- silne dopasowanie CV nigdy nie kompensuje ani nie zaciera nieprzejścia bramki.
 
 1. **Uprawnienia zawodowe / wpis na listę** -- porównaj wymóg ogłoszenia z uprawnieniami kandydata. Skala restrykcyjności różni się wg typu pracodawcy:
    - **Kancelarie: restrykcyjne.** Rola prowadząca sprawy przed sądem lub podpisująca pisma procesowe wymaga czynnego wpisu (radca prawny lub adwokat) albo realnej ścieżki dojścia (aplikant blisko egzaminu zawodowego). Brak wpisu przy roli wymagającej samodzielnego prowadzenia spraw to niemal automatyczny blocker.
    - **In-house: umiarkowane.** W Polsce doradztwo prawne wewnątrz organizacji (bez reprezentacji przed sądem) nie wymaga formalnie uprawnień radcy prawnego/adwokata -- wielu "prawników in-house" praktykuje bez wpisu. Sam tytuł "radca prawny" jako stanowisko jest jednak silnym sygnałem preferencji pracodawcy; traktuj brak wpisu jako lukę do zaadresowania, nie jako twardy blocker, chyba że ogłoszenie wprost wymaga reprezentacji sądowej.
    - **Sektor publiczny i legal tech: minimalne.** Wiele stanowisk (legislacja, doradztwo, legal ops) nie wymaga wpisu; jeśli ogłoszenie tego nie wymaga wprost, traktuj jako drugorzędne.
 2. **Poziom doświadczenia / PQE (lata po wpisie lub aplikacji)** -- jeśli ogłoszenie podaje pasmo ("radca prawny/adwokat z min. 3-5-letnim doświadczeniem w zespole transakcyjnym"), porównaj z doświadczeniem kandydata. Wyraźnie poniżej lub powyżej pasma przy lateralu kancelaryjnym = rekomenduj przeciw aplikowaniu (dopasowanie poziomu bywa negocjowalne o rok w jedną lub drugą stronę dopiero na etapie oferty, nie na etapie screeningu).
-3. **Rzecznik patentowy** -- role obejmujące prowadzenie zgłoszeń patentowych (patent prosecution) wymagają uprawnień rzecznika patentowego (odrębnych od radcy prawnego/adwokata). Jeśli `legal.rzecznik_patentowy` jest `false`, a rola tego wymaga -- twardy blocker. (Spory dot. znaków towarowych/praw autorskich nie wymagają tych uprawnień.)
+3. **Rzecznik patentowy** -- role obejmujące prowadzenie zgłoszeń patentowych (patent prosecution) wymagają uprawnień rzecznika patentowego (odrębnych od radcy prawnego/adwokata). Jeśli `legal.patent_bar` jest `false`, a rola tego wymaga -- twardy blocker. (Spory dot. znaków towarowych/praw autorskich nie wymagają tych uprawnień.)
 4. **Konflikt interesów (role senior/partnerskie)** -- każda oferta na poziomie senior/of counsel/partnerskim jest warunkowa wobec weryfikacji konfliktu interesów z portfelem klientów nowego pracodawcy. Odnotuj ryzyko w reporcie -- nie punktuj go.
 
 ### Kanał rekrutacji -- reguła blokady źródła (referral-source lock)
 
 Podobnie jak na innych rynkach, polscy headhunterzy prawniczy (np. Antal, Michael Page Legal, Alexander Hughes, Grant Thornton, boutique'owe agencje prawnicze) traktują zgłoszenie kandydata jako "przypisanie" go do danego pracodawcy na pewien okres -- zwykle kilka miesięcy, czasem do roku, zależnie od umowy agencji z kancelarią/firmą (to konwencja rynkowa/umowna, nie ustawowa -- sprawdzaj aktualne zasady konkretnej agencji, jeśli są znane). Podwójne zgłoszenie (bezpośrednio i przez rekrutera, albo przez dwóch rekruterów naraz) bywa postrzegane jako proces-killer i może skończyć się dyskwalifikacją kandydata z obu ścieżek.
 
-**ZAWSZE sprawdź `legal.kanal_rekrutera` w `config/profile.yml` oraz pole `via=` w trackerze przed przygotowaniem bezpośredniej aplikacji do kancelarii/firmy, w której kandydat już jest zgłoszony przez rekrutera.** Nie przygotowuj równoległej bezpośredniej aplikacji, jeśli rekruter już zgłosił kandydata lub jest w trakcie tego procesu -- zapytaj kandydata wprost, zanim cokolwiek wygenerujesz.
+**ZAWSZE sprawdź `legal.recruiter_channel` w `config/profile.yml` oraz pole `via=` w trackerze przed przygotowaniem bezpośredniej aplikacji do kancelarii/firmy, w której kandydat już jest zgłoszony przez rekrutera.** Nie przygotowuj równoległej bezpośredniej aplikacji, jeśli rekruter już zgłosił kandydata lub jest w trakcie tego procesu -- zapytaj kandydata wprost, zanim cokolwiek wygenerujesz.
 
 ### Skrypty negocjacyjne
 
@@ -203,7 +205,7 @@ Podobnie jak na innych rynkach, polscy headhunterzy prawniczy (np. Antal, Michae
 6. Nie generuj PDF bez wcześniejszego przeczytania oferty
 7. Nie używaj korporacyjnego żargonu ani pustych formułek
 8. Nie ignoruj trackera (każda oceniona oferta jest zapisywana)
-9. Nie przygotowuj bezpośredniej aplikacji do kancelarii/firmy, w której rekruter prawniczy już zgłosił kandydata (lub jest w trakcie zgłaszania) -- patrz "Kanał rekrutacji" powyżej. ZAWSZE sprawdź `legal.kanal_rekrutera` i pole `via=` w trackerze przed przygotowaniem bezpośredniej aplikacji
+9. Nie przygotowuj bezpośredniej aplikacji do kancelarii/firmy, w której rekruter prawniczy już zgłosił kandydata (lub jest w trakcie zgłaszania) -- patrz "Kanał rekrutacji" powyżej. ZAWSZE sprawdź `legal.recruiter_channel` i pole `via=` w trackerze przed przygotowaniem bezpośredniej aplikacji
 
 ### ZAWSZE
 
