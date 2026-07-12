@@ -4,7 +4,7 @@ description: AI job search command center -- evaluate offers, generate CVs, scan
 arguments: mode
 user_invocable: true
 user-invocable: true
-argument-hint: "[scan | deep | pdf | latex | latex-tex | cover | email | add | eu-swe | oferta | ofertas | apply | batch | tracker | agent-inbox | pipeline | contacto | training | project | interview-prep | interview | interview/plan | interview/practice | interview/debrief | patterns | offer-prep | titles | upskill | followup | update]"
+argument-hint: "[scan | deep | pdf | latex | latex-tex | cover | email | add | eu-swe | oferta | ofertas | apply | batch | tracker | agent-inbox | pipeline | contacto | training | project | interview-prep | interview | interview/plan | interview/practice | interview/debrief | patterns | offer-prep | titles | upskill | legal-market | followup | update]"
 license: MIT
 ---
 
@@ -64,6 +64,7 @@ Determine the mode from `$mode`:
 | `offer-prep` | `offer-prep` |
 | `titles` | `titles` |
 | `upskill` | `upskill` |
+| `legal-market` | `legal-market` |
 | `followup` | `followup` |
 | `update` | `update` |
 | `cover` | `cover` |
@@ -140,6 +141,7 @@ Available commands:
   /career-ops offer-prep → Read a received offer/contract with the candidate: clause walk + lawyer questions (not legal advice)
   /career-ops titles    → Suggest adjacent job titles from your CV to broaden the search
   /career-ops upskill   → Aggregate skill-gap analysis from your evaluated reports
+  /career-ops legal-market → Refresh legal market data: salary scale, comp surveys, portal health
   /career-ops followup  → Follow-up cadence tracker: flag overdue, generate drafts
   /career-ops update    → Update career-ops system files with diff preview + compat check
 
@@ -165,7 +167,7 @@ Applies to: `auto-pipeline`, `oferta`, `ofertas`, `pdf`, `contacto`, `apply`, `p
 
 Read `modes/_profile.md` (if exists) + `modes/_custom.md` (if exists) + `modes/{mode}.md`
 
-Applies to: `tracker`, `agent-inbox`, `deep`, `interview-prep`, `interview`, `regional/eu-swe`, `interview/plan`, `interview/practice`, `interview/debrief`, `latex`, `latex-tex`, `training`, `project`, `patterns`, `titles`, `upskill`, `followup`, `cover`, `email`, `add`, `offer-prep`
+Applies to: `tracker`, `agent-inbox`, `deep`, `interview-prep`, `interview`, `regional/eu-swe`, `interview/plan`, `interview/practice`, `interview/debrief`, `latex`, `latex-tex`, `training`, `project`, `patterns`, `titles`, `upskill`, `legal-market`, `followup`, `cover`, `email`, `add`, `offer-prep`
 
 ### Modes delegated to subagent
 

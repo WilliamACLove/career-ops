@@ -4,6 +4,8 @@ Career-Ops scans job sources through provider modules in `providers/`. Each
 non-helper `*.mjs` file maps to one supported source. Files prefixed with `_`
 are shared helpers and are not loaded as providers.
 
+> **Legal-market note:** the table below is general-purpose ATS coverage (Greenhouse, Ashby, Lever, Workday, Workable, etc.), which is where legal tech companies and in-house legal teams at tech companies post openings. Large law firms mostly run their own legal-vertical ATSs (viRecruit, LawCruit) with no public API, so firm lateral roles are not covered here — see USAJOBS (`developer.usajobs.gov`, Position Series 0905 = Attorney) for the one real government API, and GoInhouse, Lawjobs, LawCrossing, and state bar YM Careers boards for HTML-scraped legal-specific boards outside this table.
+
 | Board | Type (API / RSS / parser) | Notes |
 | --- | --- | --- |
 | 4 Day Week | API | Reads the public `https://4dayweek.io/api/jobs` JSON feed (4-day-week / reduced-hours roles). Configure with `provider: 4dayweek`; paginates `?page=N` up to `max_pages` (default 3), drops expired postings, then scanner filters apply. |

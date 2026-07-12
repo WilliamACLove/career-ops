@@ -42,9 +42,9 @@ Write a JSON file with this structure. `build-cv-latex.mjs` handles template mer
     {
       "institution": "University Name",
       "location": "City, State",
-      "degree": "Bachelor of Science in Computer Science",
-      "dates": "2018 - 2022",
-      "coursework": ["Data Structures", "Algorithms", "Machine Learning"]
+      "degree": "Juris Doctor, cum laude",
+      "dates": "2018 - 2021",
+      "coursework": ["Law Review, Senior Editor", "Securities Regulation", "Privacy Law"]
     }
   ],
   "experience": [
@@ -61,17 +61,17 @@ Write a JSON file with this structure. `build-cv-latex.mjs` handles template mer
   ],
   "projects": [
     {
-      "name": "Project Name",
-      "context": "Tech stack summary for the project line",
+      "name": "Matter or Publication Name",
+      "context": "Practice-area summary for the matter line",
       "dates": "",
       "bullets": [
-        "What you built and what it does"
+        "What the matter was and your role in it"
       ]
     }
   ],
   "skills": [
-    { "category": "Languages", "items": "Python, JavaScript, C++" },
-    { "category": "Frameworks", "items": "FastAPI, React, PyTorch" }
+    { "category": "Practice Areas", "items": "Tech Transactions, Privacy, M&A" },
+    { "category": "Tools", "items": "Westlaw, Ironclad CLM, Relativity" }
   ]
 }
 ```
@@ -140,8 +140,8 @@ Same ethical rules as `modes/pdf.md`:
 - NEVER add skills the candidate doesn't have
 - Only reformulate existing experience using JD vocabulary
 - Examples:
-  - JD says "RAG pipelines" → reword "LLM workflows with retrieval" to "RAG pipeline design"
-  - JD says "MLOps" → reword "observability, evals" to "MLOps and observability"
+  - JD says "commercial agreements" → reword "negotiated SaaS contracts" to "commercial agreements: SaaS and licensing"
+  - JD says "data privacy compliance" → reword "GDPR advice and DPAs" to "data privacy compliance: GDPR counseling, DPA negotiation"
 
 ## Overleaf Compatibility
 

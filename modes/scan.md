@@ -55,7 +55,7 @@ Array format:
 
 ```json
 [
-  { "title": "Senior AI Engineer", "url": "https://example.com/jobs/123", "location": "Remote" }
+  { "title": "Senior Commercial Counsel", "url": "https://example.com/jobs/123", "location": "Remote" }
 ]
 ```
 
@@ -64,7 +64,7 @@ Object format with `jobs`:
 ```json
 {
   "jobs": [
-    { "title": "Senior AI Engineer", "url": "https://example.com/jobs/123", "location": "Remote" }
+    { "title": "Senior Commercial Counsel", "url": "https://example.com/jobs/123", "location": "Remote" }
   ]
 }
 ```
@@ -74,7 +74,7 @@ Object format with `results`:
 ```json
 {
   "results": [
-    { "title": "Senior AI Engineer", "url": "https://example.com/jobs/123", "location": "Remote" }
+    { "title": "Senior Commercial Counsel", "url": "https://example.com/jobs/123", "location": "Remote" }
   ]
 }
 ```
@@ -103,7 +103,7 @@ During the agent's scan, keep the **`local_parser_ok`** set in memory. This set 
 
 - Parser **failed** → the company is **not** added to `local_parser_ok`; Levels 1 and 2 apply normally (same criteria as the fallback in `scan.mjs` when the parser fails and an ATS API is available).
 - Level 3: do not deactivate cross-cutting queries (`site:jobs.ashbyhq.com`, `site:boards.greenhouse.io`, etc.) — these are used to discover **new** companies. Only filter out results for companies already in `tracked_companies` with a successful parser.
-- Do not create dedicated `search_queries` for a company with an active local parser (e.g. `site:jobs.ashbyhq.com/cohere "AI Engineer"`); use the parser or, if it fails, Playwright/API.
+- Do not create dedicated `search_queries` for a company with an active local parser (e.g. `site:jobs.ashbyhq.com/harvey "Legal Engineer"`); use the parser or, if it fails, Playwright/API.
 
 **Recommended Level 0:** run `node scan.mjs` (or `npm run scan`) at the start of the agent's workflow. This covers local parsers + APIs in a single zero-token step and returns which companies used the `local-parser` successfully.
 
@@ -268,9 +268,9 @@ Levels are additive — they are executed in order, and results are merged and d
 WebSearch results typically come in the format: `"Job Title @ Company"`, `"Job Title | Company"`, or `"Job Title — Company"`.
 
 Extraction patterns by portal:
-- **Ashby**: `"Senior AI PM (Remote) @ EverAI"` → title: `Senior AI PM`, company: `EverAI`
-- **Greenhouse**: `"AI Engineer at Anthropic"` → title: `AI Engineer`, company: `Anthropic`
-- **Lever**: `"Product Manager - AI @ Temporal"` → title: `Product Manager - AI`, company: `Temporal`
+- **Ashby**: `"Legal Engineer (Remote) @ Harvey"` → title: `Legal Engineer`, company: `Harvey`
+- **Greenhouse**: `"Commercial Counsel at Anthropic"` → title: `Commercial Counsel`, company: `Anthropic`
+- **Lever**: `"Corporate Counsel - Product @ Filevine"` → title: `Corporate Counsel - Product`, company: `Filevine`
 
 Generic regex: `(.+?)(?:\s*[@|—–-]\s*|\s+at\s+)(.+?)$`
 
@@ -288,8 +288,8 @@ If a non-publicly accessible URL is found:
 |---|--------|---------|-------|
 | 1 | `url` | `https://jobs.lever.co/acme/123` | Canonical posting URL |
 | 2 | `first_seen` | `2026-02-10` | ISO date the URL was first encountered |
-| 3 | `portal` | `Ashby — AI PM` | Query name from `portals.yml` |
-| 4 | `title` | `PM AI` | Job title as returned by the ATS |
+| 3 | `portal` | `Ashby — Counsel` | Query name from `portals.yml` |
+| 4 | `title` | `Privacy Counsel` | Job title as returned by the ATS |
 | 5 | `company` | `Acme` | Company name |
 | 6 | `status` | `added` | `added`, `skipped_dup`, `skipped_title`, `skipped_expired` |
 | 7 | `location` | `Remote — Europe` | Location string (may be empty); persisted for later auditing |
@@ -298,7 +298,7 @@ If a non-publicly accessible URL is found:
 
 ```tsv
 url	first_seen	portal	title	company	status	location	jd_fingerprint	postedAt
-https://...	2026-02-10	Ashby — AI PM	PM AI	Acme	added	Remote	a3f1c8d2e4b70592	2026-02-08
+https://...	2026-02-10	Ashby — Counsel	Privacy Counsel	Acme	added	Remote	a3f1c8d2e4b70592	2026-02-08
 ```
 
 ### Cross-listing detection

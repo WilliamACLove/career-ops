@@ -68,9 +68,9 @@
 ## Keyword injection strategy (ethical, truth-based)
 
 Examples of legitimate reformulation:
-- JD says "RAG pipelines" and CV says "LLM workflows with retrieval" → change to "RAG pipeline design and LLM orchestration workflows"
-- JD says "MLOps" and CV says "observability, evals, error handling" → change to "MLOps and observability: evals, error handling, cost monitoring"
-- JD says "stakeholder management" and CV says "collaborated with team" → change to "stakeholder management across engineering, operations, and business"
+- JD says "commercial agreements" and CV says "negotiated SaaS contracts" → change to "commercial agreements: SaaS subscription, licensing, and services contracts"
+- JD says "data privacy compliance" and CV says "GDPR advice and DPAs" → change to "data privacy compliance: GDPR counseling, DPA negotiation, incident response"
+- JD says "cross-functional partnership" and CV says "worked with the deal team" → change to "cross-functional partnership across sales, product, and finance"
 
 **NEVER add skills that the candidate does not have. Only reword real experience using the exact JD vocabulary.**
 
@@ -120,7 +120,7 @@ Write a JSON file with this structure, then run `node build-cv-html.mjs <input.j
     "skills": "Skills"
   },
   "summary": "Personalized summary with JD keywords injected (honest vs cv.md).",
-  "competencies": ["RAG Pipelines", "LLMOps", "Kubernetes & Docker"],
+  "competencies": ["Technology Transactions", "Data Privacy (GDPR/CCPA)", "M&A Support"],
   "experience": [
     {
       "company": "Company Name",
@@ -131,17 +131,17 @@ Write a JSON file with this structure, then run `node build-cv-html.mjs <input.j
     }
   ],
   "projects": [
-    { "name": "Project Name", "badge": "Open Source", "tech": "Python, FastAPI", "description": "What it does." }
+    { "name": "Matter or Publication Name", "badge": "Representative Matter", "tech": "M&A, Tech Transactions", "description": "What it was and your role." }
   ],
   "education": [
-    { "title": "B.S. Computer Science", "org": "University Name", "year": "2022", "description": "Optional line." }
+    { "title": "J.D., cum laude", "org": "Law School Name", "year": "2021", "description": "Journal, moot court, or honors (optional line)." }
   ],
   "certifications": [
-    { "title": "Certified Kubernetes Administrator", "org": "CNCF", "year": "2024" }
+    { "title": "New York Bar Admission", "org": "New York State Bar", "year": "2021" }
   ],
   "skills": [
-    { "category": "Languages", "items": "Python, JavaScript, C++" },
-    { "category": "Frameworks", "items": ["FastAPI", "React", "PyTorch"] }
+    { "category": "Practice Areas", "items": "Tech Transactions, Privacy, M&A" },
+    { "category": "Tools", "items": ["Westlaw", "Ironclad CLM", "Relativity"] }
   ]
 }
 ```

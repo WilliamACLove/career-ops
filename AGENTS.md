@@ -83,7 +83,7 @@ To rollback: `node update-system.mjs rollback`
 
 ## What is career-ops
 
-AI-powered, CLI-agnostic job search automation: pipeline tracking, offer evaluation, CV generation, portal scanning, batch processing. Runs on any AI coding CLI that follows the [open agent skill standard](https://agentskills.io) (Claude Code, Codex, OpenCode, Qwen, Copilot, Kimi, Antigravity CLI, Grok Build CLI). Legacy Gemini API evaluation remains available through `gemini-eval.mjs`.
+AI-powered, CLI-agnostic job search automation: pipeline tracking, offer evaluation, CV generation, portal scanning, batch processing. Runs on any AI coding CLI that follows the [open agent skill standard](https://agentskills.io) (Claude Code, Codex, OpenCode, Qwen, Copilot, Kimi, Antigravity CLI, Grok Build CLI). Legacy Gemini API evaluation remains available through `gemini-eval.mjs`. This edition's defaults (archetypes, comp sources, hard gates, portals) target legal/attorney careers — the architecture itself is career-agnostic; see Origin for the original AI-careers story.
 
 ### Codex invocation
 
@@ -330,6 +330,7 @@ These are two separate axes:
 | Wants to broaden the search with adjacent job titles suggested from the CV | `titles` |
 | Maintains their own hand-tuned `.tex` CV and wants it tailored in place (opt-in; cv.md stays the default) | `latex-tex` |
 | Asks what skills to learn, wants a skill-gap analysis of their pipeline | `upskill` |
+| Wants to refresh legal market data (salary scale, comp surveys, portal health) | `legal-market` |
 | Asks about follow-ups or application cadence | `followup` |
 | Wants to classify application replies and review updates | `reply-watch` — classifies candidate replies, matches them to applications, and suggests tracker updates |
 | Wants to update the system | `update` |

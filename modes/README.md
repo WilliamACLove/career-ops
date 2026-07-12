@@ -36,6 +36,7 @@ table in `AGENTS.md` (mirrored in `CLAUDE.md`).
 | `tracker.md` | `tracker` | Applications tracker overview |
 | `patterns.md` | `patterns` | Rejection pattern detector |
 | `titles.md` | `titles` | Adjacent job-title suggestions |
+| `legal-market.md` | `legal-market` | Refresh legal-market data: salary scale, comp surveys, portal health (proposed diffs only) |
 | `training.md` | `training` | Training & course evaluation |
 | `project.md` | `project` | Portfolio project evaluation |
 | `add.md` | `add` | Add a project, paper, or role to the CV (confirm-before-write) |

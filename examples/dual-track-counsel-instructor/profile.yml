@@ -1,0 +1,139 @@
+# Career-Ops Profile -- Dual-Track Example (Counsel + Instructor)
+#
+# Fictional persona. Demonstrates how to configure a profile when you are
+# optimizing for TWO archetypes at the same time -- e.g. Senior Privacy &
+# Commercial Counsel AND Adjunct Professor / CLE Instructor. See README.md
+# in this folder for the rationale and the interview-objection playbook.
+#
+# Copy this file to config/profile.yml and edit before using.
+
+candidate:
+  full_name: "Dana Whitfield"
+  email: "dana@example.com"
+  phone: "+00-000-0000000"          # placeholder, replace with your real number
+  location: "Chicago, IL"
+  linkedin: "linkedin.com/in/dana-whitfield-example"
+  # Personal site or firm bio page. Optional and less central for attorneys --
+  # keep only if you actually publish there (e.g. the CLE practice guide below).
+  portfolio_url: "https://example.dev/dana-whitfield"
+
+target_roles:
+  # North Star -- TWO primary tracks, not one.
+  primary:
+    - "Senior Privacy & Commercial Counsel"
+    - "Deputy General Counsel, Privacy"
+    - "Adjunct Professor, Data Privacy Law"
+    - "CLE Program Director (AI Governance & Privacy)"
+  # Archetypes -- note: TWO entries with fit: primary.
+  # The evaluator should pick whichever is closer to the JD at scoring time.
+  # The "practice" track uses the canonical archetype name so scoring stays
+  # consistent with the single-track examples; the "teaching" track is
+  # outside the canonical six and is specific to this dual-track pattern.
+  archetypes:
+    - name: "In-House Counsel — Product / Commercial / Privacy"
+      level: "Senior Counsel/Deputy GC"
+      fit: "primary"
+      track: "practice"
+      sell_when: "JD emphasizes privacy compliance (HIPAA/CCPA/GDPR), commercial contracting at volume, AI-vendor risk, M&A privacy diligence, or advising product/engineering teams directly"
+    - name: "Adjunct Professor / CLE Instructor (Data Privacy & AI Governance)"
+      level: "Senior/Lead"
+      fit: "primary"
+      track: "teaching"
+      sell_when: "JD emphasizes curriculum design, law school adjunct teaching, CLE program delivery, bar-association education, or attorney training at scale"
+    - name: "Legal Tech / Legal Engineer"
+      level: "Senior"
+      fit: "secondary"
+      track: "hybrid"
+      sell_when: "JD wants someone who can practice AND train other attorneys or business teams on new legal-tech tools/processes -- the natural dual-track landing zone"
+    - name: "Head of Legal Education / CLE Program Director"
+      level: "Lead/Director"
+      fit: "secondary"
+      track: "teaching"
+      sell_when: "JD wants ownership of an entire CLE curriculum or in-house legal training function, managing instructors, working with bar associations or law schools"
+    - name: "Compliance & Regulatory"
+      level: "Senior"
+      fit: "adjacent"
+      track: "practice"
+      sell_when: "JD wants regulator-facing privacy/AI-governance compliance work -- teaching experience becomes a differentiator for training internal stakeholders"
+
+narrative:
+  # One-line headline. Names BOTH tracks. The "rare combination" is the value.
+  headline: "Senior privacy counsel who also teaches the subject -- 3-attorney program built, 1,400+ attorneys trained, 3 acquisitions cleared"
+  # Exit story bridges both tracks into one coherent reason for the move.
+  exit_story: "Spent 5 years building a health-tech privacy program in parallel with teaching Data Privacy Law as an adjunct and running CLE programs for state bar associations. Both missions are complete -- now optimizing for a single role that uses both sides, or for one side at full intensity if the team is right."
+  # Superpowers -- mix of practice AND teaching to reflect the dual track.
+  superpowers:
+    - "Build privacy programs from zero to acquisition-ready (HIPAA, CCPA/CPRA, GDPR)"
+    - "Design curriculum and CLE programs that attorneys actually finish (4.7/5 average rating)"
+    - "Explain regulatory requirements in plain language -- to lawyers and non-lawyers alike"
+    - "Run AI-vendor risk review and incident response without becoming the department bottleneck"
+    - "Bridge practice and education -- training materials that hold up outside the classroom"
+  # Proof points -- mix practice AND teaching wins, marked by track.
+  proof_points:
+    - name: "Meridian Health Analytics privacy program"
+      url: "https://example.dev/case-study-privacy-program"
+      hero_metric: "3-attorney team built, 3 acquisitions cleared, 45% fewer escalations"
+      track: "practice"
+    - name: "AI-vendor risk assessment framework"
+      url: "https://example.dev/case-study-ai-vendor-framework"
+      hero_metric: "Mandatory company-wide gate, adopted after a near-miss finding"
+      track: "practice"
+    - name: "Data Privacy Law course, Northfield State Law School"
+      url: "https://example.dev/curriculum-data-privacy-law"
+      hero_metric: "6 cohorts, capstone redesign adopted by peer faculty"
+      track: "teaching"
+    - name: "AI Governance for In-House Counsel (CLE track)"
+      url: "https://example.dev/cle-ai-governance"
+      hero_metric: "60+ sessions, 1,400+ attorneys trained, 8 state bar associations"
+      track: "hybrid"
+  # Optional dashboard / live demo
+  # dashboard:
+  #   url: "https://example.dev/demo"
+  #   password: "demo-2026"
+
+compensation:
+  # Default range = practice range (typically higher).
+  target_range: "USD 175K-220K"
+  currency: "USD"
+  minimum: "USD 150K"
+  location_flexibility: "Remote within US; up to 1 week/month on-site in Chicago"
+
+  # alternate_ranges -- non-standard but the dual-track pattern needs it.
+  # The evaluator should pick the range matching the detected archetype track.
+  alternate_ranges:
+    - track: "teaching"
+      target_range: "USD 90K-130K"
+      minimum: "USD 75K"
+      note: "Full-time legal education roles pay less than in-house practice. Walk-away is lower because the work is intrinsically rewarding, but not unlimited."
+    - track: "hybrid"
+      target_range: "USD 150K-190K"
+      minimum: "USD 130K"
+      note: "Legal engineer / practice innovation roles -- price between the two tracks."
+
+location:
+  country: "United States"
+  city: "Chicago, IL"
+  timezone: "CT"
+  visa_status: "US citizen, no sponsorship needed"
+  onsite_availability: "1 week/month in Chicago; full remote preferred"
+
+# ── Legal profile (drives jurisdiction & class-year gates in evaluations) ────
+legal:
+  class_year: 2015            # JD class year -- not a firm-lateral class-year band here (in-house/teaching track), kept for completeness
+  bar_admissions:
+    - jurisdiction: "Illinois"
+      year: 2015
+      status: active          # active | inactive | pending | registered-in-house
+    - jurisdiction: "New York"
+      year: 2017
+      status: active
+  patent_bar: false           # required for patent prosecution roles
+  practice_areas:
+    - "Privacy"
+    - "Data Security"
+    - "Commercial Contracting"
+  recruiter_channel:
+    # Legal recruiter engagements -- used to prevent double-submission
+    # (referral-source lock: first submitter owns the candidacy ~6-12 months).
+    # Largely inapplicable to the teaching track, which is direct-application only.
+    engagements: []

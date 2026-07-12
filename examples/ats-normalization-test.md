@@ -6,10 +6,10 @@ This file is a regression fixture for the text normalization pass added in `gene
 
 | Name | Codepoint | Sample line | Converts to |
 |------|-----------|-------------|-------------|
-| Em-dash | U+2014 | Built and sold a SaaS — now shipping AI in production. | Built and sold a SaaS - now shipping AI in production. |
+| Em-dash | U+2014 | Closed the deal — now handling the earn-out dispute. | Closed the deal - now handling the earn-out dispute. |
 | En-dash | U+2013 | 2020–2024 at Acme Corp. | 2020-2024 at Acme Corp. |
-| Curly double quote | U+201C / U+201D | "Led the migration" was a real bullet. | "Led the migration" was a real bullet. |
-| Curly single quote | U+2018 / U+2019 | The team's velocity tripled. | The team's velocity tripled. |
+| Curly double quote | U+201C / U+201D | "Led the diligence workstream" was a real bullet. | "Led the diligence workstream" was a real bullet. |
+| Curly single quote | U+2018 / U+2019 | The practice group's matter count tripled. | The practice group's matter count tripled. |
 | Ellipsis | U+2026 | And so on… | And so on... |
 | Zero-width space | U+200B | Hello​world (there is a ZWSP between the two words) | Helloworld (removed) |
 | Non-breaking space | U+00A0 | 5 years experience | 5 years experience (regular space) |
@@ -18,14 +18,14 @@ This file is a regression fixture for the text normalization pass added in `gene
 
 The normalizer does NOT fix writing style. These are enforced by the rules in `modes/_shared.md` and should never appear in generated CV text in the first place.
 
-- "passionate about machine learning"
-- "results-oriented professional with a proven track record"
-- "leveraged cutting-edge LLM technology"
+- "passionate about the law"
+- "results-oriented attorney with a proven track record"
+- "leveraged cutting-edge legal technology"
 - "spearheaded a strategic initiative"
 - "facilitated cross-functional synergies"
-- "crafted robust, scalable solutions"
-- "in today's fast-paced digital world"
-- "5+ years of experience in artificial intelligence"
+- "crafted robust, airtight agreements"
+- "in today's fast-paced regulatory landscape"
+- "5+ years of experience in commercial law"
 - "demonstrated ability to drive innovative outcomes"
 
 ## How to verify the normalizer

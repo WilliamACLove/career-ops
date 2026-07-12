@@ -84,6 +84,15 @@ The evaluation uses 6 blocks (A-F) with a global score of 1-5:
 6. **If no evidence exists for any `require` criterion** → score 3 by default, unless `culture_screen.deprioritize_if_absent: true` is set, in which case **cap this dimension at 2/5**.
 7. A role scoring 4.5+ overall but 2 or below on Cultural signals must carry an explicit warning in the report: "High technical fit, unconfirmed/poor culture fit — verify before applying."
 
+### Legal hard gates (pass/fail — never silently averaged away)
+
+Check these BEFORE weighting dimensions. They read the user's `legal:` block in `config/profile.yml` (`class_year`, `bar_admissions`, `patent_bar`, `practice_areas`, `recruiter_channel`). A failed gate surfaces explicitly in the Red flags dimension AND as a named line in the report — a strong CV match never compensates for or buries a failed gate.
+
+1. **Bar admission / jurisdiction** — compare the posting's jurisdiction against `legal.bar_admissions`. Strictness varies by employer type: **strict for law firms** (admission where the office sits, or a realistic path — UBE score transfer, admission on motion); **moderate for in-house** (registered in-house counsel rules; ABA Model Rule 5.5(d) lets an out-of-state-licensed lawyer work exclusively for their employer in most states); **minimal for federal government** (any active state license suffices) **and legal tech**.
+2. **Class year / PQE band** — firm lateral postings state a band ("class of 2021–2023", "3–5 years"). If `legal.class_year` falls outside the stated band, treat as near-automatic rejection → recommend against applying (class-year placement negotiates ±1 at offer, not at screen).
+3. **Patent prosecution** — requires USPTO patent bar + technical degree. If `legal.patent_bar` is false for a patent-prosecution role, hard gate. (Trademark/copyright/IP litigation does not require it.)
+4. **Conflicts (senior/partner roles)** — every lateral offer is contingent on clearing client conflicts; one client conflict can kill a senior/partner candidacy. Note the risk in the report — don't score it.
+
 ## Posting Legitimacy (Block G)
 
 Block G assesses whether a posting is likely a real, active opening. It does NOT affect the 1-5 global score -- it is a separate qualitative assessment.
@@ -99,7 +108,7 @@ Block G assesses whether a posting is likely a real, active opening. It does NOT
 |--------|--------|-------------|-------|
 | Posting age | Page snapshot | High | Under 30d=good, 30-60d=mixed, 60d+=concerning (adjusted for role type) |
 | Apply button active | Page snapshot | High | Direct observable fact |
-| Tech specificity in JD | JD text | Medium | Generic JDs correlate with ghost postings but also with poor writing |
+| Practice-area specificity in JD | JD text | Medium | Generic JDs correlate with ghost postings but also with poor writing; recruiter-posted "confidential AmLaw firm" ads often fish for resumes with no live mandate |
 | Requirements realism | JD text | Medium | Contradictions are a strong signal, vagueness is weaker |
 | Recent layoff news | WebSearch | Medium | Must consider department, timing, and company size |
 | Reposting pattern | scan-history.tsv | Medium | Same role reposted 2+ times in 90 days is concerning |
@@ -120,6 +129,9 @@ Public salary data is a signal, not a promise. Before interpreting compensation,
 
 | Company type | Typical comp reliability | Signals |
 |--------------|--------------------------|---------|
+| Large law firm (AmLaw / lockstep) | High — published market scale | Cravath/market-scale lockstep bases by class year, published bonus scales, structured lateral process |
+| Midsize / regional / boutique firm | Medium | Typically 60-80% of market scale, discretionary bonuses, comp rarely published; elite boutiques pay at/above scale |
+| Legal staffing / document-review agency | Low — hourly contract work posted as "attorney" roles | Agency employer-of-record, "document review" / "eDiscovery project" / "contract role" keywords, hourly rates |
 | Public big tech / mature tech | High to medium | Public company, structured levels, large engineering org, repeatable hiring process |
 | Growth-stage startup / VC-backed startup | Medium | Funded startup, competitive hiring market, may mix base + equity + bonus |
 | Early-stage startup / pre-revenue startup | Medium to low | Small team, vague role scope, equity-heavy promises, unclear bands |
@@ -142,7 +154,14 @@ If the brand differs from the legal employer or posting entity, classify the **a
 | Low | Public number likely includes variable, attendance, commission, subsidy, or "up to" components |
 | Unknown | No usable salary data |
 
-When a JD publishes a salary figure, distinguish advertised range, likely guaranteed base, variable / conditional cash components, expected stable cash, and non-cash benefits. If the JD publishes no salary figure, collapse compensation analysis to two concise lines: company type and reliability tier. Never present advertised compensation as real take-home pay unless the source explicitly supports that interpretation.
+When a JD publishes a salary figure, distinguish advertised range, likely guaranteed base, variable / conditional cash components, expected stable cash, and non-cash benefits. If the JD publishes no salary figure, collapse compensation analysis to two concise lines: company type and reliability tier. Never present advertised compensation as real take-home pay unless the source explicitly supports that interpretation. Note: absence of a salary band is normal at law firms ("competitive salary" is the market default) and is NOT itself a red flag — except in pay-transparency states (NY, CA, CO, WA), where postings must show ranges.
+
+**Comp research sources (legal market — use these, not generic salary sites):**
+
+- **Law firms:** Cravath/market scale + Above the Law bonus tracker + Biglaw Investor salary scale; NALP surveys for midsize/regional.
+- **In-house:** BarkerGilmore + Major Lindsey & Africa (MLA) comp surveys; L Suite for tech GC; ACC benchmarking.
+- **Government:** OPM GS tables + agency pay plans (AD/SK/JSP).
+- **Legal ops:** Brightflag / CLOC.
 
 ## Archetype Detection
 
@@ -150,12 +169,12 @@ Classify every offer into one of these types (or hybrid of 2):
 
 | Archetype | Key signals in JD |
 |-----------|-------------------|
-| AI Platform / LLMOps | "observability", "evals", "pipelines", "monitoring", "reliability" |
-| Agentic / Automation | "agent", "HITL", "orchestration", "workflow", "multi-agent" |
-| Technical AI PM | "PRD", "roadmap", "discovery", "stakeholder", "product manager" |
-| AI Solutions Architect | "architecture", "enterprise", "integration", "design", "systems" |
-| AI Forward Deployed | "client-facing", "deploy", "prototype", "fast delivery", "field" |
-| AI Transformation | "change management", "adoption", "enablement", "transformation" |
+| Law Firm Associate — Transactional | "associate", "class of 20XX", "M&A", "capital markets", "funds", "finance", "deal team", "transactional" |
+| Law Firm Associate — Litigation & Disputes | "litigation associate", "trial", "arbitration", "depositions", "motion practice", "discovery" |
+| In-House Counsel — Product / Commercial / Privacy | "product counsel", "commercial counsel", "privacy counsel", "SaaS agreements", "MSAs", "DPAs", "negotiate", "cross-functional" |
+| Compliance & Regulatory | "compliance", "regulatory", "BSA/AML", "FCPA", "risk", "investigations", "licensing" |
+| Government / Public Interest Attorney | "AUSA", "agency counsel", "honors program", "GS-", "public defender", "legal aid", "staff attorney" |
+| Legal Tech / Legal Engineer | "legal engineer", "forward-deployed attorney", "legal solutions", "legal knowledge engineer", "practice innovation", "legal AI" |
 
 After detecting archetype, read `modes/_profile.md` for the user's specific framing and proof points for that archetype.
 
@@ -172,6 +191,7 @@ After detecting archetype, read `modes/_profile.md` for the user's specific fram
 7. Use corporate-speak
 8. Ignore the tracker (every evaluated offer gets registered)
 9. Spawn nested subagents, or hand company/role/comp research to an open-ended research skill — research is bounded and inline (see Tools → Subagent delegation)
+10. Draft or prepare a direct application to a law firm where a legal recruiter has already submitted (or been engaged for) the candidate — the first submitter owns the candidacy for ~6-12 months (referral-source lock), and double-submission commonly gets conflicted candidates discarded entirely. ALWAYS check `legal.recruiter_channel` in `config/profile.yml` and the tracker's `via=` fields before drafting any firm application
 
 ### ALWAYS
 
@@ -184,8 +204,8 @@ After detecting archetype, read `modes/_profile.md` for the user's specific fram
 5. Register in tracker after evaluating
 6. Generate content in the language of the JD (EN default)
 7. Be direct and actionable -- no fluff
-8. Native tech English for generated text. Short sentences, action verbs, no passive voice.
-8b. Case study URLs in PDF Professional Summary (recruiter may only read this).
+8. Native professional legal English for generated text — plain English for business audiences, precise terms of art where needed. Short sentences, action verbs, no passive voice.
+8b. Bar admissions visible at the top of the CV; publication/bio URLs in the PDF Professional Summary (recruiter may only read this).
 9. **Tracker additions as TSV** -- NEVER edit applications.md directly. Write TSV in `batch/tracker-additions/`.
 10. **Include `**URL:**` in every report header.**
 
@@ -211,7 +231,7 @@ A mode may tell you to run work in a background subagent (e.g. `scan`, or parall
 - One `/career-ops <JD>` evaluates one role; it must never explode into a self-replicating swarm of agents. If you are about to delegate research or nest agents, stop and do it inline, bounded.
 
 ### Time-to-offer priority
-- Working demo + metrics > perfection
+- Tight application packet (resume + deal sheet / matters list) > perfection
 - Apply sooner > learn more
 - 80/20 approach, timebox everything
 
@@ -334,6 +354,6 @@ _If `voice-dna.md` exists, its §3 Banned List is the canonical, fuller version 
 - Don't always use "X, Y, and Z" — sometimes two items, sometimes four
 
 ### Prefer specifics over abstractions
-- "Cut p95 latency from 2.1s to 380ms" beats "improved performance"
-- "Postgres + pgvector for retrieval over 12k docs" beats "designed scalable RAG architecture"
-- Name tools, projects, and customers when allowed
+- "Negotiated 40+ enterprise SaaS agreements/quarter with a 5-day median turnaround" beats "handled commercial contracts"
+- "Second-chaired a 3-week AAA arbitration; drafted dispositive motion that eliminated 60% of claimed damages" beats "strong litigation experience"
+- Quantify deal values, case stakes, docket size, and team leadership. Respect confidentiality norms: name clients only if the matter is public (deal announced / case filed) — otherwise describe generically ("a Fortune 100 pharmaceutical client")

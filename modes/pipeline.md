@@ -52,16 +52,16 @@ Read `spend_tier` from `config/profile.yml` (see `modes/_shared.md` -- Spend Tie
 ```markdown
 ## Pending
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://boards.greenhouse.io/company/jobs/456 | Company Inc | Senior PM
-- [ ] https://jobs.ashbyhq.com/acme/789 | Acme Corp | Solutions Architect | Remote (US)
-- [ ] https://jobs.ashbyhq.com/acme/790 | Acme Corp | AI Engineer | Remote (US) | 180000-220000 USD
-- [ ] https://jobs.ashbyhq.com/acme/791 | Acme Corp | Staff PM | note: curated shortlist
-- [ ] https://boards.greenhouse.io/acme/jobs/792 | Acme Corp | Backend Engineer | Remote (US) | posted: 2026-06-18
+- [ ] https://job-boards.greenhouse.io/anthropic/jobs/456 | Anthropic | Senior Commercial Counsel
+- [ ] https://jobs.ashbyhq.com/harvey/789 | Harvey | Legal Engineer | Remote (US)
+- [ ] https://job-boards.greenhouse.io/everlaw/jobs/790 | Everlaw | Employment and Compliance Counsel | Oakland, CA | 148000-187000 USD
+- [ ] https://jobs.ashbyhq.com/openai/791 | OpenAI | AI Product Counsel | note: curated shortlist
+- [ ] https://job-boards.greenhouse.io/coinbase/jobs/792 | Coinbase | Senior Counsel, Litigation | Remote (US) | posted: 2026-06-18
 - [!] https://private.url/job — Error: login required
 
 ## Processed
-- [x] #143 | https://jobs.example.com/posting/789 | Acme Corp | AI PM | 4.2/5 | PDF ✅
-- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | SA | 2.1/5 | PDF ❌
+- [x] #143 | https://jobs.example.com/posting/789 | Figma | Legal Counsel, Commercial | 4.2/5 | PDF ✅
+- [x] #144 | https://job-boards.greenhouse.io/xyz/jobs/012 | BigCo | Compliance Counsel | 2.1/5 | PDF ❌
 ```
 
 Pending lines are variable-width. The rawest form is a bare pasted URL,
@@ -100,7 +100,7 @@ Treat both as hints when triaging; neither changes how you process the URL.
 **Special cases:**
 - **LinkedIn**: May require login → mark `[!]` and ask the user to paste the text
 - **PDF**: If the URL points to a PDF, read it directly with the Read tool
-- **`local:` prefix**: Read the local file. Example: `local:jds/linkedin-pm-ai.md` → read `jds/linkedin-pm-ai.md`
+- **`local:` prefix**: Read the local file. Example: `local:jds/linkedin-privacy-counsel.md` → read `jds/linkedin-privacy-counsel.md`
 
 ## Automatic numbering
 

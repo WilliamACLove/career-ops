@@ -13,7 +13,7 @@ either side without re-inferring who spoke:
 ```markdown
 ---
 company: Acme Corp
-role: Instructional Designer
+role: Commercial Counsel
 round: behavioral
 date: 2026-06-01
 interviewer_role: Senior HR Partner
@@ -26,7 +26,7 @@ source: debrief
 **Candidate:** ...answer...
 ```
 
-`round`: `screen | hiring-manager | technical | system-design | behavioral | onsite | final`.
+`round`: `screen | hiring-partner | callback | writing-exercise | panel | business-stakeholder | behavioral`.
 `source`: `debrief | practice | mock | manual`.
 
 ## Competency tags (optional)

@@ -1,58 +1,51 @@
-# Resume — Alex Chen
+# Resume -- Morgan Reyes
 
-<!-- 
-  This is the resume variant of cv-example.md. 
-  In the US tech industry, "resume" (1–2 pages, targeted) is the standard term,
-  while "CV" typically refers to the longer academic variant.
-  career-ops supports both — use whichever fits your target market.
-  This example is intentionally concise (1 page) to demonstrate the resume format.
+<!--
+  This is the resume variant of cv-example.md.
+  In US legal recruiting, a 1-page resume is standard for junior associates,
+  2 pages is normal and expected for laterals with 5+ years, and a longer CV
+  format applies mainly to senior partners and GCs. career-ops supports both --
+  use whichever fits your target market and seniority.
+  This example is intentionally condensed (1 page) to demonstrate the resume format.
 -->
 
-**Location:** Austin, TX
-**Email:** alex@example.com
-**LinkedIn:** linkedin.com/in/alexchen
-**Portfolio:** alexchen.dev
-**GitHub:** github.com/alexchen
+**Location:** New York, NY
+**Email:** morgan.reyes@example.com
+**LinkedIn:** linkedin.com/in/morganreyes
+
+## Bar Admissions
+
+New York (2021) -- California, Registered In-House Counsel (pending primary admission)
 
 ## Professional Summary
 
-Full-stack AI engineer with 6 years building production ML systems. Led the ML platform at a Series B fintech (2020-2024), scaling from 2 models to 15+ in production. Built real-time fraud detection (99.7% precision, $2M/year saved), recommendation engine (18% uplift), and an internal MLOps platform serving 4 engineering teams.
+Fifth-year technology transactions and M&A associate at Calloway Vance LLP (AmLaw 100). Represented the acquirer in a $2.1B cross-border acquisition of a European data-infrastructure company and led 150+ SaaS/MSA/DPA negotiations for enterprise software and fintech clients. Targeting an in-house Senior Commercial Counsel role.
 
 ## Work Experience
 
-### TechFin Corp -- Austin, TX
+### Calloway Vance LLP -- New York, NY
 
-**Senior ML Engineer / ML Platform Lead**
-2020-2024
+**Associate, Technology Transactions & M&A** (Class of 2021)
+2021-Present
 
-- Led ML platform team (3 engineers), built internal MLOps tooling: model registry, A/B testing framework, feature store
-- Designed real-time fraud detection pipeline: Kafka → feature computation → model inference → decision engine. 99.7% precision at 50ms p99
-- Built recommendation engine for lending products: collaborative filtering + LLM reranking. 18% conversion uplift
-- Reduced model deployment time from 2 weeks to 4 hours with CI/CD pipeline (GitHub Actions + SageMaker)
-- Established model monitoring: drift detection, performance dashboards (Grafana), automated retraining triggers
+- Represented acquirer in $2.1B cross-border acquisition of a European data-infrastructure company; drafted the merger agreement and disclosure schedules
+- Lead drafter on 150+ SaaS, MSA, and DPA agreements for enterprise software and fintech clients; built a firmwide clause-library playbook that cut average negotiation cycle from 21 to 9 business days
+- Advised an AI-infrastructure client on a $340M Series D financing round, negotiating investor-side technology representations and IP warranties
+- Structured and closed four mid-market technology asset acquisitions ($15M-$95M deal value each)
 
-### DataStartup Inc -- Remote
+## Representative Matters
 
-**ML Engineer**
-2018-2020
-
-- Built NLP pipeline for document classification (BERT fine-tuning, 94% accuracy on legal docs)
-- Implemented search ranking with learning-to-rank models
-- Set up experiment tracking with MLflow and model versioning
-
-## Projects
-
-- **FraudShield** (Open Source) — Real-time fraud detection framework. Kafka Streams + feature store + model serving. 500+ GitHub stars
-- **LLM Eval Toolkit** (Open Source) — Evaluation framework for LLM applications. Supports custom metrics, regression testing, CI integration
+- $2.1B cross-border acquisition (data infrastructure) -- lead associate, acquirer side
+- $340M Series D financing (AI-infrastructure company) -- investor-side technology counsel
+- 150+ SaaS/MSA/DPA negotiations for enterprise software and fintech clients
 
 ## Education
 
-- MS Computer Science, UT Austin (2018)
-- BS Computer Science, UC Berkeley (2016)
+- J.D., Georgetown University Law Center (2021) -- cum laude, Georgetown Law Technology Review, Order of the Coif
+- B.A. Economics, University of Michigan (2018) -- magna cum laude
 
 ## Skills
 
-- **ML/AI:** PyTorch, TensorFlow, scikit-learn, Hugging Face, LangChain
-- **MLOps:** SageMaker, MLflow, Kubeflow, Airflow, Feature Store
-- **Infra:** Kubernetes, Kafka, Redis, PostgreSQL, AWS
-- **Languages:** Python, Go, TypeScript, SQL
+- **Contract systems:** Ironclad, DocuSign CLM, Kira Diligence Platform
+- **Practice areas:** M&A, technology licensing, SaaS/commercial contracting, data privacy (GDPR/CCPA)
+- **Languages:** English (native), Spanish (professional working proficiency)

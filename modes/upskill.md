@@ -41,10 +41,10 @@ If the script returns `error` (missing tracker or fewer than 5 scored reports), 
 
 The aggregator only sees hard skills its tokenizer knows. Read the gap descriptions from the lowest-scoring reports (the `sources` lists point at them) and look for what the keyword pass can't see:
 
-- **[domain]** — domain knowledge gaps (e.g. healthcare data, fintech compliance)
-- **[soft]** — soft-skill or experience-shape gaps (e.g. people leadership, stakeholder management)
-- **[tooling]** — process/tooling gaps not in the tokenizer (e.g. specific ATS, niche frameworks)
-- **[credential]** — certifications or formal qualifications
+- **[domain]** — domain/industry knowledge gaps (e.g. healthcare fraud & abuse, fintech regulation, ad-tech data flows)
+- **[soft]** — soft-skill or experience-shape gaps (e.g. people leadership, board-facing communication, business-stakeholder counseling)
+- **[tooling]** — process/tooling gaps not in the tokenizer (e.g. a specific CLM platform, e-billing, eDiscovery tooling)
+- **[credential]** — certifications or formal qualifications (e.g. CIPP/E or CIPP/US, an additional bar admission, patent bar)
 
 Rules:
 - **No duplicates from Step 1** — if the aggregator already lists it, don't re-add it.
@@ -91,7 +91,7 @@ Find the newest existing `data/upskill/report-*.md` (by filename date) from befo
 
 - If none exists, omit the diff section.
 - If its `**Schema:**` line differs from the current `schema_version`, say so and skip the comparison ("previous report used schema v{X} — not comparable") instead of reporting spurious closures.
-- Otherwise compare heatmap skill lists: **closed** (was a gap, now absent or excludedAsKnown — the loop closing), **new** (appeared this run), **still open** (in both). Example: "Since 2026-06-01: Kubernetes gap closed, CI/CD still open, Airflow new."
+- Otherwise compare heatmap skill lists: **closed** (was a gap, now absent or excludedAsKnown — the loop closing), **new** (appeared this run), **still open** (in both). Example: "Since 2026-06-01: Privacy gap closed, FCPA still open, AI Governance new."
 
 ## Step 5 — Present Summary
 

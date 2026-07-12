@@ -25,7 +25,7 @@ Yes — career-ops is fully AI-agnostic and works with any AI coding CLI or stan
 When the scanner shows a warning like:
 
 ```
-⚠ Possible cross-listing: Acme Corp / Senior AI Engineer ↔ TalentBridge / Senior AI Engineer (similarity 0.96)
+⚠ Possible cross-listing: Acme Corp / Senior Counsel ↔ TalentBridge / Senior Counsel (similarity 0.96)
 ```
 
 it means the job description text of two listings from **different companies** is nearly identical — typically because a recruitment agency has re-posted a direct employer's role with the employer name removed or replaced.
@@ -36,7 +36,7 @@ it means the job description text of two listings from **different companies** i
 
 1. Read both listings and confirm one is a direct company post and the other is an agency re-post.
 2. Choose ONE channel to apply through. Applying direct is usually safer; applying via an agency can be useful if the agency has a relationship with the hiring manager.
-3. If the two listings turn out to be genuinely different roles that happen to share boilerplate text (e.g. a generic engineering role template), the warning is a false positive — you can ignore it and apply to both.
+3. If the two listings turn out to be genuinely different roles that happen to share boilerplate text (e.g. a generic associate-role template), the warning is a false positive — you can ignore it and apply to both.
 
 **Technical note:** the scanner computes a 64-bit SimHash fingerprint of each JD body and stores it in the 8th column of `data/scan-history.tsv` (`jd_fingerprint`). Fingerprints are computed locally from text already returned by the ATS API — no extra network request is made. Postings without a usable description never receive a fingerprint and are never flagged. See [docs/SCRIPTS.md](SCRIPTS.md#cross-listing-detection) for the full column reference.
 

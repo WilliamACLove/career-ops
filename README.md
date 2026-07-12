@@ -78,6 +78,8 @@
 
 ## What Is This
 
+> **This edition targets legal and attorney careers** -- law firm associates, in-house counsel, compliance and regulatory counsel, government/public interest attorneys, and legal tech roles. The archetypes, portal list, comp research sources, and evaluation gates (bar admission/jurisdiction, class-year matching, conflicts) below are tuned for the legal job market. The underlying engine is career-agnostic and fully customizable to any career track -- just ask your AI CLI to change the archetypes. The original AI/engineering-careers edition this project was built from remains open source, maintained by [santifer](https://santifer.io) (see "About the Author" below).
+
 Career-Ops ([career-ops.org](https://career-ops.org), also known as **careerops**) turns any AI coding CLI into a full job search command center. Instead of manually tracking applications in a spreadsheet, you get an AI-powered pipeline that:
 
 - **Evaluates offers** with a structured A-F scoring system (10 weighted dimensions)
@@ -106,7 +108,7 @@ Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored
 | **ATS PDF Generation**   | Keyword-injected CVs with Space Grotesk + DM Sans design                                                                                 |
 | **Cover Letter Generator** | Research-backed cover letters with keyword mirroring, four interactive angle prompts (why/problems/approach/tone), draft-in-chat approval gate, and A4 PDF via the same HTML + Playwright pipeline as CVs. Auto-drafts on every evaluation; complete and generate on demand via `/career-ops cover` |
 | **Application Email Drafts** | Formal recruiter/referral/cold application emails from a report or pasted JD, with subject line, attachment checklist, source-backed fit points, and a profile-driven contact block. Draft-only -- career-ops never sends, submits, or clicks anything. |
-| **Portal Scanner**       | 45+ companies pre-configured (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + custom queries across Ashby, Greenhouse, Lever, Wellfound |
+| **Portal Scanner**       | 45+ companies pre-configured -- legal tech (Harvey, Ironclad, Everlaw, Spellbook, Clio...), in-house legal teams at tech companies (Anthropic, OpenAI, Coinbase, Databricks, Stripe...), plus government (USAJOBS) and bar-association boards -- + custom queries across Ashby, Greenhouse, Lever, Workday |
 | **Batch Processing**     | Parallel evaluation with headless CLI workers (`claude -p` / `opencode run`)                                                             |
 | **Dashboard TUI**        | Terminal UI to browse, filter, and sort your pipeline                                                                                    |
 | **Human-in-the-Loop**    | AI evaluates and recommends, you decide and act. The system never submits an application -- you always have the final call               |
@@ -191,7 +193,7 @@ cd career-ops
 agy
 
 # 2. Use the unified /career-ops command with subcommands:
-/career-ops "Senior AI Engineer at Anthropic..."
+/career-ops "Senior Commercial Counsel at Anthropic..."
 /career-ops pipeline
 /career-ops scan
 /career-ops pdf
@@ -243,7 +245,7 @@ cd career-ops
 grok
 
 # 2. Use the unified /career-ops command with subcommands:
-/career-ops "Senior AI Engineer at Anthropic..."
+/career-ops "Senior Commercial Counsel at Anthropic..."
 /career-ops pipeline
 /career-ops scan
 /career-ops pdf
@@ -263,7 +265,7 @@ cp .env.example .env
 npm install
 
 # 3. Evaluate a job description
-node gemini-eval.mjs "We are looking for a Senior AI Engineer..."
+node gemini-eval.mjs "We are looking for a Senior Commercial Counsel..."
 node gemini-eval.mjs --file ./jds/my-job.txt
 node agent-inbox.mjs add "..."   # queue a request for the next session
 npm run gemini:eval -- "JD text here"
@@ -303,8 +305,8 @@ You paste a job URL or description
         │
         ▼
 ┌──────────────────┐
-│  Archetype       │  Classifies: LLMOps / Agentic / PM / SA / FDE / Transformation
-│  Detection       │
+│  Archetype       │  Classifies: Firm Associate (Transactional/Litigation) /
+│  Detection       │  In-House Counsel / Compliance / Government / Legal Tech
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -322,14 +324,11 @@ You paste a job URL or description
 
 The scanner comes with **45+ companies** ready to scan and **19 search queries** across major job boards. Copy `templates/portals.example.yml` to `portals.yml` and add your own:
 
-**AI Labs:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
-**AI Platforms:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
-**Contact Center:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
-**Enterprise:** Salesforce, Twilio, Gong, Dialpad
-**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
-**Automation:** n8n, Zapier, Make.com
-**European:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
+**Legal tech:** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
+**In-house legal:** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
+**Boards:** USAJOBS (federal government, incl. justice.gov), GoInhouse, Lawjobs, LawCrossing, LateralHub, ABA and state bar career centers
+
+> **Note on law firm laterals:** large AmLaw-tier firms run their own legal-vertical ATSs (viRecruit, LawCruit) that expose no public API, so BigLaw/AmLaw lateral openings mostly flow through recruiters (Major Lindsey & Africa, Lateral Link, BCG Attorney Search) or aggregators, not this scanner. The scanner's sweet spot is legal tech + in-house counsel roles at companies on public ATS boards, plus the one real government API (USAJOBS).
 
 **Job boards searched:** 21 provider modules cover ATS APIs, board-wide feeds, XML/RSS feeds, markdown feeds, and local parsers. See [Supported job boards](docs/SUPPORTED_JOB_BOARDS.md) for the full table.
 

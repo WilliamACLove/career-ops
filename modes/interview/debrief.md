@@ -130,7 +130,7 @@ Append to `interview-prep/{company-slug}-{role-slug}.md`:
 ## Round [N] Debrief — [YYYY-MM-DD]
 
 **Interviewer:** [name, role]
-**Round type:** [screening / technical / design-case-study / behavioral]
+**Round type:** [screening / hiring-partner / callback / writing-exercise / panel / behavioral]
 **Outcome:** [pending / moved forward / rejected]
 
 ### Questions Asked
@@ -163,7 +163,7 @@ Format:
 ---
 company: [company]
 role: [role]
-round: [screen | hiring-manager | technical | system-design | behavioral | onsite | final]
+round: [screen | hiring-partner | callback | writing-exercise | panel | business-stakeholder | behavioral]
 date: YYYY-MM-DD
 interviewer_role: [role, if known]
 source: debrief
@@ -180,7 +180,7 @@ source: debrief
 
 Rules for the transcript:
 
-- **Map the round type to the enum** above (e.g. recruiter screen → `screen`, HM screen → `hiring-manager`, technical deep-dive → `technical`, design/case-study → `system-design`).
+- **Map the round type to the enum** above (e.g. recruiter/screener call → `screen`, hiring-partner or GC screen → `hiring-partner`, sequential partner meetings → `callback`, NDA/MSA markup or drafting exercise → `writing-exercise`, mixed panel → `panel`, business-stakeholder loop → `business-stakeholder`).
 - **Tag each answer.** On the line directly above each `**Candidate:**` line, emit `<!-- competency: tag[, tag...] -->` — lowercase-kebab-case, comma-separated for multi-competency answers (e.g. `system-design`, `people-leadership`, `incident-response`). You already assessed each answer in Step 2, so tag from that assessment rather than re-reading. Tags are free-form; pick the competency the question actually tested.
 - **Reconstruct the candidate turn faithfully.** Use what the candidate reported saying in Step 1, not an idealized answer. The "correct/complete answer" from Step 2 belongs in the debrief file, never in the transcript — the transcript records what happened.
 - **`source: debrief`.**

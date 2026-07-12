@@ -15,18 +15,53 @@ requirements; hiring manager → impact/vision):
 "cold opener", names a chat-style platform (e.g. BOSS Zhipin), or asks for a very
 short message; otherwise run the LinkedIn power move below.
 
+## Referral-source lock check (BEFORE any outreach that could constitute a submission)
+
+Legal hiring has a rule tech doesn't: the **first submitter owns the candidacy** at
+that employer, typically for 6–12 months. A recruiter submission, a direct
+application, or even outreach that reads as an application all start that clock —
+and an uncoordinated double-submission (direct + recruiter, or two recruiters)
+creates fee disputes that firms commonly resolve by discarding the candidate
+entirely.
+
+Before drafting outreach to anyone at a target employer:
+
+1. Check `config/profile.yml` → `legal.recruiter_channel.engagements` for a
+   recruiter already engaged for this employer.
+2. Check `data/applications.md` for an existing row at this company with a
+   `via=` entry (agency channel) or a prior direct application.
+3. If a recruiter owns (or may own) the channel: **stop** — route the message
+   through that recruiter instead of contacting the employer, and say why.
+4. Never let two recruiters submit to the same employer, and never draft a
+   direct approach to a firm where a recruiter is engaged for it.
+
+Peer-style networking messages that make no application intent are lower risk,
+but if the conversation could plausibly turn into "send me your resume", the
+check above still applies — surface the channel state to the candidate first.
+
 ## LinkedIn power move (default)
 
-1. **Identify targets** via WebSearch:
-   - Hiring manager of the team
-   - Assigned recruiter
-   - 2-3 team peers (people with similar roles)
-   - Interviewer (if the candidate already has a scheduled interview)
+1. **Identify targets** via WebSearch — channel depends on the employer type:
+   - **Law-firm roles:** target the **hiring partner** (practice group leader
+     or the partner named in the posting) or ONE chosen legal recruiter (MLA,
+     Lateral Link, BCG Attorney Search, Macrae for partner-level) — never both,
+     and never more than one recruiter (see the referral-source lock above).
+     Firm laterals overwhelmingly move through recruiters; direct partner
+     outreach is for candidates with a genuine existing connection.
+   - **In-house roles:** direct outreach is normal and often preferred — target
+     the GC / DGC, the legal team lead for the role's area, or legal recruiting.
+   - **Government:** direct application channels only (USAJOBS/agency portals);
+     outreach is informational at most.
+   - Plus, at any employer: 2-3 team peers (attorneys in similar roles), and the
+     interviewer (if the candidate already has a scheduled interview).
 
 2. **Classify contact type** -- ask the candidate or infer from context:
-   - **Recruiter** -- person whose role is talent acquisition, sourcing, or recruiting
-   - **Hiring Manager** -- the person who leads the hiring team
-   - **Peer** -- someone with a similar role in the team (indirect referral)
+   - **Recruiter** -- an in-house legal recruiting person, or an external legal
+     search consultant (MLA, Lateral Link, BCG, Macrae). For external recruiters,
+     confirm the engagement is recorded in `legal.recruiter_channel.engagements`
+     before they submit anywhere.
+   - **Hiring Manager** -- the hiring partner (firm) or GC/DGC/legal team lead (in-house)
+   - **Peer** -- an attorney with a similar role on the team (indirect referral)
    - **Interviewer** -- someone who will interview the candidate (known date)
 
 3. **Select primary target**: the person who would benefit most from the candidate being there
@@ -35,7 +70,7 @@ short message; otherwise run the LinkedIn power move below.
 
    ### Recruiter
    - **Sentence 1 (Fit)**: Direct match criteria -- role, relevant experience, availability, or location
-   - **Sentence 2 (Proof)**: Data that answers their screening questions before they ask them (e.g., "5 years building ML pipelines, currently in Berlin, available immediately")
+   - **Sentence 2 (Proof)**: Data that answers their screening questions before they ask them (e.g., "2019 class year, admitted in New York, 5 years of technology transactions at an AmLaw 50 firm, available on four weeks' notice")
    - **Sentence 3 (CTA)**: "Happy to share my CV if this aligns with what you're looking for"
 
    ### Hiring Manager
@@ -44,7 +79,7 @@ short message; otherwise run the LinkedIn power move below.
    - **Sentence 3 (CTA)**: "Would love to hear how your team is approaching [specific challenge]"
 
    ### Peer (referral)
-   - **Sentence 1 (Interest)**: Genuine reference to their work -- blog post, talk, open-source project, or publication
+   - **Sentence 1 (Interest)**: Genuine reference to their work -- article or client alert, CLE talk, bar-association role, or a publicly announced deal/case they worked on
    - **Sentence 2 (Connection)**: Something the candidate is doing in the same space (NOT a job pitch)
    - **Sentence 3 (CTA)**: "I've been working on similar problems at [company], would love to hear your take on [topic]"
    - **Note**: DO NOT ask for a job. The referral happens naturally if the conversation flows.

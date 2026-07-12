@@ -45,56 +45,53 @@ export const SCHEMA_VERSION = 1;
 // gaps matter most. Matches the apply threshold in Ethical Use (CLAUDE.md).
 const LOW_FIT_SCORE = 4.0;
 
-// Skill tokenizer. Superset of the tech regex in analyze-patterns.mjs
+// Skill tokenizer. Superset of the legal regex in analyze-patterns.mjs
 // (deliberately duplicated — see #1520 discussion: extracting a shared module
 // from a tested core script is a follow-up once both call sites are stable).
 const SKILL_TOKENS = [
-  // Languages
-  'JavaScript', 'TypeScript', 'Python', 'Ruby', 'Java', 'Golang', 'Rust', 'PHP',
-  'Kotlin', 'Swift', 'Scala', 'Elixir', 'C\\+\\+', 'C#', '\\.NET', 'SQL',
-  // Frontend / frameworks
-  'React Native', 'React', 'Angular', 'Vue\\.?js', 'Svelte', 'Next\\.?js',
-  'Django', 'Flask', 'FastAPI', 'Rails', 'Laravel', 'Symfony', 'Spring',
-  'Node\\.?js', 'NodeJS',
-  // Data stores
-  'MongoDB', 'MySQL', 'PostgreSQL', 'Postgres', 'Redis', 'Elasticsearch',
-  'Snowflake', 'BigQuery', 'Databricks', 'DynamoDB', 'Cassandra',
-  // APIs / messaging
-  'GraphQL', 'gRPC', 'Kafka', 'RabbitMQ',
-  // Cloud / infra
-  'AWS', 'GCP', 'Azure', 'Docker', 'Kubernetes', 'k8s', 'Terraform',
-  'Ansible', 'Helm', 'Jenkins', 'GitHub Actions', 'GitLab CI', 'CI/CD',
-  'Prometheus', 'Grafana', 'Datadog', 'Supabase', 'Inngest',
-  // Data / ML / AI
-  'PyTorch', 'TensorFlow', 'scikit-learn', 'Pandas', 'NumPy', 'Spark',
-  'Airflow', 'dbt', 'MLOps', 'MLflow', 'LangChain', 'LlamaIndex',
-  'Hugging Face', 'RAG', 'LLMs?', 'Prompt Engineering', 'Fine-?tuning',
-  'Computer Vision', 'NLP',
-  // Analytics / enterprise
-  'Tableau', 'Power BI', 'Looker', 'Salesforce', 'SAP',
+  // Practice areas / doctrinal skills
+  'M&A', 'Mergers and Acquisitions', 'Mergers & Acquisitions',
+  'Securities', 'Capital Markets', 'Venture Financing', 'Debt Finance',
+  'Funds Formation', 'Private Equity', 'Antitrust', 'Tax',
+  'Executive Compensation', 'ERISA', 'Real Estate', 'Restructuring',
+  'Bankruptcy', 'Litigation', 'Commercial Litigation',
+  'White Collar', 'White-Collar', 'Internal Investigations', 'Arbitration',
+  'Appellate', 'Employment Law', 'Labor', 'Immigration', 'IP Litigation',
+  'Patent Prosecution', 'Trademark', 'Copyright', 'Licensing',
+  'Technology Transactions', 'Commercial Contracts', 'Corporate Governance',
+  'Consumer Protection', 'Advertising Law', 'Insurance', 'Environmental',
+  'Energy Regulatory', 'Government Contracts', 'Franchise', 'Class Action',
+  'UCC', 'Data Breach Response', 'AI Governance', 'Cybersecurity Law',
+  // Regulatory regimes
+  'GDPR', 'CCPA', 'CPRA', 'HIPAA', 'COPPA', 'FCPA', 'BSA', 'AML', 'OFAC',
+  'Export Controls', 'SEC Reporting', '\'34 Act', 'FTC', 'FDA Regulatory',
+  'Data Privacy', 'Data Protection', 'Privacy',
+  // Lawyering craft
+  'Contract Drafting', 'Contract Negotiation', 'Due Diligence',
+  'Legal Research', 'Legal Writing', 'Depositions', 'Trial',
+  'Motion Practice', 'e-?Discovery', 'Regulatory Filings', 'Board Advisory',
+  'Outside Counsel Management', 'Legal Operations',
+  // Tools & credentials
+  'Westlaw', 'LexisNexis', 'Practical Law', 'Relativity', 'Everlaw',
+  'Ironclad', 'CLM', 'DocuSign', 'Harvey', 'CoCounsel', 'Kira', 'iManage',
+  'NetDocuments', 'e-?billing', 'Legal Tracker', 'Brightflag', 'CIPP',
+  'CIPM', 'Patent Bar',
 ];
 
-// \b fails at symbol edges (\bC\+\+\b needs a word char AFTER the +, \b\.NET
-// needs one BEFORE the dot), so C++/C#/.NET would never match standalone.
-// (?<!\w)/(?!\w) are equivalent to \b for word-char edges and correct for
-// symbol edges.
+// \b fails at symbol edges (\b'34 Act needs a word char BEFORE the
+// apostrophe, which never exists when the mention starts a clause or follows
+// a slash, e.g. "SEC reporting / '34 Act"), so "'34 Act" would never match
+// standalone with plain \b. (?<!\w)/(?!\w) are equivalent to \b for word-char
+// edges and correct for symbol edges.
 const SKILL_PATTERN = new RegExp(
   '(?<!\\w)(?:' + SKILL_TOKENS.join('|') + ')(?!\\w)',
   'gi'
 );
 
-// "Go" is an everyday English word, so it can't join the case-insensitive
-// token list ("go the extra mile" would register a skill). Match it in a
-// separate CASE-SENSITIVE pass: only the exact standalone token "Go" counts
-// as the language; prose "go"/"GO" never do. "Golang" still resolves to "Go"
-// via the main pattern + CANONICAL. A trailing hyphen also disqualifies:
-// capitalized business phrases like "Go-to-market" and "Go-live" are not the
-// language (punctuation like "Go," "Go/Rust" "(Go)" still counts).
-const GO_SKILL_PATTERN = /(?<!\w)Go(?![\w-])/;
-
 // lowercase → canonical display casing, derived from SKILL_TOKENS by stripping
-// regex syntax ('Vue\\.?js' → 'Vue.js'). Keeps case-insensitive matches like
-// "graphql" resolving to the same key ("GraphQL") as the CV-known-skills set.
+// regex syntax ('e-?Discovery' → 'e-Discovery'). Keeps case-insensitive
+// matches like "imanage" resolving to the same key ("iManage") as the
+// CV-known-skills set.
 const DISPLAY = Object.fromEntries(
   SKILL_TOKENS.map(t => {
     const display = t.replace(/\\/g, '').replace(/\?/g, '');
@@ -103,38 +100,27 @@ const DISPLAY = Object.fromEntries(
 );
 
 // Exact-alias canonicalization ONLY (lowercased match → display name).
-// Deliberately no umbrella aliases: "cloud" must never count as knowing
-// AWS/GCP/Azure — a generous map silently suppresses real gaps, and the
+// Deliberately no umbrella aliases: "compliance" must never count as knowing
+// GDPR/CCPA/HIPAA — a generous map silently suppresses real gaps, and the
 // "cv skill never appears as gap" acceptance test rewards exactly that
-// failure mode. Every entry here maps spellings of the SAME skill.
+// failure mode. Every entry here maps spellings of the SAME skill/regime.
 const CANONICAL = {
-  'k8s': 'Kubernetes',
-  'golang': 'Go',
-  'postgres': 'PostgreSQL',
-  'nodejs': 'Node.js', 'node.js': 'Node.js', 'nodejs.': 'Node.js',
-  'vuejs': 'Vue.js', 'vue.js': 'Vue.js',
-  'nextjs': 'Next.js', 'next.js': 'Next.js',
-  'llm': 'LLMs', 'llms': 'LLMs',
-  'finetuning': 'Fine-tuning', 'fine-tuning': 'Fine-tuning',
-  'power bi': 'Power BI',
-  'github actions': 'GitHub Actions',
-  'gitlab ci': 'GitLab CI',
-  'ci/cd': 'CI/CD',
-  'hugging face': 'Hugging Face',
-  'react native': 'React Native',
-  'prompt engineering': 'Prompt Engineering',
-  'computer vision': 'Computer Vision',
-  'scikit-learn': 'scikit-learn',
-  'c++': 'C++', 'c#': 'C#', '.net': '.NET',
-  'nlp': 'NLP', 'rag': 'RAG', 'sql': 'SQL', 'aws': 'AWS', 'gcp': 'GCP',
-  'grpc': 'gRPC', 'dbt': 'dbt', 'mlops': 'MLOps', 'mlflow': 'MLflow',
+  'mergers and acquisitions': 'M&A', 'mergers & acquisitions': 'M&A',
+  'white-collar': 'White Collar',
+  'ccpa': 'CCPA/CPRA', 'cpra': 'CCPA/CPRA',
+  'bsa': 'BSA/AML', 'aml': 'BSA/AML',
+  'ofac': 'OFAC/Sanctions',
+  "'34 act": 'SEC Reporting',
+  'data privacy': 'Privacy', 'data protection': 'Privacy',
+  'ediscovery': 'eDiscovery', 'e-discovery': 'eDiscovery',
+  'ebilling': 'e-billing', 'e-billing': 'e-billing',
 };
 
 function canonicalize(token) {
   const key = token.toLowerCase();
-  // Alias map first (k8s → Kubernetes), then display casing from the token
-  // list (graphql → GraphQL, pytorch → PyTorch) — never title-case, which
-  // manufactures keys like "Graphql" that miss the known-skills set.
+  // Alias map first (ccpa → CCPA/CPRA), then display casing from the token
+  // list (imanage → iManage, docusign → DocuSign) — never title-case, which
+  // manufactures keys like "Imanage" that miss the known-skills set.
   return CANONICAL[key] || DISPLAY[key] || token;
 }
 
@@ -145,7 +131,6 @@ export function extractSkills(text) {
   for (const m of text.matchAll(SKILL_PATTERN)) {
     found.add(canonicalize(m[0]));
   }
-  if (GO_SKILL_PATTERN.test(text)) found.add('Go');
   return found;
 }
 
@@ -362,88 +347,80 @@ function runSelfTest() {
   const failures = [];
 
   // extractSkills: canonicalization
-  const s1 = extractSkills('Needs k8s, golang and Postgres experience; NodeJS a plus');
-  for (const expected of ['Kubernetes', 'Go', 'PostgreSQL', 'Node.js']) {
+  const s1 = extractSkills('Needs CCPA, mergers and acquisitions and BSA experience; e-billing a plus');
+  for (const expected of ['CCPA/CPRA', 'M&A', 'BSA/AML', 'e-billing']) {
     if (!s1.has(expected)) failures.push(`extractSkills missing canonical ${expected} (got ${[...s1].join(',')})`);
   }
 
-  // Symbol-terminated skills: \b-style boundaries would drop all three
-  const s1b = extractSkills('Requires C++ and C# on .NET, plus SQL.');
-  for (const expected of ['C++', 'C#', '.NET', 'SQL']) {
-    if (!s1b.has(expected)) failures.push(`extractSkills missing symbol skill ${expected} (got ${[...s1b].join(',')})`);
+  // Symbol-terminated skills: \b-style boundaries would drop "'34 Act" (a
+  // leading apostrophe is a non-word char, so plain \b never fires there)
+  const s1b = extractSkills("Requires M&A, BSA/AML and SEC reporting / '34 Act experience, plus UCC.");
+  for (const expected of ['M&A', 'BSA/AML', 'SEC Reporting', 'UCC']) {
+    if (!s1b.has(expected)) failures.push(`extractSkills missing symbol/regime skill ${expected} (got ${[...s1b].join(',')})`);
   }
 
-  // Standalone "Go" is matched case-SENSITIVELY: a capitalized token in a
-  // skills list counts, but prose "go"/"GO" must never register as a skill
-  // (the global pattern is case-insensitive, so Go lives outside it).
-  const s1d = extractSkills('Skills: Go, Rust, TypeScript');
-  if (!s1d.has('Go')) failures.push(`extractSkills missing standalone Go (got ${[...s1d].join(',')})`);
-  const s1e = extractSkills('willing to go the extra mile; ready to GO live');
-  if (s1e.has('Go')) failures.push('prose "go"/"GO" wrongly matched as Go skill');
-  // Capitalized hyphenated business phrases must not register as the language
-  const s1f = extractSkills('Own the Go-to-market strategy and Go-live support');
-  if (s1f.has('Go')) failures.push('hyphenated "Go-to-market"/"Go-live" wrongly matched as Go skill');
-  // ...but ordinary punctuation after the token still counts
-  const s1g = extractSkills('Backend in Go/Rust (Go preferred). We ship Go.');
-  if (!s1g.has('Go')) failures.push('punctuation-adjacent standalone Go missed');
-
   // Lowercase mentions of mixed-case skills must resolve to canonical casing,
-  // or knownSkills.has() misses them (Graphql !== GraphQL)
-  const s1c = extractSkills('familiar with graphql, pytorch and postgresql');
-  for (const expected of ['GraphQL', 'PyTorch', 'PostgreSQL']) {
+  // or knownSkills.has() misses them (Imanage !== iManage)
+  const s1c = extractSkills('familiar with imanage, docusign and cocounsel');
+  for (const expected of ['iManage', 'DocuSign', 'CoCounsel']) {
     if (!s1c.has(expected)) failures.push(`extractSkills lowercase mention not canonical ${expected} (got ${[...s1c].join(',')})`);
   }
 
-  // Over-suppression guard: cv "Java" must NOT swallow a "JavaScript" gap,
-  // and cv "AWS" must not swallow GCP/Azure. This is the failure mode the
-  // "cv skill never appears as gap" acceptance test cannot see.
-  const cvSkills = extractSkills('Expert in Java and AWS.');
-  if (cvSkills.has('JavaScript')) failures.push('cv "Java" wrongly matched JavaScript');
+  // Boundary safety: bare "Tax" must not match inside the longer, unrelated
+  // word "Taxation" — the ordinary-word analog of the symbol-edge check above.
+  const boundaryCheck = extractSkills('International Taxation planning');
+  if (boundaryCheck.has('Tax')) failures.push('bare "Tax" wrongly matched inside "Taxation"');
+
+  // Over-suppression guard: cv "CIPP" must NOT swallow a "CIPM" gap, and cv
+  // "GDPR" must not swallow a "Privacy" gap — different-but-related items
+  // must stay distinct. This is the failure mode the "cv skill never appears
+  // as gap" acceptance test cannot see.
+  const cvSkills = extractSkills('Certified CIPP; deep GDPR experience.');
   const { gaps: g1 } = aggregateGaps(
-    [{ num: 1, score: 2.0, gapText: 'Missing JavaScript and GCP experience' }],
+    [{ num: 1, score: 2.0, gapText: 'Missing CIPM and Privacy experience' }],
     cvSkills
   );
   const gapNames = g1.map(g => g.skill);
-  if (!gapNames.includes('JavaScript')) failures.push('JavaScript gap suppressed by cv "Java"');
-  if (!gapNames.includes('GCP')) failures.push('GCP gap suppressed by cv "AWS"');
+  if (!gapNames.includes('CIPM')) failures.push('CIPM gap suppressed by cv "CIPP"');
+  if (!gapNames.includes('Privacy')) failures.push('Privacy gap suppressed by cv "GDPR"');
 
   // Known-skill exclusion (the acceptance criterion itself)
   const { gaps: g2, excludedAsKnown: ex2 } = aggregateGaps(
-    [{ num: 2, score: 3.0, gapText: 'Needs Java and Kubernetes' }],
-    extractSkills('Java developer')
+    [{ num: 2, score: 3.0, gapText: 'Needs Securities and Westlaw' }],
+    extractSkills('Securities attorney')
   );
-  if (g2.some(g => g.skill === 'Java')) failures.push('known skill Java appeared as gap');
-  if (!ex2.some(e => e.skill === 'Java')) failures.push('excludedAsKnown missing Java');
-  if (!g2.some(g => g.skill === 'Kubernetes')) failures.push('Kubernetes gap missing');
+  if (g2.some(g => g.skill === 'Securities')) failures.push('known skill Securities appeared as gap');
+  if (!ex2.some(e => e.skill === 'Securities')) failures.push('excludedAsKnown missing Securities');
+  if (!g2.some(g => g.skill === 'Westlaw')) failures.push('Westlaw gap missing');
 
   // Weighting: low score contributes more; presence counted once per report
   const { gaps: g3 } = aggregateGaps(
     [
-      { num: 3, score: 2.0, gapText: 'Kubernetes Kubernetes Kubernetes' },
-      { num: 4, score: 4.5, gapText: 'Kubernetes' },
+      { num: 3, score: 2.0, gapText: 'Westlaw Westlaw Westlaw' },
+      { num: 4, score: 4.5, gapText: 'Westlaw' },
     ],
     new Set()
   );
-  const k = g3.find(g => g.skill === 'Kubernetes');
-  if (!k) failures.push('Kubernetes not aggregated');
+  const w = g3.find(g => g.skill === 'Westlaw');
+  if (!w) failures.push('Westlaw not aggregated');
   else {
-    if (k.reports !== 2) failures.push(`presence not deduped per report (reports=${k.reports})`);
-    if (Math.abs(k.weightedScore - 3.5) > 1e-9) failures.push(`weightedScore expected 3.5, got ${k.weightedScore}`);
+    if (w.reports !== 2) failures.push(`presence not deduped per report (reports=${w.reports})`);
+    if (Math.abs(w.weightedScore - 3.5) > 1e-9) failures.push(`weightedScore expected 3.5, got ${w.weightedScore}`);
   }
 
   // Tiering: 3/5 low-fit reports naming a skill → Critical; 1/5 → Low
   const lowFitReports = [
-    { num: 10, score: 2.0, gapText: 'Terraform' },
-    { num: 11, score: 2.5, gapText: 'Terraform' },
-    { num: 12, score: 3.0, gapText: 'Terraform and Spark' },
+    { num: 10, score: 2.0, gapText: 'GDPR' },
+    { num: 11, score: 2.5, gapText: 'GDPR' },
+    { num: 12, score: 3.0, gapText: 'GDPR and Trademark' },
     { num: 13, score: 3.5, gapText: 'nothing here' },
     { num: 14, score: 3.9, gapText: 'nothing here' },
   ];
   const { gaps: g4 } = aggregateGaps(lowFitReports, new Set());
-  const terraform = g4.find(g => g.skill === 'Terraform');
-  const spark = g4.find(g => g.skill === 'Spark');
-  if (terraform?.tier !== 'Critical') failures.push(`Terraform tier expected Critical, got ${terraform?.tier}`);
-  if (spark?.tier !== 'Low') failures.push(`Spark tier expected Low, got ${spark?.tier}`);
+  const gdpr = g4.find(g => g.skill === 'GDPR');
+  const trademark = g4.find(g => g.skill === 'Trademark');
+  if (gdpr?.tier !== 'Critical') failures.push(`GDPR tier expected Critical, got ${gdpr?.tier}`);
+  if (trademark?.tier !== 'Low') failures.push(`Trademark tier expected Low, got ${trademark?.tier}`);
 
   // parseReportGaps: Machine Summary + Gap table + score fallback
   const parsed = parseReportGaps(`
@@ -451,7 +428,7 @@ function runSelfTest() {
 
 | Gap | Severity | Mitigation |
 |-----|----------|------------|
-| No Kafka experience | soft gap | Learn it |
+| No eDiscovery experience | soft gap | Learn it |
 
 ## Machine Summary
 
@@ -459,13 +436,13 @@ function runSelfTest() {
 score: 3.2
 hard_stops: []
 soft_gaps:
-  - "Limited Airflow exposure"
+  - "Limited FCPA exposure"
 \`\`\`
 `);
   if (parsed.score !== 3.2) failures.push(`report score expected 3.2, got ${parsed.score}`);
   if (!parsed.hasMachineSummary) failures.push('hasMachineSummary false');
-  if (!/Kafka/.test(parsed.gapText)) failures.push('Gap table row not captured');
-  if (!/Airflow/.test(parsed.gapText)) failures.push('soft_gaps not captured');
+  if (!/eDiscovery/.test(parsed.gapText)) failures.push('Gap table row not captured');
+  if (!/FCPA/.test(parsed.gapText)) failures.push('soft_gaps not captured');
 
   if (failures.length > 0) {
     console.error(`upskill self-test failed: ${failures.join('; ')}`);

@@ -5,6 +5,8 @@ Works in two modes:
 - **Slug mode:** `/career-ops cover {slug}` — loads the existing evaluation report draft as a starting point
 - **Paste mode:** `/career-ops cover` or JD pasted directly — starts from scratch
 
+**Cover letters carry MORE weight in legal hiring than in most markets.** They are effectively **mandatory** for government honors programs, clerkships, and public-interest roles (where "demonstrated commitment" is evaluated largely through the letter), and expected for most direct firm applications; in-house they are optional but read. The legal-standard shape: short (3–4 paragraphs), addressed to a **named person**, and stating **practice area + class year + jurisdiction/bar admission + why-this-firm** early — a legal recruiting coordinator scans for those four facts before reading anything else. Fold them into the opening and profile intro below; never bury them.
+
 ---
 
 ## Step 0 — JD Gate (mandatory)
@@ -257,7 +259,7 @@ End the draft with: "How does this read? Once you approve I'll generate the PDF.
 3. **No em dashes** — replace with a comma, full stop, or rewrite the sentence
 4. **No buzzwords** — hard ban: leverage, synergy, seamless, holistic, robust, cutting-edge, spearheaded, championed, orchestrated, passionate, excited, stakeholder alignment, data-driven (say what the data drove instead), actionable insights, move the needle, north star, unique opportunity, perfect fit, strong track record
 5. **No filler openers** — never "I am pleased to", "I am writing to express", "I am excited to"
-6. **Concrete over abstract** — every claim needs a number, system name, or specific outcome. "Improved performance" is banned. "Cut latency from 2s to 380ms" is fine.
+6. **Concrete over abstract** — every claim needs a number, matter type, or specific outcome. "Broad transactional experience" is banned. "Negotiated 40+ enterprise SaaS agreements per quarter, cutting average turnaround from 12 days to 4" is fine.
 7. **350-420 words** total body (header + credentials not counted)
 8. **Bullet format** — `**Bold lead phrase,** impact sentence with metric.` No em dash between lead and sentence.
 9. **Self-check** — before finalising, re-read each sentence: could it appear in any cover letter for any company? If yes, rewrite it.
