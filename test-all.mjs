@@ -1205,7 +1205,7 @@ const expectedModes = [
   'batch.md', 'apply.md', 'auto-pipeline.md', 'contacto.md', 'deep.md',
   'ofertas.md', 'pipeline.md', 'project.md', 'tracker.md', 'training.md',
   'interview.md', 'latex.md', 'latex-tex.md', 'email.md', 'add.md', 'titles.md',
-  'regional/eu-swe.md',
+  'regional/eu-legal.md',
 ];
 
 for (const mode of expectedModes) {

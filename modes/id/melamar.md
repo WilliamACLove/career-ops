@@ -37,6 +37,12 @@ Mode interaktif untuk saat kandidat mengisi formulir lamaran di Chrome. Membaca 
 4. Jika ada Blok G -> muat draft jawaban sebelumnya sebagai dasar
 5. Jika TIDAK cocok -> beri peringatan kepada kandidat dan tawarkan auto-pipeline cepat
 
+## Langkah 2.5 -- Pemeriksaan jalur rekrutmen (referral-source lock)
+
+Sebelum menyusun draft lamaran LANGSUNG (bukan lewat recruiter/headhunter), cek apakah pemberi kerja adalah firma hukum dan apakah ada headhunter/recruiter hukum yang sudah menangani kandidasi ini -- `config/profile.yml` -> `legal.recruiter_channel.engagements`, plus baris tracker perusahaan ini yang membawa `via=`. Di pasar Indonesia, headhunter/recruiter hukum berperan sama seperti di pasar lain: begitu mereka mengirim CV kandidat ke sebuah firma, firma tersebut biasanya menganggap kandidasi itu "milik" recruiter tersebut untuk periode tertentu.
+
+Jika ada (atau mungkin ada) recruiter yang menangani, **HENTIKAN dan beri peringatan alih-alih menyusun draft**: pengirim pertama memiliki kandidasi di firma tersebut, dan lamaran langsung di atas kiriman recruiter bisa memicu sengketa fee yang lazimnya diselesaikan firma dengan mendiskualifikasi kandidat. Arahkan lamaran lewat recruiter yang sudah menangani, atau minta keputusan eksplisit dari kandidat untuk tetap melamar langsung dengan risiko yang sudah disadari. Untuk in-house dan instansi pemerintah, jalur langsung adalah default -- gerbang ini hanya berlaku ketika ada jalur recruiter yang sedang aktif.
+
 ## Langkah 3 -- Deteksi perubahan role
 
 Jika role di layar berbeda dari yang dievaluasi:
@@ -70,8 +76,9 @@ Untuk tiap pertanyaan, susun jawaban mengikuti skema ini:
 
 **Kolom khas formulir Indonesia yang umum:**
 - **Ekspektasi gaji (bulanan/tahunan)** -> Rentang dari `profile.yml`, dalam IDR, dengan catatan "dapat dinegosiasikan sesuai paket keseluruhan"; perjelas apakah angkanya gross atau nett
-- **Tanggal ketersediaan mulai** -> Tanggal realistis yang memperhitungkan notice period (sering 1 bulan / one month notice)
+- **Tanggal ketersediaan mulai** -> Tanggal realistis yang memperhitungkan notice period (sering 1 bulan / one month notice; untuk associate firma, cek juga aturan cuti/serah-terima matter internal firma)
 - **Izin kerja / Kewarganegaraan** -> Jujur dan ringkas; untuk WNI: "Tidak memerlukan sponsor visa (WNI)"
+- **Status advokat / organisasi advokat** (untuk role firma hukum atau role yang eksplisit meminta lisensi advokat) -> Status disumpah/aktif, organisasi advokat tempat kandidat terdaftar, tahun disumpah -- baca dari `legal.bar_admissions` di `profile.yml`. Untuk role in-house yang tidak mensyaratkannya, tidak perlu diisi kecuali ditanyakan
 - **Bahasa** -> Level Bahasa Indonesia dan Inggris (mis.: profesional, lancar, TOEFL/IELTS jika relevan)
 - **Mobilitas** -> Sebutkan area geografis yang bisa diterima dan frekuensi perjalanan
 

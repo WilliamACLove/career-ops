@@ -61,7 +61,7 @@ and never touched by `update-system.mjs` (see
 |---|---|
 | `interview/` | Reusable interview skills: prep planner, practice interviewer, post-interview debrief (see [interview/README.md](interview/README.md)) |
 | `heuristics/` | Shared candidate-facing writing heuristics loaded by other modes — `recruiter-side.md` governs PDF summaries, bullets, cover letters, form answers, and outreach |
-| `regional/` | Market calibration modes — `eu-swe.md` calibrates applications for European SWE roles (advisory only) |
+| `regional/` | Market calibration modes — `eu-legal.md` calibrates applications for European legal roles (advisory only) |
 | `ar/ da/ de/ es/ fr/ hi/ id/ it/ ja/ ko/ pl/ pt/ ru/ tr/ ua/ zh/` | Language modes: native translations of the core modes with market-specific vocabulary; each has its own README |
 
 ## Conventions
