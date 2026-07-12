@@ -72,7 +72,7 @@ Her soru için yanıtı şu şemaya göre oluştur:
 2. **Önceki Blok G:** Taslak yanıt varsa temel al ve geliştir
 3. **"Sizi seçiyorum" tonu:** Özgüvenli, yalvaran değil
 4. **Özgüllük:** Ekrandaki ilandan somut bir şeye doğrudan değin
-5. **Kanıt URL'si:** "Ek bilgi" alanı varsa demo/proje linkini ekle
+5. **Kanıt URL'si:** "Ek bilgi" alanı varsa yayın, konuşma veya (gizlilik sınırları içinde) referans işlem/dosya listesi linkini ekle
 
 **Türkiye'ye özgü form alanları:**
 - **Baro kaydı / kıdem yılı (eleme sorusu):** "Hangi baroya kayıtlısınız?", "Kaç yıllık avukatsınız?" gibi sorular çoğu zaman eleme amaçlıdır — `config/profile.yml` → `legal.bar_admissions` ve `legal.class_year` ile karşılaştır; uyumsuzluk varsa adayı önce bilgilendir, sonra yanıt taslağı hazırla

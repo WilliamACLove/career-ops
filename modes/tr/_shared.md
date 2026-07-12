@@ -66,7 +66,7 @@ Blok G, ilanın gerçek ve aktif bir açık pozisyon olup olmadığını değerl
 |--------|--------|-------------|--------|
 | İlan yaşı | Sayfa snapshot | Yüksek | 30 gün altı = iyi, 30-60 gün = karma, 60+ gün = endişe verici (rol tipine göre ayarla) |
 | Başvur butonu aktif mi | Sayfa snapshot | Yüksek | Doğrudan gözlemlenebilir gerçek |
-| İlanda teknik özgüllük | İlan metni | Orta | Genel ilanlar hayalet ilanla örtüşür ama zayıf yazarlıkla da açıklanabilir |
+| İlanda pratik alanı özgüllüğü | İlan metni | Orta | Genel ilanlar hayalet ilanla örtüşür ama zayıf yazarlıkla da açıklanabilir; recruiter'ların yayınladığı isimsiz "önde gelen büro" ilanları çoğu zaman canlı bir mandat olmadan özgeçmiş toplar |
 | Gereksinimlerin gerçekçiliği | İlan metni | Orta | Çelişkiler güçlü sinyal; muğlaklık daha zayıf |
 | Son dönem işten çıkarma haberleri | WebSearch | Orta | Departman, zamanlama ve şirket büyüklüğü dikkate alınmalı |
 | Yeniden yayın örüntüsü | scan-history.tsv | Orta | 90 günde 2+ kez aynı rol endişe verici |
@@ -234,7 +234,7 @@ Türkiye'de büyük kurumsal bürolar ve şirketler zaman zaman İK danışmanl�
 
 ### Teklif Hızı Önceliği
 
-- Çalışan demo + metrikler > mükemmellik
+- Sıkı bir başvuru paketi (özgeçmiş + işlem/dosya listesi) > mükemmellik
 - Erken başvur > daha fazla araştır
 - %80/20 yaklaşımı, her şeyi zamanlı tut
 
@@ -266,7 +266,8 @@ Türkiye'de büyük kurumsal bürolar ve şirketler zaman zaman İK danışmanl�
 6. İçeriği ilanın dilinde üret — ilan Türkçeyse Türkçe, İngilizce ise İngilizce
 7. Doğrudan ve eyleme dönük ol — gereksiz ayrıntı yazma
 8. Türkçe metin üretirken: doğal Türkçe kullan, kelimesi kelimesine çeviriden kaçın. Kısa cümleler, aktif fiiller. Stack, pipeline, deploy, backend, frontend gibi yerleşik teknik terimler zorla Türkçeleştirilmemeli
-8b. **PDF Professional Summary'de vaka çalışması URL'leri:** Adayın demo veya proje linki varsa ilk paragrafta göster — recruiter genellikle sadece summary'i okur
+8a. **Baro kaydı bilgisi CV'nin en üstünde görünür olmalı** (başlığın hemen altında veya Eğitim bölümünün altında) — recruiter/İK ilk 5 saniyede jurisdiction'ı arar
+8b. **PDF Professional Summary'de yayın/bio URL'leri:** Adayın yayın, konuşma veya bio linki varsa ilk paragrafta göster — recruiter genellikle sadece summary'i okur
 9. **Takipçi eklemeleri TSV olarak** — `applications.md`'ye doğrudan yeni satır ekleme. TSV'yi `batch/tracker-additions/` klasörüne yaz, `merge-tracker.mjs` halleder
 10. Her rapor başlığına `**URL:**` alanını ekle — Puan ile PDF arasına
 
@@ -307,6 +308,6 @@ Bu kurallar adaya giden tüm üretilmiş metinler için geçerlidir: PDF özetle
 - Her seferinde "X, Y ve Z" kalıbını kullanma — bazen iki öğe, bazen dört
 
 ### Soyutlamalar yerine özgüllüğü tercih et
-- "p95 gecikmesini 2,1 saniyeden 380ms'ye düşürdüm" → "performansı iyileştirdim"den çok daha iyi
-- "12 bin belge üzerinde Postgres + pgvector ile retrieval" → "ölçeklenebilir RAG mimarisi tasarladım"dan çok daha iyi
-- İzin verilen durumlarda araç, proje ve müşteri adlarını ver
+- "Çeyrekte 40+ kurumsal ticari sözleşmeyi ortalama 5 iş günü içinde sonuçlandırdım" → "ticari sözleşme deneyimim var"dan çok daha iyi
+- "3 haftalık bir tahkim dosyasında ikinci sıra avukat olarak görev aldım; iddia edilen zararın %60'ını ortadan kaldıran esasa ilişkin dilekçeyi hazırladım" → "güçlü dava deneyimim var"dan çok daha iyi
+- Gizlilik sınırları içinde (işlem/dosya kamuya açıksa) işlem büyüklüğünü, dosya kapsamını ve ekip sorumluluğunu somut rakamlarla ver; aksi halde genel tarif et (ör. "bir Fortune 100 ilaç şirketi müşterisi")

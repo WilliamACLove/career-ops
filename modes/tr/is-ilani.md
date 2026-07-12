@@ -19,7 +19,7 @@ Herhangi bir puanlama yapmadan önce ilanı adayın `config/profile.yml` → `le
    - **Kamu: orta.** İlgili kurumun bulunduğu şehirde görev/ikamet şartı olabilir; ilanı kontrol et.
 2. **Kıdem / deneyim yılı bandı** — ilan bir deneyim aralığı belirtiyorsa ("3-5 yıl kıdemli avukat" gibi), adayın `legal.class_year`'ından türetilen kıdemini bu bantla karşılaştır. Bandın belirgin şekilde dışında kalmak başvuruyu zayıflatır — bunu açıkça söyle, ama Türkiye piyasasında bu ABD class-year sistemi kadar katı uygulanmadığından "otomatik ret" dili kullanma.
 3. **Patent/marka vekilliği** — ilan patent başvuru/takip (patent prosecution) istiyorsa ve `legal.patent_bar` false ise, bu sert bir engeldir (TÜRKPATENT patent vekilliği ayrı bir yeterliliktir). Marka vekilliği veya IP davası bunu gerektirmez.
-4. **Çıkar çatışması riski** — kıdemli/ortak seviye rollerde, herhangi bir teklifin mevcut müşteri portföyüyle çakışma kontrolüne tabi olduğunu not et; puanlama.
+4. **Çıkar çatışması riski** — kıdemli/ortak seviye rollerde, herhangi bir teklifin mevcut müşteri portföyüyle çakışma kontrolüne tabi olduğunu not et; bu bir puanlama girdisi değildir.
 
 Filtre sonuçlarını Blok B'nin başında kısa bir geçti/kaldı tablosu olarak raporla. Başarısız bir filtre, diğer her şey ne kadar iyi eşleşirse eşleşsin öneriyi sınırlar.
 

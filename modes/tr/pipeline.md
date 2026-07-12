@@ -23,12 +23,12 @@
 ```markdown
 ## Bekleyenler
 - [ ] https://kariyer.net/is-ilani/12345
-- [ ] https://boards.greenhouse.io/sirket/jobs/456 | Şirket A.Ş. | Senior Backend Engineer
+- [ ] https://boards.greenhouse.io/sirket/jobs/456 | Şirket A.Ş. | Kıdemli Şirket İçi Hukuk Müşaviri
 - [!] https://ozel.url/ilan — Hata: giriş gerekiyor
 
 ## İşlenenler
-- [x] #143 | https://kariyer.net/is-ilani/789 | Acme Teknoloji | Backend Developer | 4.2/5 | PDF ✅
-- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | Frontend Engineer | 2.1/5 | PDF ❌
+- [x] #143 | https://kariyer.net/is-ilani/789 | Acme Hukuk Bürosu | Kıdemli Avukat — Şirketler Hukuku | 4.2/5 | PDF ✅
+- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | Şirket İçi Hukuk Müşaviri | 2.1/5 | PDF ❌
 ```
 
 > Not: Bölüm başlıkları EN ("Pending"/"Processed"), ES ("Pendientes"/"Procesadas") veya TR ("Bekleyenler"/"İşlenenler") olabilir. Okurken esnek ol; yazarken mevcut dosyanın stilini koru.
@@ -44,7 +44,7 @@
 - **Yenibiris.com:** Playwright ile çalışır.
 - **LinkedIn:** Giriş gerektirebilir → `[!]` olarak işaretle, adaydan ilan metnini yapıştırmasını iste.
 - **PDF linki:** URL doğrudan bir PDF'e işaret ediyorsa Read aracıyla oku.
-- **`local:` öneki:** Yerel dosyayı oku. Örnek: `local:jds/kariyer-backend.md` → `jds/kariyer-backend.md` oku.
+- **`local:` öneki:** Yerel dosyayı oku. Örnek: `local:jds/hukuk-burosu-kidemli-avukat.md` → `jds/hukuk-burosu-kidemli-avukat.md` oku.
 
 ## Rapor Numaralandırma
 
