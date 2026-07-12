@@ -326,7 +326,7 @@ The scanner comes with **45+ companies** ready to scan and **19 search queries**
 
 **Legal tech:** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
 **In-house legal:** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
-**Boards:** USAJOBS (federal government, incl. justice.gov), GoInhouse, Lawjobs, LawCrossing, LateralHub, ABA and state bar career centers
+**Boards:** USAJOBS (federal government, incl. justice.gov), GoInhouse, Lawjobs, LawCrossing, LateralHub, ABA and state bar career centers. Also covered via `search_queries`: government/AG-office boards (NAAG, NDAA, NLADA, GovernmentJobs.com), bar-association and practice-area career centers incl. a saved-search RSS technique for YM Careers boards (ACC Jobline, AIPLA, INTA, ACEDS, FBA, AHLA, affinity bars), university counsel boards (NACUA, HigherEdJobs), flexible/return-to-work marketplaces (The Mom Project, Paragon Legal, Latitude Legal, Axiom), and legal-ops boards (Legal Operators, CLOC, legal.io Legal-Operations).
 
 > **Note on law firm laterals:** large AmLaw-tier firms run their own legal-vertical ATSs (viRecruit, LawCruit) that expose no public API, so BigLaw/AmLaw lateral openings mostly flow through recruiters (Major Lindsey & Africa, Lateral Link, BCG Attorney Search) or aggregators, not this scanner. The scanner's sweet spot is legal tech + in-house counsel roles at companies on public ATS boards, plus the one real government API (USAJOBS).
 

@@ -89,7 +89,7 @@ Frame profile as **"Practice-area specialist with matter-backed proof"** that ad
 
 **Government:** GS scale (2026: GS-11 $63,795 → GS-15 up to $164,301 base) plus locality (~15-45%); AUSA AD plan capped ~$195K; financial regulators (SEC/FDIC/Fed/OCC/CFPB) pay 40-80% above GS. Loan repayment (ASLRP) and PSLF are comp line-items.
 
-**Sources:** Cravath scale + Above the Law bonus tracker + Biglaw Investor (firms); NALP surveys (midsize/regional); BarkerGilmore + MLA comp surveys, L Suite (tech GC), ACC benchmarking (in-house); OPM GS tables + agency pay plans (government); Brightflag/CLOC (legal ops).
+**Sources:** Cravath scale + Above the Law bonus tracker + Biglaw Investor (firms); NALP surveys (midsize/regional); BarkerGilmore + MLA comp surveys, L Suite (tech GC), ACC benchmarking (in-house); OPM GS tables + agency pay plans (government); Brightflag/CLOC (legal ops). Supplementary in-house reference: levels.fyi/t/legal — crowd-sourced in-house legal comp (median ~$243K, base/stock/bonus broken out by company); useful for cross-checking a specific employer's band alongside the BarkerGilmore/MLA survey ranges above.
 
 ## Your Negotiation Scripts
 

@@ -348,6 +348,149 @@ search_queries:
     query: 'site:jobs.nysba.org "Counsel" OR "Attorney"'
     enabled: true
 
+  # -- Government / public sector --
+  - name: NAAG Job Center — state Attorneys General
+    query: 'site:naag.org/job attorney'
+    notes: "AAG/Deputy AG roles across state AG offices, salaries listed. Best single AG aggregator. naag.org/job/feed/ is a probable RSS endpoint — untested, see the retest list below."
+    enabled: true
+
+  - name: NDAA Career Center — prosecutors
+    query: 'site:ndaa.org/job (prosecutor OR attorney)'
+    notes: "ADA/DDA/prosecutor roles nationwide. Annual DC prosecutor job fair (late Jan)."
+    enabled: true
+
+  - name: NLADA Job Board — public defenders / legal aid
+    query: 'site:nlada.org jobposting ("staff attorney" OR "public defender")'
+    notes: "Public defender + civil legal-aid roles, salaries listed; stable /jobposting/{id} URLs."
+    enabled: true
+
+  - name: GovernmentJobs.com (NEOGOV) — county/city/state attorney
+    query: 'site:governmentjobs.com attorney ("county attorney" OR "city attorney" OR "assistant attorney general")'
+    notes: "High-volume state/county/city attorney reqs. TOS PROHIBITS scraping their JSON endpoints — site: query only, never hit the API directly."
+    enabled: true
+
+  - name: PSJD (NALP) — public interest + government
+    query: 'site:psjd.org opportunitydetails attorney'
+    notes: "Public interest + government jobs, fellowships. PARTIAL PAYWALL: full descriptions are free only for subscriber-school students/alumni. Index carries stale OppIDs — filter for recency."
+    enabled: true
+
+  # -- Bar associations & practice-area boards --
+  - name: ACC Jobline — in-house association board
+    query: 'site:jobline.acc.com "general counsel" OR counsel'
+    enabled: true
+
+  - name: AIPLA Career Center — IP/patent
+    query: 'site:careers.aipla.org attorney'
+    notes: "Patent prosecution/litigation, in-house IP. YM Careers board — RSS candidate, see the zero-token feed techniques below."
+    enabled: false  # enable if targeting IP/patent practice
+
+  - name: INTA Career Center — trademark
+    query: 'site:career.inta.org trademark'
+    enabled: false  # enable if targeting trademark practice
+
+  - name: ACEDS Career Center — eDiscovery
+    query: 'site:careers.aceds.org (attorney OR ediscovery)'
+    notes: "eDiscovery attorney/PM roles. YM Careers board — RSS candidate."
+    enabled: false  # enable if targeting eDiscovery/litigation-support practice
+
+  - name: Federal Bar Association Career Center
+    query: 'site:careers.fedbar.org attorney'
+    notes: "YM Careers board — the proven RSS proof-case (see the zero-token feed techniques below)."
+    enabled: true
+
+  - name: AHLA Career Center — health law
+    query: 'site:careercenter.americanhealthlaw.org (attorney OR counsel)'
+    enabled: false  # enable if targeting health law
+
+  - name: Affinity bars — NBA / HNBA / NAPABA / LGBTQ+ Bar
+    query: 'site:jobs.nationalbar.org OR site:careercenter.hnba.com OR site:careers.napaba.org OR site:jobboard.lgbtqbar.org attorney'
+    notes: "One combined query covers NBA/HNBA/NAPABA/LGBTQ+ Bar. Employers posting here signal diversity commitment."
+    enabled: true
+
+  - name: Association Career Network sweep
+    query: 'site:associationcareernetwork.com attorney'
+    notes: "White-label bar-association network (Texas Bar, Florida Bar, Fairfax Bar, AHLA JobFlash, etc.) in one query."
+    enabled: true
+
+  - name: NALP Job Center
+    query: 'site:jobs.nalp.org (attorney OR recruiting)'
+    notes: "MOSTLY legal recruiting/professional-development STAFF roles, not practice roles. Low priority — disabled by default."
+    enabled: false
+
+  # -- Academic / university counsel --
+  - name: NACUA Career Center — higher-ed in-house
+    query: 'site:careercenter.nacua.org counsel'
+    notes: "Higher-ed in-house counsel/GC roles; open to non-members. Web-Scribble board."
+    enabled: false  # enable if targeting university/higher-ed in-house counsel
+
+  - name: HigherEdJobs — Legal Affairs
+    query: 'site:higheredjobs.com "general counsel" OR "university counsel"'
+    notes: "GC/AGC roles with salaries ($200-330k seen). Free, no login; bot-blocks direct fetch, so site: query only. See also the commented higheredjobs RSS entry under job_boards below (category 68 = Higher Education) as a zero-token complement."
+    enabled: false  # enable if targeting university/higher-ed in-house counsel
+
+  # -- Startup & tech in-house --
+  - name: Built In — tech in-house counsel
+    query: 'site:builtin.com/job "counsel"'
+    notes: "Tech in-house counsel roles (Airbnb, Groq, Dell observed). City sites consolidated under builtin.com; numeric job IDs for dedup."
+    enabled: true
+
+  - name: Welcome to the Jungle — startup/tech legal counsel
+    query: 'site:app.welcometothejungle.com/jobs "legal counsel"'
+    notes: "Startup/tech in-house counsel; skews UK/EU. Works without an account."
+    enabled: true
+
+  - name: YC Work at a Startup — first legal hire
+    query: 'site:workatastartup.com (counsel OR "head of legal")'
+    notes: "Thin inventory — occasional first-legal-hire roles (e.g. Clipboard Health counsel observed). Scan monthly, not daily."
+    enabled: true
+
+  - name: Wellfound — startup GC/counsel
+    query: 'site:wellfound.com/jobs ("general counsel" OR "legal counsel")'
+    notes: "FLAG: browse UI is login-gated and indexed postings are frequently STALE — always liveness-check before adding a hit to the tracker."
+    enabled: false  # disabled by default — see stale-posting flag above
+
+  # -- Flexible / interim / return-to-work --
+  - name: The Mom Project — legal/counsel projects
+    query: 'site:themomproject.com/projects (counsel OR attorney)'
+    notes: "Surprisingly rich legal inventory: Legal Counsel, Product Counsel, IP Attorney, Risk & Compliance Counsel observed. FT/PT/remote/return-to-work; stable /projects/{slug}-{hash} URLs."
+    enabled: true
+
+  - name: Paragon Legal — interim in-house counsel
+    query: 'site:paragonlegal.com/jobs'
+    notes: "Interim in-house (commercial/tech transactions, privacy, product counsel). paragonlegal.com/jobs/feed/ is a probable RSS endpoint — untested, see the retest list below."
+    enabled: true
+
+  - name: Latitude Legal — flexible/contract counsel
+    query: 'site:latitudelegal.com/jobs'
+    notes: "Flexible contract + permanent roles for ex-BigLaw attorneys. Embedded ATS — inspect once for a JSON endpoint."
+    enabled: true
+
+  # -- Legal ops --
+  - name: Legal Operators Job Board
+    query: 'site:legaloperators.com/jobs'
+    notes: "Legal ops manager/director, legal knowledge/tech roles. Board is public though the community is paid. Sister site jobslegaloperators.com — try /feed/ RSS (untested, see the retest list below)."
+    enabled: true
+
+  - name: Legal.io — Legal Operations persona
+    query: 'site:legal.io/jobs "legal operations"'
+    notes: "Extra scan target on the existing legal.io source above, scoped to the Legal-Operations persona (legal.io/jobs/persona/Legal-Operations)."
+    enabled: true
+
+  - name: CLOC Job Board
+    query: 'site:jobs.cloc.org "legal operations"'
+    enabled: true
+
+  # -- Legal media boards --
+  - name: Law360 Jobs
+    query: 'site:jobs.law360.com attorney'
+    notes: "Firm associate/counsel roles (LexisNexis network). Likely shares inventory with lawjobs.com above — dedup."
+    enabled: true
+
+  - name: Above the Law Job Board
+    query: 'site:abovethelaw.com/jobs'
+    notes: "Curated, employer-paid ($200/45-day) postings — low volume, decent quality."
+    enabled: true
+
   # -- Other jurisdictions (disabled by default; enable + adapt keywords for
   # your target market) --
 
@@ -989,6 +1132,79 @@ tracked_companies:
     careers_url: https://job-boards.greenhouse.io/csdisco
     notes: "eDiscovery / litigation AI platform. unverified slug — verify the board exists before enabling"
     enabled: false
+
+  - name: Axiom Law
+    careers_url: https://axiomlaw.com/careers/lawyers/available-positions
+    api: https://boards-api.greenhouse.io/v1/boards/axiomlaw/jobs
+    notes: "Flexible/interim senior in-house counsel marketplace (18+ yr avg PQE). Probable Greenhouse slug, UNTESTED — posting URLs carry Greenhouse job-ID format; verify before enabling. Fallback careers_url above (axiomlaw.com/careers/lawyers/available-positions) if the Greenhouse board doesn't exist."
+    enabled: false
+
+# ── Manual watchlist (no scannable pattern) ───────────────────────────
+# These legal sources have no stable site: query, RSS feed, or public API —
+# scan.mjs cannot reach them. Check manually on your own cadence; do not
+# expect scan-history.tsv or the tracker to dedup these automatically.
+#
+#   - OSCAR (oscar.uscourts.gov)          — federal clerkships; LOGIN-WALLED, no site: pattern, no feed.
+#   - NCSC state-court job postings       — https://www.ncsc.org/resources-courts/state-court-job-postings (page-diff manually)
+#     + CORA                              — state-clerkship clearinghouse (entry-level skew, unverified browse)
+#   - OPM Attorney Talent Portal          — https://talent.opm.gov/attorney (100+ federal attorney jobs, new 2025-26 portal)
+#     + attorney.usajobs.gov              — prebuilt USAJOBS portal scoped to the Attorney series
+#   - IAPP Career Central                 — https://iapp.org/community/career-central (privacy counsel/DPO; client-side
+#                                            rendered so site: yield is weak — the free monthly Career Central jobs
+#                                            newsletter is the real feed)
+#   - SCCE/HCCA Job Board                 — my.corporatecompliance.org/s/job-board (Salesforce UI, poor site: yield;
+#                                            biweekly email alerts are the feed; $500/90-day postings = employer-serious signal)
+#   - InhouseBlog                         — inhouseblog.com/in-house-counsel-jobs/ + /legal-operations-jobs/ (curated;
+#                                            see the retest list below for /feed)
+#   - LegalOps.com Job Board              — legalops.com/job-board (partial gating: featured public, full list needs
+#                                            free membership)
+#   - Legal Operations Job Board (Notion) — the-legal-ops-job-board.notion.site/... (community-curated, no RSS,
+#                                            check freshness first)
+#   - Lawtrades                           — app.lawtrades.com/legal-jobs (project/fractional; invite-only pool, low
+#                                            scanner value)
+#   - Ontra Legal Network                 — NOT a job board; apply-once freelance network (fund docs, 20hr/wk min,
+#                                            1099 contract)
+#   - FlexJobs Legal                      — flexjobs.com/remote-jobs/legal — CANDIDATE-PAID FLAG ($23.95/4wk); jobs
+#                                            are usually findable free at their origin source — discovery reference
+#                                            only, don't recommend paying
+#
+# Skip / dead (do not add):
+#   - Hired.com          — DEAD, shut down May 2024, folded into LHH.
+#   - iHireLegal         — FLAG: paid tier, complaints of recycled/stale postings + spam. Exclude.
+#   - Symplicity         — law-school career boards, LOGIN-WALLED behind school credentials. Skip.
+#   - LawClerk.legal / Hire an Esquire — signup-gated marketplaces, no scannable inventory. Skip.
+
+# ── Zero-token feed & API techniques (future providers) ───────────────
+# Techniques worth building a provider/parser around later, plus an
+# untested-endpoint retest list. None of these are wired up yet — the
+# WebSearch site: queries above are the current stopgap.
+#
+#   - YM Careers saved-search RSS: /jobs/rss/{search-id}/{slug} — proven on
+#     careers.fedbar.org/jobs/rss/13812144/content-attorney. Generate the
+#     search-id once via each board's job-alert UI, then poll zero-token.
+#     Applies to: careers.fedbar.org, careers.aipla.org, careers.aceds.org,
+#     careers.napaba.org, careercenter.hnba.com, careercenter.americanhealthlaw.org.
+#   - Web-Scribble URL family: /q-{kw}-jobs.html + /browse-jobs — shared by
+#     jobline.acc.com, jobs.cloc.org, jobs.nalp.org, careercenter.nacua.org,
+#     jobboard.lgbtqbar.org, jobs.nationalbar.org. Stable prebuilt query URLs,
+#     good site: targets even without a dedicated provider.
+#   - JobPosting JSON-LD harvest: extract <script type="application/ld+json">
+#     JobPosting objects (title, datePosted, validThrough, baseSalary) from
+#     any Google-for-Jobs-indexed career page, including law firms. This is a
+#     parser TECHNIQUE to reuse across tracked_companies, not a source itself.
+#   - Adzuna API — GET api.adzuna.com/v1/api/jobs/us/search/1?app_id={id}&app_key={key}&category=legal-jobs&what=attorney
+#     Free key at developer.adzuna.com, ~250 calls/day free tier. Best
+#     programmatic aggregator candidate; category slug untested — confirm via
+#     /v1/api/jobs/us/categories before wiring up a provider.
+#   - Jooble API — POST jooble.org/api/{api_key} {"keywords":"attorney"}.
+#     Free key at jooble.org/api/about. Second aggregator for cross-check.
+#
+# Untested-endpoint retest list (run once from an unblocked network):
+#   naag.org/job/feed/, blog.psjd.org/feed, paragonlegal.com/jobs/feed/,
+#   inhouseblog.com/feed, jobslegaloperators.com/feed/,
+#   boards-api.greenhouse.io/v1/boards/axiomlaw/jobs (the Axiom Greenhouse
+#   slug above), YM Careers /jobs/rss/ saved-search URLs, Adzuna
+#   /v1/api/jobs/us/categories (confirm the legal-jobs slug).
 
 # ── Job Boards ────────────────────────────────────────────────────────
 # Multi-employer aggregators. Unlike tracked_companies (one entry = one employer),

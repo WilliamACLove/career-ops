@@ -10,7 +10,7 @@ Run it when the user says "refresh legal market data", "update comp benchmarks",
 
 This is a bounded, single-pass refresh — not open-ended research. Comply with `modes/_shared.md` → Subagent delegation: run the searches/fetches below inline, do **not** invoke `deep-research` or any other research skill, and do **not** spawn nested agents.
 
-Hard budget: at most **8 WebSearch queries + the portal-health curls** (which are zero-token HTTP checks, not searches). Stop early when the data is confirmed.
+Hard budget: at most **10 WebSearch queries + the portal-health curls** (which are zero-token HTTP checks, not searches) — raised from 8 to cover the discovery-sweep and retest additions in step 4. Stop early when the data is confirmed.
 
 ### 1. Associate salary scale + bonus check (2 queries)
 
@@ -34,11 +34,17 @@ For each **enabled** tracked company in `portals.yml`:
 - A 404/410/hard redirect to a generic page = dead board. A 200 with zero legal-title matches is fine (in-house legal teams are small — 0–5 openings at a time is normal, not a dead board).
 - For each dead board, **propose** `enabled: false` with the evidence (status code, date) — never disable silently.
 
-### 4. Discovery: employers not yet tracked (up to 4 queries)
+### 4. Discovery: employers not yet tracked (up to 6 queries)
 
 - Check legal.io (`site:legal.io/organizations` counsel openings), legalalphabet.com, and GoInhouse.com for legal employers with active counsel roles that are not in `portals.yml`.
 - For each candidate employer, note its ATS (Greenhouse/Ashby/Lever slug if discoverable) and one live legal role as evidence.
 - **Propose** additions — company name, `careers_url`, `api:` endpoint, evidence — never write them unprompted. Beware slug traps (Greenhouse `relativity` is Relativity Space, not the eDiscovery company).
+
+**(a) Quarterly Product Hunt discovery sweep (1 query)** — `site:producthunt.com/products ("legal jobs" OR "attorney jobs" OR "job search")`, to surface newly launched job-search/legal-career platforms before they show up anywhere else. Run this sub-step once per quarter, not every refresh (skip it on off-quarter runs and note that it was skipped). The 2026-07 sweep surfaced two leads worth evaluating on a future run: "Job Postings API" (a 1.8M+ US jobs monitor — check pricing/auth before adopting) and "Ghost Jobs" (a ghost-posting detection tool). Propose evaluation, don't adopt on sight.
+
+**(b) Untested-feed retest (0 extra queries — zero-token HTTP, same as step 3)** — re-curl the feeds `templates/portals.example.yml` flags as untested in its "Zero-token feed & API techniques" comment block, so dead/live status stays current: `naag.org/job/feed/`, `blog.psjd.org/feed`, `paragonlegal.com/jobs/feed/`, `inhouseblog.com/feed`, `jobslegaloperators.com/feed/`, `boards-api.greenhouse.io/v1/boards/axiomlaw/jobs` (the Axiom Greenhouse slug), and a sample YM Careers `/jobs/rss/` saved-search URL. A 200 with parseable feed content promotes the entry from "untested" to "confirmed working" (propose the diff); anything else stays untested or moves to skip/dead with evidence.
+
+**(c) Aggregator-API adoption check (1 query)** — `Adzuna API legal jobs category site:developer.adzuna.com` (or equivalent for Jooble) to check whether the Adzuna `category=legal-jobs` slug (and Jooble's keyword search) have stabilized enough to justify a real `provider:` module instead of a WebSearch stopgap. Report findings; don't build the provider in this mode — that's a code change outside `legal-market`'s scope.
 
 ## Output
 
