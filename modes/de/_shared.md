@@ -172,7 +172,7 @@ Diese Prüfungen laufen VOR der Gewichtung der übrigen Bewertungsdimensionen. S
 - Score 1.0 nur, wenn die Stellenanzeige explizit sagt "muss 4-5 Tage/Woche vor Ort, keine Ausnahmen"
 
 ### Time-to-Offer-Priorität
-- Funktionierende Demo + Metriken > Perfektion
+- Belastbares Bewerbungspaket (Lebenslauf + Dealsheet/Matters-Liste) > Perfektion
 - Schneller bewerben > mehr lernen
 - 80/20-Ansatz, alles zeitlich begrenzen
 

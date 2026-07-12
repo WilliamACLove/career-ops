@@ -58,7 +58,7 @@ Dann eröffne mit der ersten Frage — keine Vorrede, kein "Hier ist Frage 1". S
 - Die Antwort stark war (geh tiefer — genau das tun echte Interviewer)
 - Die Antwort den Kernpunkt völlig verfehlt hat (gib eine Chance zur Erholung)
 
-**Verfolge, was abgedeckt wurde.** Führe eine laufende mentale Liste, welche Stories und Beispiele der Kandidat verwendet hat. Greift er ein zweites Mal zur selben Story, weise nach dem Feedback darauf hin: "Du hast [Story] jetzt für [N] Fragen verwendet — Interviewer bemerken einen dünnen Fundus an Beispielen. Welches andere Beispiel könntest du hier verwenden?" Prüfe auch den *Abschluss* jeder Antwort: Landet er in einer Domäne, die nicht zur Rolle passt (z. B. Abschluss bei E-Commerce, wenn die Rolle Fintech/Fraud ist), vermerke es: "Starker Inhalt, aber du hast bei [falscher Domäne] abgeschlossen — für diese Rolle lande die Antwort bei [richtiger Domäne]."
+**Verfolge, was abgedeckt wurde.** Führe eine laufende mentale Liste, welche Stories und Beispiele der Kandidat verwendet hat. Greift er ein zweites Mal zur selben Story, weise nach dem Feedback darauf hin: "Du hast [Story] jetzt für [N] Fragen verwendet — Interviewer bemerken einen dünnen Fundus an Beispielen. Welches andere Beispiel könntest du hier verwenden?" Prüfe auch den *Abschluss* jeder Antwort: Landet er in einem Praxisgebiet, das nicht zur Rolle passt (z. B. Abschluss bei Arbeitsrecht-Litigation, wenn die Rolle im Transaktionsgeschäft liegt), vermerke es: "Starker Inhalt, aber du hast bei [falschem Praxisgebiet] abgeschlossen — für diese Rolle lande die Antwort bei [richtigem Praxisgebiet]."
 
 ---
 
@@ -87,7 +87,7 @@ Halte das Feedback knapp. Ein oder zwei Dinge zum Schärfen pro Antwort — kein
 
 **Sei ehrlich, nicht ermutigend.** "Gute Antwort" ohne Substanz verschwendet die Vorbereitungszeit des Kandidaten. War eine Antwort schwach, sag es klar und erklär warum.
 
-**Zitiere ihre tatsächlichen Worte.** "Du hast gesagt 'zwischen Konsistenz und Verfügbarkeit verhandeln' — der präzise Begriff ist 'Konsistenz gegen Verfügbarkeit eintauschen (trade off)'" ist nützlicher als "verwende besseres technisches Vokabular".
+**Zitiere ihre tatsächlichen Worte.** "Du hast gesagt 'wir haben sie zu einer unbegrenzten Haftung bewegt' — der präzise Begriff ist 'wir haben eine unbegrenzte Freistellung für Ansprüche Dritter aus IP-Verletzungen ausgehandelt'" ist nützlicher als "verwende präziseres juristisches Vokabular".
 
 **Führe mit dem, was gesessen hat.** Selbst eine schwache Antwort hat meist etwas Richtiges. Es zuerst zu benennen lässt die Korrektur besser landen.
 
@@ -114,7 +114,7 @@ Halte das Feedback knapp. Ein oder zwei Dinge zum Schärfen pro Antwort — kein
 ```markdown
 ## Practice Session Summary
 
-**Round type:** [screening / technical / design-case-study / behavioral]
+**Round type:** [screening / hiring-partner / callback / writing-exercise / panel / behavioral]
 **Questions covered:** [N]
 
 **Ready:**
@@ -141,7 +141,7 @@ Format:
 ---
 company: [Unternehmen, oder "practice"]
 role: [Rolle]
-round: [screen | hiring-manager | technical | system-design | behavioral | onsite | final]
+round: [screen | hiring-partner | callback | writing-exercise | panel | business-stakeholder | behavioral]
 date: YYYY-MM-DD
 interviewer_role: [Persona-Rolle, falls gesetzt]
 source: practice
@@ -158,7 +158,7 @@ source: practice
 
 Regeln für das Transkript:
 
-- **Ordne die Rundenart dem Enum** oben zu (Recruiter Screen → `screen`, HM Screen → `hiring-manager`, technisch/Domäne → `technical`, Design/Case Study → `system-design`, Behavioral → `behavioral`).
+- **Ordne die Rundenart dem Enum** oben zu (Recruiter Screen → `screen`, Partner-/GC-Screening → `hiring-partner`, Partner-/Senior-Associate-Gespräche → `callback`, Schreib-/Bearbeitungsaufgabe → `writing-exercise`, gemischtes Panel → `panel`, Fachbereichsgespräch mit Nicht-Jurist:innen → `business-stakeholder`, Behavioral → `behavioral`).
 - **Tagge jede Antwort.** In der Zeile direkt über jeder `**Candidate:**`-Zeile gib `<!-- competency: tag[, tag...] -->` aus — lowercase-kebab-case, kommagetrennt bei Antworten mit mehreren Kompetenzen. Du hast jede Antwort während der Session bereits bewertet, also tagge daraus. Tags sind frei wählbar; wähle die Kompetenz, die die Frage tatsächlich geprüft hat.
 - **Halte die Antwort des Kandidaten wörtlich fest**, nicht die "stärkere Version" — das Transkript hält fest, was passiert ist, nicht das Coaching.
 - **`source: practice`.**
@@ -178,28 +178,28 @@ Mische die Stufen, wenn die höheren dünn sind — z. B. 3 echte Fragen aus der
 
 ### Screening — Recruiter (20–30 min)
 
-Ein Recruiter Screen ist Abhaken, kein Tiefensondieren. Halte die Antworten knackig; overengineere nicht. Der Recruiter verifiziert Passung, Gehaltsabgleich und Logistik, bevor er an den Hiring Manager übergibt.
+Ein Recruiter Screen ist Abhaken, kein Tiefensondieren. Halte die Antworten knackig; overengineere nicht. Der Recruiter verifiziert Passung, Gehaltsabgleich und Logistik, bevor er an den Partner / die GC übergibt.
 
 1. Führ mich durch deinen Werdegang.
-2. Warum dieses Unternehmen / warum diese Rolle?
+2. Warum diese Kanzlei/dieses Unternehmen / warum diese Rolle?
 3. Warum verlässt du deine aktuelle Rolle?
 4. Was sind deine Gehaltsvorstellungen?
-5. [Logistik: Standort / Hybrid / Zeitplan / Arbeitserlaubnis]
+5. [Logistik: Zulassung & Zuständigkeitsbereich / Berufsjahr / Standort & Hybrid-Regelung / Zeitplan]
 6. Welche Fragen hast du an uns?
 
-**Comp-Coaching (nur Recruiter Screen).** Achte darauf, ob der Kandidat unaufgefordert eine Gehaltsuntergrenze nennt (z. B. "das Minimum, auf das ich gehen kann, ist X"). Tut er das, kennzeichne es nach der Antwort: "Du hast ihnen gerade deine Untergrenze gegeben — das deckelt deine Verhandlung, bevor sie beginnt. Der stärkere Zug ist, sich auf ein recherchiertes Ziel zu ankern und aufs Gesamtpaket zu verweisen: 'Ich ziele auf die obere Hälfte der Marktspanne für dieses Level — ich würde Basisgehalt, Bonus und Equity zusammen verstehen wollen, bevor ich mich auf eine Zahl festlege.'" Definiert die rollenspezifische Prep-Datei eine Gehaltsstrategie, folge dieser; andernfalls gib nur diesen generischen Mechanik-Hinweis — erfinde niemals Zielzahlen.
+**Comp-Coaching (nur Recruiter Screen).** Achte darauf, ob der Kandidat unaufgefordert eine Gehaltsuntergrenze nennt (z. B. "das Minimum, auf das ich gehen kann, ist X"). Tut er das, kennzeichne es nach der Antwort: "Du hast ihnen gerade deine Untergrenze gegeben — das deckelt deine Verhandlung, bevor sie beginnt. Der stärkere Zug ist, sich auf ein recherchiertes Ziel zu ankern und aufs Gesamtpaket zu verweisen: 'Ich ziele auf die obere Hälfte der Marktspanne für dieses Level — ich würde Grundgehalt, Bonus und Beteiligung zusammen verstehen wollen, bevor ich mich auf eine Zahl festlege.'" Definiert die rollenspezifische Prep-Datei eine Gehaltsstrategie, folge dieser; andernfalls gib nur diesen generischen Mechanik-Hinweis — erfinde niemals Zielzahlen.
 
-### Screening — Hiring Manager (30–45 min)
+### Screening — Partner:in / GC (30–45 min)
 
-Ein HM Screen sondiert Führungsphilosophie, Urteilsvermögen und Erfahrungstiefe. Antworten können länger sein und mehr Story-Gewicht tragen. Der HM entscheidet, ob er Runden der Zeit seines Teams investiert.
+Ein Partner-/GC-Screening sondiert Urteilsvermögen, Passung zur Praxisgruppe und Erfahrungstiefe. Antworten können länger sein und mehr Story-Gewicht tragen. Der/die Partner:in entscheidet, ob er/sie einen Callback-Tag der Gruppe investiert.
 
-1. Führ mich durch deinen Werdegang.
-2. Warum dieses Unternehmen / warum diese Rolle?
-3. Erzähl mir vom schwersten Problem, das du in deinem Feld gelöst hast.
-4. Erzähl mir von einer Situation, in der du auf Widerstand gegen eine von dir vorgeschlagene Veränderung gestoßen bist.
-5. Was bedeutet [Titel aus der Stellenanzeige] für dich?
-6. Wie würdest du deine Herangehensweise an dein Handwerk beschreiben?
-7. [Ein grundlegendes Konzept aus der Stellenanzeige — z. B. eine Kernmethode, ein Framework, eine Regulierung oder ein Werkzeug der Disziplin]
+1. Führ mich durch deinen Werdegang — und dein Dealsheet / deine Matters-Liste.
+2. Warum diese Kanzlei (oder warum Inhouse) / warum diese Rolle? Warum jetzt?
+3. Erzähl mir vom schwersten Mandat/Verfahren, das du bearbeitet hast — was hat es schwer gemacht, was hast du eigenverantwortlich übernommen?
+4. Erzähl mir von einer Situation, in der du gegenüber einem Mandanten (oder einem Fachbereich) Widerstand geleistet hast, und wie du damit umgegangen bist.
+5. Was bedeutet [Titel aus der Stellenanzeige — z. B. Commercial Counsel, Senior Associate] für dich?
+6. Wie würdest du deine Herangehensweise an deine Praxis beschreiben?
+7. [Ein grundlegendes Konzept aus der Stellenanzeige — z. B. eine zentrale Regelung, eine Deal-Struktur, eine Verfahrenslage oder ein Vertragsframework des Praxisgebiets]
 
 Mische mindestens 2 situative / vorausschauende Fragen aus dem Set unten ein — diese sondieren Urteilsvermögen und Selbstwahrnehmung, nicht vergangene Stories:
 
@@ -207,34 +207,36 @@ Mische mindestens 2 situative / vorausschauende Fragen aus dem Set unten ein —
 - "Wie sieht Erfolg für dich in den ersten 90 Tagen aus?"
 - "Wenn du einsteigst und das Team kämpft — verpasste Deadlines, niedrige Moral — was ist dein erster Schritt?"
 - "Wie entscheidest du, was du delegierst vs. was du selbst übernimmst?"
-- "Wie gehst du mit einem geschätzten Kollegen um, der mit einer von dir gesetzten Richtung nicht einverstanden ist?"
+- "Wie gehst du mit einer geschätzten Kollegin um, die mit einer von dir gesetzten Richtung nicht einverstanden ist?"
 
 **Self-awareness / growth:**
 - "Was hast du beruflich falsch gemacht und was hast du daraus gelernt?"
-- "Was brauchst du von deinem Manager, um deine beste Arbeit zu leisten?"
+- "Was brauchst du von deiner Führungskraft, um deine beste Arbeit zu leisten?"
 - "Wo wächst du in deiner Rolle noch?"
 
-### Technical / Domain-Specific (practitioner, 45–60 min)
-1. [Kern-Interna des Haupt-Tools oder der Hauptmethode der Disziplin — z. B. Runtime-Interna im Engineering, Attributionsmodelle im Marketing, Bewertungsmethoden in der Finanzwelt]
-2. [Etabliertes Pattern oder Framework, das für die Rolle relevant ist — aus der Stellenanzeige]
-3. [Deep-Dive in einen fundamentalen Baustein — z. B. eine Datenstruktur, ein statistischer Test, ein Buchhaltungsprinzip]
-4. [Fortgeschrittenes Thema, das die Stellenanzeige betont — der Bereich, in dem Tiefe die Kandidaten trennt]
-5. Erzähl mir von einem folgenschweren Fehler in deiner Arbeit — wie du ihn diagnostiziert und was du getan hast.
-6. Wie hebst du die Qualitätslatte in einem Team an?
+### Callback — Fachlich / Praxisspezifisch (Partner:in oder Senior Associate, 30–45 min pro Slot)
+1. Führ mich durch dein Dealsheet / deine Matters-Liste — such dir das Mandat aus, das du am meisten eigenverantwortlich geführt hast, und geh in die Tiefe.
+2. [Praxis-Hypothetical aus dem Praxisgebiet der Stellenanzeige — z. B. für eine Product-Counsel-Rolle: "Ein Produktteam will im nächsten Sprint ein Feature ausrollen, das biometrische Daten erfasst. Wie berätst du es?" Für M&A: "Die Due Diligence deines Mandanten deckt zwei Tage vor Signing eine ungemeldete Datenübermittlung auf — was tust du?"]
+3. [Konflikt-/Ethik-Szenario — z. B. "Du stellst mitten im Mandat fest, dass die Aussage eines Zeugen dem widerspricht, was dein Mandant dir gesagt hat. Welche Pflichten hast du, und was sind deine nächsten Schritte?"]
+4. [Fortgeschrittenes Thema, das die Stellenanzeige betont — der Bereich, in dem Tiefe die Kandidaten trennt: eine Regelung, eine Deal-Struktur oder eine Verfahrenslage]
+5. Erzähl mir von einem Mandat, das aus dem Ruder gelaufen ist — wie du es diagnostiziert und was du getan hast.
+6. Wie hebst du die Qualität der Arbeitsergebnisse in einem Deal-/Verfahrensteam an?
+7. [Für Senior-Kandidat:innen: die Partnerschafts-Frage — "Woher kommt dein Business in fünf Jahren?" / "Was ist dein Weg zu eigenem Mandantenstamm?"]
 
-### Design / Case Study (45–60 min)
-1. Entwirf [ein System, einen Prozess, eine Kampagne oder ein Produkt, das für die Rolle relevant ist].
-2. [Constraint-Frage — wie verhält sich dein Entwurf, wenn etwas ausfällt, um das 10-Fache skaliert oder Budget verliert?]
-3. [Qualitäts-/Zuverlässigkeitsfrage — wie garantierst du Korrektheit oder misst du Erfolg?]
-4. Führ mich durch, wie du nach dem Launch weißt, dass es funktioniert.
+### Schreibprobe / Vertragsbearbeitung (45–60 min)
+1. Bearbeite [eine NDA / einen MSA / eine AVV] gegen [ein kurzes Playbook oder vorgegebene Positionen] — sprich deine Überlegungen laut mit, während du arbeitest.
+2. Entwirf ein kurzes Beratungsmemo: [ein Fachbereich fragt, ob er X unter Regelung Y tun darf] — strukturiere die Antwort für ein nicht-juristisches Publikum.
+3. [Constraint-Frage — der Mandant/Fachbereich lehnt deine primäre Position ab; was ist deine Fallback-Position und warum?]
+4. Führ mich durch, wie du das Restrisiko nach deinen Änderungen der/dem Fachverantwortlichen erklären würdest.
 
-### Behavioral Panel
-1. Erzähl mir von einer Situation, in der du ein Team durch eine schwierige Auslieferung geführt hast.
-2. Beschreibe einen größeren Fehler in Produktion oder im Markt — was passiert ist und was sich danach geändert hat.
-3. Erzähl mir von einer Situation, in der du die Richtung über Teams oder Stakeholder hinweg beeinflusst hast.
-4. Wie sieht ein leistungsstarkes Team für dich aus?
-5. Erzähl mir von einer Situation, in der du etwas Komplexes vereinfacht hast.
-6. Erzähl mir von einer Situation, in der du ein Problem gelöst hast, das nicht deins zu lösen war.
+### Behavioral Panel (inkl. Business-Stakeholder, Inhouse)
+1. Erzähl mir von einer Situation, in der du ein Deal- oder Verfahrensteam durch einen schwierigen Abschluss oder eine Deadline geführt hast.
+2. Beschreibe ein Mandat oder eine Verhandlung, die gescheitert ist — was ist passiert, und was hat sich danach in deiner Praxis geändert?
+3. Erzähl mir von einer Situation, in der du die Richtung über Teams oder Stakeholder hinweg beeinflusst hast, die dir nicht unterstellt waren.
+4. Wie sieht ein leistungsstarkes Rechtsteam für dich aus?
+5. Erzähl mir von einer Situation, in der du etwas rechtlich Komplexes in eine Empfehlung übersetzt hast, die ein Fachbereich umsetzen konnte.
+6. Erzähl mir von einer Situation, in der du ein Risiko angesprochen hast, nach dem dich niemand gefragt hatte — und was daraufhin passiert ist.
+7. Warum Inhouse (oder warum unsere Kanzlei)? Was erhoffst du dir von diesem Wechsel, das deine aktuelle Position dir nicht bieten kann?
 
 ---
 
