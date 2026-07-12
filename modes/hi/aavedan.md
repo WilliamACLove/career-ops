@@ -81,11 +81,13 @@ Firm application draft/fill करने से पहले हमेशा che
 
 - **Current CTC**: Honest figure। यदि recent increment हुई है, current package (current + increment) mention करें
 - **Expected CTC**: `profile.yml` से range, annual CTC में, "negotiable based on overall package" के साथ
+- **Bar Enrolment / AIBE status**: State Bar Council enrolment number और AIBE clearance status clearly mention करें (जहाँ JD माँगे)। Patent-prosecution roles के लिए Patent Agent registration status भी शामिल करें
+- **PQE (Post-Qualification Experience)**: Years clearly state करें, enrolment date से calculate करके — यह JD के stated band से match होना चाहिए (देखें `naukri.md` Step 0.5 hard gate)
 - **Notice Period / Last Working Day**: Actual notice period बताएं। Buyout available है, यह mention करें यदि relevant हो
-- **Reason for leaving current job**: Honest, forward-looking। "Growth opportunity" या "role alignment" — negative न हो
+- **Reason for leaving current job**: Honest, forward-looking। "Growth opportunity" या "role/practice-area alignment" — negative न हो, "billable hours" या internal politics जैसी negative framing avoid करें
 - **Work Authorization / Visa**: Indian citizens के लिए: "Indian Citizen, no visa required"। Global remote roles के लिए: timezone overlap और availability clearly बताएं
-- **Preferred Location / Relocation**: Preferred cities clearly बताएं (Bengaluru, Hyderabad, Pune, Gurugram, Chennai, Mumbai)। Remote preference हो तो mention करें
-- **Languages**: English और Hindi (और अन्य regional languages यदि applicable हों)
+- **Preferred Location / Relocation**: Preferred cities clearly बताएं (प्रमुख legal hubs: Delhi/NCR, Mumbai, Bengaluru, Kolkata, Chennai, Hyderabad, Pune)। Remote preference हो तो mention करें (litigation roles में remote लागू नहीं होता — court presence ज़रूरी)
+- **Languages**: English और Hindi (और अन्य regional languages यदि applicable हों -- कई courts/tribunals में स्थानीय भाषा का काम आना advantage है)
 
 **Output format:**
 

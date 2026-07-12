@@ -108,7 +108,7 @@ Offer की requirements पर mapped 6-10 STAR+R stories (STAR + **Reflection
 
 **Archetype के अनुसार selected और framed:**
 - ट्रांजैक्शनल → deal execution, drafting ownership, specialist workstreams manage करना highlight करें
-- लिटिगेशन & डिस्प्यूट्स → case strategy, motions/briefs जीते, depositions/court appearances, pressure में writing highlight करें
+- लिटिगेशन & डिस्प्यूट्स → case strategy, motions/briefs जीते, court/tribunal appearances, pressure में writing highlight करें
 - इन-हाउस → business enablement ("safely yes तक पहुँचाना"), volume management, cross-functional counseling highlight करें
 - कंप्लायंस & रेगुलेटरी → program building, regulator interactions, investigations handled highlight करें
 - गवर्नमेंट / पब्लिक इंटरेस्ट → trial/tribunal volume, resource-constrained judgment, mission commitment highlight करें

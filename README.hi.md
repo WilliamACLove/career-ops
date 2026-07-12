@@ -78,6 +78,8 @@
 
 ## यह क्या है
 
+> **यह edition legal और attorney careers को target करता है** -- law firm associates, in-house counsel, compliance और regulatory counsel, government/public interest attorneys, और legal tech roles। नीचे दिए archetypes, portal list, comp research sources, और evaluation gates (bar enrolment/jurisdiction, class-year/PQE matching, conflicts) legal job market के लिए tuned हैं। Underlying engine career-agnostic है और किसी भी career track के लिए पूरी तरह customizable है -- बस अपने AI CLI से archetypes change करने को कहें। यह project जिस original AI/engineering-careers edition से बना है वह भी open source है, [santifer](https://santifer.io) द्वारा maintained (नीचे "Author के बारे में" देखें)।
+
 Career-Ops ([career-ops.org](https://career-ops.org), जिसे **careerops** भी कहते हैं) किसी भी AI coding CLI को एक पूर्ण job search command center में बदल देता है। Applications को spreadsheet में manually track करने की जगह, आपको एक AI-powered pipeline मिलती है जो:
 
 - **Offers evaluate करती है** एक structured A-F scoring system के साथ (10 weighted dimensions)
@@ -104,7 +106,7 @@ Career-ops agentic है: जो भी AI coding CLI आप चुनें �
 | **Negotiation Scripts**  | Salary negotiation frameworks, geographic discount pushback, competing offer leverage                                                    |
 | **ATS PDF Generation**   | Keyword-injected CVs with Space Grotesk + DM Sans design                                                                                 |
 | **Cover Letter Generator** | Research-backed cover letters with keyword mirroring, four interactive angle prompts (why/problems/approach/tone), draft-in-chat approval gate, और A4 PDF। Auto-drafts हर evaluation पर; demand पर `/career-ops cover` से generate करें |
-| **Portal Scanner**       | 45+ companies pre-configured (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + custom queries across Ashby, Greenhouse, Lever, Wellfound |
+| **Portal Scanner**       | 45+ companies pre-configured -- legal tech (Harvey, Ironclad, Everlaw, Spellbook, Clio...), tech companies की in-house legal teams (Anthropic, OpenAI, Coinbase, Databricks, Stripe...), साथ ही government (USAJOBS) और bar-association boards -- + custom queries across Ashby, Greenhouse, Lever, Workday |
 | **Batch Processing**     | Headless CLI workers के साथ parallel evaluation (`claude -p` / `opencode run`)                                                          |
 | **Dashboard TUI**        | Pipeline browse, filter, और sort करने के लिए Terminal UI                                                                               |
 | **Human-in-the-Loop**    | AI evaluate और recommend करता है, आप decide और act करते हैं। System कभी application submit नहीं करता -- final call हमेशा आपका        |
@@ -188,7 +190,7 @@ cd career-ops
 agy
 
 # 2. Unified /career-ops command subcommands के साथ use करें:
-/career-ops "Senior AI Engineer at Anthropic..."
+/career-ops "Senior Commercial Counsel at Anthropic..."
 /career-ops pipeline
 /career-ops scan
 /career-ops pdf
@@ -240,7 +242,7 @@ cd career-ops
 grok
 
 # 2. Unified /career-ops command subcommands के साथ use करें:
-/career-ops "Senior AI Engineer at Anthropic..."
+/career-ops "Senior Commercial Counsel at Anthropic..."
 /career-ops pipeline
 /career-ops scan
 /career-ops pdf
@@ -260,7 +262,7 @@ cp .env.example .env
 npm install
 
 # 3. Job description evaluate करें
-node gemini-eval.mjs "We are looking for a Senior AI Engineer..."
+node gemini-eval.mjs "We are looking for a Senior Commercial Counsel..."
 node gemini-eval.mjs --file ./jds/my-job.txt
 npm run gemini:eval -- "JD text here"
 ```
@@ -298,8 +300,8 @@ Codex में, slash commands guaranteed नहीं हैं। Same mode n
         │
         ▼
 ┌──────────────────┐
-│  Archetype       │  Classify करता है: LLMOps / Agentic / PM / SA / FDE / Transformation
-│  Detection       │
+│  Archetype       │  Classify करता है: Firm Associate (Transactional/Litigation) /
+│  Detection       │  In-House Counsel / Compliance / Government / Legal Tech
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -317,14 +319,11 @@ Codex में, slash commands guaranteed नहीं हैं। Same mode n
 
 Scanner **45+ companies** के साथ scan करने और major job boards में **19 search queries** के साथ ready आता है। `templates/portals.example.yml` को `portals.yml` में copy करें और अपनी companies add करें:
 
-**AI Labs:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
-**AI Platforms:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
-**Contact Center:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
-**Enterprise:** Salesforce, Twilio, Gong, Dialpad
-**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
-**Automation:** n8n, Zapier, Make.com
-**European:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
+**Legal tech:** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
+**In-house legal:** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
+**Boards:** USAJOBS (federal government, incl. justice.gov), GoInhouse, Lawjobs, LawCrossing, LateralHub, ABA और state bar career centers। साथ ही `search_queries` के through भी cover होता है: government/AG-office boards (NAAG, NDAA, NLADA, GovernmentJobs.com), bar-association और practice-area career centers (YM Careers boards -- ACC Jobline, AIPLA, INTA, ACEDS, FBA, AHLA के लिए saved-search RSS technique सहित), university counsel boards (NACUA, HigherEdJobs), flexible/return-to-work marketplaces (The Mom Project, Paragon Legal, Latitude Legal, Axiom), और legal-ops boards (Legal Operators, CLOC, legal.io Legal-Operations)।
+
+> **Law firm laterals पर note:** बड़े AmLaw-tier firms अपने खुद के legal-vertical ATS (viRecruit, LawCruit) चलाते हैं जिनका कोई public API नहीं है, इसलिए BigLaw/AmLaw lateral openings ज़्यादातर recruiters (Major Lindsey & Africa, Lateral Link, BCG Attorney Search) या aggregators से flow करते हैं, इस scanner से नहीं। भारत में इसका equivalent पैटर्न है -- Tier-1 firms (Cyril Amarchand Mangaldas, AZB, Khaitan, Shardul Amarchand -- category के तौर पर) भी अपने lateral hiring का बड़ा हिस्सा legal recruiters (जैसे Vahura) के through करती हैं, public ATS नहीं। Scanner का sweet spot legal tech + in-house counsel roles है जो public ATS boards पर हैं, plus **Naukri.com** (भारत का dominant board, legal roles सहित), **Lawctopus** और **SCC Online Careers** (legal-specific), और एक real government API (USAJOBS)।
 
 **Job boards searched:** 21 provider modules ATS APIs, board-wide feeds, XML/RSS feeds, markdown feeds, और local parsers cover करते हैं। Full table के लिए [Supported job boards](docs/SUPPORTED_JOB_BOARDS.md) देखें।
 
