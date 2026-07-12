@@ -26,22 +26,22 @@
 
 ## North Star -- Målroller
 
-Dette skill behandler ALLE målroller med samme omhu. Ingen er primær eller sekundær -- hver enkelt er en succes, hvis aflønning og udviklingsmuligheder er til stede:
+Dette skill behandler ALLE målroller med samme omhu. Ingen er primær eller sekundær -- hver enkelt er en succes, hvis aflønning og udviklingsmuligheder er til stede. Denne udgave er målrettet det juridiske arbejdsmarked (advokatbranchen, virksomhedsjura, compliance, det offentlige og legal tech). Systemet er fortsat fuldt tilpasseligt -- bed blot om at ændre arketyperne, hvis du søger andre karriereveje:
 
-| Arketype | Tematiske akser | Hvad virksomheden køber |
-|----------|-----------------|-------------------------|
-| **AI Platform / LLMOps Engineer** | Evaluation, Observability, Pålidelighed, Pipelines | En der sætter AI i produktion med metrics |
-| **Agentic Workflows / Automation** | HITL, Tooling, Orkestrering, Multi-Agent | En der bygger pålidelige agent-systemer |
-| **Technical AI Product Manager** | GenAI/Agents, PRDs, Discovery, Delivery | En der oversætter forretning til AI-produkter |
-| **AI Solutions Architect** | Hyperautomation, Enterprise, Integrationer | En der designer end-to-end AI-arkitekturer |
-| **AI Forward Deployed Engineer** | Client-facing, Hurtig levering, Prototyping | En der hurtigt udruller AI-løsninger hos kunden |
-| **AI Transformation Lead** | Forandringsledelse, Adoption, Enablement | En der driver AI-transformation i organisationer |
+| Arketype | Signaler i jobopslaget | Hvad arbejdsgiveren køber |
+|----------|------------------------|----------------------------|
+| **Advokatfuldmægtig / Advokat -- Transaktioner** | "advokatfuldmægtig", "advokat", "M&A", "virksomhedsoverdragelse", "selskabsret", "kapitalmarkeder", "finansiering", "transaktioner", "due diligence", "deal-team" | En der kan udføre transaktioner selvstændigt på det rette erfaringsniveau |
+| **Advokatfuldmægtig / Advokat -- Procedure & Tvistløsning** | "procedure", "procesadvokat", "voldgift", "retssag", "tvistløsning", "responsum", "bevisførelse", "landsret", "Sø- og Handelsretten" | En der kan føre sager og skrive processkrifter under pres |
+| **Virksomhedsjurist -- Kommerciel / Produkt / Privacy** | "virksomhedsjurist", "in-house", "kommerciel jurist", "kontraktjurist", "GDPR", "persondata", "compliance officer", "kommercielle aftaler", "tværfaglig" | En der rådgiver forretningen hurtigt og forståeligt, ikke kun juridisk korrekt |
+| **Compliance & Regulatorisk** | "compliance", "regulatorisk", "hvidvask", "AML", "Finanstilsynet", "risikostyring", "undersøgelser", "tilladelser", "regulatorisk rapportering" | En der bygger og driver et compliance-program og kan tale med tilsynet |
+| **Offentlig forvaltning / Anklagemyndigheden / Almennyttig jurist** | "anklager", "anklagemyndigheden", "kammeradvokaten", "juridisk fuldmægtig i ministerium/styrelse", "retshjælp", "advokatvagt", "fri proces" | En der kan træffe forsvarlige beslutninger under ressourcepres og med samfundssind |
+| **Legal Tech / Legal Engineer** | "legal engineer", "legal tech", "legal operations", "juridisk innovation", "automatisering af juridiske processer", "legal AI" | En med solid juridisk faglighed OG reel forståelse for produkt/AI-værktøjer |
 
-<!-- [TILPAS] Tilpas arketyperne ovenfor til dine målroller.
-     Eksempel for backend engineering:
-     - Senior Backend Engineer
-     - Staff Platform Engineer
-     - Engineering Manager
+<!-- [TILPAS] Arketyperne ovenfor er sat til det juridiske marked. Bed Claude om at ændre dem,
+     hvis du søger andre roller, fx:
+     - Skattejurist / Told- og skatteforvaltning
+     - Notar
+     - Fagforeningsjurist
      osv. -->
 
 ### Adaptiv framing efter arketype
@@ -50,60 +50,67 @@ Dette skill behandler ALLE målroller med samme omhu. Ingen er primær eller sek
 
 | Hvis rollen er... | Fremhæv hos kandidaten... | Kilder til proof points |
 |-------------------|---------------------------|-------------------------|
-| Platform / LLMOps | Produktionserfaring, observability, evals, closed-loop | article-digest.md + cv.md |
-| Agentic / Automation | Multi-agent-orkestrering, HITL, pålidelighed, omkostninger | article-digest.md + cv.md |
-| Technical AI PM | Product discovery, PRDs, metrics, stakeholder-styring | cv.md + article-digest.md |
-| Solutions Architect | Systemdesign, integrationer, enterprise-klar | article-digest.md + cv.md |
-| Forward Deployed Engineer | Hurtig levering, kundenærhed, prototype til produktion | cv.md + article-digest.md |
-| AI Transformation Lead | Forandringsledelse, team-enablement, adoption | cv.md + article-digest.md |
+| Transaktioner | Konkrete sager fra sagslisten (deal-typer, transaktionsstørrelser, tovholderansvar på delarbejdsstrømme) på det rette fuldmægtig-/advokatår | article-digest.md + cv.md |
+| Procedure & Tvistløsning | Egen sagsførelse: responsummer, hovedforhandlinger, voldgiftssager, bevisførelse | article-digest.md + cv.md |
+| Virksomhedsjurist | Kontraktvolumen, tværfaglig rådgivning i klart sprog, regulatorisk bredde | cv.md + article-digest.md |
+| Compliance & Regulatorisk | Navngivne regelsæt (AML/hvidvask, GDPR, sektorspecifik regulering), tilsynskontakt, undersøgelser | article-digest.md + cv.md |
+| Offentlig forvaltning / Almennyttig | Sagsvolumen, retssalserfaring, dokumenteret samfundsengagement | cv.md + article-digest.md |
+| Legal Tech / Legal Engineer | Solid juridisk pedigree KOMBINERET med reel produkt-/AI-forståelse, byggede playbooks/workflows | cv.md + article-digest.md |
 
-<!-- [TILPAS] Knyt dine konkrete projekter/artikler til arketyperne ovenfor -->
+<!-- [TILPAS] Knyt dine konkrete sager/artikler til arketyperne ovenfor -->
 
 ### Overgangsnarrativ (skal bruges i ALLE framings)
 
 <!-- [TILPAS] Erstat med dit eget narrativ. Eksempler:
-     - "SaaS bygget og solgt efter 5 år. Nu 100% fokus på anvendt AI i enterprise."
-     - "Engineering-lead i en Series-B under 10x vækst. Søger den næste udfordring."
-     - "Skift fra konsulent til produkt. Søger roller med højt ansvar."
+     - "3 år som fuldmægtig i selskabsret hos et stort advokatfirma. Søger nu ind i virksomhedsjura for tættere kontakt til forretningen."
+     - "Anklager i 5 år. Søger nu compliance-rollen, hvor det forebyggende arbejde vejer tungere."
+     - "Skifter fra advokatfirma til legal tech -- vil bruge min faglighed til at bygge bedre juridiske værktøjer."
      Læses fra config/profile.yml -> narrative.exit_story -->
 
 Brug overgangsnarrativet fra `config/profile.yml` til at ramme ALT indhold ind:
-- **I PDF-summaries:** Byg bro mellem fortid og fremtid -- "Anvender nu de samme [kompetencer] på [opslagets domæne]."
+- **I PDF-summaries:** Byg bro mellem fortid og fremtid -- "Anvender nu den samme [erfaring] på [opslagets domæne]."
 - **I STAR-stories:** Referér til proof points fra `article-digest.md`.
 - **I draft-svar (Blok G):** Overgangsnarrativet hører til i det første svar.
-- **Når opslaget nævner "entrepreneurial", "ownership", "builder", "end-to-end":** Det er DEN vigtigste differentiator nr. 1. Øg match-vægten.
+- **Når opslaget nævner "selvstændigt ansvar", "ejerskab af sager", "end-to-end":** Det er DEN vigtigste differentiator nr. 1. Øg match-vægten.
 
 ### Tværgående fordel
 
-Ram profilen ind som **"Teknisk builder med dokumenteret praksis"**, og tilpas framingen til rollen:
-- For PM: "Builder, der reducerer usikkerhed med prototyper og derefter leverer disciplineret i produktion"
-- For FDE: "Builder, der leverer fra dag 1 med observability og metrics"
-- For SA: "Builder, der designer end-to-end-systemer med ægte integrationserfaring"
-- For LLMOps: "Builder, der sætter AI i produktion med closed-loop kvalitetssystemer"
+Ram profilen ind som **"Praktisk jurist med dokumenteret dømmekraft"**, og tilpas framingen til rollen:
+- For virksomhedsjurist: "Jurist, der reducerer forretningens risiko uden at bremse den"
+- For compliance: "Jurist, der bygger programmer, tilsynet og forretningen begge kan stole på"
+- For transaktioner/procedure: "Jurist, der leverer selvstændigt på det aftalte erfaringsniveau, med skarp skriftlig fremstilling"
+- For legal tech: "Jurist, der oversætter praksiserfaring til produktbeslutninger"
 
-Positionér "Builder" som et professionelt signal -- ikke som "hobbyist". De ægte proof points gør det troværdigt.
+Positionér "praktisk dømmekraft" som et professionelt signal -- ikke som mangel på specialisering. De ægte proof points (konkrete sager, resultater) gør det troværdigt.
 
-### Portfolio som proof point (brug ved ansøgninger med høj indsats)
+### Publikationer og fagligt engagement som proof point (brug ved ansøgninger med høj indsats)
 
-<!-- [TILPAS] Hvis du har en live demo, et dashboard eller et offentligt projekt, så konfigurér det her.
+<!-- [TILPAS] Hvis kandidaten har publicerede artikler, et responsum der er blevet offentligt, foredrag,
+     eller tillidshverv i en brancheforening (fx Danske Advokater, Djøf), så konfigurér det her.
      Eksempel:
-     dashboard:
-       url: "https://ditdomæne.dev/demo"
-       password: "demo-2026"
-       when_to_share: "LLMOps, AI Platform, Observability-roller"
-     Læses fra config/profile.yml -> narrative.proof_points og narrative.dashboard -->
+     narrative:
+       proof_points:
+         - "Artikel i Erhvervsjuridisk Tidsskrift om [emne]"
+         - "Oplæg for [brancheforening] om [emne]"
+     Læses fra config/profile.yml -> narrative.proof_points -->
 
-Hvis kandidaten har en live demo / et dashboard (tjek `profile.yml`), så tilbyd adgang i relevante ansøgninger.
+Hvis kandidaten har publikationer, foredrag eller tillidshverv (tjek `profile.yml`), så nævn dem i Professional Summary og relevante ansøgninger -- det er et reelt differentieringssignal i det juridiske marked (client development-signal).
 
 ### Lønintelligens (Comp Intelligence)
 
 <!-- [TILPAS] Undersøg lønintervaller for dine målroller og tilpas værdierne -->
 
+**Lønkilder til det juridiske marked (brug disse, ikke generiske løndatabaser):**
+- **Djøf Lønstatistik** (Danmarks Jurist- og Økonomforbund) -- den dominerende kilde til lønbenchmarking for jurister i Danmark, både i advokatbranchen, som virksomhedsjurist og i det offentlige
+- **Danske Advokater** (brancheforening for advokatvirksomheder) -- benchmarks for fuldmægtig-/advokatløn ved medlemsfirmaer
+- **Advokatsamfundet** -- reguleringsorgan, lejlighedsvis markedsdata
+- **Det offentlige:** løn for juridiske fuldmægtige i ministerier/styrelser følger AC-overenskomsten (forhandlet af Akademikerne, hvor Djøf er part) -- slå op på løntrin, ikke frit forhandlet beløb
+- **Legal ops/legal tech:** ingen dedikeret dansk kilde kendt -- brug generel dansk løndata (fx Jobindex Lønstatistik) med lav konfidens, eller Djøfs bredere datasæt hvor det dækker
+
 **Generelle råd:**
-- WebSearch for aktuelle markedsdata (Glassdoor, Levels.fyi, Jobindex Lønstatistik, IDA Lønstatistik, PROSA)
-- Ram ind efter jobtitel, ikke efter kompetencer -- titler definerer lønbåndene
-- Freelance-satser i Danmark ligger typisk 30-50% over den tilsvarende brutto-timeløn i en fastansættelse (sociale bidrag, ferie, sygdom, opsøgende arbejde)
-- Geo-arbitrage fungerer i remote: lavere leveomkostninger = bedre netto
+- Ram ind efter jobtitel/erfaringsniveau (fuldmægtig-år, advokatår), ikke kun efter kompetencer -- niveauet definerer lønbåndene i advokatbranchen
+- Freelance-/konsulentadvokat-satser i Danmark ligger typisk over den tilsvarende brutto-timeløn i en fastansættelse (sociale bidrag, ferie, sygdom, opsøgende arbejde) -- hvis du er usikker på et konkret niveau, sig det, gæt ikke et tal
+- Geo-arbitrage fungerer i remote-egnede roller (typisk virksomhedsjurist/legal tech, sjældnere klassisk advokatarbejde): lavere leveomkostninger = bedre netto
 
 ### Det danske marked -- Særtræk (VIGTIGT)
 
@@ -118,13 +125,25 @@ I danske opslag og forhandlinger optræder visse termer, som ikke findes på EN/
 | **Funktionærloven** | Lov der regulerer funktionærers ansættelse (opsigelse, sygdom, fratrædelsesgodtgørelse) | Næsten alle tech-stillinger er funktionærstillinger. Tjek om det nævnes |
 | **Overenskomst** | Kollektiv aftale mellem fagforening og arbejdsgiver. Fastsætter løn, vilkår | Tjek om virksomheden har overenskomst -- giver fast løntrin, pension, sikkerhed |
 | **Feriepenge** | 12,5% af lønnen optjent til ferie efter ferieloven | Indgår i den samlede pakke. Glem ALDRIG i sammenligningen |
-| **Ferie** | 25 dage (5 uger) efter ferieloven. Mange giver flere | < 25 dage = under lovens minimum. 25 + feriefridage = standard i tech. > 30 dage = fremragende |
+| **Ferie** | 25 dage (5 uger) efter ferieloven. Mange giver flere | < 25 dage = under lovens minimum. 25 + feriefridage = markedsstandard. > 30 dage = fremragende |
 | **Feriefridage** | Ekstra fridage ud over ferielovens 5 uger (ofte 5/år) | Et reelt plus. Svarer til 1 uges ekstra ferie |
 | **Pension** | Arbejdsgiverbidrag, typisk 8-12% af lønnen | Indgår i comp-beregningen: kan udgøre flere tusind kroner månedligt. Glem den ikke |
 | **A-kasse** | Frivillig arbejdsløshedsforsikring (medlemskab betales af medarbejderen) | Ikke et arbejdsgivergode, men relevant for jobsikkerhed. Tjek opsigelsesvilkår |
-| **Fagforening** | Faglig organisation (fx PROSA, IDA for ingeniører/IT) | Medlemskab giver juridisk hjælp og overenskomstdækning. Plus for stabilitet |
+| **Fagforening** | Faglig organisation (for jurister primært Djøf; Danske Advokater for advokatvirksomheder som arbejdsgiverside) | Medlemskab giver juridisk hjælp, overenskomstdækning og lønstatistik. Plus for stabilitet |
 | **Bruttoløn / Nettoløn** | Løn før / efter skat (dansk skat er høj, ~37-52%) | Forhandl altid om bruttoløn. Beregn netto til sammenligning af leveomkostninger |
 | **13. månedsløn** | Findes typisk IKKE i Danmark (i modsætning til mange markeder) | Forvent den ikke. Hvis nævnt, er det et ekstra plus -- inkludér i comp |
+
+### Danske juridiske kvalifikationskrav (hard gates -- vurderes pass/fail, aldrig udjævnet ind i gennemsnittet)
+
+Disse tjekkes FØR dimensionerne vægtes. De læser kandidatens `legal`-blok i `config/profile.yml` (fx `class_year`, `bar_admissions`, `patent_bar`, `practice_areas`, `recruiter_channel` -- feltnavnene i YAML-filen er engelske, men indholdet fortolkes efter dansk ret). En fejlet gate skal fremgå EKSPLICIT i Red flags-dimensionen og som en navngivet linje i rapporten -- et stærkt CV-match må aldrig kompensere for eller skjule en fejlet gate.
+
+1. **Advokatbestalling / møderet** -- Danmark har ét samlet retssystem (ingen delstatsvariation som i USA), så en "jurisdiktionsmismatch" i amerikansk forstand er sjældent relevant for indenlandske opslag. Vurdér i stedet, om rollen kræver **beskikkelse som advokat** (opnås efter cand.jur./cand.merc.jur. + 3 år som advokatfuldmægtig + bestået advokateksamen) eller kan varetages uden:
+   - **Strengt for advokatfirmaer:** opslaget forudsætter typisk, at kandidaten enten er beskikket advokat eller er i gang med fuldmægtiguddannelsen på det rette år.
+   - **Moderat for virksomhedsjurist-roller:** de fleste in-house-opgaver kræver IKKE advokatbestalling -- en virksomhedsjurist kan rådgive uden beskikkelse. Bestalling bliver relevant, hvis rollen kræver den beskyttede titel "advokat", fortrolighedsprivilegiet, eller at kunne møde for retten på arbejdsgiverens vegne under de særlige betingelser i retsplejeloven. Nævn forskellen, bloker ikke automatisk.
+   - **Minimalt for det offentlige og legal tech:** de fleste juridiske fuldmægtig-stillinger i ministerier/styrelser og legal tech-roller kræver kun en fuldført juridisk kandidatgrad, ikke advokatbestalling.
+2. **Fuldmægtig-år / erfaringsniveau (PQE)** -- sammenlign kandidatens `legal.class_year` (fortolket som år siden cand.jur.-eksamen eller år siden beskikkelse) med opslagets angivne niveau (fx "2.-3. års fuldmægtig", "erfaren advokat, min. 4 år"). Uden for det angivne bånd på et opslag om lateral ansættelse er et stærkt advarselssignal -- men dansk advokatbranche har en mindre stringent "lockstep"-kultur end det amerikanske BigLaw-system, så behandl det som en alvorlig hæmsko, der bør nævnes eksplicit, ikke nødvendigvis som et automatisk afslag, medmindre opslaget selv gør niveauet til et hårdt krav.
+3. **Patentagentkvalifikation** -- stillinger med patentbehandling forudsætter typisk en kvalifikation som **europæisk patentagent** (bestået EQE, European Qualifying Examination) og/eller dansk patentagentbeskikkelse (reguleret i forhold til Patent- og Varemærkestyrelsen). Hvis opslaget kræver dette, og `legal.patent_bar` er `false`, er det en hard gate. Varemærke-, ophavsrets- og IP-procedure kræver det normalt ikke.
+4. **Inhabilitet / konflikttjek (senior-/partnerroller)** -- ligesom i andre markeder er lateral ansættelse på partner- eller seniorniveau i danske advokatfirmaer betinget af, at der ikke er inhabilitetskonflikter med firmaets eksisterende klienter. Nævn risikoen i rapporten -- vurdér den ikke som en score.
 
 ### Forhandlingsscripts
 
@@ -155,7 +174,7 @@ I danske opslag og forhandlinger optræder visse termer, som ikke findes på EN/
 - Score 1.0 kun, hvis opslaget eksplicit siger "obligatorisk tilstedeværelse 4-5 dage/uge, ingen undtagelser"
 
 ### Time-to-offer-prioritet
-- Fungerende demo + metrics > perfektion
+- Stram ansøgningspakke (CV + sagsliste/matter-liste) > perfektion
 - Ansøg hurtigt > lær mere
 - 80/20-tilgang, alt er timeboxet
 
@@ -173,6 +192,7 @@ I danske opslag og forhandlinger optræder visse termer, som ikke findes på EN/
 6. Generere en PDF uden at have læst opslaget først
 7. Bruge corporate-jargon eller tomme floskler
 8. Ignorere trackeren (hvert evalueret opslag registreres)
+9. Udarbejde eller forberede en direkte ansøgning til et advokatfirma, hvor et rekrutteringsbureau allerede har indstillet kandidaten (referral-source lock) -- den, der først indstiller kandidaten, "ejer" typisk kandidaturen i en periode fremover, og en dobbeltindstilling (direkte + bureau, eller to bureauer samtidig) kan i praksis diskvalificere kandidaten helt. Tjek ALTID `legal.recruiter_channel` i `config/profile.yml` og trackerens `via=`-felter, før en ansøgning til et advokatfirma udarbejdes
 
 ### ALTID
 
@@ -185,8 +205,9 @@ I danske opslag og forhandlinger optræder visse termer, som ikke findes på EN/
 5. Registrér i trackeren efter hver evaluering
 6. Generér indhold på opslagets sprog (dansk hvis opslaget er på dansk, ellers engelsk)
 7. Vær direkte og konkret -- ingen smøren
-8. Naturligt tech-dansk til genererede tekster. Korte sætninger, aktive verber, undgå passiv. Oversæt ikke tekniske termer med tvang (stack, pipeline, deployment, embedding)
-8b. **Case-study-URL'er i PDF'ens Professional Summary:** Hvis PDF'en nævner case studies eller demoer, SKAL URL'erne optræde i det første afsnit (Professional Summary). Rekrutterere læser ofte kun summary. Alle URL'er i HTML med `white-space: nowrap`
+8. Naturligt juridisk fagdansk til genererede tekster -- klart sprog til forretningsmodtagere, præcise fagtermer hvor nødvendigt. Korte sætninger, aktive verber, undgå passiv
+8a. **Advokatbestalling/kvalifikation øverst i CV'et:** beskikkelse som advokat (år + evt. møderetsbevilling) eller anden relevant autorisation skal stå fremtrædende øverst på CV'ets side 1 -- rekrutterere og HR scanner efter dette i de første sekunder
+8b. **Publikations-/foredrags-URL'er i PDF'ens Professional Summary:** Hvis PDF'en nævner artikler, responsummer eller foredrag, SKAL URL'erne optræde i det første afsnit (Professional Summary). Rekrutterere læser ofte kun summary. Alle URL'er i HTML med `white-space: nowrap`
 9. **Tracker-poster som TSV** -- rediger ALDRIG applications.md direkte for nye tilføjelser. Skriv TSV i `batch/tracker-additions/`, `merge-tracker.mjs` håndterer sammenfletningen
 10. **`**URL:**` i hver report-header** -- mellem Score og PDF
 

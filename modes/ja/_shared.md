@@ -49,6 +49,15 @@
 - 3.5-3.9 → まずまずだが理想ではない、特別な理由がある場合のみ応募
 - Below 3.5 → 応募非推奨（AGENTS.md の Ethical Use を参照）
 
+### リーガル・ハードゲート（pass/fail -- スコアに平均化して埋もれさせない）
+
+スコアリングの前に、これらを必ずチェックする。`config/profile.yml` の `legal:` block（`class_year`、`bar_admissions`、`patent_bar`、`practice_areas`、`recruiter_channel`）を読む。Gate に落ちた場合は Red flags dimension に明示的に反映し、report にも named line として出す -- CV match がどれだけ強くても、落ちた gate を打ち消したり埋もれさせたりしない。
+
+1. **弁護士資格 / 登録要件** -- 求人が要求する資格と、候補者の `legal.bar_admissions` を照合する。厳しさは雇用主タイプによって異なる：**法律事務所は厳格**（日本の弁護士資格 -- 司法試験合格 + 司法修習修了 + 弁護士登録 -- が前提。渉外・クロスボーダー案件を扱う事務所ではニューヨーク州弁護士資格など海外の資格が歓迎要件になることが多いが、必須要件かどうかは求人ごとに確認する）。**インハウスはやや柔軟**（日本弁護士登録があれば足りることが多く、海外資格は加点要素）。**官公庁・リーガルテックは最も柔軟**（弁護士資格そのものを必須としない求人も多い）。
+2. **登録年次 / 期（Class year / PQE 相当）** -- 法律事務所の中途（lateral）求人は「登録◯年目」「◯期台」のように band を明示することが多い。`legal.class_year` が band 外なら near-automatic rejection として扱う -- 応募非推奨とし、年次の再認定（±1年程度、offer 時に交渉）はあくまで margin での調整に過ぎないと伝える。
+3. **弁理士資格** -- 特許出願・特許実務（prosecution）を扱う求人は、弁理士資格 + 理系学位を要求することが多い。`legal.patent_bar` が false ならこれは hard gate（商標・著作権・IP 訴訟には通常不要）。
+4. **利益相反（コンフリクト）** -- シニア・パートナー級の lateral offer は、必ず利益相反チェックを経る。1 件のクライアント・コンフリクトでシニア候補者の話が流れることもある。Report にはリスクとして note するだけで、score はしない。
+
 ## Posting Legitimacy (Block G)
 
 Block G は、求人が real, active opening である可能性を評価する。1-5 の global score には影響しない。独立した qualitative assessment として扱う。
@@ -64,7 +73,7 @@ Block G は、求人が real, active opening である可能性を評価する�
 |--------|--------|-------------|-------|
 | Posting age | Page snapshot | High | Under 30d=good, 30-60d=mixed, 60d+=concerning（role type に応じて調整） |
 | Apply button active | Page snapshot | High | 直接観測できる事実 |
-| Tech specificity in JD | JD text | Medium | Generic JDs は ghost postings と相関するが、単に書き方が粗い場合もある |
+| Practice-area specificity in JD | JD text | Medium | Generic JDs は ghost postings と相関するが、単に書き方が粗い場合もある。エージェントが具体的な mandate なしに出す「非公開クライアント（confidential AmLaw firm 相当）」求人は resume 集めが目的のことがある |
 | Requirements realism | JD text | Medium | 矛盾は強い signal、曖昧さは弱い signal |
 | Recent layoff news | WebSearch | Medium | department、timing、company size を考慮する |
 | Reposting pattern | scan-history.tsv | Medium | 同じ role が 90 日以内に 2 回以上 repost されていれば concerning |
@@ -83,12 +92,12 @@ Block G は、求人が real, active opening である可能性を評価する�
 
 | Archetype | Key signals in JD |
 |-----------|-------------------|
-| AI Platform / LLMOps | "observability", "evals", "pipelines", "monitoring", "reliability" |
-| Agentic / Automation | "agent", "HITL", "orchestration", "workflow", "multi-agent" |
-| Technical AI PM | "PRD", "roadmap", "discovery", "stakeholder", "product manager" |
-| AI Solutions Architect | "architecture", "enterprise", "integration", "design", "systems" |
-| AI Forward Deployed | "client-facing", "deploy", "prototype", "fast delivery", "field" |
-| AI Transformation | "change management", "adoption", "enablement", "transformation" |
+| 法律事務所アソシエイト -- トランザクション（企業法務） | "アソシエイト", "登録◯年目", "◯期", "M&A", "資本市場", "キャピタルマーケッツ", "ファンド", "ファイナンス", "ディールチーム", "渉外" |
+| 法律事務所アソシエイト -- 訴訟・紛争 | "訴訟アソシエイト", "法廷", "仲裁", "国際仲裁", "証人尋問", "準備書面", "証拠開示（ディスカバリー）" |
+| インハウスローヤー（企業内弁護士）-- プロダクト・コマーシャル・プライバシー | "プロダクト法務", "コマーシャル法務", "プライバシー担当", "SaaS契約", "業務委託契約", "DPA（データ処理契約）", "契約交渉", "事業部門との連携" |
+| コンプライアンス・規制対応 | "コンプライアンス", "規制対応", "マネーロンダリング対策（AML/CFT）", "海外贈収賄防止（不正競争防止法）", "リスク管理", "社内調査", "許認可" |
+| 官公庁・パブリックインタレスト弁護士 | "検察官", "行政庁 法務担当", "任期付職員", "国選弁護", "法テラス", "公設事務所" |
+| リーガルテック / リーガルエンジニア | "リーガルエンジニア", "フォワードデプロイド弁護士", "リーガルソリューション", "リーガルナレッジエンジニア", "業務改革（practice innovation）", "リーガルAI" |
 
 Archetype を検出した後、`modes/_profile.md` を読み、該当 archetype に対するユーザー固有の framing と proof points を使う。
 
@@ -112,6 +121,15 @@ Archetype を検出した後、`modes/_profile.md` を読み、該当 archetype 
 | **有給休暇** | 法定最低 10-20 日/年 | 取得率を確認。低すぎると red flag |
 | **退職予告** | 正社員は通常 1-2 ヶ月前に通知 | 開始日を現職の退職予告期間込みで考える |
 | **ストックオプション** | スタートアップの equity | vesting、cliff、税制（税制適格 vs 非適格）を評価 |
+| **弁護士会費** | 登録弁護士会に毎年支払う会員会費 | 所属弁護士会により金額は異なる。事務所が負担するか自己負担かを確認する。ブティック事務所や独立を検討する際は特に待遇比較に含める |
+| **事務所賞与（ボーナス）の査定方式** | 大手事務所はクラス（登録年次）ごとの lockstep 方式、中堅・ブティックは discretionary（裁量）方式が多い | Lockstep は年次で bonus 額がほぼ決まり比較しやすい。Discretionary は個人評価・事務所業績次第で幅が大きく、過去の支給実績を確認する |
+| **パートナー登用（トラック）** | エクイティパートナー / サラリードパートナーの区分、登用時期の目安 | インハウスと異なり、事務所では給与テーブルより「パートナー昇格の現実性」が長期的な報酬の伸びを左右する。求人票だけでは判断できないため、面談で確認する |
+
+**日本のリーガル市場向け comp research sources（Levels.fyi や Glassdoor 等の一般的な tech salary site の代わりに使う）：**
+- **法律事務所:** 四大法律事務所（西村あさひ、森・濱田松本、長島・大野・常松、TMI 総合法律事務所など）の初任給水準は目安として年収 1,200 万円以上が公開情報や業界紙（旬刊商事法務、Chambers Associate、Legal 500 Japan Guide など）で参照できる。中堅・地方事務所は四大の 6〜8 割程度が目安になることが多いが、公式な統一サーベイ（NALP 相当）は存在しないため、個別の情報源で裏取りする
+- **インハウス:** JILA（日本組織内弁護士協会）が公表する会員実態調査が参考になる。BarkerGilmore や Major Lindsey & Africa (MLA) のような法務職特化の公開報酬サーベイは日本では限定的なため、弁護士ドットコムキャリア、MS-Japan（管理部門特化）、BEET-AGENT 等の法務特化エージェントへのヒアリングを併用する
+- **官公庁:** 検察官の俸給は検察官の俸給等に関する法律に基づく俸給表、任期付職員は国家公務員の俸給等に関する法律に基づく俸給表が根拠になる
+- **リーガルオペレーション:** 国内では公開ベンチマークがまだ少ない分野。Brightflag、CLOC など海外のレポートを参考程度に留める
 
 ## グローバルルール
 
@@ -125,6 +143,7 @@ Archetype を検出した後、`modes/_profile.md` を読み、該当 archetype 
 6. 求人を読まずに PDF を生成する
 7. corporate-speak を使う
 8. tracker を無視する（評価したすべての求人を記録する）
+9. すでに人材紹介会社（エージェント）経由で候補者が推薦済み、または依頼済みの法律事務所に、直接応募のドラフトを作成する -- 日本のリーガル系人材紹介（MS-Japan、BEET-AGENT、弁護士ドットコムキャリア、JAC Recruitment 等）では、最初に候補者を推薦したエージェントが一定期間（数ヶ月程度が目安、正確な期間は契約・エージェントにより異なる）候補者の紹介権を持つのが業界慣行。同じ求人への二重応募は、コンフリクトとして選考から外される原因になり得る。事務所への応募をドラフトする前に、必ず `config/profile.yml` の `legal.recruiter_channel` と tracker の `via=` 欄を確認する
 
 ### 常にする
 
@@ -138,7 +157,7 @@ Archetype を検出した後、`modes/_profile.md` を読み、該当 archetype 
 6. 求人の言語で生成する（EN default）
 7. 直接的で actionable に書く。fluff を避ける
 8. 日本語で生成する場合は、自然な tech Japanese を使う。短い文、action verbs、不要な受動態を避ける
-8b. PDF Professional Summary に case study URLs を含める（recruiter はそこだけ読む可能性がある）
+8b. 弁護士登録情報（登録弁護士会、登録番号、または相当する資格情報）を CV の上部に明示する。実績・執筆物の URL がある場合は PDF Professional Summary に含める（recruiter はそこだけ読む可能性がある）
 9. **Tracker additions as TSV** -- `applications.md` を新規追加のために直接編集しない。`batch/tracker-additions/` に TSV を書く
 10. **すべての report header に `**URL:**` を含める**
 

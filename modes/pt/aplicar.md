@@ -37,6 +37,8 @@ Modo interativo para quando o candidato está preenchendo um formulário de cand
 4. Se houver Bloco G → carregar os rascunhos de respostas anteriores como base
 5. Se NÃO houver match → avisar e oferecer executar auto-pipeline rápida
 
+**Verificação de canal (referral-source lock):** antes de redigir qualquer candidatura DIRETA, checar se o empregador é um escritório de advocacia e se há um(a) recrutador(a)/headhunter jurídico já engajado(a) -- `config/profile.yml` → `legal.recruiter_channel.engagements`, mais qualquer linha do tracker para esse empregador com campo `via=`. Se houver (ou puder haver) recrutador engajado, **PARAR e avisar em vez de redigir**: quem submete primeiro é "dono(a)" da candidatura naquele empregador por tipicamente 6-12 meses, e uma candidatura direta em cima de uma submissão de recrutador cria disputa de honorários que os escritórios costumam resolver descartando o(a) candidato(a). Rotear a candidatura pelo(a) recrutador(a) engajado(a), ou obter decisão explícita do candidato para seguir direto com o risco reconhecido. Vagas in-house e do setor público seguem direto por padrão -- esse gate só entra em jogo quando existe canal de recrutador.
+
 ## Passo 3 -- Detectar mudanças na vaga
 
 Se a vaga na tela difere da avaliada:
@@ -74,6 +76,8 @@ Para cada pergunta, gerar a resposta seguindo:
 - **Disponibilidade / prazo para início** → Data realista considerando aviso prévio atual (CLT: 30 dias + 3 dias/ano)
 - **Autorização de trabalho** → Responder com clareza; se brasileiro: "Cidadão brasileiro, não necessita autorização"
 - **Idiomas** → Informar nível por idioma (nativo, fluente, intermediário, básico)
+- **OAB ativa / seccional** → Checar contra `legal.bar_admissions` no `profile.yml` antes de responder; se a vaga exige seccional diferente da inscrição principal, sinalizar o gap (ver hard gates jurídicos em `_shared.md`) em vez de responder "sim" sem qualificar
+- **Registro no INPI (vagas de propriedade industrial)** → Responder conforme `legal.patent_bar`; se não tiver o registro, sinalizar como gap antes de gerar a resposta
 
 **Formato de output:**
 

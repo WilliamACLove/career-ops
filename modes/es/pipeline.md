@@ -43,8 +43,10 @@ Procesa las URLs de ofertas acumuladas en `data/pipeline.md`. El candidato añad
 - **LinkedIn**: Puede requerir inicio de sesión -> marcar `[!]` y pedir al candidato que pegue el texto
 - **PDF**: Si la URL apunta a un PDF, leerlo directamente con la herramienta Read
 - **Prefijo `local:`**: Leer el archivo local. Ejemplo: `local:jds/linkedin-pm-ai.md` -> leer `jds/linkedin-pm-ai.md`
-- **InfoJobs / Indeed ES / LinkedIn ES**: Portales hispanohablantes habituales. Playwright gestiona bien los banners de cookies
+- **InfoJobs / Indeed ES / LinkedIn ES**: Portales generalistas habituales, también usados para ofertas legales. Playwright gestiona bien los banners de cookies
 - **Infojobs.es / Tecnoempleo / Computrabajo**: Bien estructurados, generalmente legibles por máquina. WebFetch suele ser suficiente
+- **Iberley / Economist & Jurist (secciones de empleo)**: Portales/medios especializados en el sector legal español — útiles para ofertas de despacho e in-house que no aparecen en los grandes generalistas. Tratar como cualquier otro portal (Playwright preferido, WebFetch como fallback)
+- **Recruiter/headhunter legal (Hays Legal, Michael Page Legal, etc.)**: Si la URL apunta a una ficha de recruiter en vez de a la oferta directa del despacho, extraer igualmente el contenido visible y anotar el nombre del recruiter — es dato relevante para el bloqueo por canal de origen (`legal.recruiter_channel`, ver `_shared.md` / `aplicar.md`)
 
 ## Numeración automática
 

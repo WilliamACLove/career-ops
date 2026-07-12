@@ -23,12 +23,12 @@
 ```markdown
 ## 대기
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://boards.greenhouse.io/company/jobs/456 | Company Ltd | Senior PM
+- [ ] https://boards.greenhouse.io/company/jobs/456 | Company Ltd | Senior Counsel
 - [!] https://private.url/job -- Error: login required
 
 ## 처리 완료
-- [x] #143 | https://jobs.example.com/posting/789 | Acme Korea | AI PM | 4.2/5 | PDF yes
-- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | SA | 2.1/5 | PDF no
+- [x] #143 | https://jobs.example.com/posting/789 | Acme Korea | 사내변호사 | 4.2/5 | PDF yes
+- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | 컴플라이언스 Counsel | 2.1/5 | PDF no
 ```
 
 > Note: 섹션 heading은 EN("Pending"/"Processed"), ES("Pendientes"/"Procesadas"), DE("Offen"/"Verarbeitet"), FR("En attente"/"Traitees"), KO("대기"/"처리 완료") 모두 유연하게 읽습니다. 쓸 때는 기존 파일의 style을 따릅니다.
@@ -43,7 +43,8 @@
 - **LinkedIn**: login이 필요할 수 있음 -> `[!]`로 표시하고 후보자에게 공고 text를 붙여넣어 달라고 요청
 - **PDF**: URL이 PDF를 가리키면 Read tool로 직접 읽기
 - **`local:` prefix**: 로컬 파일 읽기. 예: `local:jds/linkedin-pm-ai.md` -> `jds/linkedin-pm-ai.md` 읽기
-- **원티드 / 리멤버 / 잡코리아 / 사람인 / LinkedIn KR**: 한국 시장에서 자주 쓰는 portal. cookie banner나 login wall이 있으면 Playwright로 먼저 확인
+- **로톡 커리어 / 리걸잡 / 잡코리아 / 사람인 / LinkedIn KR**: 한국 법률 채용 시장에서 자주 쓰는 portal. cookie banner나 login wall이 있으면 Playwright로 먼저 확인
+- **대형로펌 자체 채용 페이지**: 자체 ATS(전용 채용 시스템)를 운영하는 경우가 많아 공개 API가 없을 수 있습니다. Playwright로 직접 확인
 
 ## 자동 번호 부여
 

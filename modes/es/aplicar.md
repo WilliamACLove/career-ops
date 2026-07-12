@@ -37,6 +37,14 @@ Modo interactivo para el momento en que el candidato rellena un formulario de ca
 4. Si hay Bloque G -> cargar los borradores de respuestas previos como base
 5. Si NO hay match -> avisar al candidato y proponer un auto-pipeline rápido
 
+## Paso 2.5 -- Comprobación de canal (bloqueo por canal de origen)
+
+Antes de redactar cualquier respuesta para una candidatura **directa** a un despacho, comprobar si un recruiter/headhunter legal ya está gestionando (o ha sido contratado para) esa candidatura: `config/profile.yml` → `legal.recruiter_channel.engagements`, más cualquier fila del tracker para este empleador que lleve un campo `via=`.
+
+Si hay un recruiter implicado (o es probable que lo esté), **detenerse y avisar en vez de redactar**: quien presenta primero al candidato conserva la titularidad de esa candidatura durante ~6-12 meses (bloqueo por canal de origen), y una candidatura directa sobre una ya presentada por un recruiter suele acabar en disputa de honorarios que el despacho resuelve descartando al candidato. Proponer canalizar la candidatura a través del recruiter ya implicado, o pedir una decisión explícita del candidato para seguir por la vía directa asumiendo el riesgo.
+
+Las candidaturas in-house y de sector público son por defecto directas — esta barrera solo se activa cuando existe un canal de recruiter para ese empleador.
+
 ## Paso 3 -- Detectar cambios de rol
 
 Si el rol en pantalla difiere del evaluado:

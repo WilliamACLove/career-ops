@@ -6,7 +6,7 @@ Ejecuta una entrevista de práctica realista — una pregunta a la vez — y da 
 
 ## Inputs
 
-1. **Tipo de ronda** (requerido) — filtro/reclutador (screening/recruiter), filtro/HM (screening/HM), técnico/específico del dominio, diseño/estudio de caso, conductual (behavioral)
+1. **Tipo de ronda** (requerido) — filtro/reclutador (screening/recruiter), filtro/socio de contratación o GC (screening/hiring-partner), callback (reuniones con socios/asociados senior), ejercicio de redacción (writing-exercise), panel mixto (panel), panel con stakeholders de negocio (business-stakeholder), conductual (behavioral)
 2. **Persona del entrevistador** (si se conoce) — nombre, rol, empresa; determina el estilo y profundidad de las preguntas
 3. **Lista de preguntas** (opcional) — preguntas específicas a cubrir; si no se proporcionan, generarlas a partir del tipo de ronda
 4. **CV** en `cv.md` + `article-digest.md` (si está presente) — para verificar las afirmaciones en las respuestas y fundamentar versiones más sólidas en la experiencia real
@@ -59,7 +59,7 @@ Luego, abre con la primera pregunta — sin preámbulos, sin "aquí está la pre
 - La respuesta fue fuerte (profundiza — esto es lo que hacen los entrevistadores reales)
 - La respuesta perdió el punto clave por completo (dales la oportunidad de recuperarse)
 
-**Haz un seguimiento de lo cubierto.** Mantén una lista mental continua de qué historias y ejemplos ha usado el candidato. Si recurren a la misma historia por segunda vez, márcalo después del feedback: "Has usado [historia] para [N] preguntas ya — los entrevistadores notan un conjunto de ejemplos limitado. ¿Qué ejemplo diferente podrías usar aquí?". También verifica el *cierre* de cada respuesta: si termina en un dominio que no coincide con el rol (ej. cerrar en e-commerce cuando el rol es fintech/fraude), anótalo: "Contenido fuerte, pero cerraste en [dominio incorrecto] — para este rol, enfoca la respuesta en [dominio correcto]."
+**Haz un seguimiento de lo cubierto.** Mantén una lista mental continua de qué historias y ejemplos ha usado el candidato. Si recurren a la misma historia por segunda vez, márcalo después del feedback: "Has usado [historia] para [N] preguntas ya — los entrevistadores notan un conjunto de ejemplos limitado. ¿Qué ejemplo diferente podrías usar aquí?". También verifica el *cierre* de cada respuesta: si termina en un área de práctica que no coincide con el rol (ej. cerrar en litigios laborales cuando el rol es mercantil/transaccional), anótalo: "Contenido fuerte, pero cerraste en [área incorrecta] — para este rol, enfoca la respuesta en [área correcta]."
 
 ---
 
@@ -115,7 +115,7 @@ Mantén la retroalimentación concisa. Una o dos cosas a mejorar por respuesta �
 ```markdown
 ## Practice Session Summary
 
-**Round type:** [screening / technical / design-case-study / behavioral]
+**Round type:** [screening / hiring-partner / callback / writing-exercise / panel / behavioral]
 **Questions covered:** [N]
 
 **Ready:**
@@ -142,7 +142,7 @@ Formato:
 ---
 company: [empresa, o "practice"]
 role: [rol]
-round: [screen | hiring-manager | technical | system-design | behavioral | onsite | final]
+round: [screen | hiring-partner | callback | writing-exercise | panel | business-stakeholder | behavioral]
 date: YYYY-MM-DD
 interviewer_role: [rol de la persona, si se estableció]
 source: practice
@@ -159,7 +159,7 @@ source: practice
 
 Reglas para la transcripción:
 
-- **Asigna el tipo de ronda al enum** anterior (filtro del reclutador → `screen`, filtro del HM → `hiring-manager`, técnico/dominio → `technical`, diseño/estudio de caso → `system-design`, conductual → `behavioral`).
+- **Asigna el tipo de ronda al enum** anterior (filtro del reclutador → `screen`, filtro del socio de contratación o GC → `hiring-partner`, reuniones sucesivas con socios/asociados senior → `callback`, ejercicio de redacción o markup → `writing-exercise`, panel mixto → `panel`, ronda con stakeholders de negocio → `business-stakeholder`, conductual → `behavioral`).
 - **Etiqueta cada respuesta.** En la línea directamente arriba de cada línea `**Candidate:**`, emite `<!-- competency: tag[, tag...] -->` — en minúsculas (lowercase-kebab-case), separado por comas para respuestas con múltiples competencias. Ya evaluaste cada respuesta durante la sesión, así que etiqueta a partir de eso. Las etiquetas son de formato libre; elige la competencia que la pregunta realmente evaluó.
 - **Registra la respuesta del candidato textualmente**, no la "versión más sólida" — la transcripción registra lo que sucedió, no el coaching.
 - **`source: practice`.**
@@ -177,70 +177,72 @@ Si no se proporciona una lista de preguntas, obtén las preguntas en este orden 
 
 Mezcla niveles cuando los niveles superiores sean escasos — ej., 3 preguntas reales del banco rellenadas con predeterminadas — pero nunca omitas un nivel superior que tenga preguntas relevantes para este tipo de ronda.
 
-### Screening — Recruiter (20–30 min)
+### Screening — Reclutador (20–30 min)
 
-Un filtro de reclutador es una verificación de requisitos (box-checking), no una prueba de profundidad. Mantén las respuestas precisas; no las compliques demasiado. El reclutador está verificando el ajuste, la alineación de la compensación y la logística antes de pasarlo al Hiring Manager.
+Un filtro de reclutador es una verificación de requisitos (box-checking), no una prueba de profundidad. Mantén las respuestas precisas; no las compliques demasiado. El reclutador está verificando el ajuste, la alineación de la compensación y la logística antes de pasarlo al socio de contratación.
 
 1. Háblame de tu trayectoria (background).
-2. ¿Por qué esta empresa / por qué este rol?
-3. ¿Por qué dejas tu rol actual?
+2. ¿Por qué este despacho (o esta empresa) / por qué este rol?
+3. ¿Por qué dejas tu puesto actual?
 4. ¿Cuáles son tus expectativas salariales?
-5. [Logística: ubicación / híbrido / plazos / autorización de trabajo]
+5. [Logística: colegiación y jurisdicción / banda de experiencia / ubicación de la oficina e híbrido / plazos]
 6. ¿Qué preguntas tienes para nosotros?
 
-**Coaching de compensación (solo filtro de reclutador).** Presta atención si el candidato menciona un salario mínimo (floor) de forma voluntaria (ej., "lo mínimo a lo que puedo bajar es X"). Si lo hacen, márcalo después de la respuesta: "Acabas de darles tu límite inferior — eso limita tu negociación antes de que comience. La jugada más fuerte es anclarte en un objetivo investigado y diferir al paquete completo: 'Estoy apuntando a la mitad superior del rango de mercado para este nivel — me gustaría entender el salario base, el bono y el equity juntos antes de fijar un número'". Si el archivo de preparación del rol define una estrategia de compensación, sigue esa; de lo contrario, dale solo esta nota genérica de mecánica — nunca inventes números objetivo.
+**Coaching de compensación (solo filtro de reclutador).** Presta atención si el candidato menciona un salario mínimo (floor) de forma voluntaria (ej., "lo mínimo a lo que puedo bajar es X"). Si lo hace, márcalo después de la respuesta: "Acabas de darles tu límite inferior — eso limita tu negociación antes de que comience. La jugada más fuerte es anclarte en un objetivo investigado y diferir al paquete completo: 'Busco la mitad superior de la horquilla de mercado para este nivel — me gustaría conocer el fijo, el variable y las pagas extra juntos antes de fijar una cifra.'" Si el archivo de preparación del rol define una estrategia de compensación, sigue esa; de lo contrario, dale solo esta nota genérica de mecánica — nunca inventes cifras objetivo.
 
-### Screening — Hiring Manager (30–45 min)
+### Screening — Socio de contratación / Dirección Jurídica (30–45 min)
 
-Un filtro de HM sondea la filosofía de liderazgo, el criterio y la profundidad de la experiencia. Las respuestas pueden ser más largas y tener más peso narrativo. El HM está decidiendo si invertir rondas de tiempo de su equipo.
+Un filtro con el socio de contratación (o el/la GC en in-house) sondea el criterio, el encaje en la práctica y la profundidad de la experiencia. Las respuestas pueden ser más largas y tener más peso narrativo. El socio está decidiendo si invertir un día de callback del tiempo de su equipo.
 
-1. Háblame de tu trayectoria.
-2. ¿Por qué esta empresa / por qué este rol?
-3. Háblame del problema más difícil que has resuelto en tu campo.
-4. Háblame de una vez que enfrentaste resistencia a un cambio que propusiste.
-5. ¿Qué significa para ti ser [título de la JD]?
-6. ¿Cómo describirías tu enfoque hacia tu profesión (craft)?
-7. [Un concepto fundamental de la JD — ej., un método central, marco de trabajo, regulación o herramienta de la disciplina]
+1. Háblame de tu trayectoria — y de tu relación de asuntos / deal sheet.
+2. ¿Por qué este despacho (o por qué in-house) / por qué este rol? ¿Por qué ahora?
+3. Háblame del asunto más difícil que has llevado — qué lo hizo difícil y qué asumiste tú.
+4. Háblame de una vez que le llevaste la contraria a un cliente (o a un equipo de negocio) y cómo lo gestionaste.
+5. ¿Qué significa para ti ser [título de la oferta — p. ej. Abogado Senior, Counsel]?
+6. ¿Cómo describirías tu enfoque de la práctica profesional?
+7. [Un concepto fundamental del área de práctica — p. ej. una normativa clave, una estructura de operación, una postura procesal o un marco contractual de la especialidad]
 
 Mezcla al menos 2 preguntas situacionales / con visión de futuro del siguiente conjunto — estas evalúan el criterio y la autoconciencia, no historias pasadas:
 
 **Visión de futuro / situacional:**
 
 - "¿Cómo se ve el éxito para ti en los primeros 90 días?"
-- "Si te unes y el equipo está teniendo problemas — plazos incumplidos, moral baja — ¿cuál es tu primer movimiento?"
+- "Si te incorporas y el equipo está pasando por dificultades — plazos incumplidos, moral baja — ¿cuál es tu primer movimiento?"
 - "¿Cómo decides qué delegar vs. qué asumir tú mismo?"
-- "¿Cómo manejas a un colega respetado que no está de acuerdo con una dirección que has establecido?"
+- "¿Cómo manejas a un compañero respetado que no está de acuerdo con una dirección que has marcado?"
 
 **Autoconciencia / crecimiento:**
 
 - "¿En qué te equivocaste profesionalmente y qué aprendiste?"
-- "¿Qué necesitas de tu mánager para hacer tu mejor trabajo?"
-- "¿En qué áreas sigues creciendo en tu rol?"
+- "¿Qué necesitas de tu responsable para hacer tu mejor trabajo?"
+- "¿En qué áreas sigues creciendo en tu práctica?"
 
-### Technical / Domain-Specific (practitioner, 45–60 min)
+### Callback — Sustantiva / Específica de la práctica (socio o asociado senior, 30–45 min por sesión)
 
-1. [Internals fundamentales de la principal herramienta o método de la disciplina — ej., internals del runtime para ingeniería, modelos de atribución para marketing, métodos de valoración para finanzas]
-2. [Patrón o marco de trabajo establecido relevante para el rol — extraído de la JD]
-3. [Profundización en un bloque de construcción fundamental — ej., una estructura de datos, una prueba estadística, un principio contable]
-4. [Tema avanzado que la JD enfatiza — el área donde la profundidad separa a los candidatos]
-5. Háblame de un fallo de alto impacto en tu trabajo — cómo lo diagnosticaste y qué hiciste.
-6. ¿Cómo elevas el estándar de calidad en un equipo?
+1. Llévame por tu relación de asuntos / deal sheet — elige el asunto que más asumiste tú y profundiza.
+2. [Hipotético de la práctica del área — p. ej., para un rol de counsel de producto: "Un equipo de producto quiere lanzar una funcionalidad que recoge datos biométricos el próximo sprint. Explícame cómo lo asesorarías." Para M&A: "La due diligence de tu cliente revela un problema de transferencia de datos no registrado dos días antes de la firma — ¿qué haces?"]
+3. [Escenario de conflictos / deontología — p. ej., "Descubres a mitad de un asunto que el testimonio de un testigo contradice lo que te dijo tu cliente. ¿Cuáles son tus obligaciones y próximos pasos?"]
+4. [Tema avanzado que enfatiza la oferta — el área donde la profundidad separa a los candidatos: una normativa, una estructura de operación o una postura procesal]
+5. Háblame de un asunto que se torció — cómo lo diagnosticaste y qué hiciste.
+6. ¿Cómo elevas la calidad del trabajo en un equipo de operación / de caso?
+7. [Para candidatos senior: la pregunta de cara a socio — "¿De dónde viene tu negocio dentro de cinco años?" / "¿Cuál es tu camino hacia cartera propia?"]
 
-### Design / Case Study (45–60 min)
+### Ejercicio de redacción / Markup (45–60 min)
 
-1. Diseña [un sistema, proceso, campaña o producto relevante para el rol].
-2. [Pregunta de restricción — ¿cómo se comporta tu diseño cuando algo falla, escala 10x o pierde presupuesto?]
-3. [Pregunta de calidad/confiabilidad — ¿cómo garantizas la corrección o mides el éxito?]
-4. Explícame cómo sabrías que está funcionando después del lanzamiento.
+1. Revisa [un NDA / MSA / DPA] contra [un playbook breve o posiciones indicadas] — explica tu razonamiento mientras lo haces.
+2. Redacta un breve memo de asesoramiento: [un equipo de negocio pregunta si puede hacer X bajo la normativa Y] — estructura la respuesta para una audiencia no jurídica.
+3. [Pregunta de restricción — el cliente rechaza tu posición principal; ¿cuál es tu alternativa y por qué?]
+4. Explícame cómo le trasladarías el riesgo residual al responsable de negocio después de tus modificaciones.
 
-### Behavioral Panel
+### Panel conductual (incluye stakeholders de negocio, en in-house)
 
-1. Háblame de una vez que lideraste a un equipo a través de una entrega difícil.
-2. Describe un fallo importante en producción o en el mercado — ¿qué sucedió y qué cambió después?
-3. Háblame de una vez que influiste en la dirección de varios equipos o partes interesadas (stakeholders).
-4. ¿Cómo se ve un equipo de alto rendimiento para ti?
-5. Háblame de una vez que simplificaste algo complejo.
-6. Háblame de una vez que resolviste un problema que no te correspondía resolver.
+1. Háblame de una vez que lideraste un equipo de operación o de caso a través de un cierre o plazo difícil.
+2. Describe un asunto o negociación que fracasó — ¿qué ocurrió y qué cambió en tu práctica después?
+3. Háblame de una vez que influiste en la dirección de varios equipos o interlocutores que no te reportaban.
+4. ¿Cómo es para ti un equipo jurídico de alto rendimiento?
+5. Háblame de una vez que tradujiste algo jurídicamente complejo en un consejo que un equipo de negocio pudo aplicar.
+6. Háblame de una vez que señalaste un riesgo que nadie te había preguntado — y qué pasó.
+7. ¿Por qué in-house (o por qué nuestro despacho)? ¿Qué buscas en este movimiento que tu puesto actual no te da?
 
 ---
 

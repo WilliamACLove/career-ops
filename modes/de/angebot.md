@@ -4,18 +4,32 @@ Wenn der Kandidat eine Stellenanzeige einfügt (Text oder URL), IMMER alle 6 Bl�
 
 ## Schritt 0 — Archetyp-Erkennung
 
-Die Stellenanzeige einem der 6 Archetypen zuordnen (siehe `_shared.md`). Bei Hybriden die zwei nächstliegenden angeben. Daraus folgt:
+Die Stellenanzeige einem der 6 Archetypen zuordnen (siehe `_shared.md`: Kanzlei-Associate — Transaktion & Gesellschaftsrecht, Kanzlei-Associate — Litigation & Streitbeilegung, Unternehmensjurist:in — Produkt/Commercial/Datenschutz, Compliance & Regulatorik, Behörden-/Öffentlicher-Dienst-Jurist:in, Legal Tech / Legal Engineer). Bei Hybriden die zwei nächstliegenden angeben. Daraus folgt:
 - Welche Proof Points in Block B Vorrang haben
 - Wie das Summary in Block E umgeschrieben wird
 - Welche STAR-Stories in Block F vorbereitet werden
+
+## Schritt 0.5 — Rechtliche Hard Gates (bestehen/durchfallen, nie stillschweigend weggemittelt)
+
+Vor jeder Gewichtung die Stellenanzeige gegen den `legal:`-Block in `config/profile.yml` des Kandidaten prüfen. Diese Prüfungen sind strukturelle Filter, kein gewichteter Faktor — ein nicht bestandenes Gate MUSS explizit in der Red-Flags-Dimension UND in der Abschlussempfehlung erscheinen. Ein guter Lebenslauf-Match darf ein nicht bestandenes Gate nie stillschweigend übertünchen.
+
+1. **Zulassung / Befugnis** — Stellenanzeigen-Standort gegen `legal.bar_admissions` (bzw. das deutsche Äquivalent) abgleichen. Strenge-Leiter anwenden:
+   - **Kanzleien: streng.** US-/UK-Häuser in Deutschland erwarten faktisch ein Prädikatsexamen (ab "vollbefriedigend"); traditionelle deutsche Kanzleien sind hier weicher, verlangen aber i. d. R. die Befähigung zum Richteramt (beide Staatsexamina).
+   - **Inhouse: moderat.** Relevanter Prüfpunkt ist die Zulassung als Syndikusrechtsanwalt:anwältin (arbeitgeberbezogen, bei der zuständigen Rechtsanwaltskammer zu beantragen) — als Hinweis auf einen zu erledigenden Verwaltungsschritt vermerken, nicht als Blocker werten.
+   - **Öffentlicher Dienst und Legal Tech: minimal.** Meist genügt die Befähigung zum Richteramt ohne weiteren Zulassungsschritt.
+2. **Berufserfahrung / PQE-Band** — nennt die Stellenanzeige ein PQE- oder Berufsjahr-Band (z. B. "3-5 Jahre PQE", "Associate ab 2. Examen mit 4+ Jahren Erfahrung"), mit `legal.class_year` (bzw. dem deutschen Äquivalent) abgleichen. Außerhalb des Bands bei einer internationalen Kanzlei: nahezu automatische Absage → von der Bewerbung eher abraten. Bei deutschen Kanzleien mehr Verhandlungsspielraum einkalkulieren.
+3. **Patentanwalt:anwältin** — erfordert eine eigenständige Zulassung nach der Patentanwaltsordnung (technisches Studium + patentanwaltliche Ausbildung), getrennt von der Rechtsanwaltszulassung. Fordert die Stellenanzeige diese Qualifikation und liegt `legal.patent_bar` (bzw. das deutsche Äquivalent) beim Kandidaten nicht vor: Hard Gate. Marken-/Urheberrecht und reine IP-Litigation benötigen sie nicht.
+4. **Konflikte (Senior-/Partner-Rollen)** — jedes Lateral-Angebot auf Senior-/Partner-Ebene steht unter dem Vorbehalt der Mandantenkonfliktprüfung. Im Report vermerken, nicht bewerten.
+
+Die Gate-Ergebnisse als kurze Bestehen/Durchfallen-Tabelle am Anfang von Block B ausgeben.
 
 ## Block A — Rollen-Zusammenfassung
 
 Tabelle mit:
 - Erkannter Archetyp
-- Domain (Platform / Agentic / LLMOps / ML / Enterprise)
-- Funktion (Build / Consult / Manage / Deploy)
-- Seniorität
+- Domain (Transaktion / Litigation / Inhouse / Compliance / Behörden / Legal Tech)
+- Funktion (Beraten / Verhandeln / Prozessieren / Führen / Bauen)
+- Seniorität (Berufsjahr/PQE-Band bei Kanzleien, Titel-Stufe bei Inhouse — Counsel → Senior Counsel → AGC/stv. Chefjustiziar:in → Chefjustiziar:in/General Counsel)
 - Remote (Vollremote / Hybrid / Vor Ort)
 - Teamgröße (falls erwähnt)
 - TL;DR in einem Satz
@@ -25,40 +39,42 @@ Tabelle mit:
 `cv.md` lesen. Tabelle erstellen, in der jede Anforderung aus der Stellenanzeige auf exakte Zeilen aus dem Lebenslauf gemappt wird.
 
 **Angepasst an den Archetyp:**
-- FDE → Proof Points zu schneller Lieferung und Kundennähe priorisieren
-- SA → Systemdesign und Integrationen priorisieren
-- PM → Product Discovery und Metriken priorisieren
-- LLMOps → Evals, Observability, Pipelines priorisieren
-- Agentic → Multi-Agent, HITL, Orchestrierung priorisieren
-- Transformation → Change Management, Adoption, Skalierung priorisieren
+- Transaktion (Kanzlei) → Dealsheet-Erfahrung im passenden Berufsjahr priorisieren: Deal-Typen, Deal-Volumen, Federführung bei der Dokumentation
+- Litigation (Kanzlei) → Stand-up-Erfahrung priorisieren: Schriftsätze, mündliche Verhandlung, Beweisaufnahme, Prozessstrategie
+- Unternehmensjurist:in (Produkt/Commercial/Datenschutz) → Vertragsvolumen (SaaS/MSA/AVV), bereichsübergreifende Beratung, verständliche Kommunikation mit Nicht-Jurist:innen priorisieren
+- Compliance & Regulatorik → benannte Regelwerke (GwG, BaFin-Vorgaben, DSGVO), Regulierer-Kontakt, geführte Untersuchungen priorisieren
+- Behörden / Öffentlicher Dienst → Verfahrens-/Prozessvolumen, Verwaltungserfahrung, nachgewiesenes Engagement im öffentlichen Interesse priorisieren
+- Legal Tech / Legal Engineer → erstklassige fachliche Prägung PLUS echte Produkt-/KI-Affinität priorisieren: gebaute Playbooks, automatisierte Workflows, Legal-Tech-Nebenprojekte
 
 Abschnitt **Lücken (Gaps)** mit Mitigationsstrategie für jede einzelne. Pro Gap:
 1. Ist das ein Hard Blocker oder ein Nice-to-have?
 2. Kann der Kandidat angrenzende Erfahrung nachweisen?
-3. Gibt es ein Portfolio-Projekt, das diesen Gap abdeckt?
-4. Konkreter Mitigationsplan (Satz fürs Anschreiben, schnelles Mini-Projekt, etc.)
+3. Gibt es eine Publikation oder ein Nebenprojekt, das diesen Gap abdeckt?
+4. Konkreter Mitigationsplan (Satz fürs Anschreiben, gezielte Fortbildung, etc.)
 
 ## Block C — Level und Strategie
 
-1. **Erkanntes Level** in der Stellenanzeige vs **natürliches Level des Kandidaten für diesen Archetyp**
-2. **Plan "Senior verkaufen, ohne zu lügen"**: konkrete Formulierungen, an den Archetyp angepasst, hervorzuhebende Erfolge, wie Founder-Erfahrung als Vorteil positioniert wird
-3. **Plan "Wenn ich downgelevelt werde"**: akzeptieren, wenn die Vergütung fair ist; Review nach 6 Monaten verhandeln; klare Beförderungskriterien festlegen
+1. **Erkanntes Level** in der Stellenanzeige (Berufsjahr/PQE-Band bei Kanzleien, Titel-Leiter bei Inhouse) vs **natürliches Level des Kandidaten für diesen Archetyp** — bei Inhouse ist der Titel der Vergütungshebel (Counsel → Senior Counsel → AGC → Chefjustiziar:in)
+2. **Plan "Senior verkaufen, ohne zu lügen"**: konkrete Formulierungen, an den Archetyp angepasst, konkrete Mandate/Verfahren zum Hervorheben, wie Kanzlei-Ausbildung, Referendariatsstationen oder Regulierer-Erfahrung als Vorteil positioniert werden
+3. **Plan "Wenn ich downgelevelt werde"**: bei Kanzleien ist die Berufsjahr-Neueinstufung um ±1 Jahr beim Angebot verhandelbar (manchmal kauft ein Jahr weniger mehr Partnerschafts-Perspektive); bei Inhouse zuerst um das Level/den Titel kämpfen (Senior Counsel vs. Counsel), bevor über Gehalt verhandelt wird — Bonusziel-% und Beteiligungsband folgen dem Titel
 
 ## Block D — Vergütung und Nachfrage
 
-WebSearch nutzen für:
-- Aktuelle Gehälter für die Rolle (Glassdoor, Levels.fyi, Kununu, Gehalt.de, StepStone-Reports)
-- Vergütungs-Reputation des Unternehmens (Kununu, Glassdoor)
-- Nachfrage-Trend für die Rolle im DACH-Markt
+WebSearch nutzen für, gestaffelt nach Arbeitgebertyp:
+- **Kanzleien:** JUVE Rechtsmarkt / JUVE-Gehaltsreport, azur-Kanzlienranking (azur100), Kanzleimonitor (Universum), beck-stellenmarkt und LTO-Karriere für Marktkommentare. Faustregel: Mittelstands-/Regionalkanzleien liegen meist bei 60-80 % der Großkanzlei-Einstiegsgehälter, mit eher diskretionären statt fixen Boni.
+- **Unternehmensjurist:innen (Inhouse):** Gehaltsreport des BUJ (Bundesverband der Unternehmensjuristen) als Anhaltspunkt.
+- **Öffentlicher Dienst:** Besoldungstabellen (A-Besoldung) von Bund/Ländern, TVöD-Entgelttabellen.
+- **Nur als grobe, nicht rechtsmarktspezifische Orientierung:** Gehalt.de, StepStone-Gehaltsreport, Kununu — mit Vorsicht behandeln.
+- Nachfrage-Trend für die Rolle/Praxisgruppe im DACH-Markt
 
-Tabelle mit Daten und zitierten Quellen. Wenn keine Daten gefunden werden, das offen sagen — nichts erfinden.
+Tabelle mit Daten und zitierten Quellen. Wenn keine Daten gefunden werden, das offen sagen — nichts erfinden. Fehlende Gehaltsangabe bei Kanzlei-Stellenanzeigen ist normal ("attraktive Vergütung" ist Marktstandard) und für sich genommen kein Warnsignal.
 
 **Deutscher Markt — Pflichtchecks:**
 - 13. Monatsgehalt / Weihnachtsgeld erwähnt? In die Brutto-Berechnung einrechnen.
-- Variable Anteile (Bonus, Provision, RSUs / VSOP)?
+- Variable Anteile (Bonus, oft an abrechenbare Stunden/Billable Hours gekoppelt bei Kanzleien; Provision, RSUs / VSOP bei Inhouse)?
 - VWL und bAV erwähnt?
 - Tarifvertrag (TVöD, IG Metall) im Spiel? Wenn ja, Verhandlungsspielraum kleiner — dafür mehr Sicherheit.
-- Festanstellung oder Freelance? Bei Freelance: Tagessatz, Scheinselbstständigkeits-Risiko.
+- Festanstellung oder Freelance/Interim-Mandat? Bei Freelance: Tagessatz, Scheinselbstständigkeits-Risiko prüfen.
 
 ## Block E — Personalisierungs-Plan
 
@@ -81,16 +97,16 @@ Die Spalte **Reflection** erfasst, was gelernt wurde oder was man heute anders m
 **Story Bank:** Wenn `interview-prep/story-bank.md` existiert, prüfen, ob die Stories schon dort stehen. Falls nicht, neue ergänzen. Mit der Zeit entsteht so eine wiederverwendbare Bank von 5-10 Master-Stories, die sich an jede Frage im Vorstellungsgespräch anpassen lassen.
 
 **Ausgewählt und an den Archetyp angepasst:**
-- FDE → Lieferungs-Tempo und Kundennähe betonen
-- SA → Architektur-Entscheidungen betonen
-- PM → Discovery und Trade-offs betonen
-- LLMOps → Metriken, Evals, Production-Hardening betonen
-- Agentic → Orchestrierung, Error Handling, HITL betonen
-- Transformation → Adoption und organisatorischen Wandel betonen
+- Transaktion (Kanzlei) → Deal-Durchführung, Federführung bei der Dokumentation, Steuerung von Spezialisten-Workstreams betonen
+- Litigation (Kanzlei) → Verfahrensstrategie, gewonnene Anträge, Beweisaufnahme, Schreiben unter Druck betonen
+- Unternehmensjurist:in → Business-Enablement ("sicher zum Ja kommen"), Volumen-Management, bereichsübergreifende Beratung betonen
+- Compliance & Regulatorik → Programmaufbau, Regulierer-Kontakt, geführte Untersuchungen betonen
+- Behörden / Öffentlicher Dienst → Verfahrensvolumen, Urteilsvermögen unter Ressourcenknappheit, Engagement für den öffentlichen Auftrag betonen
+- Legal Tech / Legal Engineer → Übersetzung von Praxiswissen in Produkt-/Workflow-Entscheidungen, Adoptionskennzahlen betonen
 
 Außerdem aufnehmen:
-- 1 empfohlene Case Study (welches Projekt vorgestellt wird und wie)
-- Red-Flag-Fragen und wie man darauf antwortet (z. B. "Warum haben Sie Ihre Firma verkauft?", "Hatten Sie ein Team, das an Sie berichtet hat?", "Warum ein Wechsel nach so kurzer Zeit?")
+- 1 empfohlenes Referenzmandat (welches Deal/Verfahren vom Dealsheet bzw. von der Matters-Liste vorgestellt wird und wie, unter Wahrung der Mandatsvertraulichkeit)
+- Red-Flag-Fragen und wie man darauf antwortet (z. B. "Warum verlassen Sie Ihre Kanzlei?", "Warum sind Sie nicht Partner:in geworden?", "Wie sieht Ihre Bilanz bei abrechenbaren Stunden aus?", "Warum Inhouse / warum zurück in die Kanzlei?")
 
 ---
 

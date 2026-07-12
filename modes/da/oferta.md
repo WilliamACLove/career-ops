@@ -9,13 +9,24 @@ Klassificér opslaget i en af de 6 arketyper (se `_shared.md`). Hvis hybrid, så
 - Hvordan summary omskrives i blok E
 - Hvilke STAR-stories der forberedes i blok F
 
+## Trin 0,5 -- Juridiske hard gates (pass/fail, aldrig udjævnet ind i gennemsnittet)
+
+Før noget vægtes, tjekkes opslaget mod kandidatens `legal`-blok i `config/profile.yml` (se `_shared.md` § "Danske juridiske kvalifikationskrav"). Det er strukturelle filtre, ikke vægtede faktorer -- en fejlet gate SKAL fremgå eksplicit i Red flags-dimensionen og i den endelige anbefaling. Lad aldrig en fejlet gate blive skjult af et ellers pænt score.
+
+1. **Advokatbestalling / møderet** -- sammenlign opslagets krav mod `legal.bar_admissions`. Strengt for advokatfirmaer (kræver typisk beskikkelse eller det rette fuldmægtigår); moderat for virksomhedsjurist-roller (bestalling sjældent påkrævet -- nævn det som en note, ikke en blokering); minimalt for det offentlige og legal tech.
+2. **Fuldmægtig-år / erfaringsniveau** -- hvis opslaget angiver et bånd (fx "2.-3. års fuldmægtig", "min. 4 års erfaring"), og `legal.class_year` ligger uden for det, er det et alvorligt advarselssignal på en lateral advokatstilling -- sig det klart, men husk at dansk advokatbranche er mindre stringent lockstep-baseret end det amerikanske marked.
+3. **Patentagentkvalifikation** -- kræves for patentbehandlingsstillinger (europæisk patentagent/EQE og/eller dansk patentagentbeskikkelse). Hvis opslaget kræver det, og `legal.patent_bar` er `false`, er det en hard blocker.
+4. **Inhabilitet (senior-/partnerroller)** -- nævn risikoen for konflikttjek ved lateral ansættelse på højt niveau. Vurdér den ikke som en score.
+
+Rapportér resultatet af gates som en kort pass/fail-tabel øverst i blok B. En fejlet gate begrænser anbefalingen, uanset hvor godt resten matcher.
+
 ## Blok A -- Rolleopsummering
 
 Tabel med:
 - Detekteret arketype
-- Domain (Platform / Agentic / LLMOps / ML / Enterprise)
-- Funktion (Build / Consult / Manage / Deploy)
-- Senioritet
+- Domain (Transaktioner / Procedure / Virksomhedsjurist / Compliance / Offentlig / Legal tech)
+- Funktion (Rådgive / Forhandle / Procedere / Lede / Bygge)
+- Senioritet (fuldmægtig-/advokatår, eller titelniveau for virksomhedsjurist)
 - Remote (Fuld remote / Hybrid / På kontoret)
 - Teamstørrelse (hvis nævnt)
 - TL;DR i 1 sætning
@@ -25,12 +36,12 @@ Tabel med:
 Læs `cv.md`. Lav en tabel, hvor hvert krav i opslaget mappes til eksakte linjer i CV'et.
 
 **Tilpasset arketypen:**
-- FDE -> prioritér proof points om hurtig levering og kundenærhed
-- SA -> prioritér systemdesign og integrationer
-- PM -> prioritér product discovery og metrics
-- LLMOps -> prioritér evals, observability, pipelines
-- Agentic -> prioritér multi-agent, HITL, orkestrering
-- Transformation -> prioritér forandringsledelse, adoption, skalering
+- Advokatfuldmægtig/Advokat -- Transaktioner -> prioritér konkrete sager fra sagslisten på det rette fuldmægtig-/advokatår: deal-typer, transaktionsstørrelser, tovholderansvar
+- Advokatfuldmægtig/Advokat -- Procedure & Tvistløsning -> prioritér egen sagsførelse: responsummer, hovedforhandlinger, voldgiftssager, skriftlig fremstilling
+- Virksomhedsjurist -- Kommerciel/Produkt/Privacy -> prioritér kontraktvolumen, tværfaglig rådgivning, regulatorisk bredde, klart sprog til ikke-jurister
+- Compliance & Regulatorisk -> prioritér navngivne regelsæt (AML/hvidvask, GDPR, sektorspecifik regulering), tilsynskontakt, undersøgelser, programejerskab
+- Offentlig forvaltning / Almennyttig -> prioritér sagsvolumen, retssalserfaring, dokumenteret samfundsengagement
+- Legal Tech / Legal Engineer -> prioritér solid juridisk pedigree KOMBINERET med reel produkt-/AI-forståelse, byggede playbooks/workflows
 
 Afsnit om **Mangler (Gaps)** med en mitigeringsstrategi for hver enkelt. For hver mangel:
 1. Er det en hard blocker eller et nice-to-have?
@@ -40,26 +51,28 @@ Afsnit om **Mangler (Gaps)** med en mitigeringsstrategi for hver enkelt. For hve
 
 ## Blok C -- Niveau og strategi
 
-1. **Detekteret niveau** i opslaget vs **kandidatens naturlige niveau for denne arketype**
-2. **Plan "sælg senior uden at lyve"**: konkrete formuleringer tilpasset arketypen, konkrete resultater at fremhæve, hvordan founder-erfaring positioneres som en fordel
-3. **Plan "hvis jeg bliver downlevelet"**: accepter, hvis aflønningen er fair, forhandl en revision efter 6 måneder, klare forfremmelseskriterier
+1. **Detekteret niveau** i opslaget vs **kandidatens naturlige niveau for denne arketype** -- for advokatfirmaroller er dette fuldmægtig-/advokatår-matching (se hard gates); for virksomhedsjurist er det titelstigen (jurist -> senior jurist/senior counsel -> chefjurist -> juridisk direktør/General Counsel), hvor **titel er lønhåndtaget**
+2. **Plan "sælg senior uden at lyve"**: konkrete formuleringer tilpasset arketypen, konkrete sager at fremhæve, hvordan uddannelsesforløb, klerkskab eller regulatorisk erfaring positioneres som en fordel
+3. **Plan "hvis jeg bliver downlevelet"**: for advokatfirmaroller kan fuldmægtig-/advokatåret ofte forhandles ±1 år ved tilbud; for virksomhedsjurist -- kæmp for titlen/niveauet før kronerne, da bonusmål og evt. warrants/aktieoptioner følger titlen
 
 ## Blok D -- Aflønning og efterspørgsel
 
-Brug WebSearch til:
-- Aktuelle lønninger for rollen (Glassdoor, Levels.fyi, Jobindex Lønstatistik, IDA Lønstatistik, PROSA)
-- Virksomhedens lønreputation (Glassdoor)
+Brug WebSearch til, med de danske juridiske lønkilder fra `_shared.md`:
+- Aktuelle lønninger for rollen (Djøf Lønstatistik, Danske Advokater-benchmarks, AC-overenskomstens løntrin for det offentlige)
+- Virksomhedens lønreputation
 - Efterspørgselstendens for rollen på det danske marked
 
 Tabel med data og citerede kilder. Hvis der ingen data er, så sig det klart -- opfind ikke noget.
 
+**Løntavshed er normalt hos advokatfirmaer.** Mange danske opslag om advokat-/fuldmægtigstillinger nævner ikke et konkret beløb ("konkurrencedygtig løn" er standard) -- det er ikke i sig selv et advarselssignal.
+
 **Det danske marked -- Obligatoriske tjek:**
 - Pension nævnt? Indregn arbejdsgiverbidraget (typisk 8-12%) i den samlede pakke.
-- Variabel del (bonus, provision, warrants / aktieoptioner)?
+- Variabel del (bonus, provision, warrants / aktieoptioner)? Sjældnere i klassisk advokatarbejde, mere almindeligt i virksomhedsjurist-/legal tech-roller.
 - Feriepenge / feriefridage ud over ferielovens minimum?
 - Overenskomst eller funktionærvilkår? Hvis overenskomst: tjek løntrin og vilkår.
 - Fastansættelse eller tidsbegrænset? Hvis tidsbegrænset: varighed, begrundelse, mulighed for fastansættelse.
-- Freelance / selvstændig? Dagssats, opgavens varighed, risiko for omklassificering.
+- Freelance / selvstændig konsulentadvokat? Dagssats, opgavens varighed, risiko for omklassificering.
 
 ## Blok E -- Personaliseringsplan
 
@@ -82,16 +95,16 @@ Kolonnen **Reflection** indfanger, hvad der blev lært, eller hvad der ville bli
 **Story Bank:** Hvis `interview-prep/story-bank.md` findes, så tjek om disse stories allerede er der. Hvis ikke, så tilføj de nye. Med tiden opbygger det en genbrugelig bank på 5-10 master-stories, der kan tilpasses ethvert samtalespørgsmål.
 
 **Udvalgt og rammesat efter arketypen:**
-- FDE -> fremhæv leveringstempo og kundenærhed
-- SA -> fremhæv arkitekturbeslutninger
-- PM -> fremhæv discovery og trade-offs
-- LLMOps -> fremhæv metrics, evals, production hardening
-- Agentic -> fremhæv orkestrering, error handling, HITL
-- Transformation -> fremhæv adoption og organisatorisk forandring
+- Transaktioner -> fremhæv sagsudførelse, redaktionelt ansvar, styring af delarbejdsstrømme
+- Procedure & Tvistløsning -> fremhæv sagsstrategi, vundne sager, hovedforhandlinger, skriftlig fremstilling under pres
+- Virksomhedsjurist -- Kommerciel/Produkt/Privacy -> fremhæv forretningsenablement ("sige ja til forretningen på en sikker måde"), volumenhåndtering, tværfaglig rådgivning
+- Compliance & Regulatorisk -> fremhæv programopbygning, tilsynskontakt, håndterede undersøgelser
+- Offentlig forvaltning / Almennyttig -> fremhæv sagsvolumen, dømmekraft under ressourcepres, samfundsengagement
+- Legal Tech / Legal Engineer -> fremhæv omsætning af praksiserfaring til produkt-/workflow-beslutninger, adoptionsmålinger
 
 Inkludér også:
-- 1 anbefalet case study (hvilket projekt der præsenteres og hvordan)
-- Red-flag-spørgsmål og hvordan man besvarer dem (fx "Hvorfor solgte du din virksomhed?", "Havde du et team, der refererede til dig?", "Hvorfor et skifte efter så kort tid?")
+- 1 anbefalet sag (hvilken sag fra sagslisten/matter-listen der præsenteres og hvordan, inden for fortrolighedens grænser)
+- Red-flag-spørgsmål og hvordan man besvarer dem (fx "Hvorfor forlader du dit advokatfirma?", "Hvorfor er du ikke blevet partner?", "Hvad er din historik med fakturerbare timer?", "Hvorfor skifte til/fra virksomhedsjura?")
 
 ---
 

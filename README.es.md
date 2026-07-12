@@ -72,6 +72,8 @@
 
 ## Que es esto
 
+> **Esta edición está orientada a carreras jurídicas** -- abogados de despacho, asesores jurídicos in-house, compliance y regulatorio, abogados del sector público/interés público y roles de legal tech. Los arquetipos, la lista de portales, las fuentes de investigación salarial y las barreras de evaluación (colegiación/jurisdicción, banda de experiencia, conflictos) de más abajo están calibrados para el mercado legal. El motor subyacente es agnóstico de la carrera profesional y totalmente personalizable a cualquier sector -- solo tienes que pedirle a tu CLI de IA que cambie los arquetipos. La edición original de carreras en IA/ingeniería sobre la que se construyó este proyecto sigue siendo open source, mantenida por [santifer](https://santifer.io) (ver "Sobre el autor" más abajo).
+
 Career-Ops convierte cualquier CLI de IA en un centro de mando de busqueda de empleo. En vez de trackear aplicaciones en un spreadsheet, tienes un pipeline AI que:
 
 - **Evalua ofertas** con scoring estructurado A-F (10 dimensiones ponderadas)
@@ -162,8 +164,8 @@ Pegas una URL o descripcion de oferta
         │
         ▼
 ┌──────────────────┐
-│  Deteccion de    │  Clasifica: LLMOps / Agentic / PM / SA / FDE / Transformation
-│  Arquetipo       │
+│  Deteccion de    │  Clasifica: Despacho (Transaccional/Procesal) /
+│  Arquetipo       │  In-House / Compliance / Sector Público / Legal Tech
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -181,16 +183,13 @@ Pegas una URL o descripcion de oferta
 
 El scanner viene con **45+ empresas** pre-configuradas y **19 queries** en los principales portales de empleo. Copia `templates/portals.example.yml` a `portals.yml` y añade las tuyas:
 
-**AI Labs:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
-**Plataformas AI:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
-**Contact Center:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
-**Enterprise:** Salesforce, Twilio, Gong, Dialpad
-**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
-**Automatizacion:** n8n, Zapier, Make.com
-**Europa:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
+**Legal tech:** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
+**In-house legal:** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
+**Boards:** USAJOBS (gobierno federal de EE. UU., incl. justice.gov), GoInhouse, Lawjobs, LawCrossing, LateralHub, centros de empleo de la ABA y de colegios de abogados estatales (EE. UU.)
 
 **Portales de empleo:** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront
+
+> Nota: esta lista refleja la configuracion de ejemplo del README en ingles (mercado EE. UU.). Para el mercado hispanohablante, personaliza `portals.yml` con tus propios portales (InfoJobs, LinkedIn ES, Iberley, Economist & Jurist, colegios de abogados) — pidele a tu CLI que los añada.
 
 ## Dashboard TUI
 

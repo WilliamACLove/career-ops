@@ -61,6 +61,8 @@
 
 ## これは何？
 
+> **本エディションは弁護士・法務系キャリアを対象としています** -- 法律事務所アソシエイト、企業内弁護士（インハウスローヤー）、コンプライアンス・規制対応弁護士、官公庁・パブリックインタレスト系弁護士、リーガルテック関連職を扱います。以下のアーキタイプ、ポータルリスト、報酬調査ソース、評価ゲート（弁護士資格・登録年次マッチング、利益相反）はリーガル職の求職市場向けに調整されています。基盤となるエンジン自体はキャリア非依存で、どのキャリアトラックにも自由にカスタマイズできます -- AI CLI にアーキタイプの変更を頼むだけです。本プロジェクトの元になった AI/エンジニアリングキャリア版は、[santifer](https://santifer.io) によって引き続きオープンソースで保守されています（下記「作者について」を参照）。
+
 Career-Opsは、あらゆるAIコーディングCLIを本格的な求職コマンドセンターに変えます。スプレッドシートで応募を手動管理する代わりに、AIによる以下のパイプラインが手に入ります:
 
 - **オファーを評価** -- 構造化されたA-Fスコアリングシステム（10項目の重み付け評価軸）
@@ -86,7 +88,7 @@ career-opsはエージェンティックです: Claude CodeがPlaywrightで求�
 | **面接ストーリーバンク** | 評価を重ねるごとにSTAR+Reflectionストーリーを蓄積 -- あらゆる行動面接質問に答える5〜10のマスターストーリー                       |
 | **交渉スクリプト**       | 給与交渉のフレームワーク、地域ディスカウント反論、競合オファーの活用                                                             |
 | **ATS向けPDF生成**       | Space Grotesk + DM Sansデザインのキーワード注入型CV                                                                              |
-| **ポータルスキャナー**   | 45社以上事前設定済み（Anthropic、OpenAI、ElevenLabs、Retool、n8n...) + Ashby、Greenhouse、Lever、Wellfound横断のカスタムクエリ   |
+| **ポータルスキャナー**   | 45社以上事前設定済み -- リーガルテック（Harvey、Ironclad、Everlaw、Spellbook、Clio...）、テック企業のインハウス法務チーム（Anthropic、OpenAI、Coinbase、Databricks、Stripe...）、さらに官公庁系（USAJOBS）と弁護士会系求人ボード + Ashby、Greenhouse、Lever、Workday横断のカスタムクエリ   |
 | **バッチ処理**           | `claude -p`ワーカーによる並列評価                                                                                                |
 | **ダッシュボードTUI**    | パイプラインを閲覧・フィルター・ソートするターミナルUI                                                                           |
 | **Human-in-the-Loop**    | AIは評価と推奨を行い、決定と実行はあなたが行います。システムが応募を自動送信することは絶対になく、最終判断は常にあなたが下します |
@@ -157,8 +159,8 @@ career-opsは複数のモードを持つ単一のスラッシュコマンドで�
         │
         ▼
 ┌──────────────────┐
-│  アーキタイプ     │  分類: LLMOps / Agentic / PM / SA / FDE / Transformation
-│  検出            │
+│  アーキタイプ     │  分類: 法律事務所アソシエイト（トランザクション/訴訟）/
+│  検出            │  インハウスローヤー / コンプライアンス / 官公庁 / リーガルテック
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -176,14 +178,11 @@ career-opsは複数のモードを持つ単一のスラッシュコマンドで�
 
 スキャナーには **45社以上** のスキャン対象企業と、主要求人ボード横断の **19の検索クエリ** が事前設定されています。`templates/portals.example.yml` を `portals.yml` にコピーして、独自の企業を追加してください:
 
-**AIラボ:** Anthropic、OpenAI、Mistral、Cohere、LangChain、Pinecone
-**ボイスAI:** ElevenLabs、PolyAI、Parloa、Hume AI、Deepgram、Vapi、Bland AI
-**AIプラットフォーム:** Retool、Airtable、Vercel、Temporal、Glean、Arize AI
-**コンタクトセンター:** Ada、LivePerson、Sierra、Decagon、Talkdesk、Genesys
-**エンタープライズ:** Salesforce、Twilio、Gong、Dialpad
-**LLMOps:** Langfuse、Weights & Biases、Lindy、Cognigy、Speechmatics
-**オートメーション:** n8n、Zapier、Make.com
-**欧州:** Factorial、Attio、Tinybird、Clarity AI、Travelperk
+**リーガルテック:** Harvey、Ironclad、Spellbook、EvenUp、Everlaw、Rocket Lawyer、Filevine、Clio、Relativity、Luminance
+**インハウス法務:** Anthropic、OpenAI、Coinbase、Figma、Brex、Databricks、Ramp、Notion、Perplexity、Stripe
+**求人ボード:** USAJOBS（米連邦政府系、justice.gov 含む）、GoInhouse、Lawjobs、LawCrossing、LateralHub、ABA および州弁護士会のキャリアセンター。`search_queries` 経由でも対応: 政府/検事局系ボード（NAAG、NDAA、NLADA、GovernmentJobs.com）、弁護士会・実務分野別キャリアセンター（YM Careers 系ボードの保存検索 RSS 手法を含む -- ACC Jobline、AIPLA、INTA、ACEDS、FBA、AHLA、affinity bars）、大学カウンセルボード（NACUA、HigherEdJobs）、柔軟な働き方/復職マーケットプレイス（The Mom Project、Paragon Legal、Latitude Legal、Axiom）、リーガルオペレーション系ボード（Legal Operators、CLOC、legal.io Legal-Operations）
+
+> **法律事務所のラテラル採用について:** 大手 AmLaw クラスの事務所は独自のリーガル業界特化 ATS（viRecruit、LawCruit 等）を運用しており公開 API を持たないため、BigLaw/AmLaw のラテラル求人の多くはこのスキャナーではなく、リクルーター（Major Lindsey & Africa、Lateral Link、BCG Attorney Search）やアグリゲーター経由で流通する。このスキャナーが強いのは、公開 ATS ボードに掲載されるリーガルテック + インハウス法務職と、数少ない実在の政府系 API（USAJOBS）。
 
 **検索対象の求人ボード:** Ashby、Greenhouse、Lever、Wellfound、Workable、RemoteFront
 

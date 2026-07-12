@@ -67,6 +67,8 @@
 
 ## Qu'est-ce que c'est
 
+> **Cette édition cible les carrières juridiques** -- avocats collaborateurs en cabinet, juristes d'entreprise, juristes conformité et réglementaire, avocats du secteur public/intérêt général, et rôles legal tech. Les archétypes, la liste de portails, les sources de recherche de rémunération et les verrous d'évaluation (admission au barreau/juridiction, correspondance d'ancienneté, conflits) ci-dessous sont calibrés pour le marché juridique. Le moteur sous-jacent est agnostique au métier et entièrement personnalisable pour n'importe quelle trajectoire de carrière -- il suffit de demander à votre CLI d'IA de changer les archétypes. L'édition originale IA/ingénierie dont ce projet est issu reste open source, maintenue par [santifer](https://santifer.io) (voir « À propos de l'auteur » ci-dessous).
+
 Career-Ops ([career-ops.org](https://career-ops.org), également connu sous le nom de **careerops**) transforme n'importe quelle interface de ligne de commande (CLI) de codage IA en un véritable centre de commandement pour votre recherche d'emploi. Au lieu de suivre manuellement vos candidatures dans un tableau de bord, vous disposez d'un pipeline alimenté par l'IA qui :
 
 - **Évalue les offres** avec un système de notation structuré de A à F (10 dimensions pondérées)
@@ -92,7 +94,7 @@ Conçu par quelqu'un qui l'a utilisé pour évaluer plus de 740 offres d'emploi,
 | **Banque d'histoires d'entretien** | Accumule les récits STAR+Réflexion à travers les évaluations — 5 à 10 histoires clés pour répondre à n'importe quelle question comportementale |
 | **Scripts de Négociation** | Cadres de négociation de salaire, arguments contre les baisses de salaire géographiques, levier d'offres concurrentes |
 | **Génération de CV ATS** | CV optimisés avec injection de mots-clés, utilisant le design Space Grotesk + DM Sans |
-| **Scanner de Portails** | Plus de 45 entreprises préconfigurées (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + requêtes personnalisées sur Ashby, Greenhouse, Lever, Wellfound |
+| **Scanner de Portails** | Plus de 45 entreprises préconfigurées -- legal tech (Harvey, Ironclad, Everlaw, Spellbook, Clio...), juridique interne chez des entreprises tech (Anthropic, OpenAI, Coinbase, Databricks, Stripe...), plus le secteur public (USAJOBS) et les job boards des barreaux -- + requêtes personnalisées sur Ashby, Greenhouse, Lever, Workday |
 | **Traitement en Lot** | Évaluation parallèle avec des processus de travail `claude -p` |
 | **TUI de Tableau de Bord** | Interface terminal pour explorer, filtrer et trier votre pipeline |
 | **Humain dans la Boucle** | L'IA évalue et recommande, vous décidez et agissez. Le système ne soumet jamais de candidature automatiquement — vous avez toujours le dernier mot |
@@ -152,7 +154,7 @@ cd career-ops
 gemini
 
 # 4. Utilisez la commande unifiée /career-ops avec ses sous-commandes :
-/career-ops "Senior AI Engineer at Anthropic..."
+/career-ops "Senior Commercial Counsel at Anthropic..."
 /career-ops pipeline
 /career-ops scan
 /career-ops pdf
@@ -172,7 +174,7 @@ cp .env.example .env
 npm install
 
 # 3. Évaluez une description de poste
-node gemini-eval.mjs "We are looking for a Senior AI Engineer..."
+node gemini-eval.mjs "We are looking for a Senior Commercial Counsel..."
 node gemini-eval.mjs --file ./jds/my-job.txt
 npm run gemini:eval -- "Texte de la description de poste ici"
 ```
@@ -207,8 +209,8 @@ Vous collez l'URL ou la description d'un emploi
         │
         ▼
 ┌──────────────────┐
-│  Détection de    │  Classification : LLMOps / Agentic / PM / SA / FDE / Transformation
-│  l'archétype     │
+│  Détection de    │  Classification : Associate cabinet (Transactionnel/Contentieux) /
+│  l'archétype     │  Juriste d'entreprise / Conformité / Secteur public / Legal Tech
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -226,14 +228,11 @@ Vous collez l'URL ou la description d'un emploi
 
 Le scanner est livré avec **plus de 45 entreprises** prêtes à être analysées et **19 requêtes de recherche** sur les principaux sites d'emploi. Copiez `templates/portals.example.yml` sous le nom de `portals.yml` et ajoutez les vôtres :
 
-**Laboratoires d'IA :** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone  
-**IA vocale :** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI  
-**Plateformes d'IA :** Retool, Airtable, Vercel, Temporal, Glean, Arize AI  
-**Centres de contact :** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys  
-**Entreprises :** Salesforce, Twilio, Gong, Dialpad  
-**LLMOps :** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics  
-**Automatisation :** n8n, Zapier, Make.com  
-**Européennes :** Factorial, Attio, Tinybird, Clarity AI, Travelperk  
+**Legal tech :** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
+**Juridique interne (in-house) :** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
+**Job boards :** USAJOBS (fonction publique fédérale US, incl. justice.gov), GoInhouse, Lawjobs, LawCrossing, LateralHub, centres carrières de l'ABA et des barreaux d'État américains. Couvert aussi via `search_queries` : job boards des AG-offices (NAAG, NDAA, NLADA, GovernmentJobs.com), centres carrières des associations professionnelles (ACC Jobline, AIPLA, INTA, ACEDS, FBA, AHLA), job boards des barreaux universitaires (NACUA, HigherEdJobs), marketplaces flexibles (The Mom Project, Paragon Legal, Latitude Legal, Axiom), et job boards legal-ops (Legal Operators, CLOC, legal.io Legal-Operations).
+
+> **Note sur les marchés francophones :** cette liste reflète le scanner tel que livré (marché principalement anglophone/US). Pour le marché francophone, ajoutez vos propres portails dans `portals.yml` -- par exemple Village de la Justice ou Carrières-Juridiques.com pour la France, ou les job boards des barreaux locaux en Belgique, Suisse romande, au Luxembourg ou au Québec. Les grands cabinets d'affaires (magic circle, cabinets américains à Paris) recrutent surtout via leurs propres ATS ou des cabinets de recrutement spécialisés, pas via des API publiques -- le scanner ne les couvre donc pas directement.
 
 **Plateformes d'emploi scannées :** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront  
 

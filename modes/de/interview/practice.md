@@ -6,7 +6,7 @@ Führe ein realistisches Übungsinterview — eine Frage nach der anderen — un
 
 ## Inputs
 
-1. **Art der Runde** (erforderlich) — Screening/Recruiter, Screening/HM, technisch/fachspezifisch, Design/Case Study, Behavioral
+1. **Art der Runde** (erforderlich) — Screening/Recruiter (`screen`), Screening/Partner:in oder GC (`hiring-partner`), Callback mit Partner:in/Senior Associate (`callback`), Schreibprobe/Vertragsbearbeitung (`writing-exercise`), Panel mit Business-Stakeholdern (`business-stakeholder`), Behavioral (`behavioral`)
 2. **Interviewer-Persona** (falls bekannt) — Name, Rolle, Unternehmen; prägt Fragestil und Tiefe
 3. **Fragenliste** (optional) — konkrete abzudeckende Fragen; falls nicht angegeben, aus der Rundenart generieren
 4. **Lebenslauf** unter `cv.md` + `article-digest.md` (falls vorhanden) — um Aussagen in Antworten zu prüfen und stärkere Versionen in echter Erfahrung zu verankern

@@ -6,7 +6,7 @@ Dirigez un entretien d'entraînement réaliste — une question à la fois — e
 
 ## Inputs
 
-1. **Type de round** (requis) — sélection/recruteur, sélection/HM, technique/spécifique au domaine, conception/étude de cas, comportemental
+1. **Type de round** (requis) — screening/recruteur, screening/hiring-partner (ou GC), callback (rencontres associé/senior-associate), exercice de rédaction/markup, panel stakeholder business, comportemental
 2. **Persona de l'intervieweur** (si connu) — nom, rôle, entreprise ; oriente le style et la profondeur des questions
 3. **Liste de questions** (facultatif) — questions spécifiques à couvrir ; si non fournie, générez-les à partir du type de round
 4. **CV** dans `cv.md` + `article-digest.md` (si présent) — pour vérifier les affirmations dans les réponses et ancrer des versions plus solides dans une expérience réelle
@@ -59,7 +59,7 @@ Ensuite, commencez avec la première question — pas de préambule, pas de "voi
 - La réponse était forte (allez plus en profondeur — c'est ce que font les vrais intervieweurs)
 - La réponse a complètement raté le point clé (donnez-leur une chance de se rattraper)
 
-**Suivez ce qui a été couvert.** Gardez une liste mentale des histoires et exemples que le candidat a utilisés. S'ils reprennent la même histoire une deuxième fois, signalez-le après le retour : "Vous avez utilisé [histoire] pour [N] questions maintenant — les intervieweurs remarquent un ensemble d'exemples limité. Quel serait un exemple différent que vous pourriez utiliser ici ?" Vérifiez également la *fin* de chaque réponse : si elle atterrit sur un domaine qui ne correspond pas au rôle (par ex., terminer sur le commerce électronique quand le rôle est fintech/fraude), notez-le : "Contenu solide, mais vous avez conclu sur [mauvais domaine] — pour ce rôle, orientez la réponse sur [bon domaine]."
+**Suivez ce qui a été couvert.** Gardez une liste mentale des histoires et exemples que le candidat a utilisés. S'ils reprennent la même histoire une deuxième fois, signalez-le après le retour : "Vous avez utilisé [histoire] pour [N] questions maintenant — les intervieweurs remarquent un ensemble d'exemples limité. Quel serait un exemple différent que vous pourriez utiliser ici ?" Vérifiez également la *fin* de chaque réponse : si elle atterrit sur une matière qui ne correspond pas au rôle (par ex., conclure sur du contentieux social quand le poste porte sur des opérations de M&A), notez-le : "Contenu solide, mais vous avez conclu sur [mauvaise matière] — pour ce rôle, orientez la réponse sur [bonne matière]."
 
 ---
 
@@ -88,7 +88,7 @@ Gardez les retours concis. Une ou deux choses à affûter par réponse — pas u
 
 **Soyez honnête, pas encourageant.** "Bonne réponse" sans substance fait perdre le temps de préparation du candidat. Si une réponse était faible, dites-le clairement et expliquez pourquoi.
 
-**Citez leurs propres mots.** "Vous avez dit 'négocier entre cohérence et disponibilité' — le terme précis est 'faire un compromis entre cohérence et disponibilité'" est plus utile que "utilisez un meilleur vocabulaire technique."
+**Citez leurs propres mots.** "Vous avez dit 'on les a fait accepter une responsabilité illimitée' — la formulation precise est 'nous avons négocié une clause d'indemnisation sans plafond pour les réclamations de propriété intellectuelle de tiers'" est plus utile que "utilisez un meilleur vocabulaire juridique."
 
 **Commencez par ce qui a fonctionné.** Même une réponse faible a généralement quelque chose de juste. Le nommer en premier permet de mieux faire passer la correction.
 
@@ -115,7 +115,7 @@ Gardez les retours concis. Une ou deux choses à affûter par réponse — pas u
 ```markdown
 ## Practice Session Summary
 
-**Type de round :** [screening / technical / design-case-study / behavioral]
+**Type de round :** [screening / hiring-partner / callback / writing-exercise / panel / behavioral]
 **Questions couvertes :** [N]
 
 **Prêt :**
@@ -142,7 +142,7 @@ Format :
 ---
 company: [company, ou "practice"]
 role: [role]
-round: [screen | hiring-manager | technical | system-design | behavioral | onsite | final]
+round: [screen | hiring-partner | callback | writing-exercise | panel | business-stakeholder | behavioral]
 date: YYYY-MM-DD
 interviewer_role: [rôle du persona, si défini]
 source: practice
@@ -159,7 +159,7 @@ source: practice
 
 Règles pour la transcription :
 
-- **Mappez le type de round à l'énumération** ci-dessus (recruteur screen → `screen`, HM screen → `hiring-manager`, technique/domaine → `technical`, conception/étude de cas → `system-design`, comportemental → `behavioral`).
+- **Mappez le type de round à l'énumération** ci-dessus (screening recruteur → `screen`, screening hiring-partner/GC → `hiring-partner`, rencontres associé/senior-associate → `callback`, exercice de rédaction ou markup → `writing-exercise`, panel mixte → `panel`, round stakeholder non-juriste → `business-stakeholder`, comportemental → `behavioral`).
 - **Taguez chaque réponse.** Sur la ligne juste au-dessus de chaque ligne `**Candidate:**`, émettez `<!-- competency: tag[, tag...] -->` — en minuscules kebab-case, séparés par des virgules pour les réponses multi-compétences. Vous avez déjà évalué chaque réponse pendant la session, donc taguez à partir de là. Les tags sont libres ; choisissez la compétence que la question a réellement testée.
 - **Enregistrez la réponse du candidat mot pour mot**, pas la "version plus solide" — la transcription enregistre ce qui s'est passé, pas le coaching.
 - **`source: practice`.**

@@ -130,7 +130,7 @@ Agrega a `interview-prep/{company-slug}-{role-slug}.md`:
 ## Round [N] Debrief — [YYYY-MM-DD]
 
 **Interviewer:** [nombre, rol]
-**Round type:** [screening / technical / design-case-study / behavioral]
+**Round type:** [screening / hiring-partner / callback / writing-exercise / panel / behavioral]
 **Outcome:** [pending / moved forward / rejected]
 
 ### Questions Asked
@@ -163,7 +163,7 @@ Formato:
 ---
 company: [empresa]
 role: [rol]
-round: [screen | hiring-manager | technical | system-design | behavioral | onsite | final]
+round: [screen | hiring-partner | callback | writing-exercise | panel | business-stakeholder | behavioral]
 date: YYYY-MM-DD
 interviewer_role: [rol, si se conoce]
 source: debrief
@@ -180,7 +180,7 @@ source: debrief
 
 Reglas para la transcripción:
 
-- **Asigna el tipo de ronda al enum** anterior (ej. filtro del reclutador → `screen`, filtro del HM → `hiring-manager`, inmersión técnica → `technical`, diseño/estudio de caso → `system-design`).
+- **Asigna el tipo de ronda al enum** anterior (ej. llamada del reclutador → `screen`, filtro con el socio de contratación o GC → `hiring-partner`, reuniones sucesivas con socios → `callback`, revisión/redacción de NDA o MSA → `writing-exercise`, panel mixto → `panel`, ronda con stakeholders de negocio → `business-stakeholder`).
 - **Etiqueta cada respuesta.** En la línea directamente arriba de cada línea `**Candidate:**`, emite `<!-- competency: tag[, tag...] -->` — en minúsculas (lowercase-kebab-case), separado por comas para respuestas con múltiples competencias (ej. `system-design`, `people-leadership`, `incident-response`). Ya evaluaste cada respuesta en el Step 2, así que etiqueta a partir de esa evaluación en lugar de volver a leer. Las etiquetas son de formato libre; elige la competencia que la pregunta realmente evaluó.
 - **Reconstruye el turno del candidato fielmente.** Usa lo que el candidato informó haber dicho en el Step 1, no una respuesta idealizada. La "respuesta correcta/completa" del Step 2 pertenece al archivo de análisis, nunca a la transcripción — la transcripción registra lo que sucedió.
 - **`source: debrief`.**

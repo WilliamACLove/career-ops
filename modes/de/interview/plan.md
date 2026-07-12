@@ -9,7 +9,7 @@ Erstelle aus einer Stellenanzeige und einem Interviewtermin einen strukturierten
 1. **Stellenanzeige** (erforderlich) — inline einfügen oder URL angeben
 2. **Datum und Uhrzeit des Interviews** (erforderlich) — um die verfügbaren Stunden zu berechnen
 3. **Name und Rolle des Interviewers** (falls bekannt) — bestimmt Tiefe und Ton der Vorbereitung
-4. **Art der Runde** (falls bekannt) — Screening, technisch/fachspezifisch, Design/Case Study, Behavioral Panel
+4. **Art der Runde** (falls bekannt) — Screening (Recruiter/Personalberater), Partner-/GC-Screening (`hiring-partner`), Callback-Tag mit mehreren Partner:innen/Senior Associates (`callback`), Schreibprobe/Vertragsbearbeitung (`writing-exercise`), Panel-Gespräch (`panel`), Fachbereichsgespräch mit Business-Stakeholdern bei Inhouse-Rollen (`business-stakeholder`), verhaltensbasiertes Interview (`behavioral`)
 5. **Lebenslauf** unter `cv.md` + `article-digest.md` (falls vorhanden) — für Erfahrung, Skills, Proof Points lesen
 6. **Profil** unter `config/profile.yml` + `modes/_profile.md` — für Narrativ, Archetypen und Ziele lesen
 7. **Story Bank** unter `interview-prep/story-bank.md` — vorhandene STAR+R-Stories
@@ -32,34 +32,38 @@ Sei ehrlich. Eine Lücke ist eine Lücke — kennzeichne sie klar, damit die Vor
 ## Step 2 — Round Intelligence
 
 Bestimme, was diese Runde tatsächlich bewertet, basierend auf:
-- Rolle des Interviewers (Manager = Kommunikation + Leidenschaft + Grundlagen; Praktiker = Tiefe + Urteilsvermögen)
-- Bezeichnung der Runde (Screening, technisch/Domäne, Design/Case Study, Final)
+- Rolle des Interviewers (Partner:in/GC = Kommunikation + Passung + Grundlagen; Senior Associate/Fachreferent:in = Tiefe + Urteilsvermögen)
+- Bezeichnung der Runde (Screening, Partner-/GC-Screening, Callback, Schreibprobe, Panel, Fachbereichsgespräch, Behavioral)
 - Signalen aus der Stellenanzeige (was sie betonen)
 
-**Recruiter Screen:**
+**Recruiter Screen (`screen`):**
 - Abhaken: Passung, Gehaltsabgleich, Logistik, Kommunikation
-- Kein technischer Test — Tiefenfragen kommen im HM-Gespräch und in späteren Runden
-- Wahrscheinlich: Kurzvorstellung des Werdegangs, "Warum wir / warum diese Rolle", Gehaltsvorstellung, Zeitplan, eine logistische Frage
+- Kein Fachtest — Tiefenfragen kommen im Partner-/GC-Gespräch und in späteren Runden
+- Wahrscheinlich: Kurzvorstellung des Werdegangs, "Warum diese Kanzlei/dieses Unternehmen / warum diese Rolle", Gehaltsvorstellung, Zeitplan, eine logistische Frage (Zulassung, Berufsjahr, Standort)
 - Behandle dies als den einfachen Checkpoint; nutze die Vorbereitungszeit, um das Fundament für das Folgende zu bauen
 
-**Hiring-Manager Screen:**
-- Kommunikation, Leidenschaft, Passung — dazu Führungsphilosophie und Urteilsvermögen
-- Grundlagen des Kern-Skills aus der Stellenanzeige — keine tiefen Interna
-- 1–2 Behavioral-Stories
-- Wahrscheinlich: Werdegang, "Warum wir", ein Kernkonzept aus der Stellenanzeige, eine Führungs-Story, eine vorausschauende Situationsfrage
+**Partner-/GC-Screening (`hiring-partner`):**
+- Kommunikation, Passung zur Praxisgruppe — dazu Urteilsvermögen und Erfahrungstiefe
+- Grundlagen der Kernkompetenz aus der Stellenanzeige — keine tiefen fachlichen Interna
+- 1–2 Behavioral-Stories, oft mit Blick auf das Dealsheet/die Matters-Liste
+- Wahrscheinlich: Werdegang, "Warum diese Kanzlei/dieses Unternehmen", ein Kernkonzept aus der Stellenanzeige, eine Story zur Mandatsführung, eine vorausschauende Situationsfrage
 
-**Technical / domain deep-dive with a practitioner:**
-- Tiefe im Kern-Skill aus der Stellenanzeige (z. B. Runtime-Interna im Engineering, Modellierungsentscheidungen bei Data, Bewertungsmethoden in der Finanzwelt)
-- Angewandte Szenarien aus dem Tagesgeschäft der Rolle
-- Live-Übung oder durchgearbeitetes Walkthrough möglich
-- Stories dienen als Beleg, nicht als Hauptereignis
+**Callback-Tag mit Partner:in/Senior Associate (`callback`):**
+- Fachliche Tiefe im Praxisgebiet der Stellenanzeige (z. B. Deal-Struktur bei M&A, Verfahrensstand bei Litigation, Regelwerke bei Compliance)
+- Angewandte Praxis-Hypotheticals aus dem Tagesgeschäft der Rolle, oft mit Konflikt-/Ethik-Szenario
+- Mehrere Slots hintereinander — Stories dienen als Beleg, nicht als Hauptereignis
 
-**Design / case study panel:**
-- Vollständige Lösung — Constraints, Komponenten, Trade-offs, Fehlermodi
-- Die Qualitätsdimensionen, die die Stellenanzeige betont (z. B. Skalierbarkeit, Compliance, Messbarkeit)
+**Schreibprobe / Vertragsbearbeitung (`writing-exercise`):**
+- Bearbeitung eines Vertragsentwurfs (NDA/MSA/AVV) gegen ein Playbook oder eine vorgegebene Position
+- Kurzes Beratungsmemo für eine nicht-juristische Zielgruppe
+- Senior-Level: Fallback-Position begründen, Restrisiko verständlich erklären
+
+**Panel-/Fachbereichsgespräch (`panel` / `business-stakeholder`, oft bei Inhouse-Rollen):**
+- Vollständige Lösung — Constraints, Beteiligte, Trade-offs, Risiko-Kommunikation an Nicht-Jurist:innen
+- Die Qualitätsdimensionen, die die Stellenanzeige betont (z. B. Skalierbarkeit des Vertragsprozesses, Compliance, Messbarkeit)
 - Senior-Level: Constraints setzen, klärende Fragen stellen, das Gespräch führen
 
-Kalibriere den Plan auf die Runde. Für ein Screening zu viel Tiefe vorzubereiten verschwendet Zeit und erzeugt die falsche Denkhaltung.
+Kalibriere den Plan auf die Runde. Für ein Screening zu viel fachliche Tiefe vorzubereiten verschwendet Zeit und erzeugt die falsche Denkhaltung.
 
 ---
 

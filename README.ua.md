@@ -63,6 +63,8 @@
 
 ## Що це таке
 
+> **Ця редакція орієнтована на юридичні кар'єри** — юристи/адвокати юридичних фірм, inhouse-юристи (юрисконсульти), комплаєнс та регуляторні юристи, юристи державного сектору/public interest, а також ролі на стику права й технологій (legal tech). Архетипи, список порталів, джерела для дослідження компенсації та гейти оцінки (кваліфікація/адвокатський статус, відповідність рівня досвіду, конфлікти інтересів) нижче налаштовані під юридичний ринок праці. Базовий рушій кар'єро-агностичний і повністю кастомізується під будь-який напрямок — просто попросіть свій AI CLI змінити архетипи. Оригінальна редакція проєкту для AI/інженерних кар'єр, з якої виросла ця система, залишається відкритою і підтримується [santifer](https://santifer.io) (див. "Про автора" нижче).
+
 Career-Ops перетворює будь-який AI-кодинг CLI на повноцінний командний центр для пошуку роботи. Замість ручного відстеження заявок у таблиці, ви отримуєте AI-pipeline, який:
 
 - **Оцінює вакансії** за структурованою системою балів A-F (10 зважених параметрів)
@@ -88,7 +90,7 @@ Career-ops працює агентно: Claude Code переходить на к
 | **Банк історій для інтерв'ю** | Накопичує STAR+Reflection історії з оцінок — 5-10 майстер-історій, що відповідають на будь-яке поведінкове питання                               |
 | **Скрипти переговорів**       | Фреймворки переговорів про зарплату, протидія географічним знижкам, використання конкуруючих пропозицій                                          |
 | **Генерація ATS PDF**         | Резюме з впровадженими ключовими словами, дизайн Space Grotesk + DM Sans                                                                         |
-| **Сканер порталів**           | 45+ попередньо налаштованих компаній (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + кастомні запити через Ashby, Greenhouse, Lever, Wellfound |
+| **Сканер порталів**           | 45+ попередньо налаштованих компаній — legal tech (Harvey, Ironclad, Everlaw, Spellbook, Clio...), inhouse-юридичні команди в tech-компаніях (Anthropic, OpenAI, Coinbase, Databricks, Stripe...), плюс державний сектор (USAJOBS) та дошки при асоціаціях адвокатів — + кастомні запити через Ashby, Greenhouse, Lever, Workday |
 | **Пакетна обробка**           | Паралельна оцінка з `claude -p` воркерами                                                                                                        |
 | **Дашборд TUI**               | Термінальний інтерфейс для перегляду, фільтрації та сортування вашого конвеєра                                                                   |
 | **Human-in-the-Loop**         | AI оцінює та рекомендує, ви вирішуєте та дієте. Система ніколи не подає заявку — остаточне рішення завжди за вами                                |
@@ -160,8 +162,8 @@ Career-ops — це одна слеш-команда з кількома реж�
         │
         ▼
 ┌──────────────────┐
-│  Визначення      │  Класифікує: LLMOps / Agentic / PM / SA / FDE / Transformation
-│  архетипу        │
+│  Визначення      │  Класифікує: Юрист юрфірми (Транзакційна практика/Судові
+│  архетипу        │  спори) / Inhouse-юрисконсульт / Комплаєнс / Державний сектор / Legal Tech
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -179,16 +181,11 @@ Career-ops — це одна слеш-команда з кількома реж�
 
 Сканер поставляється з **45+ компаніями**, готовими до сканування, та **19 пошуковими запитами** по основних дошках вакансій. Скопіюйте `templates/portals.example.yml` у `portals.yml` та додайте свої:
 
-**AI-лабораторії:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Голосовий AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
-**AI-платформи:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
-**Контакт-центри:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
-**Enterprise:** Salesforce, Twilio, Gong, Dialpad
-**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
-**Автоматизація:** n8n, Zapier, Make.com
-**Європейські:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
+**Legal tech:** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
+**Inhouse legal:** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
+**Дошки:** USAJOBS (федеральний державний сектор США, включно з justice.gov), GoInhouse, Lawjobs, LawCrossing, LateralHub, кар'єрні центри ABA та штатних асоціацій адвокатів. Також покривається через `search_queries`: дошки держсектору/офісів генпрокурорів (NAAG, NDAA, NLADA, GovernmentJobs.com), кар'єрні центри асоціацій адвокатів і практик, включно з RSS-технікою збережених пошуків для дошок YM Careers (ACC Jobline, AIPLA, INTA, ACEDS, FBA, AHLA, affinity bars), дошки university counsel (NACUA, HigherEdJobs), маркетплейси гнучкої зайнятості (The Mom Project, Paragon Legal, Latitude Legal, Axiom) та legal-ops дошки (Legal Operators, CLOC, legal.io Legal-Operations).
 
-**Дошки вакансій:** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront
+> **Примітка щодо латеральних переходів у юрфірми:** великі AmLaw-рівня фірми на Заході тримають власні юридичні ATS (viRecruit, LawCruit), що не мають публічного API, тому такі вакансії переважно йдуть через рекрутерів (Major Lindsey & Africa, Lateral Link, BCG Attorney Search) або агрегатори, а не через цей сканер. Для українського ринку аналогічний патерн: провідні українські фірми (Sayenko Kharenko, Avellum, Asters та подібні) і latеральні переходи senior-рівня частіше йдуть через персональні контакти та рекрутерів, ніж через публічні дошки — сканер найкраще підходить для legal tech, inhouse-ролей у tech-компаніях та державного сектору (USAJOBS), а на українському ринку — для загальних дошок (robota.ua, work.ua) і DOU.ua/Djinni.co для legal-tech/inhouse-в-IT вакансій.
 
 ## Дашборд TUI
 

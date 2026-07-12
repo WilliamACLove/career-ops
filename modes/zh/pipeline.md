@@ -32,12 +32,12 @@
 ```markdown
 ## Pending
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://boards.greenhouse.io/company/jobs/456 | 某某科技 | 资深 AI 产品经理
+- [ ] https://boards.greenhouse.io/company/jobs/456 | 某某律所 | 非诉并购律师
 - [!] https://private.url/job — 错误：需要登录后查看
 
 ## Processed
-- [x] #143 | https://jobs.example.com/posting/789 | 极客科技 | AI 研发工程师 | 4.2/5 | PDF ✅
-- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | 某大厂 | 解决方案架构师 | 2.1/5 | PDF ❌
+- [x] #143 | https://jobs.example.com/posting/789 | 某科技公司 | 商业法律顾问 | 4.2/5 | PDF ✅
+- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | 某律所 | 诉讼律师 | 2.1/5 | PDF ❌
 ```
 
 ---

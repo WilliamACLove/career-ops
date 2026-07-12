@@ -37,6 +37,12 @@ Aday bir başvuru formunu doldururken çalışan etkileşimli mod. Ekrandakileri
 4. Blok G varsa → önceki taslak yanıtları temel olarak al
 5. Eşleşme bulunamazsa → adayı bilgilendirip hızlı auto-pipeline öner
 
+## Adım 2,5 — Kanal Kontrolü (referans kaynağı kilidi)
+
+Herhangi bir DOĞRUDAN başvuru taslağı hazırlamadan ÖNCE, işverenin bir hukuk bürosu olup olmadığını ve bu büro için zaten bir recruiter/İK danışmanlığı görevlendirilip görevlendirilmediğini kontrol et — `config/profile.yml` → `legal.recruiter_channel.engagements`, artı bu işveren için takipçide `via=` alanı taşıyan herhangi bir satır.
+
+Bir recruiter/İK danışmanlığı zaten görevlendirilmişse (veya görevlendirilmiş olabilirse), **DUR ve taslak hazırlamak yerine uyar**: ilk başvuruyu yapan taraf o işverende adaylığı genellikle 6-12 ay boyunca "sahiplenir" ve recruiter başvurusunun üzerine yapılan bir doğrudan başvuru, büroların sıklıkla adayı tamamen eleyerek çözdüğü bir ücret anlaşmazlığı yaratır. Başvuruyu görevlendirilmiş recruiter üzerinden yönlendir, ya da riski kabul ederek doğrudan devam etmek için adaydan açık bir onay al. Şirket içi ve kamu işverenlerinde varsayılan doğrudan başvurudur — bu kontrol yalnızca bir recruiter kanalı mevcut olduğunda devreye girer.
+
 ## Adım 3 — Rol Değişikliğini Tespit Et
 
 Ekrandaki rol önceki değerlendirmedekinden farklıysa:
@@ -69,6 +75,8 @@ Her soru için yanıtı şu şemaya göre oluştur:
 5. **Kanıt URL'si:** "Ek bilgi" alanı varsa demo/proje linkini ekle
 
 **Türkiye'ye özgü form alanları:**
+- **Baro kaydı / kıdem yılı (eleme sorusu):** "Hangi baroya kayıtlısınız?", "Kaç yıllık avukatsınız?" gibi sorular çoğu zaman eleme amaçlıdır — `config/profile.yml` → `legal.bar_admissions` ve `legal.class_year` ile karşılaştır; uyumsuzluk varsa adayı önce bilgilendir, sonra yanıt taslağı hazırla
+- **Patent/marka vekilliği (ilgiliyse):** "TÜRKPATENT nezdinde patent vekilliğiniz var mı?" — `legal.patent_bar`'a göre yanıtla; yoksa uydurma
 - **Maaş beklentisi (net TL):** `profile.yml`'deki aralık, "paket yapısına göre müzakereye açığım" notu ekle
 - **Başlangıç tarihi / Müsaitlik:** İhbar süresi gerçekçi biçimde hesaba katılarak tarih ver
 - **Çalışma izni / Vatandaşlık:** Yabancı uyruklu adaylar için net ve özlü yaz

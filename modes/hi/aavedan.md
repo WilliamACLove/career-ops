@@ -45,6 +45,15 @@ Interactive mode जब candidate Chrome में application form भर र�
 - **यदि reevaluate करें**: Complete A-F evaluation launch करें, report update करें, Block G regenerate करें
 - **Tracker update करें**: यदि ज़रूरी हो तो applications.md में role title modify करें
 
+## Step 3.5 -- Recruiter-Channel Check (कभी double-submit न करें)
+
+Firm application draft/fill करने से पहले हमेशा check करें:
+
+1. `config/profile.yml` -> `legal.recruiter_channel` देखें -- क्या इस firm/company के लिए पहले से कोई legal recruiter engaged है?
+2. `data/applications.md` में इस company की existing entry के `via=` field देखें -- क्या कोई agency/recruiter (जैसे Vahura, या कोई अन्य legal-sector search firm) पहले ही यह profile submit कर चुकी है?
+3. यदि हाँ -- **रुकें और candidate को बताएं**: "{Recruiter} पहले ही आपका profile {Company} में submit कर चुका है (via tracker/profile.yml)। Direct apply करने से आप conflicted candidate बन सकते हैं और recruiter pipeline से पूरी तरह discard हो सकते हैं। पहला submitter करीब 6-12 महीनों तक candidacy का owner रहता है।" Candidate की explicit confirmation के बिना आगे न बढ़ें।
+4. कोई match नहीं मिला, या recruiter-channel record नहीं है → सामान्य तरीके से आगे बढ़ें।
+
 ## Step 4 -- Form Questions Analyze करें
 
 सभी visible questions identify करें:

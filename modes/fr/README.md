@@ -1,15 +1,15 @@
 # career-ops -- Modes francophones (`modes/fr/`)
 
-Ce dossier contient les traductions francaises des principaux modes career-ops pour les candidats qui ciblent le marche francophone (France, Belgique, Suisse romande, Luxembourg, Quebec).
+Ce dossier contient les traductions francaises des modes career-ops, edition carrieres juridiques, pour les candidats (avocats, juristes d'entreprise) qui ciblent le marche francophone (France, Belgique, Suisse romande, Luxembourg, Quebec).
 
 ## Quand utiliser ces modes ?
 
 Utilise `modes/fr/` si au moins une de ces conditions est remplie :
 
-- Tu postules principalement a des **offres d'emploi en francais** (Welcome to the Jungle, Indeed FR, APEC, Pole emploi / France Travail, LinkedIn FR, sites carrieres)
+- Tu postules principalement a des **offres d'emploi juridiques en francais** (Village de la Justice, Carrieres-Juridiques.com, Welcome to the Jungle, Indeed FR, APEC, Pole emploi / France Travail, LinkedIn FR, sites carrieres de cabinets)
 - Ton **CV est en francais** ou tu alternes entre FR et EN selon l'offre
-- Tu as besoin de reponses et lettres de motivation en **francais tech naturel**, pas traduit par une machine
-- Tu dois gerer des **specificites contractuelles francophones** : convention collective, RTT, mutuelle, prevoyance, 13e mois, periode d'essai, preavis, cheques-dejeuner, interessement/participation, portage salarial
+- Tu as besoin de reponses et lettres de motivation en **francais juridique naturel**, pas traduit par une machine
+- Tu dois gerer des **specificites contractuelles et professionnelles francophones** : convention collective des avocats salaries ou SYNTEC, collaboration liberale vs salariat, retrocession d'honoraires, RTT, mutuelle, prevoyance, 13e mois, periode d'essai, preavis, interessement/participation
 
 Si la plupart de tes offres sont en anglais, reste sur les modes standard dans `modes/`. Les modes anglais fonctionnent pour les offres francophones, mais ne connaissent pas les specificites du marche francophone en detail.
 
@@ -41,12 +41,13 @@ Cette premiere iteration couvre les quatre modes a plus fort impact :
 
 | Fichier | Traduit depuis | Role |
 |---------|----------------|------|
-| `_shared.md` | `modes/_shared.md` (EN) | Contexte partage, archetypes, regles globales, specificites marche francophone |
-| `offre.md` | `modes/oferta.md` (ES) | Evaluation complete d'une offre (Blocs A-F) |
-| `postuler.md` | `modes/apply.md` (EN) | Assistant live pour remplir les formulaires de candidature |
-| `pipeline.md` | `modes/pipeline.md` (ES) | Inbox d'URLs / Second Brain pour les offres collectees |
+| `_shared.md` | `modes/_shared.md` (EN) | Contexte partage, archetypes juridiques, verrous durs, regles globales, specificites marche francophone |
+| `offre.md` | `modes/oferta.md` (EN) | Evaluation complete d'une offre (Blocs A-G, y compris le Bloc G Legitimite de l'offre) |
+| `postuler.md` | `modes/apply.md` (EN) | Assistant live pour remplir les formulaires de candidature, avec verrou de canal recruteur |
+| `pipeline.md` | `modes/pipeline.md` (EN) | Inbox d'URLs / Second Brain pour les offres collectees |
+| `interview/plan.md`, `interview/practice.md`, `interview/debrief.md` | `modes/interview/*.md` (EN) | Preparation d'entretien, entrainement, et debriefing -- rounds calibres sur le processus des cabinets et du juridique d'entreprise (screen, hiring-partner, callback, writing-exercise, panel, business-stakeholder, behavioral) |
 
-Les autres modes (`scan`, `batch`, `pdf`, `tracker`, `auto-pipeline`, `deep`, `contacto`, `ofertas`, `project`, `training`) restent en EN/ES. Leur contenu est surtout du tooling, des chemins et des commandes -- il doit rester independant de la langue.
+Les autres modes (`scan`, `batch`, `pdf`, `tracker`, `auto-pipeline`, `deep`, `contacto`, `project`, `training`) restent en EN. Leur contenu est surtout du tooling, des chemins et des commandes -- il doit rester independant de la langue.
 
 ## Ce qui reste en anglais
 
@@ -57,7 +58,7 @@ Volontairement non traduit car vocabulaire tech standard :
 - Valeurs de statut dans le tracker (`Evaluated`, `Applied`, `Interview`, `Offer`, `Rejected`)
 - Extraits de code, chemins, commandes
 
-Les modes utilisent du francais tech naturel, tel qu'il est parle dans les equipes engineering a Paris, Lyon ou Geneve : texte courant en francais, termes techniques en anglais la ou c'est l'usage. Pas de traduction forcee de "Pipeline" en "Canalisation" ni de "Deploy" en "Deploiement applicatif".
+Les modes utilisent du francais juridique naturel, tel qu'il est parle dans les cabinets d'avocats et les directions juridiques a Paris, Lyon, Bruxelles ou Geneve : texte courant en francais, termes de metier reconnus tels quels la ou c'est l'usage (deal, closing, due diligence, compliance officer). Pas de traduction forcee de "Compliance" en "Mise en conformite systematique" ni de termes qui sonnent artificiels dans la bouche d'un praticien.
 
 ## Lexique de reference
 
@@ -94,6 +95,20 @@ Pour garder un ton coherent si tu modifies ou etends les modes :
 | RTT | RTT (Reduction du Temps de Travail) |
 | Cadre status | Statut cadre |
 | SYNTEC | Convention SYNTEC (IT/consulting) |
+| Bar admission | Admission au barreau |
+| Law firm associate | Avocat collaborateur / Avocate collaboratrice |
+| Partner | Associe / Associee |
+| Class year | Promotion (annee d'entree au barreau ou en cabinet) |
+| In-house counsel | Juriste d'entreprise |
+| General Counsel | Directeur juridique / Directrice juridique |
+| Deputy General Counsel | Directeur juridique adjoint / Directrice juridique adjointe |
+| Compliance officer | Responsable conformite / Juriste conformite |
+| Patent attorney | CPI (Conseil en Propriete Industrielle) |
+| Deal sheet / matters list | Liste de dossiers / Deal sheet |
+| Billable hours | Heures facturables |
+| Independent contractor collaboration (law firm) | Collaboration liberale (retrocession d'honoraires) |
+| Employee associate (law firm) | Collaborateur salarie |
+| Contract/staffing attorney | Juriste en mission / Legal staffing |
 
 ## Contribuer
 
@@ -102,5 +117,5 @@ Pour ameliorer une traduction ou ajouter un mode :
 1. Ouvre une Issue avec ta proposition (voir `CONTRIBUTING.md`)
 2. Respecte le lexique ci-dessus pour garder le ton coherent
 3. Traduis de maniere idiomatique -- pas de traduction mot a mot
-4. Conserve les elements structurels (Blocs A-F, tableaux, blocs de code, instructions outils) a l'identique
-5. Teste avec une vraie offre francophone (Welcome to the Jungle, APEC, Indeed FR) avant de soumettre la PR
+4. Conserve les elements structurels (Blocs A-G, tableaux, blocs de code, instructions outils) a l'identique
+5. Teste avec une vraie offre francophone (Village de la Justice, Carrieres-Juridiques.com, APEC, Indeed FR) avant de soumettre la PR

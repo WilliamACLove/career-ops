@@ -20,6 +20,14 @@ Mode interactif pour le moment ou le candidat remplit un formulaire de candidatu
 8. PRESENTER    -> Afficher les reponses formatees pour copier-coller
 ```
 
+## Etape 0 -- Verrou du canal (verrouillage du canal recruteur)
+
+Avant de rediger toute candidature DIRECTE, verifier si l'employeur est un cabinet d'avocats et si un cabinet de recrutement juridique est deja mandate pour ce poste :
+- `config/profile.yml` -> `legal.canal_recruteur`
+- Toute ligne du tracker pour cet employeur portant un champ `via=`
+
+Si un cabinet de recrutement est (ou peut etre) mandate, **STOP et alerter au lieu de rediger** : le premier canal ayant soumis la candidature "possede" generalement celle-ci pendant une periode d'exclusivite (souvent plusieurs mois, variable selon le cabinet). Une candidature directe par-dessus une soumission via cabinet cree un conflit de facturation que les cabinets d'avocats resolvent souvent en ecartant simplement le candidat. Router la candidature via le cabinet de recrutement mandate, ou obtenir une decision explicite du candidat pour proceder en direct malgre le risque. Les postes de juriste d'entreprise et du secteur public sont par defaut en candidature directe -- ce verrou ne joue que lorsqu'un canal recruteur existe.
+
 ## Etape 1 -- Detecter l'offre
 
 **Avec Playwright :** Snapshot de la page active. Lire titre, URL et contenu visible.

@@ -9,7 +9,7 @@
 1. **Description de poste** (requis) — collez en ligne ou fournissez l'URL
 2. **Date et heure de l'entretien** (requis) — pour calculer les heures disponibles
 3. **Nom et rôle de l'intervieweur** (si connu) — oriente la profondeur et le ton de la préparation
-4. **Type de round** (si connu) — sélection (screening), technique/spécifique au domaine, conception/étude de cas, panel comportemental
+4. **Type de round** (si connu) — screening recruteur, screening hiring-partner (ou General Counsel), callback (rencontres associé/senior-associate), exercice de rédaction/markup, panel mixte, round stakeholder business (in-house), comportemental
 5. **CV** dans `cv.md` + `article-digest.md` (si présent) — lire pour l'expérience, les compétences, les points de preuve
 6. **Profil** dans `config/profile.yml` + `modes/_profile.md` — lire pour la narration, les archétypes et les cibles
 7. **Banque d'histoires** dans `interview-prep/story-bank.md` — histoires STAR+R existantes
@@ -37,34 +37,42 @@ Identifiez ce que ce round évalue réellement en fonction de :
 - L'étiquette du round (sélection, technique/domaine, conception/étude de cas, final)
 - Les signaux de la JD (ce qu'ils mettent en évidence)
 
-**Recruiter screen :**
+**Screening recruteur :**
 
 - Coche les cases : adéquation, alignement de la rémunération, logistique, communication
-- Ce n'est pas un test technique — les questions approfondies viennent avec le Hiring Manager et dans les rounds suivants
-- Probable : pitch de présentation, "pourquoi nous / pourquoi ce rôle", attente salariale, calendrier, une question logistique
+- Ce n'est pas un test de fond — les questions de fond viennent avec le hiring-partner (ou le GC) et dans les rounds suivants
+- Probable : pitch de présentation, "pourquoi ce cabinet/cette entreprise", prétentions salariales, calendrier, une question de logistique (barreau, anciennete, presence bureau)
 - Traitez ceci comme le point de contrôle facile ; utilisez le temps de préparation pour construire les fondations de ce qui vient ensuite
 
-**Hiring-manager screen :**
+**Screening hiring-partner (ou General Counsel) :**
 
-- Communication, passion, adéquation — plus la philosophie de leadership et le jugement
-- Fondamentaux de la compétence principale de la JD — pas les composants internes profonds
+- Jugement, adéquation à la pratique, profondeur d'expérience — plus la philosophie de management et le sens des priorités
+- Fondamentaux de la compétence de la JD — pas encore la plongée technique complète
 - 1–2 histoires comportementales
-- Probable : parcours, "pourquoi nous", un concept central de la JD, une histoire de leadership, une question de mise en situation orientée vers l'avenir
+- Probable : parcours et liste de dossiers/deal sheet, "pourquoi ce cabinet (ou pourquoi le in-house) / pourquoi ce rôle", un concept central de la matière (JD), une histoire de leadership, une question de mise en situation orientée vers l'avenir
+- Le hiring-partner décide s'il investit une journée de callback pour son groupe
 
-**Technical / domain deep-dive with a practitioner :**
+**Callback — fond / spécifique à la pratique (associé ou senior-associate) :**
 
-- Profondeur dans la compétence principale de la JD (par ex., fonctionnement interne pour l'ingénierie, choix de modélisation pour la data, méthodes d'évaluation pour la finance)
-- Scénarios appliqués issus du quotidien du rôle
-- Exercice en direct ou explication d'un cas travaillé possible
+- Profondeur sur la matière de la JD : structure d'opération, régime réglementaire clé, posture procédurale
+- Hypothétiques de pratique issus du quotidien du rôle (ex. pour un poste de juriste produit : "un PM veut lancer une fonctionnalité qui collecte des données biométriques la semaine prochaine, comment le conseillez-vous ?")
+- Question de déontologie/conflits possible
 - Les histoires sont utilisées comme preuves, pas comme événement principal
+- Pour les candidats seniors : la question du book/de l'apport d'affaires peut apparaître
 
-**Design / case study panel :**
+**Exercice de rédaction / markup :**
 
-- Solution complète — contraintes, composants, compromis, modes de défaillance
-- Les dimensions de qualité que la JD souligne (par ex., scalabilité, conformité, mesurabilité)
-- Niveau senior : définir les contraintes, poser des questions de clarification, mener la conversation
+- Correction d'un NDA/MSA/DPA par rapport à un playbook ou des positions données, en expliquant le raisonnement
+- Rédaction d'une note de synthèse pour un public non-juriste
+- Question de contrainte : que faites-vous si le client rejette votre position principale ?
 
-Calibrez le plan au round. Trop préparer en profondeur pour un round de sélection fait perdre du temps et crée le mauvais état d'esprit.
+**Panel comportemental (avec stakeholders business, in-house) :**
+
+- Solution complète face à une situation — contraintes, arbitrages, ce qui a mal tourné et ce qui a changé après
+- Les dimensions que la JD souligne (ex. gestion de volume, pédagogie juridique, rapidité)
+- Niveau senior : structurer la réponse, poser des questions de clarification, mener la conversation
+
+Calibrez le plan au round. Trop préparer en profondeur pour un screening fait perdre du temps et crée le mauvais état d'esprit.
 
 ---
 

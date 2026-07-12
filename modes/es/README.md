@@ -45,6 +45,9 @@ Esta primera iteración cubre los cuatro modos de mayor impacto:
 | `oferta.md` | `modes/oferta.md` (ES) | Evaluación completa de una oferta (Bloques A-F) |
 | `aplicar.md` | `modes/apply.md` (EN) | Asistente en vivo para rellenar formularios de candidatura |
 | `pipeline.md` | `modes/pipeline.md` (ES) | Bandeja de URLs / Second Brain para las ofertas recopiladas |
+| `interview/plan.md` | `modes/interview/plan.md` (EN) | Planificador de preparación de entrevistas con bloques de tiempo |
+| `interview/practice.md` | `modes/interview/practice.md` (EN) | Entrevistador de práctica — rondas legales (screen / hiring-partner / callback / writing-exercise / panel / business-stakeholder / behavioral) |
+| `interview/debrief.md` | `modes/interview/debrief.md` (EN) | Análisis posterior a una entrevista real, actualización del banco de preguntas |
 
 Los demás modos (`scan`, `batch`, `pdf`, `tracker`, `auto-pipeline`, `deep`, `contacto`, `ofertas`, `project`, `training`) se mantienen en EN/ES. Su contenido es principalmente tooling, rutas y comandos — debe permanecer independiente del idioma.
 

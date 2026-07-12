@@ -2,6 +2,10 @@
 
 Interaktiver Modus für den Moment, in dem der Kandidat in Chrome ein Bewerbungsformular ausfüllt. Liest, was auf dem Bildschirm steht, lädt den Kontext der vorherigen Bewertung der Stellenanzeige und erzeugt passgenaue Antworten für jede Frage des Formulars.
 
+## Channel-Check (Referral-Source-Lock)
+
+Vor dem Entwurf einer DIREKTEN Bewerbung prüfen, ob der Arbeitgeber eine Kanzlei ist und ob dafür bereits ein Legal-Headhunter/Personalberater eingesetzt ist — `config/profile.yml` → `legal.recruiter_channel.engagements`, plus jede Tracker-Zeile für diesen Arbeitgeber mit einem `via=`-Feld. Ist ein Headhunter (möglicherweise) bereits eingesetzt, **STOPPEN und warnen statt entwerfen**: Der/die Erstvermittler:in hält die Kandidatur bei diesem Arbeitgeber i. d. R. 6–12 Monate exklusiv, und eine Direktbewerbung obendrauf erzeugt einen Provisionsstreit, den Kanzleien häufig lösen, indem sie den Kandidaten komplett aussortieren. Entweder die Bewerbung über den eingesetzten Headhunter laufen lassen oder eine ausdrückliche Entscheidung des Kandidaten einholen, direkt weiterzumachen — mit klar benanntem Risiko. Inhouse- und Behörden-Arbeitgeber laufen standardmäßig über die Direktbewerbung; dieses Gate greift nur, wenn ein Recruiter-Kanal existiert.
+
 ## Voraussetzungen
 
 - **Empfohlen mit sichtbarem Playwright**: Im sichtbaren Modus sieht der Kandidat den Browser, und Claude kann mit der Seite interagieren.
@@ -74,6 +78,7 @@ Für jede Frage die Antwort nach folgendem Schema bauen:
 - **Arbeitserlaubnis / Aufenthaltsstatus** → ehrlich und knapp; bei EU-Bürgern explizit "Keine Arbeitserlaubnis erforderlich (EU-Bürger:in)"
 - **Sprachkenntnisse** → Deutsch / Englisch nach GER-Niveau (A1-C2) angeben
 - **Anrede** → bei deutschen Formularen oft Pflichtfeld (Herr / Frau / Divers / Keine)
+- **Zulassung / Berufsträgerstatus** → Staatsexamina-Noten, Zulassung als Rechtsanwalt:anwältin bzw. Syndikusrechtsanwalt:anwältin, Praxisgruppe/Fachanwaltstitel aus `cv.md` bzw. `config/profile.yml` → `legal`-Block übernehmen — niemals eine Note oder Zulassung erfinden, die dort nicht steht
 
 **Output-Format:**
 
