@@ -61,6 +61,8 @@
 
 ## 이게 뭔가요
 
+> **이 에디션은 법률/변호사 커리어를 대상으로 합니다** -- 로펌 어소시에이트, 사내변호사, 컴플라이언스/규제 대응 변호사, 정부·공익 변호사, 리걸테크 역할까지. 아래의 아키타입, 포털 목록, 보상 리서치 소스, 평가 gate(변호사 자격/등록, 연차 매칭, conflict of interest)는 법률 채용 시장에 맞춰져 있습니다. 이 시스템의 엔진 자체는 커리어에 종속되지 않으며 어떤 커리어 트랙으로도 완전히 커스터마이즈할 수 있습니다 -- AI CLI에게 아키타입을 바꿔달라고 요청하기만 하면 됩니다. 이 프로젝트가 기반한 원래의 AI/엔지니어링 커리어 에디션은 여전히 오픈소스이며, [santifer](https://santifer.io)가 관리합니다 (하단 "저자 소개" 참고).
+
 Career-Ops는 AI 코딩 CLI를 취업 활동 전체를 관리하는 커맨드 센터로 바꿔줍니다. 스프레드시트에서 수동으로 지원 현황을 관리하는 대신, AI 파이프라인이 알아서 처리합니다:
 
 - **공고 평가** -- 구조화된 A-F 스코어링 (10개 가중 평가 항목)
@@ -86,7 +88,7 @@ Career-ops는 에이전트 기반으로 작동합니다: Claude Code가 Playwrig
 | **면접 스토리 뱅크**   | 평가 데이터 기반 STAR+Reflection 스토리 축적 -- 어떤 행동 면접 질문도 커버하는 5~10개의 마스터 답변 생성                            |
 | **협상 전략 스크립트** | 연봉 협상 프레임워크, 거주지 기반 연봉 차등(Geographic Discount) 대응 논리, 경쟁 오퍼 활용 전략                                     |
 | **ATS PDF 생성**       | Space Grotesk + DM Sans 디자인, 키워드가 주입된 이력서                                                                              |
-| **포털 스캐너**        | 45개 이상의 기업 사전 설정 (Anthropic, OpenAI, ElevenLabs, Retool, n8n 등) + Ashby, Greenhouse, Lever, Wellfound 전반의 커스텀 검색 |
+| **포털 스캐너**        | 45개 이상의 기업 사전 설정 -- 리걸테크(Harvey, Ironclad, Everlaw, Spellbook, Clio...), 테크 기업 사내 법무팀(Anthropic, OpenAI, Coinbase, Databricks, Stripe...), 정부(USAJOBS) 및 변호사협회 채용 보드까지 + Ashby, Greenhouse, Lever, Workday 전반의 커스텀 검색 |
 | **일괄 처리**          | `claude -p` 워커로 병렬 평가                                                                                                        |
 | **Dashboard TUI**      | 터미널 UI에서 파이프라인 탐색, 필터링, 정렬                                                                                         |
 | **Human-in-the-Loop**  | AI가 평가하고 추천하면, 당신이 판단하고 행동합니다. 시스템은 절대 지원서를 자동 제출하지 않습니다 -- 최종 결정은 항상 당신의 몫     |
@@ -157,7 +159,7 @@ Career-ops는 다양한 모드를 가진 하나의 슬래시 커맨드입니다:
           │
           ▼
 ┌────────────────────────┐
-│  아키타입 감지           │  직무 페르소나(Archetype) 분류: LLMOps / Agentic / PM / SA / FDE / Transformation
+│  아키타입 감지           │  분류: 로펌 어소시에이트(거래/소송) / 사내변호사 / 컴플라이언스 / 정부·공공 / 리걸테크
 └──────────┬─────────────┘
            │
 ┌──────────▼─────────────┐
@@ -175,16 +177,13 @@ Career-ops는 다양한 모드를 가진 하나의 슬래시 커맨드입니다:
 
 스캐너에는 **45개 이상의 기업**과 주요 채용 보드에 걸친 **19개의 검색 쿼리**가 사전 설정되어 있습니다. `templates/portals.example.yml`을 `portals.yml`로 복사하고 원하는 기업을 추가하세요:
 
-**AI Labs:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
-**AI Platforms:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
-**Contact Center:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
-**Enterprise:** Salesforce, Twilio, Gong, Dialpad
-**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
-**Automation:** n8n, Zapier, Make.com
-**European:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
+**리걸테크:** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
+**테크 기업 사내 법무팀:** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
+**채용 보드:** USAJOBS(미국 연방정부, justice.gov 포함), GoInhouse, Lawjobs, LawCrossing, LateralHub, ABA 및 각 주 변호사협회 채용센터. `search_queries`로도 커버: 정부/검찰청 보드(NAAG, NDAA, NLADA, GovernmentJobs.com), 변호사협회·실무분야별 채용센터(ACC Jobline, AIPLA, INTA, ACEDS, FBA, AHLA 등 affinity bar 포함, YM Careers 보드용 저장 검색 RSS 기법 포함), 대학 법무실 보드(NACUA, HigherEdJobs), 유연근무/복직 마켓플레이스(The Mom Project, Paragon Legal, Latitude Legal, Axiom), 리걸옵스 보드(Legal Operators, CLOC, legal.io Legal-Operations)
 
-**검색 대상 채용 보드:** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront
+> **로펌 lateral 채용 참고:** 대형 AmLaw급 로펌은 공개 API가 없는 자체 법률 전문 ATS(viRecruit, LawCruit)를 운영하므로, BigLaw/AmLaw lateral 공고 대부분은 이 스캐너가 아니라 헤드헌터(Major Lindsey & Africa, Lateral Link, BCG Attorney Search)나 aggregator를 통해 유통됩니다. 이 스캐너가 가장 잘 커버하는 영역은 공개 ATS 보드를 쓰는 리걸테크 + 사내변호사 포지션, 그리고 실제 공개 API가 있는 정부(USAJOBS)입니다.
+
+**검색 대상 채용 보드:** Ashby, Greenhouse, Lever, Workday
 
 ## Dashboard TUI
 
