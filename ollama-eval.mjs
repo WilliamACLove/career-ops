@@ -75,7 +75,7 @@ if (args.length === 0 || args[0] === '--help' || args[0] === '-h') {
     4. Run this script
 
   EXAMPLES
-    node ollama-eval.mjs "We are looking for a Senior AI Engineer..."
+    node ollama-eval.mjs "We are looking for a Senior Commercial Counsel..."
     node ollama-eval.mjs --file ./jds/openai-swe.txt
     OLLAMA_MODEL=mistral-nemo node ollama-eval.mjs --file ./jds/job.txt
 `);
