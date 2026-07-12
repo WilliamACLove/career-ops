@@ -1,50 +1,60 @@
-# CV -- Alex Chen
+# CV -- Morgan Reyes
 
-**Location:** Austin, TX
-**Email:** alex@example.com
-**LinkedIn:** linkedin.com/in/alexchen
-**Portfolio:** alexchen.dev
-**GitHub:** github.com/alexchen
+**Location:** New York, NY
+**Email:** morgan.reyes@example.com
+**Phone:** (555) 010-2274
+**LinkedIn:** linkedin.com/in/morganreyes
+
+## Bar Admissions
+
+- New York (2021)
+- California -- Registered In-House Counsel, pending primary admission
 
 ## Professional Summary
 
-Full-stack AI engineer with 6 years building production ML systems. Led the ML platform at a Series B fintech (2020-2024), scaling from 2 models to 15+ in production. Built real-time fraud detection (99.7% precision, $2M/year saved), recommendation engine (18% uplift), and an internal MLOps platform serving 4 engineering teams.
+Fifth-year technology transactions and M&A associate at Calloway Vance LLP (AmLaw 100), advising public and private technology companies on cross-border acquisitions, SaaS commercial agreements, and technology licensing. Represented the acquirer in a $2.1B cross-border acquisition of a European data-infrastructure company; lead drafter on 150+ SaaS, MSA, and DPA agreements for enterprise software and fintech clients. Seeking to move in-house as Senior Commercial Counsel to own commercial contracting and product counseling at a growth-stage technology company.
 
 ## Work Experience
 
-### TechFin Corp -- Austin, TX
+### Calloway Vance LLP -- New York, NY
 
-**Senior ML Engineer / ML Platform Lead**
-2020-2024
+**Associate, Technology Transactions & M&A** (Class of 2021)
+2021-Present
 
-- Led ML platform team (3 engineers), built internal MLOps tooling: model registry, A/B testing framework, feature store
-- Designed real-time fraud detection pipeline: Kafka → feature computation → model inference → decision engine. 99.7% precision at 50ms p99
-- Built recommendation engine for lending products: collaborative filtering + LLM reranking. 18% conversion uplift
-- Reduced model deployment time from 2 weeks to 4 hours with CI/CD pipeline (GitHub Actions + SageMaker)
-- Established model monitoring: drift detection, performance dashboards (Grafana), automated retraining triggers
+- Represented acquirer in $2.1B cross-border acquisition of a European data-infrastructure company; drafted the merger agreement and disclosure schedules and managed due diligence workstreams across six specialist groups (IP, privacy, employment, tax, antitrust, real estate)
+- Lead drafter on 150+ SaaS, MSA, and DPA agreements for enterprise software and fintech clients; built a firmwide clause-library playbook that cut average negotiation cycle from 21 to 9 business days
+- Advised an AI-infrastructure client on a $340M Series D financing round, negotiating investor-side technology representations and IP warranties
+- Structured and closed four mid-market technology asset acquisitions ($15M-$95M deal value each), drafting purchase agreements, IP transfer instruments, and transition-services agreements
+- Negotiated cloud-services and data-licensing agreements with three hyperscale cloud providers on behalf of enterprise clients, focused on liability caps, data residency, and security addenda
 
-### DataStartup Inc -- Remote
+### Halloway & Ito LLP -- New York, NY
 
-**ML Engineer**
-2018-2020
+**Summer Associate, Corporate & IP Groups**
+2020
 
-- Built NLP pipeline for document classification (BERT fine-tuning, 94% accuracy on legal docs)
-- Implemented search ranking with learning-to-rank models
-- Set up experiment tracking with MLflow and model versioning
+- Drafted a due-diligence memorandum on open-source license compliance for a target company's codebase; flagged three GPL-contamination risks later addressed in the purchase agreement
+- Supported a technology licensing team on patent assignment and freedom-to-operate review for a hardware acquisition
 
-## Projects
+## Representative Matters (Selected)
 
-- **FraudShield** (Open Source) -- Real-time fraud detection framework. Kafka Streams + feature store + model serving. 500+ GitHub stars
-- **LLM Eval Toolkit** (Open Source) -- Evaluation framework for LLM applications. Supports custom metrics, regression testing, CI integration
+- $2.1B cross-border acquisition (data infrastructure) -- lead associate, acquirer side
+- $340M Series D financing (AI-infrastructure company) -- investor-side technology counsel
+- Four mid-market technology asset acquisitions, $15M-$95M range -- lead drafter
+- 150+ SaaS/MSA/DPA negotiations for enterprise software and fintech clients
 
 ## Education
 
-- MS Computer Science, UT Austin (2018)
-- BS Computer Science, UC Berkeley (2016)
+- J.D., Georgetown University Law Center (2021) -- cum laude, Georgetown Law Technology Review (Senior Editor), Order of the Coif
+- B.A. Economics, University of Michigan (2018) -- magna cum laude
+
+## Certifications & Professional Activities
+
+- CIPP/US, IAPP (2023)
+- Member, New York State Bar Association -- Business Law Section
+- Panelist, "AI Governance in Commercial Contracting," NYSBA CLE (2025)
 
 ## Skills
 
-- **ML/AI:** PyTorch, TensorFlow, scikit-learn, Hugging Face, LangChain
-- **MLOps:** SageMaker, MLflow, Kubeflow, Airflow, Feature Store
-- **Infra:** Kubernetes, Kafka, Redis, PostgreSQL, AWS
-- **Languages:** Python, Go, TypeScript, SQL
+- **Contract systems:** Ironclad, DocuSign CLM, Kira Diligence Platform, Relativity
+- **Practice areas:** M&A, technology licensing, SaaS/commercial contracting, data privacy (GDPR/CCPA), IP transactions
+- **Languages:** English (native), Spanish (professional working proficiency)

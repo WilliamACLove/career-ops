@@ -37,6 +37,14 @@ Interaktiv mode til det øjeblik, hvor kandidaten udfylder en ansøgningsformula
 4. Hvis Blok G findes -> indlæs de tidligere svar-udkast som grundlag
 5. Hvis INTET match -> advar kandidaten og foreslå en hurtig auto-pipeline
 
+### Rekrutteringskanal-tjek (advokatfirma-opslag)
+
+Før en direkte ansøgning til et advokatfirma udfyldes, tjek `legal.recruiter_channel` i `config/profile.yml` og trackerens `via=`-felter for samme virksomhed. Hvis et juridisk rekrutteringsbureau eller en headhunter allerede har indstillet kandidaten dertil, så STOP og advar:
+
+> "Det ser ud til, at [bureau] allerede har indstillet dig hos [virksomhed]. En direkte ansøgning nu kan tælle som en dobbeltindstilling og risikere at diskvalificere kandidaturen. Vil du stadig fortsætte, eller skal jeg foreslå, at du går videre gennem bureauet i stedet?"
+
+Kandidatens svar afgør -- fortsæt kun ved en eksplicit bekræftelse, og notér overstyringen i svarene under "Noter".
+
 ## Trin 3 -- Detektér rolleændringer
 
 Hvis rollen på skærmen afviger fra den evaluerede:

@@ -1,15 +1,15 @@
 # career-ops -- 한국어 모드 (`modes/ko/`)
 
-이 디렉터리는 한국어권 후보자와 한국 채용 시장을 대상으로 career-ops의 주요 모드를 한국어로 번역한 파일을 담고 있습니다.
+이 디렉터리는 한국어권 후보자와 한국 법률 채용 시장(로펌, 사내변호사, 컴플라이언스, 정부·공공, 리걸테크)을 대상으로 career-ops의 주요 모드를 한국어로 번역한 파일을 담고 있습니다.
 
 ## 언제 이 모드를 사용하나요?
 
 다음 중 하나라도 해당하면 `modes/ko/`를 사용하세요.
 
-- 주로 **한국어 채용 공고**에 지원하는 경우
+- 주로 **한국어 채용 공고**(로펌 어소시에이트, 사내변호사, 컴플라이언스, 정부·공공 변호사, 리걸테크)에 지원하는 경우
 - CV/이력서, 커버레터, 지원서 답변을 **한국어**로 작성해야 하는 경우
-- 기계 번역투가 아니라 **한국 테크 채용 문맥에 맞는 자연스러운 한국어**가 필요한 경우
-- 한국 채용 시장의 조건을 평가해야 하는 경우: 정규직, 계약직, 수습기간, 포괄임금제, 퇴직금, 4대 보험, 성과급, 스톡옵션/RSU, 재택/하이브리드 근무 등
+- 기계 번역투가 아니라 **한국 법률 채용 문맥에 맞는 자연스러운 한국어**가 필요한 경우
+- 한국 채용 시장의 조건을 평가해야 하는 경우: 정규직, 계약직, 수습기간, 포괄임금제, 퇴직금, 4대 보험, 성과급, 스톡옵션/RSU, 재택/하이브리드 근무, 변호사 자격/연차(PQE), 변리사 자격, 헤드헌터 채널 등
 
 대부분의 공고가 영어이고 글로벌/외국계 채용 프로세스라면 기본 `modes/`를 사용하세요. 기본 영어 모드도 한국 기업의 영어 공고를 처리할 수 있지만, 한국 채용 시장 특유의 보상/계약 조건을 세밀하게 반영하지는 않습니다.
 
@@ -41,7 +41,7 @@ language:
 
 | 파일 | 번역 기준 | 역할 |
 |---------|----------------|------|
-| `_shared.md` | `modes/_shared.md` (EN) | 공통 컨텍스트, archetype, 전역 규칙, 한국 채용 시장 특화 맥락 |
+| `_shared.md` | `modes/_shared.md` (EN) | 공통 컨텍스트, 법률 archetype, 전역 규칙, 한국 법률 채용 시장 특화 맥락(자격 hard gates, 헤드헌터 채널 규칙) |
 | `gonggo.md` | `modes/oferta.md` (ES) | 채용 공고 전체 평가 (블록 A-F) |
 | `jiwon.md` | `modes/apply.md` (EN) | 지원서 입력 폼을 채우는 live assistant |
 | `pipeline.md` | `modes/pipeline.md` (ES) | 수집한 채용 공고 URL inbox / Second Brain |
@@ -50,14 +50,14 @@ language:
 
 ## 영어로 유지하는 것
 
-테크 채용에서 표준적으로 쓰이는 표현은 의도적으로 번역하지 않습니다.
+법률 채용/실무에서도 표준적으로 쓰이는 표현은 의도적으로 번역하지 않습니다.
 
 - `cv.md`, `pipeline`, `tracker`, `report`, `score`, `archetype`, `proof point`
 - 도구 이름(`Playwright`, `WebSearch`, `WebFetch`, `Read`, `Write`, `Edit`, `Bash`)
 - tracker 상태값(`Evaluated`, `Applied`, `Interview`, `Offer`, `Rejected`)
 - 코드 조각, 경로, 명령어
 
-이 모드는 한국 테크 업계에서 실제로 쓰는 자연스러운 문체를 지향합니다. 본문은 한국어로 쓰되, `pipeline`, `deployment`, `embedding`, `stack`처럼 현장에서 영어로 쓰는 용어는 억지로 번역하지 않습니다.
+이 모드는 한국 법률 업계에서 실제로 쓰는 자연스러운 문체를 지향합니다. 본문은 한국어로 쓰되, `pipeline`, `tracker`, `archetype`처럼 tooling 관련 용어는 억지로 번역하지 않습니다.
 
 ## 기준 용어집
 
@@ -71,11 +71,10 @@ language:
 | Resume / CV | CV / 이력서 |
 | Salary | 연봉 |
 | Compensation | 보상 / 보상 패키지 |
-| Skills | 역량 / 기술 역량 |
+| Skills | 역량 / 실무 역량 |
 | Interview | 면접 |
 | Hiring manager | 채용 매니저 / 실무 리더 |
-| Recruiter | 리크루터 |
-| AI | AI / 인공지능 |
+| Recruiter | 리크루터 / 헤드헌터 |
 | Requirements | 자격 요건 / 요구사항 |
 | Career history | 경력 |
 | Notice period | 퇴사 통보 기간 |
@@ -95,6 +94,15 @@ language:
 | Flexible work | 유연근무 |
 | Remote work | 재택근무 / 원격근무 |
 | Hybrid work | 하이브리드 근무 |
+| Law firm associate | (로펌) 어소시에이트 |
+| Class year / PQE | 연차 |
+| In-house counsel | 사내변호사 |
+| Bar admission | 변호사 자격 / 등록 |
+| Patent attorney | 변리사 |
+| Compliance | 컴플라이언스 / 준법감시 |
+| Conflict of interest | 이해상충 / conflict |
+| Legal recruiter / headhunter | 법률 전문 헤드헌터 / 서치펌 |
+| Referral-source lock | 후보자 candidacy 소유(중복 지원 방지) |
 
 ## 기여하기
 
@@ -104,4 +112,4 @@ language:
 2. 위 용어집을 따라 문체를 일관되게 유지합니다
 3. 직역이 아니라 자연스러운 한국어로 번역합니다
 4. 구조 요소(블록 A-F, 표, 코드블록, 도구 지시문)는 그대로 유지합니다
-5. 실제 한국어 채용 공고(원티드, 리멤버, 잡코리아, 사람인, LinkedIn KR 등)로 테스트한 뒤 PR을 보냅니다
+5. 실제 한국어 법률 채용 공고(로톡 커리어, 리걸잡, 잡코리아, 사람인, LinkedIn KR 등)로 테스트한 뒤 PR을 보냅니다

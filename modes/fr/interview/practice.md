@@ -6,7 +6,7 @@ Dirigez un entretien d'entraînement réaliste — une question à la fois — e
 
 ## Inputs
 
-1. **Type de round** (requis) — sélection/recruteur, sélection/HM, technique/spécifique au domaine, conception/étude de cas, comportemental
+1. **Type de round** (requis) — screening/recruteur, screening/hiring-partner (ou GC), callback (rencontres associé/senior-associate), exercice de rédaction/markup, panel stakeholder business, comportemental
 2. **Persona de l'intervieweur** (si connu) — nom, rôle, entreprise ; oriente le style et la profondeur des questions
 3. **Liste de questions** (facultatif) — questions spécifiques à couvrir ; si non fournie, générez-les à partir du type de round
 4. **CV** dans `cv.md` + `article-digest.md` (si présent) — pour vérifier les affirmations dans les réponses et ancrer des versions plus solides dans une expérience réelle
@@ -59,7 +59,7 @@ Ensuite, commencez avec la première question — pas de préambule, pas de "voi
 - La réponse était forte (allez plus en profondeur — c'est ce que font les vrais intervieweurs)
 - La réponse a complètement raté le point clé (donnez-leur une chance de se rattraper)
 
-**Suivez ce qui a été couvert.** Gardez une liste mentale des histoires et exemples que le candidat a utilisés. S'ils reprennent la même histoire une deuxième fois, signalez-le après le retour : "Vous avez utilisé [histoire] pour [N] questions maintenant — les intervieweurs remarquent un ensemble d'exemples limité. Quel serait un exemple différent que vous pourriez utiliser ici ?" Vérifiez également la *fin* de chaque réponse : si elle atterrit sur un domaine qui ne correspond pas au rôle (par ex., terminer sur le commerce électronique quand le rôle est fintech/fraude), notez-le : "Contenu solide, mais vous avez conclu sur [mauvais domaine] — pour ce rôle, orientez la réponse sur [bon domaine]."
+**Suivez ce qui a été couvert.** Gardez une liste mentale des histoires et exemples que le candidat a utilisés. S'ils reprennent la même histoire une deuxième fois, signalez-le après le retour : "Vous avez utilisé [histoire] pour [N] questions maintenant — les intervieweurs remarquent un ensemble d'exemples limité. Quel serait un exemple différent que vous pourriez utiliser ici ?" Vérifiez également la *fin* de chaque réponse : si elle atterrit sur une matière qui ne correspond pas au rôle (par ex., conclure sur du contentieux social quand le poste porte sur des opérations de M&A), notez-le : "Contenu solide, mais vous avez conclu sur [mauvaise matière] — pour ce rôle, orientez la réponse sur [bonne matière]."
 
 ---
 
@@ -88,7 +88,7 @@ Gardez les retours concis. Une ou deux choses à affûter par réponse — pas u
 
 **Soyez honnête, pas encourageant.** "Bonne réponse" sans substance fait perdre le temps de préparation du candidat. Si une réponse était faible, dites-le clairement et expliquez pourquoi.
 
-**Citez leurs propres mots.** "Vous avez dit 'négocier entre cohérence et disponibilité' — le terme précis est 'faire un compromis entre cohérence et disponibilité'" est plus utile que "utilisez un meilleur vocabulaire technique."
+**Citez leurs propres mots.** "Vous avez dit 'on les a fait accepter une responsabilité illimitée' — la formulation precise est 'nous avons négocié une clause d'indemnisation sans plafond pour les réclamations de propriété intellectuelle de tiers'" est plus utile que "utilisez un meilleur vocabulaire juridique."
 
 **Commencez par ce qui a fonctionné.** Même une réponse faible a généralement quelque chose de juste. Le nommer en premier permet de mieux faire passer la correction.
 
@@ -115,7 +115,7 @@ Gardez les retours concis. Une ou deux choses à affûter par réponse — pas u
 ```markdown
 ## Practice Session Summary
 
-**Type de round :** [screening / technical / design-case-study / behavioral]
+**Type de round :** [screening / hiring-partner / callback / writing-exercise / panel / behavioral]
 **Questions couvertes :** [N]
 
 **Prêt :**
@@ -142,7 +142,7 @@ Format :
 ---
 company: [company, ou "practice"]
 role: [role]
-round: [screen | hiring-manager | technical | system-design | behavioral | onsite | final]
+round: [screen | hiring-partner | callback | writing-exercise | panel | business-stakeholder | behavioral]
 date: YYYY-MM-DD
 interviewer_role: [rôle du persona, si défini]
 source: practice
@@ -159,7 +159,7 @@ source: practice
 
 Règles pour la transcription :
 
-- **Mappez le type de round à l'énumération** ci-dessus (recruteur screen → `screen`, HM screen → `hiring-manager`, technique/domaine → `technical`, conception/étude de cas → `system-design`, comportemental → `behavioral`).
+- **Mappez le type de round à l'énumération** ci-dessus (screening recruteur → `screen`, screening hiring-partner/GC → `hiring-partner`, rencontres associé/senior-associate → `callback`, exercice de rédaction ou markup → `writing-exercise`, panel mixte → `panel`, round stakeholder non-juriste → `business-stakeholder`, comportemental → `behavioral`).
 - **Taguez chaque réponse.** Sur la ligne juste au-dessus de chaque ligne `**Candidate:**`, émettez `<!-- competency: tag[, tag...] -->` — en minuscules kebab-case, séparés par des virgules pour les réponses multi-compétences. Vous avez déjà évalué chaque réponse pendant la session, donc taguez à partir de là. Les tags sont libres ; choisissez la compétence que la question a réellement testée.
 - **Enregistrez la réponse du candidat mot pour mot**, pas la "version plus solide" — la transcription enregistre ce qui s'est passé, pas le coaching.
 - **`source: practice`.**
@@ -177,30 +177,30 @@ Si aucune liste de questions n'est fournie, sourcez les questions dans cet ordre
 
 Mélangez les niveaux lorsque les niveaux supérieurs sont minces — par ex., 3 vraies questions de la banque complétées par des valeurs par défaut — mais ne sautez jamais un niveau supérieur qui a des questions pertinentes pour ce type de round.
 
-### Screening — Recruiter (20–30 min)
+### Screening — Recruteur (20–30 min)
 
-Un screen de recruteur est une vérification de cases, pas un sondage en profondeur. Gardez les réponses nettes ; ne les sur-concevez pas. Le recruteur vérifie l'adéquation, l'alignement de la rémunération et la logistique avant de passer le relais au Hiring Manager.
+Un screen de recruteur est une vérification de cases, pas un sondage en profondeur. Gardez les réponses nettes ; ne les sur-concevez pas. Le recruteur vérifie l'adéquation, l'alignement de la rémunération et la logistique avant de passer le relais au hiring-partner ou au General Counsel.
 
 1. Parlez-moi de votre parcours.
-2. Pourquoi cette entreprise / pourquoi ce rôle ?
-3. Pourquoi quittez-vous votre rôle actuel ?
-4. Quelles sont vos attentes salariales ?
-5. [Logistique : emplacement / hybride / calendrier / autorisation de travail]
+2. Pourquoi ce cabinet / cette entreprise / ce rôle ?
+3. Pourquoi quittez-vous votre poste actuel ?
+4. Quelles sont vos prétentions salariales ?
+5. [Logistique : admission au barreau et juridiction / promotion-anciennete / localisation du bureau et hybride / calendrier]
 6. Quelles questions avez-vous pour nous ?
 
-**Coaching de rémunération (recruiter screen uniquement).** Surveillez si le candidat donne de lui-même un plancher salarial non sollicité (par ex., "le minimum auquel je peux descendre est X"). S'il le fait, signalez-le après la réponse : "Vous venez de leur donner votre plancher — cela plafonne votre négociation avant qu'elle ne commence. Le mouvement le plus fort est de s'ancrer sur une cible étudiée et de reporter au package global : 'Je cible la moitié supérieure de la fourchette du marché pour ce niveau — je voudrais comprendre le salaire de base, le bonus et les actions ensemble avant de me fixer sur un chiffre.'" Si le fichier de préparation spécifique au rôle définit une stratégie de rémunération, suivez-la ; sinon donnez uniquement cette note mécanique générique — n'inventez jamais de chiffres cibles.
+**Coaching de rémunération (screening recruteur uniquement).** Surveillez si le candidat donne de lui-même un plancher salarial non sollicité (par ex., "le minimum auquel je peux descendre est X"). S'il le fait, signalez-le après la réponse : "Vous venez de leur donner votre plancher — cela plafonne votre négociation avant qu'elle ne commence. Le mouvement le plus fort est de s'ancrer sur une cible étudiée et de reporter au package global : 'Je vise la moitié supérieure de la fourchette de marché pour ce niveau — je voudrais comprendre le fixe, le bonus et les avantages ensemble avant de me fixer sur un chiffre.'" Si le fichier de préparation spécifique au rôle définit une stratégie de rémunération, suivez-la ; sinon donnez uniquement cette note mécanique générique — n'inventez jamais de chiffres cibles.
 
-### Screening — Hiring Manager (30–45 min)
+### Screening — Hiring-Partner / General Counsel (30–45 min)
 
-Un screen de HM sonde la philosophie de leadership, le jugement et la profondeur de l'expérience. Les réponses peuvent être plus longues et avoir plus de poids narratif. Le HM décide s'il doit investir le temps de son équipe dans des rounds supplémentaires.
+Un screen avec le hiring-partner (ou le GC) sonde le jugement, l'adéquation à la pratique et la profondeur d'expérience. Les réponses peuvent être plus longues et avoir plus de poids narratif. La personne en face décide s'il faut investir une journée de callback pour son groupe.
 
-1. Parlez-moi de votre parcours.
-2. Pourquoi cette entreprise / pourquoi ce rôle ?
-3. Parlez-moi du problème le plus difficile que vous ayez résolu dans votre domaine.
-4. Parlez-moi d'une fois où vous avez fait face à une résistance par rapport à un changement que vous proposiez.
-5. Que signifie [titre de la JD] pour vous ?
-6. Comment décririez-vous votre approche de votre métier ?
-7. [Un concept fondamental de la JD — par ex., une méthode centrale, un framework, une réglementation ou un outil de la discipline]
+1. Parlez-moi de votre parcours — et de votre liste de dossiers / deal sheet.
+2. Pourquoi ce cabinet (ou pourquoi le in-house) / pourquoi ce rôle ? Pourquoi maintenant ?
+3. Parlez-moi du dossier le plus difficile que vous ayez géré — ce qui le rendait difficile et ce que vous avez porté.
+4. Parlez-moi d'une fois où vous avez repoussé un client (ou une équipe business) et comment vous avez géré ça.
+5. Que signifie [titre de la JD, ex. Juriste Commercial Senior, Counsel] pour vous ?
+6. Comment décririez-vous votre approche de votre pratique ?
+7. [Un concept fondamental de la matière — ex. un régime réglementaire clé, une structure d'opération, une posture procédurale ou un cadre contractuel de la pratique]
 
 Incorporez au moins 2 questions situationnelles / orientées vers l'avenir de l'ensemble ci-dessous — celles-ci sondent le jugement et la conscience de soi, pas les histoires passées :
 
@@ -208,39 +208,41 @@ Incorporez au moins 2 questions situationnelles / orientées vers l'avenir de l'
 
 - "À quoi ressemble le succès pour vous dans les 90 premiers jours ?"
 - "Si vous rejoignez et que l'équipe est en difficulté — délais manqués, moral bas — quelle est votre première action ?"
-- "Comment décidez-vous ce qu'il faut déléguer par rapport à ce qu'il faut posséder soi-même ?"
-- "Comment gérez-vous un collègue respecté qui n'est pas d'accord avec une direction que vous avez fixée ?"
+- "Comment décidez-vous ce qu'il faut déléguer par rapport à ce qu'il faut porter vous-même ?"
+- "Comment gérez-vous un confrère respecté qui n'est pas d'accord avec une direction que vous avez fixée ?"
 
 **Self-awareness / growth :**
 
 - "Qu'est-ce que vous avez mal fait professionnellement et qu'avez-vous appris ?"
 - "De quoi avez-vous besoin de la part de votre manager pour faire votre meilleur travail ?"
-- "Où êtes-vous encore en train de grandir dans votre rôle ?"
+- "Où êtes-vous encore en train de progresser dans votre rôle ?"
 
-### Technical / Domain-Specific (practitioner, 45–60 min)
+### Callback — Fond / Spécifique à la pratique (associé ou senior-associate, 30–45 min par créneau)
 
-1. [Internes centraux du principal outil ou méthode de la discipline — par ex., internes de fonctionnement pour l'ingénierie, modèles d'attribution pour le marketing, méthodes d'évaluation pour la finance]
-2. [Modèle ou framework établi pertinent pour le rôle — à partir de la JD]
-3. [Exploration en profondeur d'un bloc de construction fondamental — par ex., une structure de données, un test statistique, un principe comptable]
-4. [Sujet avancé que la JD met en avant — le domaine où la profondeur sépare les candidats]
-5. Parlez-moi d'un échec aux enjeux élevés dans votre travail — comment vous l'avez diagnostiqué et ce que vous avez fait.
-6. Comment relevez-vous la barre de qualité dans une équipe ?
+1. Parlez-moi de votre liste de dossiers / deal sheet — choisissez le dossier que vous avez le plus porté et allez en profondeur.
+2. [Hypothétique de pratique issu de la matière de la JD — ex. pour un poste de juriste produit : "Un PM veut lancer une fonctionnalité qui collecte des données biométriques la semaine prochaine. Comment le conseillez-vous ?" Pour du M&A : "La due diligence de votre client fait apparaître un problème de transfert de données non déclaré deux jours avant le closing — que faites-vous ?"]
+3. [Scénario conflits / déontologie — ex. "Vous découvrez en cours de dossier que le témoignage d'un témoin contredit ce que votre client vous a dit. Quelles sont vos obligations et vos prochaines étapes ?"]
+4. [Sujet avancé que la JD met en avant — le domaine où la profondeur sépare les candidats : un régime réglementaire, une structure d'opération, une posture procédurale]
+5. Parlez-moi d'un dossier qui a mal tourné — comment vous l'avez diagnostiqué et ce que vous avez fait.
+6. Comment relevez-vous le niveau de qualité du travail dans une équipe dossier/deal ?
+7. [Pour les candidats seniors : la question du book/de l'associariat — "D'où viendra votre clientèle dans cinq ans ?" / "Quel est votre chemin vers un book ?"]
 
-### Design / Case Study (45–60 min)
+### Exercice de rédaction / Markup (45–60 min)
 
-1. Concevez [un système, un processus, une campagne ou un produit pertinent pour le rôle].
-2. [Question de contrainte — comment se comporte votre conception lorsque quelque chose échoue, évolue de 10x ou perd son budget ?]
-3. [Question de qualité/fiabilité — comment garantissez-vous l'exactitude ou mesurez-vous le succès ?]
-4. Expliquez-moi comment vous sauriez que cela fonctionne après le lancement.
+1. Corrigez [un NDA / MSA / DPA] par rapport à [un playbook court ou des positions données] — expliquez votre raisonnement au fur et à mesure.
+2. Rédigez une courte note de conseil : [une équipe business demande si elle peut faire X au regard de la réglementation Y] — structurez la réponse pour un public non-juriste.
+3. [Question de contrainte — le client rejette votre position principale ; quel est votre repli et pourquoi ?]
+4. Expliquez-moi comment vous exposeriez le risque résiduel au responsable business après vos corrections.
 
-### Behavioral Panel
+### Panel comportemental (avec stakeholders business, in-house)
 
-1. Parlez-moi d'une fois où vous avez dirigé une équipe à travers une livraison difficile.
-2. Décrivez un échec majeur en production ou sur le marché — que s'est-il passé et qu'est-ce qui a changé après ?
-3. Parlez-moi d'une fois où vous avez influencé la direction à travers les équipes ou les parties prenantes.
-4. À quoi ressemble une équipe très performante pour vous ?
-5. Parlez-moi d'une fois où vous avez simplifié quelque chose de complexe.
-6. Parlez-moi d'une fois où vous avez résolu un problème qui n'était pas le vôtre à résoudre.
+1. Parlez-moi d'une fois où vous avez porté une équipe dossier/deal à travers un closing ou une échéance difficile.
+2. Décrivez un dossier ou une négociation qui a échoué — que s'est-il passé et qu'est-ce qui a changé dans votre pratique après ?
+3. Parlez-moi d'une fois où vous avez influencé une direction à travers des équipes ou des parties prenantes qui ne dépendaient pas de vous.
+4. À quoi ressemble une équipe juridique très performante pour vous ?
+5. Parlez-moi d'une fois où vous avez traduit quelque chose de juridiquement complexe en conseil actionnable pour une équipe business.
+6. Parlez-moi d'une fois où vous avez signalé un risque que personne ne vous avait demandé de regarder — et ce qui s'est passé.
+7. Pourquoi le in-house (ou pourquoi notre cabinet) ? Qu'attendez-vous de ce changement que votre poste actuel ne peut pas vous donner ?
 
 ---
 

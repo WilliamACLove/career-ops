@@ -4,8 +4,8 @@
 
 The scanner only surfaces what `portals.yml` `title_filter.positive` matches —
 and that list is written from the titles the user already knows to search for.
-The same job ships under many names (Solutions Architect / Forward Deployed
-Engineer / Customer Engineer), so the search is silently narrower than the CV
+The same job ships under many names (Commercial Counsel / Product Counsel /
+Technology Transactions Counsel), so the search is silently narrower than the CV
 justifies. This mode reads the CV and proposes adjacent titles the user isn't
 searching for yet — then, only after explicit confirmation, writes the accepted
 keywords into `title_filter.positive` so the very next `scan` casts the wider net.
@@ -34,11 +34,22 @@ Classify every suggestion on exactly one axis, and say which:
 
 - **Lateral** — same work, different label. The core recall win: the user
   already does this job; the market just posts it under a name they don't
-  search for.
-- **Stretch** — one level up or larger scope than the CV's strongest evidence.
-  Plausible, but a hiring manager would probe the gap.
+  search for (Commercial Counsel ↔ Product Counsel ↔ Privacy Counsel for a
+  tech-transactions lawyer; Associate ↔ Counsel at the right seniority).
+- **Stretch** — one level up or larger scope than the CV's strongest evidence
+  (Senior Counsel → Associate General Counsel; Counsel → Head of Legal at a
+  startup). Plausible, but a hiring partner or GC would probe the gap.
 - **Pivot** — an adjacent function reachable from existing CV evidence
-  (e.g. heavy client-facing delivery work → pre-sales engineering).
+  (e.g. heavy compliance counseling → Compliance Officer; tech-fluent
+  practice → Legal Engineer / Legal Solutions roles at legal-tech companies).
+
+**Practice-area adjacency limit (hard).** Legal lateral markets are strict
+about practice fit: an employment litigator does not lateral into M&A, and
+"funds formation" is not "PE M&A". Suggest titles only within the CV's
+demonstrated practice area or a genuinely adjacent one (commercial ↔ product ↔
+privacy is adjacent; litigation ↔ transactional is not). A cross-practice
+suggestion is only valid as an explicitly-labeled Pivot with the retraining
+cost stated honestly.
 
 ## Output Contract (per suggestion)
 
@@ -66,10 +77,11 @@ list — this system optimizes for quality, not quantity.
    keyword already substring-matches — it is already covered, and suggesting
    it adds zero new recall.
 2. **Deal-breaker filter.** Never suggest titles that violate the
-   deal-breakers recorded in `modes/_profile.md` (e.g. "no people management"
-   rules out Engineering Manager; "no on-site" rules out field roles). Titles
-   matching `title_filter.negative` keywords are also off the table — the user
-   already excluded them.
+   deal-breakers recorded in `modes/_profile.md` (e.g. "no law-firm billables"
+   rules out firm-lateral titles; "no litigation" rules out Litigation
+   Counsel; "no relocation" rules out titles only posted in other
+   jurisdictions). Titles matching `title_filter.negative` keywords are also
+   off the table — the user already excluded them.
 3. **Never invent experience.** Every suggestion must be traceable to quoted
    `cv.md` lines — the source-of-truth boundary applies to suggestions exactly
    as it does to CV content. Keywords get reformulated, never fabricated. If
@@ -81,11 +93,14 @@ When the user accepts one or more suggestions:
 
 1. Derive **keywords, not raw titles**. The filter matches substrings, so the
    keyword should be the shortest phrase that still identifies the role family
-   ("Forward Deployed" covers Forward Deployed Engineer/Architect/Lead).
+   ("Commercial Counsel" covers Commercial Counsel / Senior Commercial
+   Counsel / Lead Commercial Counsel).
 2. Attach a **breadth warning** to any substring-dangerous keyword: because
    matching is substring-based, a short or generic keyword floods the scan.
-   Propose "Solutions Architect", never bare "Architect" — bare "Architect"
-   would also match Data Architect, Enterprise Architect, Security Architect.
+   Propose "Commercial Counsel", never bare "Counsel" — bare "Counsel"
+   also matches Counselor and Counseling (genetic counselor, admissions
+   counselor, mental-health counselor — common at healthtech/edtech
+   companies), and "Recruiter, Legal"-style noise rides in with bare "Legal".
    If the user insists on a broad keyword, warn once and comply.
 3. Skip keywords that duplicate existing coverage (same dedup rule as above);
    preserve the casing style already used in the user's `portals.yml`.

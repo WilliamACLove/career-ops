@@ -44,13 +44,27 @@ Classify the job into one of the 6 archetypes (see `_shared.md`). If it is a hyb
 - How to rewrite the summary in block E
 - Which STAR stories to prepare in block F
 
+## Step 0.5 — Legal Hard Gates (pass/fail, never averaged away)
+
+Before scoring anything, check the posting against the candidate's `config/profile.yml` → `legal` block. These are structural filters, not weighted factors — a failed gate must appear **explicitly** in the Red flags dimension AND in the final recommendation. Never let a hard-gate failure be silently averaged into a decent-looking score.
+
+1. **Bar admission / jurisdiction** — compare the posting's office/jurisdiction against `legal.bar_admissions`. Apply the strictness ladder:
+   - **Law firms: strict.** Firms require (or require within ~1 year) admission where the office sits. A jurisdiction mismatch with no UBE-transfer or admission-on-motion path is a near-blocker — say so.
+   - **In-house: moderate.** Registered in-house counsel rules (ABA Model Rule 5.5(d) analogs) make most states workable for a lawyer licensed elsewhere; note the registration requirement rather than blocking.
+   - **Federal government and legal tech: minimal.** Any active state license generally suffices; a mismatch is a footnote, not a flag.
+2. **Class year / PQE band** — if the posting states a class-year or years-of-experience band (e.g. "class of 2021–2023", "3–5 years"), compare against `legal.class_year`. Outside the stated band on a firm lateral posting is a near-automatic rejection: recommend against applying, and say the re-crediting option (±1 year, negotiated at offer) only helps at the margin.
+3. **Patent bar** — patent-prosecution roles require USPTO registration plus a technical degree. If the JD asks for it and `legal.patent_bar` is false, this is a hard blocker.
+4. **Conflicts risk** — for senior/counsel/partner-level roles, note that any offer is contingent on clearing client conflicts. Note it; do not score it.
+
+Report the gate results as a short pass/fail table at the top of Block B. A failed gate caps the recommendation regardless of how well everything else matches.
+
 ## Block A — Role Summary
 
 Table with:
 - Archetype detected
-- Domain (platform/agentic/LLMOps/ML/enterprise)
-- Function (build/consult/manage/deploy)
-- Seniority
+- Domain (transactional / litigation / in-house / compliance / government / legal-tech)
+- Function (advise / negotiate / litigate / manage / build)
+- Seniority (class year / PQE band, or title level for in-house)
 - Remote (full/hybrid/onsite)
 - Team size (if mentioned)
 - **Culture screen** (see `_shared.md` § Scoring System): pass / caution / fail, with the specific evidence found or missing — not just a score, name what you saw
@@ -76,12 +90,12 @@ The flag is an additive line only — Block B's existing content stays unchanged
 Read `cv.md`. Create a table with each JD requirement mapped to exact lines in the CV.
 
 **Adapted to the archetype:**
-- If FDE → prioritize delivery speed and client-facing proof points
-- If SA → prioritize system design and integrations
-- If PM → prioritize product discovery and metrics
-- If LLMOps → prioritize evals, observability, pipelines
-- If Agentic → prioritize multi-agent, HITL, orchestration
-- If Transformation → prioritize change management, adoption, scaling
+- If Law Firm Associate — Transactional → prioritize deal-sheet matters at the right class year: deal types, deal sizes, drafting ownership, specialist-workstream management
+- If Law Firm Associate — Litigation & Disputes → prioritize stand-up experience: depositions taken, motions briefed and argued, trial/arbitration roles, writing strength
+- If In-House Counsel — Product / Commercial / Privacy → prioritize contract volume (SaaS/MSA/DPA counts), cross-functional counseling, regulatory breadth, plain-English communication with non-lawyers
+- If Compliance & Regulatory → prioritize named regimes (BSA/AML, FCPA, healthcare fraud & abuse, GDPR/CCPA), regulator-facing experience, investigations, program ownership
+- If Government / Public Interest → prioritize courtroom volume, trial/appellate experience, demonstrated public-service commitment (clinics, fellowships, prior PI work)
+- If Legal Tech / Legal Engineer → prioritize elite practice pedigree PLUS genuine product/AI fluency — playbooks built, workflows automated, legal-tech side projects
 
 **Gaps** section with mitigation strategy for each. For each gap:
 1. Is it a hard blocker or a nice-to-have?
@@ -91,26 +105,48 @@ Read `cv.md`. Create a table with each JD requirement mapped to exact lines in t
 
 ## Block C — Level and Strategy
 
-1. **Level detected** in the JD vs **candidate's natural level for that archetype**
-2. **"Sell senior without lying" plan**: specific phrases adapted to the archetype, concrete achievements to highlight, how to position founder experience as an advantage
-3. **"If they downlevel me" plan**: accept if compensation is fair, negotiate 6-month review, clear promotion criteria
+1. **Level detected** in the JD vs **candidate's natural level for that archetype** — for firm roles this is class-year matching (strict, see the hard gates); for in-house it is the title ladder (Counsel → Senior Counsel → AGC → DGC → GC), where **title is the comp lever**
+2. **"Sell senior without lying" plan**: specific phrases adapted to the archetype, concrete matters/deals to highlight, how to position firm training, clerkships, or regulator experience as an advantage
+3. **"If they downlevel me" plan**: firm roles — class-year re-crediting is negotiable ±1 year at offer (sometimes down a year buys partnership runway); in-house — fight for the level/title (Senior Counsel vs Counsel, AGC vs Senior Counsel) before negotiating dollars, since bonus target % and equity band follow the title
 
 ## Block D — Comp and Demand
 
 Use the bounded research budget above for:
-- Current salaries for the role (Glassdoor, Levels.fyi, Blind)
+- Current comp for the role, from the canonical legal sources by employer type:
+  - **Law firms:** Cravath/market scale + Above the Law bonus tracker + Biglaw Investor salary scale; NALP surveys for midsize/regional firms (rule of thumb: midsize/regional ≈ 60–80% of Cravath base, smaller discretionary bonuses)
+  - **In-house:** BarkerGilmore + Major Lindsey & Africa (MLA) comp surveys; L Suite for tech GC; ACC benchmarking
+  - **Government:** OPM GS tables + agency pay plans (AD for AUSAs, SK for SEC, JSP for clerks); financial regulators pay 40–80% above GS
+  - **Legal ops:** Brightflag / CLOC reports
 - Company's compensation reputation
 - Demand trend for the role
 
-Before interpreting any salary number, classify the company type. Public compensation ranges are not equally reliable across company categories.
+**Salary silence is normal at law firms.** Firm postings rarely state a number ("competitive salary" is standard), and lockstep firms don't need to — the scale is public. The absence of a salary band is NOT a red flag, **except in pay-transparency states (NY, CA, CO, WA), where postings must show a range** — silence there is worth noting.
+
+Before interpreting any salary number, classify the employer type. Public compensation ranges are not equally reliable across employer categories.
 
 **Company type classification (required):**
 
 Classify the employer into the closest category and state the confidence level:
 
+Legal employer types first — these are the buckets most postings fall into:
+
 | Company type | Typical comp reliability | Signals |
 |--------------|--------------------------|---------|
-| Public big tech / mature tech | High to medium | Public company, structured levels, large engineering org, repeatable hiring process |
+| BigLaw / lockstep-scale firm (AmLaw 100/200, elite boutique) | High | Cravath-scale market firm; base is lockstep by class year, bonuses published via Above the Law tracker; posting rarely states a number but the scale is public |
+| Midsize / regional firm | Medium | Below-scale base (~60–80% of Cravath), discretionary bonuses, "competitive salary" language, NALP medians are the anchor |
+| In-house — public / mature company | Medium to high | Structured levels (Counsel → GC ladder), base + bonus target % + equity; survey data (BarkerGilmore/MLA) is ranges, not points |
+| In-house — startup / growth-stage | Medium to low | Equity-heavy, title inflation possible, level and bonus target negotiable |
+| Government / judiciary | High | Published pay plans (GS/AD/SK/JSP) plus locality — but caps well below firm market |
+| Public interest / legal aid / nonprofit | Medium to high | Published bands, ~1/3 of firm entry pay; PSLF/loan repayment is a real comp line-item |
+| Legal tech / attorney-adjacent | Medium | OTE splits (e.g. 75/25), equity replaces bonus predictability; ranges usually posted |
+| Legal staffing / doc-review agency | Low | Hourly ($25–50/hr), agency employer-of-record, "contract attorney" / "eDiscovery project" language |
+| Recruiter listing (contingency) | Low to medium | Third-party posting, "confidential AmLaw firm", range may reflect the client's budget rather than offer terms |
+
+If the employer doesn't fit a legal bucket (e.g. a non-legal employer hiring its first counsel), fall back to the canonical general taxonomy (same one as `_shared.md`):
+
+| Company type | Typical comp reliability | Signals |
+|--------------|--------------------------|---------|
+| Public big tech / mature tech | High to medium | Public company, structured levels, large org, repeatable hiring process |
 | Growth-stage startup / VC-backed startup | Medium | Funded startup, competitive hiring market, may mix base + equity + bonus |
 | Early-stage startup / pre-revenue startup | Medium to low | Small team, vague role scope, equity-heavy promises, unclear bands |
 | Enterprise / traditional corporate | Medium | Formal HR process, stable base, slower bands, bonus may be discretionary |
@@ -123,7 +159,7 @@ Classify the employer into the closest category and state the confidence level:
 
 If the company type is uncertain, mark it as `Unknown` and default compensation reliability to the conservative canonical tier: `Low` until evidence improves it.
 
-If the brand differs from the legal employer or posting entity, classify the **actual contract / hiring entity** first and mention the brand relationship separately. Example: a "Datawhale community" role posted by an association, school, vendor, or partner should be classified by that hiring entity, not by the Datawhale brand alone.
+If the brand differs from the hiring entity or posting entity, classify the **actual contract / hiring entity** first and mention the brand relationship separately. Example: an "attorney" role at a name-brand bank or firm that is actually posted by a staffing agency (employer-of-record) should be classified as a staffing listing, not by the brand alone — this is the doc-review-mill pattern.
 
 **Compensation reliability (required):**
 
@@ -157,12 +193,12 @@ When the advertised number may be inflated, say so plainly. Example: `Advertised
 
 Include 3-6 concrete questions tailored to the JD and company type, such as:
 
-- What is the fixed base salary written in the employment contract?
-- Does the advertised range include bonus, commission, allowances, overtime, attendance, or KPI components?
-- Is probation salary discounted?
-- Are social insurance / pension / benefits calculated from base salary or full compensation?
-- Which components are guaranteed monthly versus discretionary or target-based?
-- If equity or bonus is mentioned, what is the vesting schedule, payout history, and realistic expected value?
+- What is the fixed base salary written in the offer letter / employment contract?
+- Does the advertised figure include bonus, and is the bonus lockstep (published scale) or discretionary?
+- What is the billable-hours threshold for bonus eligibility (1,900? 2,000?), and what were actual bonus payouts the last two years?
+- For in-house: what is the bonus target % for this level, what share of target was actually paid last cycle, and what is the equity grant + refresh policy?
+- Which components are guaranteed versus discretionary or target-based (signing bonus, clerkship bonus, relocation)?
+- If equity is mentioned, what is the vesting schedule and realistic expected value?
 
 When a salary figure exists, include a table with data and cited sources. If there is no data beyond the JD figure, state it instead of inventing. Do not present advertised compensation as real take-home pay unless the source explicitly supports that interpretation.
 
@@ -195,16 +231,16 @@ The **Reflection** column captures what was learned or what would be done differ
 **Story Bank:** If `interview-prep/story-bank.md` exists, check if any of these stories are already there. If not, append new ones. Over time this builds a reusable bank of 5-10 master stories that can be adapted to any interview question.
 
 **Selected and framed according to the archetype:**
-- FDE → emphasize delivery speed and client-facing
-- SA → emphasize architectural decisions
-- PM → emphasize discovery and trade-offs
-- LLMOps → emphasize metrics, evals, production hardening
-- Agentic → emphasize orchestration, error handling, HITL
-- Transformation → emphasize adoption, organizational change
+- Law Firm Associate — Transactional → emphasize deal execution, drafting ownership, managing specialist workstreams
+- Law Firm Associate — Litigation & Disputes → emphasize case strategy, motions won, depositions, writing under pressure
+- In-House Counsel — Product / Commercial / Privacy → emphasize business enablement ("getting to yes safely"), volume management, cross-functional counseling
+- Compliance & Regulatory → emphasize program building, regulator interactions, investigations handled
+- Government / Public Interest → emphasize trial volume, judgment under resource constraints, mission commitment
+- Legal Tech / Legal Engineer → emphasize translating practice expertise into product/workflow decisions, adoption metrics
 
 Also include:
-- 1 recommended case study (which of their projects to present and how)
-- Red-flag questions and how to answer them (e.g., "why did you sell your company?", "do you have a team of reports?")
+- 1 recommended representative matter (which deal/case from the deal sheet or matters list to present and how, within confidentiality limits)
+- Red-flag questions and how to answer them (e.g., "why are you leaving your firm?", "why haven't you made partner?", "what's your billable-hours history?", "why in-house / why back to a firm?")
 
 ## Block G — Posting Legitimacy
 
@@ -220,13 +256,13 @@ Analyze the job posting for signals that indicate whether this is a real, active
 - If URL redirected to generic careers page, note it
 
 **2. Description Quality** (from JD text):
-- Does it name specific technologies, frameworks, tools?
-- Does it mention team size, reporting structure, or org context?
-- Are requirements realistic? (years of experience vs technology age)
+- Does it name specific practice areas, matter types, courts/regulators, or deal work?
+- Does it mention team size, reporting line (who is the GC / practice group leader), or org context?
+- Are requirements realistic? (class-year band vs responsibilities described)
 - Is there a clear scope for the first 6-12 months?
-- Is salary/compensation mentioned?
+- Is salary/compensation mentioned? (Remember: absence of a band is normal for law firms — only a signal in transparency-law states, NY/CA/CO/WA)
 - What ratio of the JD is role-specific vs generic boilerplate?
-- Any internal contradictions? (entry-level title + staff requirements, etc.)
+- Any internal contradictions? (junior class-year band + senior-counsel responsibilities, "associate" title + partner-level BD expectations, etc.)
 
 **3. Company Hiring Signals** (use remaining queries from the bounded research budget, combine with Block D research):
 - Search: `"{company}" layoffs {year}` -- note date, scale, departments
@@ -267,8 +303,8 @@ Some JDs describe the company the org *wants to become*, not the org as it is: h
 
 Check the JD for these three signal classes:
 
-- **Buzzword density vs. role scope:** AI/transformation/innovation/enablement language is prominent, but the actual seniority, title, or listed responsibilities don't match ownership of transformation outcomes (e.g., a mid-level individual-contributor role expected to "drive AI transformation across the organization").
-- **Team-size mismatch:** the JD mentions a small team (roughly 5 people or fewer) expected to own "transformation" outcomes for a large org — a common tell that the mandate outstrips the resourcing.
+- **Buzzword density vs. role scope:** AI/transformation/innovation/enablement language is prominent, but the actual seniority, title, or listed responsibilities don't match ownership of transformation outcomes (e.g., a mid-level counsel or legal-ops IC role expected to "drive AI governance and legal innovation across the organization").
+- **Team-size mismatch:** the JD mentions a small team (roughly 5 people or fewer) expected to own "transformation" outcomes for a large org — a common tell that the mandate outstrips the resourcing (a 3-lawyer legal department "transforming" a 10,000-person company's AI posture).
 - **Industry base rate:** the company is in a traditional/legacy-heavy industry (manufacturing, aerospace/defense, industrial, heavy logistics) where basic digitization is often still incomplete — AI is being bolted onto a foundation that may not exist yet. This is a base rate, not a verdict: plenty of legacy-industry roles are genuine; it only counts as a signal in combination with the others.
 
 **Only flag when 2+ of the three signal classes are present.** If flagged, append a short, non-alarmist note to the report (descriptive, never prescriptive — this can be exactly the kind of high-impact greenfield role some candidates want):
@@ -276,6 +312,17 @@ Check the JD for these three signal classes:
 > ⚠️ **Buzzword/infrastructure mismatch signal:** This JD leans on AI/transformation language ("{specific phrases found}") while {signals observed: small team owning transformation outcomes / scope-seniority mismatch / legacy-heavy industry}. The day-to-day may be foundational digitization and backlog cleanup before any AI work. If you proceed, probe the actual state of their systems directly in interviews — e.g. "What are the top 3 most urgent things this role needs to fix right now?", "Which systems would I be working with, and how mature are they?" — rather than relying on the JD's framing.
 
 This signal does not change the High Confidence / Proceed with Caution / Suspicious tier below — the posting can be entirely real and still oversell its AI maturity. It is orthogonal to ghost-job detection and is reported separately.
+
+**8. Legal-Market Posting Signals** (from JD text plus research already gathered — no additional queries):
+
+The legal hiring market has its own ghost-posting and low-quality-posting patterns. Check for each:
+
+- **Recruiter "confidential AmLaw firm" ads:** contingency recruiters frequently post confidential ads to fish for resumes with no live mandate behind them. A confidential recruiter posting is not automatically fake — but with no named employer, no class-year band, and generic practice-area language, weight it as Concerning. Active, named-recruiter contact with a specific mandate is the opposite: a positive signal.
+- **Doc-review / contract-attorney mills posted as "attorney" roles:** keywords "document review", "eDiscovery project", "contract role"; hourly pay in the $25–50 range; a staffing agency as employer-of-record. These are real listings but not career roles — flag so the candidate isn't evaluating them as lateral opportunities.
+- **Same role posted by 3+ recruiters:** the firm is shopping the contingency market. The job is real, but the process will be chaotic — and the referral-source lock (first submitter owns the candidacy 6–12 months) makes channel choice critical. Cross-check `data/scan-history.tsv` and the tracker's `via=` entries before anyone submits.
+- **Fee-charging "placement" services:** legitimate legal recruiters are ALWAYS paid by the employer (contingency 25–33% of first-year comp) and never charge candidates. Any posting or outreach that asks the candidate to pay a placement, registration, or "marketing" fee is a scam signal — mark Suspicious.
+
+These signals feed the tier assessment below (unlike signals 6–7, which are orthogonal).
 
 ### Output format:
 
@@ -291,7 +338,7 @@ This signal does not change the High Confidence / Proceed with Caution / Suspici
 ### Edge case handling:
 - **Government/academic postings:** Longer timelines are standard. Adjust thresholds (60-90 days is normal).
 - **Evergreen/continuous hire postings:** If the JD explicitly says "ongoing" or "rolling," note it as context -- this is not a ghost job, it is a pipeline role.
-- **Niche/executive roles:** Staff+, VP, Director, or highly specialized roles legitimately stay open for months. Adjust age thresholds accordingly.
+- **Niche/executive roles:** GC/DGC, partner-level, or highly specialized roles (e.g. funds formation, patent prosecution in a narrow art) legitimately stay open for months. Adjust age thresholds accordingly.
 - **Startup / pre-revenue:** Early-stage companies may have vague JDs because the role is genuinely undefined. Weight description vagueness less heavily.
 - **No date available:** If posting age cannot be determined and no other signals are concerning, default to "Proceed with Caution" with a note that limited data was available. NEVER default to "Suspicious" without evidence.
 - **Recruiter-sourced (no public posting):** Freshness signals unavailable. Note that active recruiter contact is itself a positive legitimacy signal.

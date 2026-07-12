@@ -130,7 +130,7 @@ Hänge an `interview-prep/{company-slug}-{role-slug}.md` an:
 ## Round [N] Debrief — [YYYY-MM-DD]
 
 **Interviewer:** [Name, Rolle]
-**Round type:** [screening / technical / design-case-study / behavioral]
+**Round type:** [screening / hiring-partner / callback / writing-exercise / panel / behavioral]
 **Outcome:** [pending / moved forward / rejected]
 
 ### Questions Asked
@@ -163,7 +163,7 @@ Format:
 ---
 company: [Unternehmen]
 role: [Rolle]
-round: [screen | hiring-manager | technical | system-design | behavioral | onsite | final]
+round: [screen | hiring-partner | callback | writing-exercise | panel | business-stakeholder | behavioral]
 date: YYYY-MM-DD
 interviewer_role: [Rolle, falls bekannt]
 source: debrief
@@ -180,7 +180,7 @@ source: debrief
 
 Regeln für das Transkript:
 
-- **Ordne die Rundenart dem Enum** oben zu (z. B. Recruiter Screen → `screen`, HM Screen → `hiring-manager`, technischer Deep-Dive → `technical`, Design/Case Study → `system-design`).
+- **Ordne die Rundenart dem Enum** oben zu (z. B. Recruiter-/Screener-Gespräch → `screen`, Partner-/GC-Screening → `hiring-partner`, aufeinanderfolgende Partner-Gespräche → `callback`, NDA/MSA-Bearbeitung oder Entwurfsaufgabe → `writing-exercise`, gemischtes Panel → `panel`, Fachbereichsgespräch mit Business-Stakeholdern → `business-stakeholder`).
 - **Tagge jede Antwort.** In der Zeile direkt über jeder `**Candidate:**`-Zeile gib `<!-- competency: tag[, tag...] -->` aus — lowercase-kebab-case, kommagetrennt bei Antworten mit mehreren Kompetenzen (z. B. `system-design`, `people-leadership`, `incident-response`). Du hast jede Antwort in Step 2 bereits bewertet, also tagge aus dieser Bewertung, statt neu zu lesen. Tags sind frei wählbar; wähle die Kompetenz, die die Frage tatsächlich geprüft hat.
 - **Rekonstruiere den Turn des Kandidaten getreu.** Verwende, was der Kandidat in Step 1 als seine Aussage berichtet hat, nicht eine idealisierte Antwort. Die "correct/complete answer" aus Step 2 gehört in die Debrief-Datei, nie ins Transkript — das Transkript hält fest, was passiert ist.
 - **`source: debrief`.**

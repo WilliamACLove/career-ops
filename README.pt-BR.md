@@ -61,6 +61,8 @@
 
 ## O que é isso
 
+> **Esta edição é voltada para carreiras jurídicas** -- associados(as) de escritório, jurídico interno (in-house), compliance e regulatório, procuradores(as)/defensores(as) públicos(as) e cargos de legal tech. Os arquétipos, a lista de portais, as fontes de pesquisa de remuneração e os gates de avaliação (OAB/jurisdição, faixa de senioridade, conflitos) abaixo são ajustados para o mercado jurídico. O motor por trás do sistema é agnóstico de carreira e totalmente customizável para qualquer trilha -- basta pedir para sua CLI de IA trocar os arquétipos. A edição original de carreiras em IA/engenharia da qual este projeto nasceu continua open source, mantida por [santifer](https://santifer.io) (veja "Sobre o autor" abaixo).
+
 Career-Ops transforma qualquer CLI de código com IA em uma central completa de busca de emprego. Em vez de acompanhar candidaturas manualmente em planilha, você tem um pipeline com IA que:
 
 - **Avalia vagas** com um sistema estruturado de pontuação A-F (10 dimensões com pesos)
@@ -86,7 +88,7 @@ Construído por alguém que usou isso para avaliar 740+ vagas, gerar 100+ CVs pe
 | **Banco de histórias de entrevista** | Acumula histórias STAR+Reflection ao longo das avaliações -- 5-10 histórias principais que respondem qualquer pergunta comportamental          |
 | **Scripts de negociação**            | Frameworks para negociação salarial, resposta a desconto geográfico e alavanca com ofertas concorrentes                                        |
 | **Geração de PDF ATS**               | CVs com injeção de palavras-chave usando design com Space Grotesk + DM Sans                                                                    |
-| **Scanner de portais**               | 45+ empresas pré-configuradas (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + consultas customizadas em Ashby, Greenhouse, Lever e Wellfound |
+| **Scanner de portais**               | 45+ empresas pré-configuradas -- legal tech (Harvey, Ironclad, Everlaw, Spellbook, Clio...), jurídico interno em empresas de tecnologia (Anthropic, OpenAI, Coinbase, Databricks, Stripe...), além de setor público (USAJOBS) e boards de associações de advocacia -- + consultas customizadas em Ashby, Greenhouse, Lever e Workday |
 | **Processamento em lote**            | Avaliação paralela com workers `claude -p`                                                                                                     |
 | **Dashboard TUI**                    | Interface no terminal para navegar, filtrar e ordenar seu pipeline                                                                             |
 | **Humano no loop**                   | A IA avalia e recomenda, você decide e age. O sistema nunca envia candidatura automaticamente -- a decisão final é sempre sua                  |
@@ -157,8 +159,8 @@ Você cola a URL ou descrição da vaga
         │
         ▼
 ┌──────────────────┐
-│  Detecção de     │  Classifica: LLMOps / Agentic / PM / SA / FDE / Transformation
-│  Arquétipo       │
+│  Detecção de     │  Classifica: Associado(a) de Escritório (Societário/Contencioso) /
+│  Arquétipo       │  Jurídico Interno / Compliance / Setor Público / Legal Tech
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -176,14 +178,11 @@ Você cola a URL ou descrição da vaga
 
 O scanner já vem com **45+ empresas** prontas para escanear e **19 consultas de busca** nos principais job boards. Copie `templates/portals.example.yml` para `portals.yml` e adicione as suas:
 
-**AI Labs:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
-**AI Platforms:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
-**Contact Center:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
-**Enterprise:** Salesforce, Twilio, Gong, Dialpad
-**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
-**Automation:** n8n, Zapier, Make.com
-**European:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
+**Legal tech:** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
+**Jurídico interno:** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
+**Boards:** USAJOBS (governo federal americano, incl. justice.gov), GoInhouse, Lawjobs, LawCrossing, LateralHub, boards de carreira da ABA e das ordens estaduais americanas. No Brasil, use boards gerais (LinkedIn, Catho, Vagas.com) e adicione escritórios/empresas específicos em `portals.yml` conforme sua praça.
+
+> **Nota sobre laterais de escritório:** grandes escritórios full-service costumam rodar seus próprios ATS jurídicos, sem API pública, então a maior parte das vagas de escritório flui por recrutadores especializados ou indicação, não por este scanner. O ponto forte do scanner é legal tech + jurídico interno em empresas com ATS público, mais o board de governo federal americano (USAJOBS) como referência de integração com portais de setor público.
 
 **Job boards pesquisados:** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront
 

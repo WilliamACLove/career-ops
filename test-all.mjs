@@ -1205,7 +1205,7 @@ const expectedModes = [
   'batch.md', 'apply.md', 'auto-pipeline.md', 'contacto.md', 'deep.md',
   'ofertas.md', 'pipeline.md', 'project.md', 'tracker.md', 'training.md',
   'interview.md', 'latex.md', 'latex-tex.md', 'email.md', 'add.md', 'titles.md',
-  'regional/eu-swe.md',
+  'regional/eu-legal.md',
 ];
 
 for (const mode of expectedModes) {
@@ -6521,10 +6521,10 @@ try {
   if (companies.length > 0 && companies.every(c => c.name && c.api)) pass('each extracted company has a name and a JSON api endpoint');
   else fail(`runner companies missing name/api: ${JSON.stringify(companies.slice(0, 3))}`);
 
-  if (titleMatches('AI Engineer') && !titleMatches('Forklift Operator')) {
+  if (titleMatches('Commercial Counsel') && !titleMatches('Forklift Operator')) {
     pass('runner titleMatches honors title_filter.positive/negative from the canonical schema');
   } else {
-    fail(`runner titleMatches drift: "AI Engineer"=${titleMatches('AI Engineer')} "Forklift Operator"=${titleMatches('Forklift Operator')}`);
+    fail(`runner titleMatches drift: "Commercial Counsel"=${titleMatches('Commercial Counsel')} "Forklift Operator"=${titleMatches('Forklift Operator')}`);
   }
 } catch (e) {
   fail(`openrouter-runner portals drift guard crashed: ${e.message}`);
@@ -7684,9 +7684,9 @@ try {
 
   if (
     titlesMode.includes('breadth warning') &&
-    titlesMode.includes('"Solutions Architect", never bare "Architect"')
+    titlesMode.includes('"Commercial Counsel", never bare "Counsel"')
   ) {
-    pass('titles mode warns about substring-dangerous keywords (Solutions Architect vs bare Architect)');
+    pass('titles mode warns about substring-dangerous keywords (Commercial Counsel vs bare Counsel)');
   } else {
     fail('titles mode missing the substring-breadth warning for proposed keywords');
   }

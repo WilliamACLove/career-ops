@@ -23,12 +23,12 @@
 ```markdown
 ## Ожидающие
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://hh.ru/vacancy/12345678 | Компания | Senior Backend
+- [ ] https://hh.ru/vacancy/12345678 | Компания | Старший юрисконсульт
 - [!] https://private.url/job — Ошибка: требуется авторизация
 
 ## Обработанные
-- [x] #143 | https://jobs.example.com/posting/789 | Acme Corp | AI PM | 4.2/5 | PDF ✅
-- [x] #144 | https://hh.ru/vacancy/87654321 | BigCo | Backend | 2.1/5 | PDF ❌
+- [x] #143 | https://jobs.example.com/posting/789 | Acme Corp | Старший юрист (M&A) | 4.2/5 | PDF ✅
+- [x] #144 | https://hh.ru/vacancy/87654321 | BigCo | Юрисконсульт | 2.1/5 | PDF ❌
 ```
 
 ## Определение JD из URL

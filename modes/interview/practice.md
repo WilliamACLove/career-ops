@@ -6,7 +6,7 @@ Run a realistic practice interview — one question at a time — and give struc
 
 ## Inputs
 
-1. **Round type** (required) — screening/recruiter, screening/HM, technical/domain-specific, design/case study, behavioral
+1. **Round type** (required) — screening/recruiter, screening/hiring-partner (or GC), callback (partner/senior-associate meetings), writing-exercise, business-stakeholder panel, behavioral
 2. **Interviewer persona** (if known) — name, role, company; shapes question style and depth
 3. **Question list** (optional) — specific questions to cover; if not provided, generate from round type
 4. **CV** at `cv.md` + `article-digest.md` (if present) — to verify claims in answers and ground stronger versions in real experience
@@ -58,7 +58,7 @@ Then open with the first question — no preamble, no "here's question 1". Just 
 - The answer was strong (go deeper — this is what real interviewers do)
 - The answer missed the key point entirely (give them a chance to recover)
 
-**Track what's been covered.** Keep a running mental list of which stories and examples the candidate has used. If they reach for the same story a second time, flag it after feedback: "You've used [story] for [N] questions now — interviewers notice a thin example set. What's a different example you could use here?" Also check the *close* of each answer: if it lands on a domain that doesn't match the role (e.g., closing on e-commerce when the role is fintech/fraud), note it: "Strong content, but you closed on [wrong domain] — for this role, land the answer on [right domain]."
+**Track what's been covered.** Keep a running mental list of which stories and examples the candidate has used. If they reach for the same story a second time, flag it after feedback: "You've used [story] for [N] questions now — interviewers notice a thin example set. What's a different example you could use here?" Also check the *close* of each answer: if it lands on a practice area that doesn't match the role (e.g., closing on employment litigation when the role is commercial transactions), note it: "Strong content, but you closed on [wrong domain] — for this role, land the answer on [right domain]."
 
 ---
 
@@ -87,7 +87,7 @@ Keep feedback tight. One or two things to sharpen per answer — not a full rewr
 
 **Be honest, not encouraging.** "Good answer" without substance wastes the candidate's prep time. If an answer was weak, say so clearly and explain why.
 
-**Quote their actual words.** "You said 'negotiate between consistency and availability' — the precise term is 'trade off consistency for availability'" is more useful than "use better technical vocabulary."
+**Quote their actual words.** "You said 'we got them to agree to unlimited liability' — the precise framing is 'we negotiated an uncapped indemnity for third-party IP claims'" is more useful than "use more precise legal vocabulary."
 
 **Lead with what landed.** Even a weak answer usually has something right. Naming it first makes the correction land better.
 
@@ -114,7 +114,7 @@ Keep feedback tight. One or two things to sharpen per answer — not a full rewr
 ```markdown
 ## Practice Session Summary
 
-**Round type:** [screening / technical / design-case-study / behavioral]
+**Round type:** [screening / hiring-partner / callback / writing-exercise / panel / behavioral]
 **Questions covered:** [N]
 
 **Ready:**
@@ -141,7 +141,7 @@ Format:
 ---
 company: [company, or "practice"]
 role: [role]
-round: [screen | hiring-manager | technical | system-design | behavioral | onsite | final]
+round: [screen | hiring-partner | callback | writing-exercise | panel | business-stakeholder | behavioral]
 date: YYYY-MM-DD
 interviewer_role: [persona role, if set]
 source: practice
@@ -158,7 +158,7 @@ source: practice
 
 Rules for the transcript:
 
-- **Map the round type to the enum** above (recruiter screen → `screen`, HM screen → `hiring-manager`, technical/domain → `technical`, design/case study → `system-design`, behavioral → `behavioral`).
+- **Map the round type to the enum** above (recruiter screen → `screen`, hiring partner/GC screen → `hiring-partner`, partner/senior-associate meetings → `callback`, writing or markup exercise → `writing-exercise`, mixed panel → `panel`, non-lawyer stakeholder round → `business-stakeholder`, behavioral → `behavioral`).
 - **Tag each answer.** On the line directly above each `**Candidate:**` line, emit `<!-- competency: tag[, tag...] -->` — lowercase-kebab-case, comma-separated for multi-competency answers. You already assessed each answer during the session, so tag from that. Tags are free-form; pick the competency the question actually tested.
 - **Record the candidate's answer verbatim**, not the "stronger version" — the transcript records what happened, not the coaching.
 - **`source: practice`.**
@@ -184,22 +184,22 @@ A recruiter screen is box-checking, not depth probing. Keep answers crisp; don't
 2. Why this company / why this role?
 3. Why are you leaving your current role?
 4. What are your comp expectations?
-5. [Logistics: location / hybrid / timeline / work authorization]
+5. [Logistics: bar admission & jurisdiction / class year / office location & hybrid / timeline]
 6. What questions do you have for us?
 
 **Comp coaching (recruiter screen only).** Watch for the candidate volunteering a salary floor unprompted (e.g., "the minimum I can go to is X"). If they do, flag it after the answer: "You just gave them your floor — that caps your negotiation before it starts. The stronger move is to anchor on a researched target and defer to the package: 'I'm targeting the upper half of the market range for this level — I'd want to understand base, bonus, and equity together before settling on a number.'" If the role-specific prep file defines a comp strategy, follow that; otherwise give only this generic mechanics note — never invent target numbers.
 
-### Screening — Hiring Manager (30–45 min)
+### Screening — Hiring Partner / GC (30–45 min)
 
-An HM screen probes leadership philosophy, judgment, and experience depth. Answers can be longer and carry more story weight. The HM is deciding whether to invest rounds of their team's time.
+A hiring-partner (or GC) screen probes judgment, practice fit, and experience depth. Answers can be longer and carry more story weight. The partner is deciding whether to invest a callback day of their group's time.
 
-1. Walk me through your background.
-2. Why this company / why this role?
-3. Tell me about the hardest problem you've solved in your field.
-4. Tell me about a time you faced resistance to a change you proposed.
-5. What does [title from JD] mean to you?
-6. How would you describe your approach to your craft?
-7. [One fundamental concept from the JD — e.g., a core method, framework, regulation, or tool of the discipline]
+1. Walk me through your background — and your deal sheet / matters list.
+2. Why this firm (or why in-house) / why this role? Why now?
+3. Tell me about the hardest matter you've handled — what made it hard and what did you own?
+4. Tell me about a time you pushed back on a client (or a business team) and how you handled it.
+5. What does [title from JD — e.g., Commercial Counsel, Senior Associate] mean to you?
+6. How would you describe your approach to your practice?
+7. [One fundamental concept from the JD — e.g., a key regulation, deal structure, procedural posture, or contract framework of the practice area]
 
 Mix in at least 2 situational / forward-looking questions from the set below — these probe judgment and self-awareness, not past stories:
 
@@ -214,27 +214,29 @@ Mix in at least 2 situational / forward-looking questions from the set below —
 - "What do you need from your manager to do your best work?"
 - "Where are you still growing in your role?"
 
-### Technical / Domain-Specific (practitioner, 45–60 min)
-1. [Core internals of the discipline's main tool or method — e.g., runtime internals for engineering, attribution models for marketing, valuation methods for finance]
-2. [Established pattern or framework relevant to the role — from the JD]
-3. [Fundamental building block deep-dive — e.g., a data structure, a statistical test, an accounting principle]
-4. [Advanced topic the JD emphasizes — the area where depth separates candidates]
-5. Tell me about a high-stakes failure in your work — how you diagnosed it and what you did.
-6. How do you raise the quality bar on a team?
+### Callback — Substantive / Practice-Specific (partner or senior associate, 30–45 min per slot)
+1. Walk me through your deal sheet / matters list — pick the matter you owned most and go deep.
+2. [Practice hypothetical from the JD's practice area — e.g., for a product counsel role: "A PM wants to ship a feature that collects biometric data next sprint. Walk me through how you'd counsel them." For M&A: "Your client's diligence turns up an unregistered data-transfer issue two days before signing — what do you do?"]
+3. [Conflicts / ethics scenario — e.g., "You discover mid-matter that a witness's account contradicts what your client told you. What are your obligations and next steps?"]
+4. [Advanced topic the JD emphasizes — the area where depth separates candidates: a regulation, deal structure, or procedural posture]
+5. Tell me about a matter that went sideways — how you diagnosed it and what you did.
+6. How do you raise the quality of work product on a deal team / case team?
+7. [For senior candidates: the partnership-case question — "Where does your business come from in five years?" / "What's your path to a book?"]
 
-### Design / Case Study (45–60 min)
-1. Design [a system, process, campaign, or product relevant to the role].
-2. [Constraint question — how does your design behave when something fails, scales 10x, or loses budget?]
-3. [Quality/reliability question — how do you guarantee correctness or measure success?]
-4. Walk me through how you'd know it's working after launch.
+### Writing / Markup Exercise (45–60 min)
+1. Mark up [an NDA / MSA / DPA] against [a short playbook or stated positions] — talk through your reasoning as you go.
+2. Draft a short advice memo: [a business team asks whether they can do X under regulation Y] — structure the answer for a non-lawyer audience.
+3. [Constraint question — the client rejects your primary position; what's your fallback and why?]
+4. Walk me through how you'd explain the residual risk to the business owner after your edits.
 
-### Behavioral Panel
-1. Tell me about a time you led a team through a difficult delivery.
-2. Describe a major failure in production or in market — what happened and what changed after?
-3. Tell me about a time you influenced direction across teams or stakeholders.
-4. What does a high-performing team look like to you?
-5. Tell me about a time you simplified something complex.
-6. Tell me about a time you solved a problem that wasn't yours to solve.
+### Behavioral Panel (including business stakeholders, in-house)
+1. Tell me about a time you led a deal or case team through a difficult close or deadline.
+2. Describe a matter or negotiation that failed — what happened and what changed in your practice after?
+3. Tell me about a time you influenced direction across teams or stakeholders who didn't report to you.
+4. What does a high-performing legal team look like to you?
+5. Tell me about a time you translated something legally complex into advice a business team could act on.
+6. Tell me about a time you flagged a risk nobody asked you about — and what happened.
+7. Why in-house (or why our firm)? What do you want from this move that your current seat can't give you?
 
 ---
 

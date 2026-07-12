@@ -30,6 +30,8 @@ Before generating any application answers, verify that the form still points to 
 
 **Blacklist check (#1742):** before any form filling starts, if `data/blacklist.md` exists, check the visible company against it (case- and punctuation-insensitive). The file is the candidate's own do-not-apply list — on a hit, STOP and surface their own recorded decision: "{Company} is on your blacklist (since {Since}): *{Reason}*. Do you still want to apply?" Require an explicit yes before generating or filling anything — never silently refuse, never silently proceed; the candidate's call always wins. Absent file = skip this check.
 
+**Channel check (referral-source lock):** before drafting any DIRECT application, check whether the employer is a law firm and whether a legal recruiter is engaged for it — `config/profile.yml` → `legal.recruiter_channel.engagements`, plus any tracker row for this employer carrying `via=`. If a recruiter is (or may be) engaged, **STOP and warn instead of drafting**: the first submitter owns the candidacy at that employer for typically 6–12 months, and a direct application on top of a recruiter submission creates a fee dispute that firms commonly resolve by discarding the candidate. Route the application through the engaged recruiter, or get an explicit user decision to proceed direct with the risk acknowledged. In-house and government employers default to direct application — this gate only bites when a recruiter channel exists.
+
 **Cross-channel check (#1596):** before drafting — and ALWAYS before the user authorizes an agency to submit on their behalf — check `data/applications.md` for an existing row with the same company+role under a different Via (agency vs direct, or two agencies). A double submission burns the candidate with both the agency and the employer. If found, stop and ask the user which channel owns the candidacy. If the end employer is still unknown (Company `?`), the check still runs in degraded form — it is never silently skipped:
 
 1. Ask the user (or the recruiter, via the user) for the client company name first — the reveal is the cheapest fix and unlocks the full check.
@@ -53,11 +55,12 @@ Do not continue to Step 6 until this preflight is resolved.
 Read the entire page/form to scan for knock-out questions BEFORE generating full responses. These are questions designed to automatically disqualify candidates who do not meet critical criteria.
 
 1. Common knock-out question areas to target:
-   - **Minimum years of experience** (e.g., "Do you have at least 5 years of professional software engineering experience?")
-   - **Degree requirements** (e.g., "Do you have a Bachelor's degree in Computer Science or a related field?")
+   - **Bar admission / jurisdiction** (e.g., "Are you licensed to practice law in California, or eligible for admission within 12 months?") — check against `config/profile.yml` → `legal.bar_admissions`
+   - **Class year / minimum years of practice** (e.g., "Do you have 3–5 years of experience as a practicing attorney?") — check against `legal.class_year`
+   - **Degree/credential requirements** (e.g., "Do you have a JD from an ABA-accredited law school?"; patent roles: "Are you registered to practice before the USPTO?" — check `legal.patent_bar`)
    - **Work authorization/Visa sponsorship** (e.g., "Will you now or in the future require visa sponsorship to work in the United States?")
    - **Salary floors/expectations** (e.g., "What is your target salary / expectation?")
-2. Check these questions against the candidate's `config/profile.yml` or `cv.md` parameters.
+2. Check these questions against the candidate's `config/profile.yml` (including the `legal` block) or `cv.md` parameters.
 3. If a knock-out question is detected where the candidate's profile represents a potential mismatch (e.g., candidate needs sponsorship and the form automatically filters out sponsorship-needy applicants, or candidate's salary expectations mismatch the visible JD/form floors):
    - Highlight the specific knock-out question to the candidate immediately.
    - Present a clear warning block:
@@ -99,7 +102,9 @@ Identify ALL visible questions:
 - Dropdowns (how did you hear, work authorization, etc.)
 - Yes/No (relocation, visa, etc.)
 - Salary fields (range, expectation)
-- Upload fields (resume, cover letter PDF)
+- Upload fields (resume, cover letter PDF, writing sample, deal sheet)
+
+**Application-packet awareness (legal):** the expected packet differs by track — firm lateral = resume + deal sheet/matters list (+ writing sample for litigation); in-house = resume (+ optional letter); government honors / clerkship = cover letter + resume + transcript + writing sample(s) + references. Map the form's upload slots to the right artifacts and flag anything the candidate is missing before drafting answers.
 
 Classify each question:
 - **Already answered in Section H or `## Application Answers`** → adapt the existing response
@@ -124,7 +129,7 @@ For each question, generate the response following:
 3. **"I'm choosing you" tone**: Same auto-pipeline framework
 4. **Specificity**: Reference something specific from the JD visible on screen
 5. **career-ops proof point**: Include in "Additional info" if there is a field for it
-6. **Recruiter-side risk map**: Use `modes/heuristics/recruiter-side.md` to identify what doubt the question is trying to resolve (motivation, stack fit, logistics, comp, work-auth, availability, seniority) and answer that doubt directly.
+6. **Recruiter-side risk map**: Use `modes/heuristics/recruiter-side.md` to identify what doubt the question is trying to resolve (motivation, practice-area fit, bar admission/jurisdiction, class year, comp, availability, seniority) and answer that doubt directly.
 7. **Disclosure discipline**: Answer logistics questions truthfully when asked, but do not volunteer sensitive or HR-only details in unrelated motivation/fit answers.
 
 **Output format:**

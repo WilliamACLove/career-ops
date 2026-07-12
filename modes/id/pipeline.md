@@ -27,8 +27,8 @@ Memproses URL lowongan yang menumpuk di `data/pipeline.md`. Kandidat menambahkan
 - [!] https://private.url/job -- Error: perlu login
 
 ## Diproses
-- [x] #143 | https://jobs.example.com/posting/789 | Acme PT | AI PM | 4.2/5 | PDF ya
-- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | SA | 2.1/5 | PDF tidak
+- [x] #143 | https://jobs.example.com/posting/789 | Firma Hukum Acme | Senior Associate Litigasi | 4.2/5 | PDF ya
+- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | Legal Counsel In-House | 2.1/5 | PDF tidak
 ```
 
 > Catatan: Header bagian bisa dalam EN ("Pending"/"Processed"), ES ("Pendientes"/"Procesadas"), DE ("Offen"/"Verarbeitet"), atau ID ("Menunggu"/"Diproses"). Bersikaplah fleksibel saat membaca, konsisten dengan gaya yang ada saat menulis.
@@ -45,6 +45,7 @@ Memproses URL lowongan yang menumpuk di `data/pipeline.md`. Kandidat menambahkan
 - **Prefiks `local:`**: Baca file lokal. Contoh: `local:jds/linkedin-pm-ai.md` -> baca `jds/linkedin-pm-ai.md`
 - **Glints / Jobstreet / Kalibrr**: Portal Indonesia yang umum. Playwright menangani cookie banner dengan baik
 - **LinkedIn ID / Indeed ID**: Lowongan terstruktur, mudah dibaca mesin. WebFetch biasanya cukup
+- **Hukumonline Kariri**: Portal karier khusus hukum Indonesia -- prioritaskan untuk role firma hukum, in-house, dan compliance; sering memuat detail bidang praktik yang tidak ada di portal umum
 
 ## Penomoran otomatis
 

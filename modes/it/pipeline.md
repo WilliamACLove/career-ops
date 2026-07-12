@@ -23,12 +23,12 @@ Elabora gli URL degli annunci accumulati in `data/pipeline.md`. Il candidato agg
 ```markdown
 ## In attesa
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://boards.greenhouse.io/company/jobs/456 | Azienda SRL | Senior PM
+- [ ] https://boards.greenhouse.io/studio-legale/jobs/456 | Studio Legale SRL | Avvocato Associato -- Societario
 - [!] https://private.url/job -- Errore: richiesto login
 
 ## Elaborati
-- [x] #143 | https://jobs.example.com/posting/789 | Acme SRL | AI PM | 4.2/5 | PDF sì
-- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | SA | 2.1/5 | PDF no
+- [x] #143 | https://jobs.example.com/posting/789 | Acme SpA | Giurista d'Impresa | 4.2/5 | PDF sì
+- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | Compliance Counsel | 2.1/5 | PDF no
 ```
 
 > Nota: Le intestazioni delle sezioni possono essere in inglese ("Pending"/"Processed"), spagnolo ("Pendientes"/"Procesadas"), tedesco ("Offen"/"Verarbeitet"), francese ("En attente"/"Traitees") o italiano ("In attesa"/"Elaborati"). Flessibili in lettura, fedeli allo stile esistente in scrittura.
@@ -42,7 +42,7 @@ Elabora gli URL degli annunci accumulati in `data/pipeline.md`. Il candidato agg
 **Casi particolari:**
 - **LinkedIn:** può richiedere login -> contrassegnare come `[!]` e chiedere al candidato di incollare il testo dell'annuncio
 - **PDF:** se l'URL punta a un PDF, leggerlo direttamente con il Read tool
-- **Prefisso `local:`:** legge un file locale. Esempio: `local:jds/linkedin-pm-ai.md` -> legge `jds/linkedin-pm-ai.md`
+- **Prefisso `local:`:** legge un file locale. Esempio: `local:jds/linkedin-avvocato-societario.md` -> legge `jds/linkedin-avvocato-societario.md`
 - **Indeed IT / LinkedIn IT:** portali molto diffusi in Italia. Playwright gestisce bene i cookie banner.
 
 ## Numerazione automatica

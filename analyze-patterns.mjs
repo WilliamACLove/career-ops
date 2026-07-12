@@ -188,10 +188,10 @@ function runSelfTest() {
 
 \`\`\`yaml
 company: "Acme"
-role: "Staff AI Engineer"
+role: "Senior Commercial Counsel"
 score: 4.4
 legitimacy_tier: "High Confidence"
-archetype: "AI Platform / LLMOps Engineer"
+archetype: "In-House Counsel — Product / Commercial / Privacy"
 final_decision: "Apply"
 hard_stops: []
 soft_gaps:
@@ -492,9 +492,9 @@ function extractBlockerType(gap) {
   const desc = gap.description.toLowerCase();
   const sev = gap.severity.toLowerCase();
   if (sev.includes('nice') || sev.includes('soft')) return null; // skip soft gaps
-  if (/\b(residency|us[- ]only|canada|location|visa|geo|country|region)\b/.test(desc)) return 'geo-restriction';
-  if (/\b(javascript|typescript|python|ruby|java|go|rust|node|react|angular|vue|django|flask|rails)\b/.test(desc)) return 'stack-mismatch';
-  if (/\b(senior|staff|lead|principal|director|manager|head)\b/.test(desc)) return 'seniority-mismatch';
+  if (/\b(residency|us[- ]only|canada|location|visa|geo|country|region|bar admission|jurisdiction|admitted)\b/.test(desc)) return 'geo-restriction';
+  if (/\b(m&a|mergers|securities|capital markets|antitrust|tax|erisa|real estate|restructuring|bankruptcy|litigation|arbitration|employment law|immigration|patent|trademark|class year|pqe)\b/.test(desc)) return 'practice-area-mismatch';
+  if (/\b(senior|staff|lead|principal|director|manager|head|partner|counsel|associate)\b/.test(desc)) return 'seniority-mismatch';
   if (/\b(hybrid|on-?site|office|relocat)\b/.test(desc)) return 'onsite-requirement';
   return 'other';
 }
@@ -732,27 +732,33 @@ function analyze() {
       : 'N/A',
   };
 
-  // --- Tech stack gaps (from negative + self_filtered outcomes) ---
+  // --- Skill gaps (from negative + self_filtered outcomes) ---
   // Canonical spellings keyed by lowercased match — the /i regex below returns
-  // the source casing ("react native", "NODEJS"), and without this map each
-  // case variant of the same tech lands in its own techStackGaps bucket.
-  // Keys cover the optional-dot regex variants (node.js/nodejs, vue.js/vuejs).
+  // the source casing ("mergers and acquisitions", "ECDISCOVERY"), and
+  // without this map each case/spelling variant of the same skill lands in
+  // its own techStackGaps bucket. Deliberately duplicated from the (larger)
+  // legal vocabulary in upskill.mjs — see #1520 discussion: extracting a
+  // shared module from a tested core script is a follow-up once both call
+  // sites are stable.
   const TECH_CANONICAL = new Map([
-    'JavaScript', 'TypeScript', 'Python', 'Ruby', 'Java', 'Go', 'Rust',
-    'React Native', 'React', 'Angular', 'Django', 'Flask', 'Rails', 'PHP',
-    'Laravel', 'Symfony', 'Kotlin', 'Swift', 'C++', 'C#', '.NET', 'MongoDB',
-    'MySQL', 'PostgreSQL', 'Redis', 'GraphQL', 'REST', 'AWS', 'GCP', 'Azure',
-    'Docker', 'Kubernetes', 'Terraform', 'Supabase', 'Inngest',
+    'M&A', 'Securities', 'Capital Markets', 'Antitrust', 'Tax', 'ERISA',
+    'Real Estate', 'Restructuring', 'Bankruptcy', 'Litigation',
+    'Commercial Litigation', 'White Collar', 'Arbitration', 'Employment Law',
+    'Labor', 'Immigration', 'IP Litigation', 'Trademark', 'Copyright',
+    'Licensing', 'Corporate Governance', 'Insurance', 'Environmental',
+    'Franchise', 'Class Action', 'UCC', 'GDPR', 'HIPAA', 'COPPA', 'FCPA',
+    'FTC', 'CIPP', 'CIPM',
   ].map(t => [t.toLowerCase(), t]));
-  TECH_CANONICAL.set('node.js', 'Node.js').set('nodejs', 'Node.js');
-  TECH_CANONICAL.set('vue.js', 'Vue.js').set('vuejs', 'Vue.js');
+  TECH_CANONICAL.set('mergers and acquisitions', 'M&A').set('mergers & acquisitions', 'M&A');
+  TECH_CANONICAL.set('ccpa', 'CCPA/CPRA').set('cpra', 'CCPA/CPRA');
+  TECH_CANONICAL.set('bsa', 'BSA/AML').set('aml', 'BSA/AML');
   const stackGapCounts = new Map();
   for (const e of enriched) {
     if (e.outcome !== 'negative' && e.outcome !== 'self_filtered') continue;
     if (!e.report?.gaps) continue;
     for (const gap of e.report.gaps) {
-      // Extract tech keywords from gap descriptions
-      const techs = gap.description.match(/\b(JavaScript|TypeScript|Python|Ruby|Java|Go|Rust|Node\.?js|React Native|React|Angular|Vue\.?js|Django|Flask|Rails|PHP|Laravel|Symfony|Kotlin|Swift|C\+\+|C#|\.NET|MongoDB|MySQL|PostgreSQL|Redis|GraphQL|REST|AWS|GCP|Azure|Docker|Kubernetes|Terraform|Supabase|Inngest)\b/gi);
+      // Extract legal skill keywords from gap descriptions
+      const techs = gap.description.match(/\b(M&A|Mergers and Acquisitions|Mergers & Acquisitions|Securities|Capital Markets|Antitrust|Tax|ERISA|Real Estate|Restructuring|Bankruptcy|Litigation|Commercial Litigation|White Collar|Arbitration|Employment Law|Labor|Immigration|IP Litigation|Trademark|Copyright|Licensing|Corporate Governance|Insurance|Environmental|Franchise|Class Action|UCC|GDPR|CCPA|CPRA|BSA|AML|HIPAA|COPPA|FCPA|FTC|CIPP|CIPM)\b/gi);
       if (techs) {
         for (const tech of techs) {
           const normalized = TECH_CANONICAL.get(tech.toLowerCase()) || tech;
@@ -779,13 +785,13 @@ function analyze() {
     });
   }
 
-  // Stack mismatch recommendation
-  const stackBlocker = blockerAnalysis.find(b => b.blocker === 'stack-mismatch');
+  // Practice-area mismatch recommendation
+  const stackBlocker = blockerAnalysis.find(b => b.blocker === 'practice-area-mismatch');
   if (stackBlocker && stackBlocker.percentage >= 15) {
     const topGaps = techStackGaps.slice(0, 3).map(g => g.skill).join(', ');
     recommendations.push({
-      action: `Filter out roles requiring ${topGaps} as primary stack -- ${stackBlocker.percentage}% hit stack mismatch`,
-      reasoning: `Core stack gaps (${topGaps}) are the most common technical blockers in negative outcomes.`,
+      action: `Filter out roles requiring ${topGaps} as the primary practice area -- ${stackBlocker.percentage}% hit a practice-area mismatch`,
+      reasoning: `Core practice-area gaps (${topGaps}) are the most common blockers in negative outcomes.`,
       impact: 'high',
     });
   }
@@ -938,9 +944,9 @@ function printSummary(result) {
     console.log(`  ${r.policy.padEnd(20)} ${String(r.total).padStart(2)} total, ${r.positive} positive (${r.conversionRate}%)`);
   }
 
-  // Tech gaps
+  // Practice-area gaps
   if (techStackGaps.length > 0) {
-    console.log('\nTOP TECH STACK GAPS (negative outcomes)');
+    console.log('\nTOP PRACTICE-AREA GAPS (negative outcomes)');
     console.log('-'.repeat(40));
     for (const g of techStackGaps.slice(0, 10)) {
       console.log(`  ${g.skill.padEnd(20)} ${g.frequency}x`);

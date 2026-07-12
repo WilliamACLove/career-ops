@@ -38,6 +38,8 @@ Application answers を生成する前に、form が意図した active job を�
 
 この preflight が解決するまで Step 6 に進まない。
 
+**法律事務所への直接応募の場合:** Response を生成する前に `config/profile.yml` → `legal.recruiter_channel` と tracker の `via=` 欄を確認する。すでにエージェント（MS-Japan、BEET-AGENT、弁護士ドットコムキャリア、JAC Recruitment 等）経由で同じ事務所に推薦・応募済みの場合、直接応募のドラフトを作成しない -- 二重応募はコンフリクトとして選考から外される原因になり得る（`_shared.md` の NEVER 参照）。該当する場合は候補者にその旨を伝え、どう進めるか確認する。
+
 **Applying to several roles in one sitting?** この preflight は目の前の単一 form を確認する。Multi-role session の前、特に scanner entries が `**Verification:** unconfirmed (batch mode)` と marked されている場合は、`pipeline` mode の **Liveness sweep** を先に実行する（`node check-liveness.mjs --file <urls>`）。これにより `data/pipeline.md` から dead postings がまとめて落ち、expired role の tab を開かずに済む。
 
 ## Step 1 -- Detect the job
@@ -106,6 +108,8 @@ Legal、demographic、work-authorization、visa/sponsorship、salary、disabilit
 - **就労資格** → 明確に回答。未記載なら candidate confirmation が必要
 - **語学力** → 言語ごとに level を記載（native、business、conversational、basic）
 - **転居の可否** → `profile.yml` の location settings に従う
+- **弁護士登録番号・登録弁護士会・登録年次** → `config/profile.yml` → `legal` block に明示されていればそのまま回答。未記載なら candidate confirmation が必要
+- **エージェント経由での応募有無** → `legal.recruiter_channel` と tracker の `via=` 欄を確認し、事実に即して回答する
 
 **Output format:**
 

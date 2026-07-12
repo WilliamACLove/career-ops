@@ -57,6 +57,8 @@
 
 ## Hvad er det
 
+> **Denne udgave er målrettet det juridiske arbejdsmarked** -- advokatfuldmægtige/advokater i advokatfirmaer, virksomhedsjurister, compliance- og regulatoriske jurister, jurister i det offentlige/almennyttige sektor samt legal tech-roller. Arketyperne, portallisten, lønkilderne og evalueringsgates (advokatbestalling, fuldmægtig-/advokatår-matching, inhabilitet) nedenfor er tilpasset det juridiske jobmarked. Det underliggende system er karriereuafhængigt og fuldt tilpasseligt -- bed blot dit AI-CLI om at ændre arketyperne. Den oprindelige AI/engineering-udgave, som dette projekt er bygget ud fra, er fortsat open source og vedligeholdes af [santifer](https://santifer.io) (se "Om forfatteren" nedenfor).
+
 Career-Ops ([career-ops.org](https://career-ops.org), også kendt som **careerops**) forvandler et hvilket som helst AI-CLI til en komplet kommandocentral for jobsøgning. I stedet for manuelt at spore ansøgninger i et regneark får du en AI-drevet pipeline, der:
 
 - **Vurderer stillinger** med et struktureret A–F-system (10 vægtede dimensioner)
@@ -152,8 +154,8 @@ Du indsætter en stillings-URL eller -beskrivelse
         │
         ▼
 ┌──────────────────┐
-│  Arketype-       │  Klassificering: Frontend / Backend / DevOps / PM / SA / ML
-│  registrering    │
+│  Arketype-       │  Klassificering: Advokatfuldmægtig/Advokat (Transaktioner/Procedure) /
+│  registrering    │  Virksomhedsjurist / Compliance / Offentlig / Legal Tech
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -171,16 +173,13 @@ Du indsætter en stillings-URL eller -beskrivelse
 
 Skanneren leveres med **45+ virksomheder** klar til skanning og **19 forespørgsler** via de største jobportaler. Kopiér `templates/portals.example.yml` til `portals.yml`, og tilføj dine egne:
 
-**AI Labs:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
-**AI Platforms:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
-**Contact Center:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
-**Enterprise:** Salesforce, Twilio, Gong, Dialpad
-**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
-**Automation:** n8n, Zapier, Make.com
-**European:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
+**Legal tech:** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
+**In-house legal:** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
+**Boards:** Djøf Jobunivers (den dominerende kanal for jurister i Danmark), Jobindex, USAJOBS (amerikansk offentlig sektor, inkl. justice.gov), GoInhouse, Lawjobs, LawCrossing, ABA og delstats-bar-karrierecentre
 
-**Gennemsøgte portaler:** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront
+> **Bemærk om lateral ansættelse hos advokatfirmaer:** de store danske og internationale advokatfirmaer (Kromann Reumert, Bech-Bruun, Plesner, Gorrissen Federspiel m.fl.) opslår ofte kun via egne karrieresider eller Djøf Jobunivers, ikke via de generiske ATS-API'er, scanneren er bygget til. Scannerens styrke er legal tech- og virksomhedsjurist-roller på offentlige ATS-boards -- suppler med manuelle opslag på Djøf Jobunivers og firmaernes egne karrieresider for advokatfirma-stillinger.
+
+**Gennemsøgte portaler:** Ashby, Greenhouse, Lever, Workday og en række flere -- se [Supported job boards](docs/SUPPORTED_JOB_BOARDS.md) for den fulde liste.
 
 Som standard stoler `node scan.mjs` (`npm run scan`) på det, hvert ATS-feed returnerer. Nogle virksomheder lader forældede opslag blive stående, selv efter rekrutteringen er lukket. Brug `--verify` for at køre Playwright efter API-fasen og frasortere udløbne stillinger, før de tilføjes pipelinen:
 

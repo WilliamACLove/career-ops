@@ -9,9 +9,12 @@ candidate:
   # Optional. Used by `/career-ops email` contact blocks in markets where WeChat
   # is an expected recruiting channel. Omit or leave blank if not applicable.
   wechat: ""
-  location: "San Francisco, CA"
+  location: "New York, NY"
   linkedin: "linkedin.com/in/janesmith"
-  portfolio_url: "https://janesmith.dev"
+  # Personal site or firm bio page.
+  portfolio_url: "https://janesmith.law"
+  # Optional and less central for attorneys — keep only if you actually
+  # publish there (e.g. legal-tech side projects, commentary).
   github: "github.com/janesmith"
   twitter: "https://x.com/janesmith"
   # Optional profile photo for the PDF CV (opt-in, #264). Leave empty to omit it
@@ -24,56 +27,77 @@ candidate:
 target_roles:
   # Your North Star roles — what you're optimizing for
   primary:
-    - "Senior AI Engineer"
-    - "Staff ML Engineer"
+    - "Senior Commercial Counsel"
+    - "Product Counsel"
   # Archetypes help the evaluation system score fit
   archetypes:
-    - name: "AI/ML Engineer"
-      level: "Senior/Staff"
+    - name: "In-House Counsel — Product / Commercial / Privacy"
+      level: "Senior Counsel"
       fit: "primary"        # primary = dream role, secondary = good fit, adjacent = stretch
-    - name: "AI Product Manager"
-      level: "Senior"
+    - name: "Law Firm Associate — Transactional"
+      level: "5th-7th year"
       fit: "secondary"
-    - name: "Solutions Architect"
-      level: "Mid-Senior"
+    - name: "Legal Tech / Legal Engineer"
+      level: "Senior"
       fit: "adjacent"
 
 narrative:
   # Your professional headline (1 line)
-  headline: "ML Engineer turned AI product builder"
+  headline: "5th-year corporate/tech-transactions associate (AmLaw 50) moving in-house"
   # Your exit story — what makes you unique
-  exit_story: "Built and sold my SaaS after 5 years. Now focused on applied AI at scale."
+  exit_story: "Five years closing tech M&A and negotiating enterprise SaaS deals at an AmLaw 50 firm. Now moving in-house to own a product's legal risk surface end to end."
   # Your top 3-5 superpowers
   superpowers:
-    - "End-to-end ML pipelines"
-    - "Fast prototyping (idea to prod in 2 weeks)"
-    - "Cross-functional communication"
-  # Proof points — projects, articles, case studies with measurable impact
+    - "High-volume commercial negotiation (SaaS, MSAs, DPAs)"
+    - "Plain-English counseling for product and sales teams"
+    - "Privacy + AI-governance fluency (CIPP/US)"
+  # Proof points — representative matters with measurable stakes
+  # (name clients only if the matter is public; otherwise describe generically)
   proof_points:
-    - name: "Project Alpha"
-      url: "https://janesmith.dev/project-alpha"
-      hero_metric: "Reduced inference latency 40%"
-    - name: "Open Source Tool"
-      url: "https://github.com/janesmith/tool"
-      hero_metric: "2K+ GitHub stars"
-  # Optional: dashboard/demo URL with credentials
+    - name: "Tech M&A deal sheet"
+      url: "https://janesmith.law/deal-sheet"
+      hero_metric: "Closed 12 M&A deals totaling $4.2B"
+    - name: "Commercial contracts practice"
+      url: "https://janesmith.law/representative-matters"
+      hero_metric: "Negotiated 40+ enterprise SaaS agreements/quarter, 5-day median turnaround"
+  # Optional: gated writing-samples / deal-sheet URL with credentials
   # dashboard:
-  #   url: "https://janesmith.dev/demo"
+  #   url: "https://janesmith.law/writing-samples"
   #   password: "demo-2026"
 
 compensation:
-  target_range: "$150K-200K"     # Your target total comp
+  target_range: "$210K-260K base + bonus + equity"  # Your target package
   currency: "USD"
-  minimum: "$120K"               # Walk-away number
-  location_flexibility: "Remote preferred, 1 week/month on-site possible"
+  minimum: "$185K"               # Walk-away number (base)
+  location_flexibility: "Hybrid NYC preferred, open to remote-first legal teams"
 
 location:
   country: "United States"
-  city: "San Francisco"
-  timezone: "PST"
+  city: "New York"
+  timezone: "EST"
   visa_status: "No sponsorship needed"
   # For remote roles outside your country:
   # onsite_availability: "1 week/month in any city"
+
+# ── Legal profile (drives jurisdiction & class-year gates in evaluations) ────
+legal:
+  class_year: 2021            # JD class year — drives class-year/PQE band matching on firm postings
+  bar_admissions:
+    - jurisdiction: "New York"
+      year: 2021
+      status: active          # active | inactive | pending | registered-in-house
+  patent_bar: false           # required for patent prosecution roles
+  practice_areas:
+    - "Technology Transactions"
+    - "Privacy"
+  recruiter_channel:
+    # Legal recruiter engagements — used to prevent double-submission
+    # (referral-source lock: first submitter owns the candidacy ~6-12 months).
+    engagements: []
+    # engagements:
+    #   - recruiter: "Major Lindsey & Africa"
+    #     employers_submitted: ["ExampleCo"]
+    #     since: "2026-05-01"
 
 language:
   # Human-facing output language for reports, tracker notes, PDFs, cover
@@ -121,8 +145,8 @@ cv:
 #   # What you actively look for in a team culture (e.g. org size, meeting frequency, async-first).
 #   # If absent/commented, the dimension is scored qualitatively without a hard cap.
 #   require:
-#     - "Small, flat teams (under 15 engineers)"
-#     - "Async-first communication, low meeting overhead"
+#     - "Legal team of 5+ with direct product exposure"
+#     - "GC reports to CEO, not CFO"
 #   # If true, the dimension is capped at 2/5 if the JD lacks any evidence for the required criteria.
 #   # If false (or absent), lack of evidence defaults to a neutral 3/5.
 #   deprioritize_if_absent: true
@@ -148,8 +172,9 @@ cover_letter:
   # template: modern
 
   # Your current professional domain (used to detect domain gaps vs the JD).
-  # Plain English, e.g. "digital media", "fintech", "healthcare IT".
-  primary_domain: "your current domain"
+  # Plain English, e.g. "technology transactions", "securities litigation",
+  # "healthcare regulatory".
+  primary_domain: "your current practice area"
 
   # Languages you are actively learning. Each entry MAY produce a closing
   # sentence in that language IF the JD location matches one of the listed
@@ -244,6 +269,6 @@ cover_letter:
 # re_apply_windows:
 #   CompanyA:
 #     same_role_days: 180
-#     cross_role_bucket: "all_EM_roles"
-#     applied_to: ["Senior Software Engineer"]
+#     cross_role_bucket: "all_counsel_roles"
+#     applied_to: ["Senior Commercial Counsel"]
 #     last_apply_date: "2026-01-01"

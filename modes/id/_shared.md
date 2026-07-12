@@ -28,21 +28,16 @@
 
 Skill ini menangani SEMUA role target dengan perhatian yang sama. Tidak ada yang primer atau sekunder -- masing-masing adalah keberhasilan bila kompensasi dan prospek pengembangannya memadai:
 
-| Arketipe | Sumbu tematik | Apa yang perusahaan beli |
-|----------|---------------|--------------------------|
-| **AI Platform / LLMOps Engineer** | Evaluation, Observability, Reliability, Pipeline | Seseorang yang membawa AI ke produksi dengan metrik |
-| **Agentic Workflows / Automation** | HITL, Tooling, Orchestration, Multi-Agent | Seseorang yang membangun sistem agen yang andal |
-| **Technical AI Product Manager** | GenAI/Agents, PRD, Discovery, Delivery | Seseorang yang menerjemahkan bisnis menjadi produk AI |
-| **AI Solutions Architect** | Hyperautomation, Enterprise, Integrasi | Seseorang yang merancang arsitektur AI end-to-end |
-| **AI Forward Deployed Engineer** | Client-facing, Delivery cepat, Prototyping | Seseorang yang men-deploy solusi AI dengan cepat di sisi klien |
-| **AI Transformation Lead** | Manajemen perubahan, Adopsi, Enablement | Seseorang yang memimpin transformasi AI di organisasi |
+| Arketipe | Sumbu tematik | Apa yang firma/perusahaan beli | Sinyal kata kunci di lowongan |
+|----------|---------------|--------------------------------|-------------------------------|
+| **Associate Firma Hukum -- Transaksional** | M&A, pasar modal, perbankan & keuangan, pembentukan dana | Associate yang bisa memegang deal end-to-end di kelas tahun (angkatan)-nya | "associate", "angkatan 20XX", "M&A", "akuisisi", "pasar modal", "perbankan & keuangan", "tim transaksi", "hukum korporasi" |
+| **Associate Firma Hukum -- Litigasi & Sengketa** | Beracara, arbitrase, gugatan, pembuktian | Associate yang bisa menangani sengketa dari somasi sampai putusan | "litigasi", "beracara", "arbitrase", "pemeriksaan saksi", "gugatan perdata", "pembuktian", "penyelesaian sengketa" |
+| **Legal Counsel In-House -- Produk/Komersial/Privasi** | Kontrak komersial, kerja sama lintas fungsi, perlindungan data pribadi | Legal counsel yang bisa "getting to yes" secara aman untuk bisnis | "legal counsel", "legal officer", "kepala divisi hukum", "perjanjian kerja sama", "kontrak komersial", "perlindungan data pribadi (PDP)", "lintas fungsi" |
+| **Kepatuhan & Regulasi (Compliance & Regulatory)** | APU-PPT, perizinan OJK, investigasi internal, manajemen risiko | Seseorang yang membangun dan menjalankan program kepatuhan | "compliance", "kepatuhan", "APU-PPT", "OJK", "perizinan", "investigasi internal", "manajemen risiko" |
+| **Advokat Pemerintah / Kepentingan Publik** | Biro hukum kementerian/lembaga, bantuan hukum, kejaksaan | Seseorang dengan komitmen pelayanan publik dan jam terbang beracara | "biro hukum", "CPNS", "jaksa", "bantuan hukum", "LBH", "staf ahli hukum", "kepentingan publik" |
+| **Legal Tech / Legal Engineer** | Otomasi dokumen hukum, legal knowledge management, legal AI | Seseorang dengan fondasi praktik hukum yang kuat DAN kefasihan produk/AI | "legal tech", "legal engineer", "solusi hukum digital", "otomasi dokumen", "legal knowledge management", "legal AI" |
 
-<!-- [PERSONALISASI] Sesuaikan arketipe di atas dengan role target-mu.
-     Contoh untuk backend engineering:
-     - Senior Backend Engineer
-     - Staff Platform Engineer
-     - Engineering Manager
-     dst. -->
+<!-- [PERSONALISASI] Sesuaikan arketipe di atas dengan role target-mu jika berbeda dari keenam arketipe hukum di atas. -->
 
 ### Framing adaptif per arketipe
 
@@ -50,60 +45,76 @@ Skill ini menangani SEMUA role target dengan perhatian yang sama. Tidak ada yang
 
 | Jika role-nya... | Tonjolkan pada kandidat... | Sumber proof point |
 |------------------|----------------------------|--------------------|
-| Platform / LLMOps | Pengalaman produksi, observability, evals, closed-loop | article-digest.md + cv.md |
-| Agentic / Automation | Orkestrasi multi-agent, HITL, reliability, biaya | article-digest.md + cv.md |
-| Technical AI PM | Product discovery, PRD, metrik, manajemen stakeholder | cv.md + article-digest.md |
-| Solutions Architect | Perancangan sistem, integrasi, siap enterprise | article-digest.md + cv.md |
-| Forward Deployed Engineer | Delivery cepat, kedekatan dengan klien, prototype ke produksi | cv.md + article-digest.md |
-| AI Transformation Lead | Manajemen perubahan, enablement tim, adopsi | cv.md + article-digest.md |
+| Associate Transaksional | Deal sheet/matters list sesuai angkatan, jenis dan nilai transaksi, kepemilikan drafting | article-digest.md + cv.md |
+| Associate Litigasi & Sengketa | Jam terbang beracara: deposisi/pemeriksaan saksi, motion practice, arbitrase, kekuatan menulis legal opinion | article-digest.md + cv.md |
+| Legal Counsel In-House | Volume kontrak (perjanjian kerja sama, MSA, DPA), counseling lintas fungsi, komunikasi ke non-lawyer | cv.md + article-digest.md |
+| Compliance & Regulatory | Rezim yang disebut namanya (APU-PPT, OJK, perizinan), pengalaman menghadapi regulator, investigasi | article-digest.md + cv.md |
+| Advokat Pemerintah / Kepentingan Publik | Volume beracara, pengalaman peradilan, komitmen pelayanan publik yang terbukti | cv.md + article-digest.md |
+| Legal Tech / Legal Engineer | Pedigree praktik hukum yang kuat plus kefasihan produk/AI nyata -- playbook yang dibangun, alur kerja yang diotomasi | cv.md + article-digest.md |
 
 <!-- [PERSONALISASI] Petakan proyek/artikel konkretmu ke arketipe di atas -->
 
 ### Narasi transisi (dipakai di SEMUA framing)
 
 <!-- [PERSONALISASI] Ganti dengan narasi milikmu sendiri. Contoh:
-     - "Membangun dan menjual SaaS setelah 5 tahun. Kini 100% fokus pada AI terapan di enterprise."
-     - "Memimpin engineering di startup Series-B saat pertumbuhan 10x. Mencari tantangan berikutnya."
-     - "Beralih dari konsultan ke produk. Mencari role dengan tanggung jawab besar."
+     - "5 tahun sebagai associate transaksional di firma menengah. Kini mencari peran in-house dengan tanggung jawab bisnis yang lebih luas."
+     - "Membangun tim litigasi dari nol di firma boutique. Mencari tantangan berikutnya sebagai senior associate."
+     - "Beralih dari praktik swasta ke sektor publik setelah bertahun-tahun menangani sengketa komersial."
      Dibaca dari config/profile.yml -> narrative.exit_story -->
 
 Gunakan narasi transisi dari `config/profile.yml` untuk membingkai SEMUA konten:
-- **Di summary PDF:** Jembatani masa lalu dan masa depan -- "Kini menerapkan [keahlian] yang sama pada bidang [dari lowongan]."
+- **Di summary PDF:** Jembatani masa lalu dan masa depan -- "Kini menerapkan [keahlian praktik] yang sama pada [domain dari lowongan]."
 - **Di story STAR:** Rujuk proof point dari `article-digest.md`.
 - **Di draft jawaban (Blok G):** Narasi transisi masuk di jawaban pertama.
-- **Ketika lowongan menyebut "entrepreneurial", "otonomi", "builder", "end-to-end":** Itu pembeda nomor 1. Naikkan bobot match.
+- **Ketika lowongan menyebut "kepemilikan matter end-to-end", "otonomi", "client-facing langsung":** Itu pembeda nomor 1. Naikkan bobot match.
 
 ### Keunggulan lintas fungsi
 
-Bingkai profil sebagai **"Builder teknis dengan praktik yang bisa dibuktikan"**, sesuaikan framing dengan role:
-- Untuk PM: "Builder yang menurunkan ketidakpastian lewat prototype lalu mengirimkan ke produksi secara disiplin"
-- Untuk FDE: "Builder yang mengirimkan sejak hari pertama dengan observability dan metrik"
-- Untuk SA: "Builder yang merancang sistem end-to-end dengan pengalaman integrasi nyata"
-- Untuk LLMOps: "Builder yang membawa AI ke produksi dengan sistem kualitas closed-loop"
+Bingkai profil sebagai **"Praktisi hukum dengan rekam jejak yang bisa dibuktikan"**, sesuaikan framing dengan arketipe:
+- Untuk Legal Counsel In-House: "Praktisi yang menerjemahkan risiko hukum menjadi keputusan bisnis yang bisa dieksekusi, secara disiplin"
+- Untuk Associate Litigasi: "Praktisi yang mengelola sengketa dari hari pertama dengan strategi dan hasil terukur"
+- Untuk Associate Transaksional: "Praktisi yang menutup deal end-to-end dengan pengalaman drafting dan negosiasi nyata"
+- Untuk Compliance & Regulatory: "Praktisi yang membangun program kepatuhan dengan sistem pemantauan yang berjalan"
 
-Posisikan "Builder" sebagai sinyal profesional -- bukan "tukang oprek". Proof point yang nyata membuatnya kredibel.
+Posisikan "praktisi berbasis hasil" sebagai sinyal profesional -- bukan sekadar daftar tugas. Proof point yang nyata (deal, matter, angka) membuatnya kredibel.
 
 ### Portofolio sebagai proof point (dipakai untuk lamaran berisiko tinggi)
 
-<!-- [PERSONALISASI] Jika kamu punya demo live, dashboard, atau proyek publik, konfigurasikan di sini.
+<!-- [PERSONALISASI] Jika kamu punya deal sheet/matters list yang bisa dibagikan (dalam batas kerahasiaan klien), publikasi/legal opinion, atau writing sample, konfigurasikan di sini.
      Contoh:
      dashboard:
-       url: "https://domainmu.dev/demo"
-       password: "demo-2026"
-       when_to_share: "Role LLMOps, AI Platform, Observability"
+       url: "https://domainmu.dev/publikasi"
+       password: null
+       when_to_share: "Role transaksional, litigasi, atau legal tech yang meminta writing sample"
      Dibaca dari config/profile.yml -> narrative.proof_points dan narrative.dashboard -->
 
-Jika kandidat punya demo live / dashboard (cek `profile.yml`), tawarkan aksesnya pada lamaran yang relevan.
+Jika kandidat punya deal sheet/matters list, publikasi, atau writing sample yang bisa dibagikan (cek `profile.yml`), tawarkan aksesnya pada lamaran yang relevan -- selalu dengan memperhatikan batas kerahasiaan klien.
 
 ### Intelijen kompensasi (Comp Intelligence)
 
 <!-- [PERSONALISASI] Riset rentang kompensasi untuk role target-mu dan sesuaikan nilainya -->
 
-**Panduan umum:**
-- WebSearch untuk data pasar terkini (Glassdoor, Levels.fyi, Glints, Jobstreet, Kalibrr, Indeed)
-- Bingkai berdasarkan jabatan, bukan skill -- jabatan menentukan pita gaji
-- Tarif freelance/kontrak di Indonesia umumnya 30-50% di atas gaji karyawan tetap yang setara (tidak ada THR, BPJS, cuti, dan harus cari klien sendiri)
-- Arbitrase geografis berlaku pada kerja remote: biaya hidup lebih rendah = take-home lebih baik
+**Sumber riset kompensasi pasar hukum Indonesia (pakai ini, bukan situs gaji umum):**
+- **Firma hukum:** Hukumonline (survei karier & gaji praktisi hukum), salary guide tahunan dari firma rekrutmen yang mencakup legal (mis. Michael Page Indonesia, Robert Walters Indonesia, Kerry Consulting) -- gunakan sebagai rentang indikatif, bukan angka pasti
+- **In-house:** Salary guide legal counsel dari firma rekrutmen yang sama; bandingkan dengan ukuran perusahaan dan jenjang jabatan (Legal Officer -> Legal Manager -> Head of Legal/GC)
+- **Sektor publik:** Skala gaji PNS/PPPK + tunjangan kinerja instansi terkait
+- **Portal lowongan:** Glints, Jobstreet, LinkedIn, dan **Hukumonline Kariri** untuk lowongan yang spesifik hukum
+- Bingkai berdasarkan jabatan/jenjang (associate junior-senior, class year/angkatan, Legal Officer-GC), bukan skill saja -- jenjang menentukan pita gaji dan tunjangan
+- Konsultan hukum lepas (freelance legal consultant) di Indonesia umumnya mematok tarif lebih tinggi dari gaji karyawan tetap setara karena tidak ada THR, BPJS, cuti, dan harus mencari klien sendiri -- jika tidak yakin dengan besaran spesifiknya, sebutkan secara kualitatif saja
+- Arbitrase geografis berlaku pada kerja remote/hybrid in-house: biaya hidup lebih rendah = take-home lebih baik
+
+### Gerbang keras hukum (Legal hard gates) -- pass/fail, tidak pernah dirata-ratakan diam-diam
+
+Periksa ini SEBELUM membobot dimensi manapun. Baca blok `legal:` kandidat di `config/profile.yml` (`class_year`, `bar_admissions`, `patent_bar`, `practice_areas`, `recruiter_channel`). Gerbang yang gagal WAJIB muncul eksplisit di dimensi Red flags DAN sebagai baris bernama di report -- kecocokan CV yang kuat tidak pernah menutupi atau mengompensasi gerbang yang gagal.
+
+1. **Status advokat / organisasi advokat** -- Untuk berpraktik sebagai advokat di Indonesia, jalur umumnya: gelar sarjana hukum (S.H.) -> PKPA (Pendidikan Khusus Profesi Advokat) -> lulus UPA (Ujian Profesi Advokat) -> magang di kantor advokat -> disumpah oleh Pengadilan Tinggi -> terdaftar dan memegang kartu advokat dari organisasi advokat yang diakui. Karena ada lebih dari satu organisasi advokat yang mengklaim status sebagai wadah tunggal (PERADI dan pecahannya, KAI, dll.), **verifikasi organisasi mana yang diakui oleh firma/pemberi kerja yang bersangkutan** sebelum menganggap status advokat kandidat memenuhi syarat -- jangan berasumsi satu kartu advokat otomatis diterima di semua tempat.
+   - **Firma hukum: ketat.** Lowongan associate umumnya mensyaratkan status advokat aktif dan tersumpah, kadang dengan bidang praktik spesifik.
+   - **In-house: umumnya tidak wajib.** Peran legal officer/legal counsel/kepala divisi hukum in-house pada umumnya TIDAK memerlukan lisensi advokat karena bukan memberikan jasa hukum kepada pihak ketiga untuk umum -- catat ini sebagai konteks, bukan gerbang, kecuali lowongan secara eksplisit meminta status advokat.
+   - **Notaris adalah profesi terpisah** dari advokat (jalur pendidikan, ujian, dan pengangkatan yang berbeda) -- jangan menyamakan keduanya saat mencocokkan syarat lowongan.
+   - **Konsultan hukum pasar modal** memerlukan pendaftaran di OJK (Otoritas Jasa Keuangan) sebagai profesi penunjang pasar modal -- ini gerbang terpisah dari status advokat untuk role capital markets.
+2. **Angkatan / tahun pengalaman pasca-kualifikasi** -- Lowongan associate firma sering menyebut angkatan atau rentang tahun pengalaman ("associate angkatan 2021-2023", "pengalaman 3-5 tahun"). Jika `legal.class_year` di luar rentang yang disebutkan pada lowongan associate firma, perlakukan sebagai hampir-otomatis ditolak -> rekomendasikan untuk tidak melamar (penyesuaian angkatan biasanya hanya bergeser ±1 tahun saat negosiasi offer, bukan saat screening).
+3. **Registrasi kekayaan intelektual (setara "patent bar")** -- Untuk mengurus paten/merek di hadapan DJKI (Direktorat Jenderal Kekayaan Intelektual) atas nama klien, umumnya diperlukan registrasi sebagai Konsultan Kekayaan Intelektual. Jika lowongan mensyaratkan ini dan `legal.patent_bar` bernilai false, ini gerbang keras. (Litigasi merek/hak cipta pada umumnya tidak memerlukan registrasi ini -- verifikasi detail terkini bila ragu, karena nomenklatur dan lembaga terkait bisa berubah.)
+4. **Risiko konflik kepentingan (role senior/partner)** -- setiap tawaran lateral di level senior berpotensi terkena pemeriksaan konflik klien; satu konflik klien bisa menggagalkan kandidasi senior/partner. Catat risikonya di report -- jangan diberi skor.
 
 ### Pasar Indonesia -- Kekhususan (PENTING)
 
@@ -118,7 +129,7 @@ Dalam lowongan dan negosiasi di Indonesia, beberapa istilah tidak ada di pasar E
 | **Gaji pokok vs tunjangan** | Total pendapatan = gaji pokok + tunjangan (transport, makan, jabatan, dll.) | Cek komposisinya: THR dan pesangon dihitung dari gaji pokok, jadi porsi tunjangan besar bisa mengecilkan hak-hak lain |
 | **BPJS Kesehatan** | Asuransi kesehatan wajib. Iuran ditanggung bersama pemberi kerja & pekerja | Standar. Cek apakah ada asuransi swasta tambahan (misalnya untuk keluarga, rawat inap) |
 | **BPJS Ketenagakerjaan** | Jaminan sosial (JHT, JP, JKK, JKM) | Wajib. JHT + JP membentuk tabungan pensiun -- verifikasi apakah didaftarkan penuh |
-| **UMR / UMP / UMK** | Upah minimum regional/provinsi/kabupaten-kota | Patokan dasar. Tawaran untuk posisi tech seharusnya jauh di atas UMK ibu kota provinsi |
+| **UMR / UMP / UMK** | Upah minimum regional/provinsi/kabupaten-kota | Patokan dasar. Tawaran untuk posisi profesional hukum (associate, legal counsel, compliance) seharusnya jauh di atas UMK ibu kota provinsi |
 | **Pesangon** | Kompensasi PHK sesuai UU Cipta Kerja, dihitung dari masa kerja | Lebih jarang jadi materi negosiasi, tapi penting dipahami untuk keamanan kerja |
 | **Cuti tahunan** | Minimal 12 hari kerja setelah 12 bulan bekerja | < 12 hari = melanggar hukum. 12 hari + cuti bersama = standar. > 15 hari = sangat baik |
 | **Cuti bersama** | Hari libur kolektif nasional (biasanya memotong jatah cuti tahunan) | Cek apakah memotong cuti tahunan atau terpisah |
@@ -157,7 +168,7 @@ Dalam lowongan dan negosiasi di Indonesia, beberapa istilah tidak ada di pasar E
 
 ### Prioritas time-to-offer
 
-- Demo yang berfungsi + metrik > kesempurnaan
+- Paket lamaran yang solid (CV + deal sheet/matters list) > kesempurnaan
 - Lamar cepat > belajar lebih banyak
 - Pendekatan 80/20, semuanya timebox
 
@@ -175,6 +186,7 @@ Dalam lowongan dan negosiasi di Indonesia, beberapa istilah tidak ada di pasar E
 6. Membuat PDF tanpa membaca lowongan terlebih dahulu
 7. Memakai jargon korporat atau frasa kosong
 8. Mengabaikan tracker (setiap lowongan yang dievaluasi dicatat)
+9. Menyiapkan atau mengirim lamaran langsung ke firma hukum yang sudah menerima CV kandidat lewat headhunter/recruiter hukum (referral-source lock) -- pengirim pertama biasanya "memiliki" kandidasi tersebut untuk periode tertentu (umumnya berbulan-bulan), dan pengiriman ganda lewat dua jalur berbeda lazim membuat kandidat langsung didiskualifikasi karena sengketa fee antara firma dan recruiter. SELALU cek `legal.recruiter_channel` di `config/profile.yml` dan kolom `via=` di tracker sebelum menyusun lamaran langsung ke firma manapun
 
 ### SELALU
 
@@ -187,7 +199,7 @@ Dalam lowongan dan negosiasi di Indonesia, beberapa istilah tidak ada di pasar E
 5. Catat ke tracker setelah setiap evaluasi
 6. Hasilkan konten dalam bahasa lowongan (Bahasa Indonesia jika lowongan berbahasa Indonesia, Inggris jika tidak)
 7. Bersikap langsung dan konkret -- tanpa basa-basi
-8. Bahasa Indonesia teknis yang natural untuk teks yang dihasilkan. Kalimat pendek, kata kerja aktif, hindari kalimat pasif. Jangan memaksakan menerjemahkan istilah teknis (stack, pipeline, deployment, embedding)
+8. Bahasa Indonesia hukum yang natural dan profesional untuk teks yang dihasilkan. Kalimat pendek, kata kerja aktif, hindari kalimat pasif. Jangan memaksakan menerjemahkan istilah yang lazim dipakai apa adanya di praktik hukum Indonesia (compliance, due diligence, governing law, closing, disclosure)
 8b. **URL case study di Professional Summary pada PDF:** Jika PDF menyebut case study atau demo, URL-nya WAJIB muncul di paragraf pertama (Professional Summary). Recruiter sering hanya membaca summary. Semua URL dalam HTML dengan `white-space: nowrap`
 9. **Entri tracker dalam TSV** -- JANGAN PERNAH mengedit applications.md langsung untuk penambahan baru. Tulis TSV di `batch/tracker-additions/`, `merge-tracker.mjs` menangani penggabungan
 10. **`**URL:**` di setiap header report** -- di antara Score dan PDF

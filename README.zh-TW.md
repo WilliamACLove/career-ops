@@ -63,6 +63,8 @@
 
 ## 這是什麼
 
+> **這個版本聚焦法律／律師職涯**——事務所受雇律師、企業法務、法遵與法規遵循顧問、公部門／公益律師，以及法律科技相關職位。以下的原型分類、掃描平台清單、薪酬研究來源，以及評估硬性門檻（律師執照／執業轄區、年資對應、利益衝突）都是為法律求職市場調整過的。系統底層引擎與職涯類型無關，可完全客製化成任何職涯賽道——只要請你的 AI CLI 調整原型即可。本專案最初的 AI／工程職涯版本仍持續開源維護，由 [santifer](https://santifer.io) 維護（見下方「關於作者」）。
+
 Career-Ops 能將任何 AI 程式碼 CLI 轉化為完整的求職指揮中心。不再需要手動用試算表追蹤應徵紀錄，而是獲得一個 AI 驅動的管道，能夠：
 
 - **評估職缺** — 結構化的 A-F 評分系統（10 個加權評估維度）
@@ -88,7 +90,7 @@ career-ops 具有代理能力：Claude Code 透過 Playwright 瀏覽求職頁面
 | **面試故事庫**   | 跨評估累積 STAR+Reflection 故事 — 能回答任何行為面試問題的 5-10 個核心故事                                             |
 | **薪資談判腳本** | 薪資談判框架、地區薪資折扣反駁話術、競爭 Offer 運用策略                                                                |
 | **ATS PDF 生成** | 注入關鍵字的履歷，採用 Space Grotesk + DM Sans 設計                                                                    |
-| **平台掃描器**   | 預設超過 45 家企業（Anthropic、OpenAI、ElevenLabs、Retool、n8n...）+ 跨 Ashby、Greenhouse、Lever、Wellfound 的自訂查詢 |
+| **平台掃描器**   | 預設超過 45 家企業——法律科技（Harvey、Ironclad、Everlaw、Spellbook、Clio...）、科技公司的企業法務團隊（Anthropic、OpenAI、Coinbase、Databricks、Stripe...），以及政府機關（USAJOBS）與律師公會職缺板 + 跨 Ashby、Greenhouse、Lever、Workday 的自訂查詢 |
 | **批次處理**     | 使用 `claude -p` 工作器並行評估                                                                                        |
 | **儀表板 TUI**   | 在終端機 UI 中瀏覽、篩選及排序你的求職管道                                                                             |
 | **人機協作**     | AI 負責評估與建議，你負責決策與行動。系統絕不自動送出應徵 — 最終決定永遠在你手上                                       |
@@ -159,8 +161,8 @@ career-ops 是一個具有多種模式的單一斜線指令：
         │
         ▼
 ┌──────────────────┐
-│  職位類型        │  分類：LLMOps / Agentic / PM / SA / FDE / Transformation
-│  偵測            │
+│  原型偵測        │  分類：事務所受雇律師（商務／訴訟）/
+│  (Archetype)     │  企業法務 / 法遵 / 政府部門 / 法律科技
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -178,14 +180,11 @@ career-ops 是一個具有多種模式的單一斜線指令：
 
 掃描器預設了超過 **45 家企業**及跨主要求職板的 **19 個搜尋查詢**。將 `templates/portals.example.yml` 複製為 `portals.yml` 並自行新增：
 
-**AI 實驗室：** Anthropic、OpenAI、Mistral、Cohere、LangChain、Pinecone
-**語音 AI：** ElevenLabs、PolyAI、Parloa、Hume AI、Deepgram、Vapi、Bland AI
-**AI 平台：** Retool、Airtable、Vercel、Temporal、Glean、Arize AI
-**客服中心：** Ada、LivePerson、Sierra、Decagon、Talkdesk、Genesys
-**企業級：** Salesforce、Twilio、Gong、Dialpad
-**LLMOps：** Langfuse、Weights & Biases、Lindy、Cognigy、Speechmatics
-**自動化：** n8n、Zapier、Make.com
-**歐洲：** Factorial、Attio、Tinybird、Clarity AI、Travelperk
+**法律科技：** Harvey、Ironclad、Spellbook、EvenUp、Everlaw、Rocket Lawyer、Filevine、Clio、Relativity、Luminance
+**科技公司企業法務團隊：** Anthropic、OpenAI、Coinbase、Figma、Brex、Databricks、Ramp、Notion、Perplexity、Stripe
+**職缺板：** USAJOBS（美國聯邦政府職缺，含 justice.gov）、GoInhouse、Lawjobs、LawCrossing、LateralHub、ABA 及各州律師公會的職涯中心。透過 `search_queries` 額外涵蓋：政府／檢察總長辦公室職缺板（NAAG、NDAA、NLADA、GovernmentJobs.com）、律師公會與各執業領域的職涯中心（含 YM Careers 系統職缺板的訂閱搜尋技巧，如 ACC Jobline、AIPLA、INTA、ACEDS、FBA、AHLA 等專業律師協會）、大學法務顧問職缺板（NACUA、HigherEdJobs）、彈性／回歸職場人力平台（The Mom Project、Paragon Legal、Latitude Legal、Axiom），以及法務營運職缺板（Legal Operators、CLOC、legal.io Legal-Operations）。
+
+> **關於事務所橫向轉職（lateral）的說明：** 美國大型 AmLaw 級事務所多半使用自有的法律業界專屬 ATS（viRecruit、LawCruit），不對外開放公開 API，因此 BigLaw／AmLaw 等級的橫向轉職職缺大多透過獵頭（Major Lindsey & Africa、Lateral Link、BCG Attorney Search）或聚合平台流通，本掃描器無法涵蓋。掃描器最擅長的範圍是公開 ATS 職缺板上的法律科技與企業法務職位，加上唯一真正開放 API 的政府職缺板（USAJOBS）。台灣使用者可將此邏輯類比：本地大型事務所的職缺同樣多透過人脈、獵頭或事務所官網流通，公開職缺板的涵蓋率有限，建議搭配 104、1111 等平台與人脈網絡並用。
 
 **搜尋的求職平台：** Ashby、Greenhouse、Lever、Wellfound、Workable、RemoteFront
 

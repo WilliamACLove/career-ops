@@ -23,12 +23,12 @@ Traite les URLs d'offres accumulees dans `data/pipeline.md`. Le candidat ajoute 
 ```markdown
 ## En attente
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://boards.greenhouse.io/company/jobs/456 | Company SAS | Senior PM
+- [ ] https://boards.greenhouse.io/cabinet-sas/jobs/456 | Cabinet SAS | Collaborateur M&A
 - [!] https://private.url/job -- Erreur : login requis
 
 ## Traitees
-- [x] #143 | https://jobs.example.com/posting/789 | Acme SAS | AI PM | 4.2/5 | PDF oui
-- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | SA | 2.1/5 | PDF non
+- [x] #143 | https://jobs.example.com/posting/789 | Acme SAS | Juriste Conformite | 4.2/5 | PDF oui
+- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | Counsel Commercial | 2.1/5 | PDF non
 ```
 
 > Note : Les en-tetes de section peuvent etre en EN ("Pending"/"Processed"), ES ("Pendientes"/"Procesadas"), DE ("Offen"/"Verarbeitet") ou FR ("En attente"/"Traitees"). Etre flexible a la lecture, fidele au style existant a l'ecriture.
@@ -42,8 +42,9 @@ Traite les URLs d'offres accumulees dans `data/pipeline.md`. Le candidat ajoute 
 **Cas particuliers :**
 - **LinkedIn** : Peut necessiter un login -> marquer `[!]` et demander au candidat de coller le texte
 - **PDF** : Si l'URL pointe vers un PDF, le lire directement avec le Read tool
-- **Prefixe `local:`** : Lire le fichier local. Exemple : `local:jds/linkedin-pm-ai.md` -> lire `jds/linkedin-pm-ai.md`
-- **Welcome to the Jungle / Indeed FR / APEC** : Portails francophones courants. Playwright gere bien les cookie banners
+- **Prefixe `local:`** : Lire le fichier local. Exemple : `local:jds/linkedin-privacy-counsel.md` -> lire `jds/linkedin-privacy-counsel.md`
+- **Welcome to the Jungle / Indeed FR / APEC** : Portails francophones generalistes courants. Playwright gere bien les cookie banners
+- **Village de la Justice / Carrieres-Juridiques.com** : Job boards juridiques specialises (avocats, juristes d'entreprise). Structure generalement stable, WebFetch suffit souvent
 - **France Travail (ex-Pole emploi)** : Offres structurees, bien lisibles par machine. WebFetch suffit generalement
 
 ## Numerotation automatique

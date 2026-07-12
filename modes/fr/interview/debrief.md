@@ -134,7 +134,7 @@ Ajoutez à `interview-prep/{company-slug}-{role-slug}.md` :
 ## Round [N] Debrief — [YYYY-MM-DD]
 
 **Intervieweur :** [nom, rôle]
-**Type de round :** [screening / technical / design-case-study / behavioral]
+**Type de round :** [screening / hiring-partner / callback / writing-exercise / panel / behavioral]
 **Résultat :** [pending / moved forward / rejected]
 
 ### Questions Asked
@@ -167,7 +167,7 @@ Format :
 ---
 company: [company]
 role: [role]
-round: [screen | hiring-manager | technical | system-design | behavioral | onsite | final]
+round: [screen | hiring-partner | callback | writing-exercise | panel | business-stakeholder | behavioral]
 date: YYYY-MM-DD
 interviewer_role: [rôle, si connu]
 source: debrief
@@ -184,7 +184,7 @@ source: debrief
 
 Règles pour la transcription :
 
-- **Mappez le type de round à l'énumération** ci-dessus (par ex. recruteur screen → `screen`, HM screen → `hiring-manager`, plongée technique approfondie → `technical`, conception/étude de cas → `system-design`).
+- **Mappez le type de round à l'énumération** ci-dessus (par ex. screening recruteur → `screen`, screening hiring-partner ou GC → `hiring-partner`, rencontres associé successives → `callback`, correction de NDA/MSA ou exercice de rédaction → `writing-exercise`, panel mixte → `panel`, round stakeholders business → `business-stakeholder`).
 - **Taguez chaque réponse.** Sur la ligne juste au-dessus de chaque ligne `**Candidate:**`, émettez `<!-- competency: tag[, tag...] -->` — en minuscules kebab-case, séparés par des virgules pour les réponses multi-compétences (par ex. `system-design`, `people-leadership`, `incident-response`). Vous avez déjà évalué chaque réponse à l'étape 2, donc taguez à partir de cette évaluation plutôt que de relire. Les tags sont libres ; choisissez la compétence que la question a réellement testée.
 - **Reconstruisez fidèlement le tour du candidat.** Utilisez ce que le candidat a déclaré avoir dit à l'étape 1, et non une réponse idéalisée. La "réponse correcte/complète" de l'étape 2 appartient au fichier de débriefing, jamais dans la transcription — la transcription enregistre ce qui s'est passé.
 - **`source: debrief`.**

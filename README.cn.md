@@ -61,6 +61,8 @@
 
 ## 这是什么
 
+> **本版本面向法律与律师职业方向**——律所律师（非诉/诉讼）、公司法务、合规与监管律师、政府/公职律师，以及法律科技岗位。下文的画像分类、招聘平台清单、薪酬调研来源，以及评估门槛（法考/律师执业证、执业年限匹配、利益冲突审查等）都是围绕法律求职市场调优的。系统底层引擎与职业方向无关，可完全自定义到任何职业赛道——只需让你的 AI CLI 帮你修改画像即可。本项目最初的 AI/工程师职业方向版本仍然开源，由 [santifer](https://santifer.io) 维护（详见下方"关于作者"）。
+
 Career-Ops 可以把任何 AI 编码 CLI 变成完整的求职指挥中心。你不需要再手动用电子表格追踪申请流程，而是获得一个 AI 驱动的管道，能够：
 
 - **评估职位**，使用结构化的 A-F 评分系统（10 个加权维度）
@@ -86,7 +88,7 @@ career-ops 具备代理式工作能力：Claude Code 会用 Playwright 浏览招
 | **面试故事库** | 跨多次评估积累 STAR+Reflection 故事，沉淀出 5-10 个可回答任意行为面试题的主线故事 |
 | **谈薪脚本** | 薪资谈判框架、地域折扣反驳话术、竞品 offer 杠杆策略 |
 | **ATS PDF 生成** | 注入关键词的简历，采用 Space Grotesk + DM Sans 设计 |
-| **平台扫描器** | 预配置 45+ 家公司（Anthropic、OpenAI、ElevenLabs、Retool、n8n...），支持跨 Ashby、Greenhouse、Lever、Wellfound 的自定义查询 |
+| **平台扫描器** | 预配置 45+ 家公司——法律科技（Harvey、Ironclad、Everlaw、Spellbook、Clio...）、科技公司的内部法务团队（Anthropic、OpenAI、Coinbase、Databricks、Stripe...），以及政府招聘（USAJOBS）和律师协会招聘板 —— 支持跨 Ashby、Greenhouse、Lever、Wellfound 的自定义查询 |
 | **批量处理** | 使用 `claude -p` worker 并行评估 |
 | **Dashboard TUI** | 在终端 UI 中浏览、筛选和排序你的求职管道 |
 | **人类在环** | AI 负责评估和建议，你负责决定和行动。系统绝不会自动提交申请，最终决定始终在你手上 |
@@ -145,7 +147,7 @@ cd career-ops
 gemini
 
 # 3. 使用统一的 /career-ops 命令及其子命令：
-/career-ops "Anthropic 的资深 AI 工程师..."
+/career-ops "Anthropic 的资深商业法律顾问（Senior Commercial Counsel）..."
 /career-ops pipeline
 /career-ops scan
 /career-ops pdf
@@ -165,7 +167,7 @@ cp .env.example .env
 npm install
 
 # 3. 评估职位描述
-node gemini-eval.mjs "我们在招聘资深 AI 工程师..."
+node gemini-eval.mjs "我们在招聘一名资深商业法律顾问（Senior Commercial Counsel）..."
 node gemini-eval.mjs --file ./jds/my-job.txt
 npm run gemini:eval -- "职位描述文本"
 ```
@@ -201,7 +203,7 @@ career-ops 是一个单一斜杠命令，带有多种模式：
         │
         ▼
 ┌──────────────────┐
-│  职业原型检测    │  分类：LLMOps / Agentic / PM / SA / FDE / Transformation
+│  职业原型检测    │  分类：律所律师（非诉/诉讼）/ 公司法务 / 合规 / 政府 / 法律科技
 └────────┬─────────┘
          │
 ┌────────▼─────────┐
@@ -219,14 +221,11 @@ career-ops 是一个单一斜杠命令，带有多种模式：
 
 扫描器默认内置 **45+ 家公司** 和跨主流招聘站点的 **19 个搜索查询**。把 `templates/portals.example.yml` 复制成 `portals.yml` 后，你可以继续添加自己的目标公司：
 
-**AI Labs：** Anthropic、OpenAI、Mistral、Cohere、LangChain、Pinecone
-**语音 AI：** ElevenLabs、PolyAI、Parloa、Hume AI、Deepgram、Vapi、Bland AI
-**AI 平台：** Retool、Airtable、Vercel、Temporal、Glean、Arize AI
-**联络中心：** Ada、LivePerson、Sierra、Decagon、Talkdesk、Genesys
-**企业软件：** Salesforce、Twilio、Gong、Dialpad
-**LLMOps：** Langfuse、Weights & Biases、Lindy、Cognigy、Speechmatics
-**自动化：** n8n、Zapier、Make.com
-**欧洲公司：** Factorial、Attio、Tinybird、Clarity AI、Travelperk
+**法律科技：** Harvey、Ironclad、Spellbook、EvenUp、Everlaw、Rocket Lawyer、Filevine、Clio、Relativity、Luminance
+**内部法务团队（科技公司）：** Anthropic、OpenAI、Coinbase、Figma、Brex、Databricks、Ramp、Notion、Perplexity、Stripe
+**招聘板：** USAJOBS（美国联邦政府，含 justice.gov）、GoInhouse、Lawjobs、LawCrossing、LateralHub，以及 ABA 及各州律师协会的招聘中心
+
+> **关于律所 lateral 岗位的说明：** 大型 AmLaw 级律所大多使用自有的法律行业垂直 ATS（viRecruit、LawCruit），不对外开放公开 API，因此这类律所的 lateral 岗位大多通过猎头（Major Lindsey & Africa、Lateral Link、BCG Attorney Search）或聚合平台流转，不在本扫描器覆盖范围内。扫描器最擅长覆盖的是法律科技岗位、以及挂在公开 ATS 招聘板上的公司内部法务岗位，加上唯一的真实政府 API（USAJOBS）。
 
 **覆盖的招聘平台：** Ashby、Greenhouse、Lever、Wellfound、Workable、RemoteFront
 

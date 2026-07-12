@@ -4,6 +4,23 @@ Career-Ops scans job sources through provider modules in `providers/`. Each
 non-helper `*.mjs` file maps to one supported source. Files prefixed with `_`
 are shared helpers and are not loaded as providers.
 
+> **Legal-market note:** the table below is general-purpose ATS coverage (Greenhouse, Ashby, Lever, Workday, Workable, etc.), which is where legal tech companies and in-house legal teams at tech companies post openings. Large law firms mostly run their own legal-vertical ATSs (viRecruit, LawCruit) with no public API, so firm lateral roles are not covered here — see USAJOBS (`developer.usajobs.gov`, Position Series 0905 = Attorney) for the one real government API, and GoInhouse, Lawjobs, LawCrossing, and state bar YM Careers boards for HTML-scraped legal-specific boards outside this table.
+>
+> **Additional legal source categories (`site:` queries in `templates/portals.example.yml`, not dedicated providers):**
+>
+> | Category | Sources | Gating |
+> | --- | --- | --- |
+> | Government / public sector | NAAG, NDAA, NLADA, GovernmentJobs.com (NEOGOV) | NEOGOV: TOS prohibits scraping its JSON endpoints — `site:` query only |
+> | Bar associations & practice-area boards | ACC Jobline, AIPLA, INTA, ACEDS, FBA, AHLA, NBA/HNBA/NAPABA/LGBTQ+ Bar, Association Career Network, NALP — several run on YM Careers, which exposes a saved-search RSS pattern (`/jobs/rss/{search-id}/{slug}`, proven on `careers.fedbar.org`) | PSJD: partial paywall (full descriptions free only for subscriber-school students/alumni) |
+> | Academic / university counsel | NACUA, HigherEdJobs Legal Affairs | Free, no login; HigherEdJobs bot-blocks direct fetch |
+> | Flexible / interim / return-to-work | The Mom Project, Paragon Legal, Latitude Legal, Axiom (tracked company, unverified Greenhouse slug) | Public listings |
+> | Startup & tech in-house | Built In, Welcome to the Jungle, YC Work at a Startup, Wellfound, Startup.jobs, TopStartups.io | Wellfound: login-gated browse, stale indexed postings — always liveness-check |
+> | VC portfolio boards | Accel (richest counsel inventory), Index Ventures (dedicated legal-function page), Bessemer, a16z, Sequoia, General Catalyst, Lightspeed (+ second-tier Khosla/Craft/Greylock/First Round, disabled) — plus `node scan-ats-full.mjs --seeds yc,a16z` to probe YC/a16z portfolio companies' own ATS boards zero-token | Getro/Consider boards are JS-rendered — `site:` queries only; their JSON endpoints are unverified |
+> | Legal ops | Legal Operators, Legal.io Legal-Operations persona, CLOC | Board public, community/membership paid |
+> | Aggregator APIs (future providers, not yet wired up) | Adzuna, Jooble | Free API keys, rate-limited |
+>
+> See the `# ── Manual watchlist ──` and `# ── Zero-token feed & API techniques ──` comment blocks in `templates/portals.example.yml` for gated/manual-only sources and reusable scanning techniques (YM Careers RSS, Web-Scribble URL family, JobPosting JSON-LD harvest).
+
 | Board | Type (API / RSS / parser) | Notes |
 | --- | --- | --- |
 | 4 Day Week | API | Reads the public `https://4dayweek.io/api/jobs` JSON feed (4-day-week / reduced-hours roles). Configure with `provider: 4dayweek`; paginates `?page=N` up to `max_pages` (default 3), drops expired postings, then scanner filters apply. |

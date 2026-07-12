@@ -45,6 +45,15 @@ Interactive mode जब candidate Chrome में application form भर र�
 - **यदि reevaluate करें**: Complete A-F evaluation launch करें, report update करें, Block G regenerate करें
 - **Tracker update करें**: यदि ज़रूरी हो तो applications.md में role title modify करें
 
+## Step 3.5 -- Recruiter-Channel Check (कभी double-submit न करें)
+
+Firm application draft/fill करने से पहले हमेशा check करें:
+
+1. `config/profile.yml` -> `legal.recruiter_channel` देखें -- क्या इस firm/company के लिए पहले से कोई legal recruiter engaged है?
+2. `data/applications.md` में इस company की existing entry के `via=` field देखें -- क्या कोई agency/recruiter (जैसे Vahura, या कोई अन्य legal-sector search firm) पहले ही यह profile submit कर चुकी है?
+3. यदि हाँ -- **रुकें और candidate को बताएं**: "{Recruiter} पहले ही आपका profile {Company} में submit कर चुका है (via tracker/profile.yml)। Direct apply करने से आप conflicted candidate बन सकते हैं और recruiter pipeline से पूरी तरह discard हो सकते हैं। पहला submitter करीब 6-12 महीनों तक candidacy का owner रहता है।" Candidate की explicit confirmation के बिना आगे न बढ़ें।
+4. कोई match नहीं मिला, या recruiter-channel record नहीं है → सामान्य तरीके से आगे बढ़ें।
+
 ## Step 4 -- Form Questions Analyze करें
 
 सभी visible questions identify करें:
@@ -72,11 +81,13 @@ Interactive mode जब candidate Chrome में application form भर र�
 
 - **Current CTC**: Honest figure। यदि recent increment हुई है, current package (current + increment) mention करें
 - **Expected CTC**: `profile.yml` से range, annual CTC में, "negotiable based on overall package" के साथ
+- **Bar Enrolment / AIBE status**: State Bar Council enrolment number और AIBE clearance status clearly mention करें (जहाँ JD माँगे)। Patent-prosecution roles के लिए Patent Agent registration status भी शामिल करें
+- **PQE (Post-Qualification Experience)**: Years clearly state करें, enrolment date से calculate करके — यह JD के stated band से match होना चाहिए (देखें `naukri.md` Step 0.5 hard gate)
 - **Notice Period / Last Working Day**: Actual notice period बताएं। Buyout available है, यह mention करें यदि relevant हो
-- **Reason for leaving current job**: Honest, forward-looking। "Growth opportunity" या "role alignment" — negative न हो
+- **Reason for leaving current job**: Honest, forward-looking। "Growth opportunity" या "role/practice-area alignment" — negative न हो, "billable hours" या internal politics जैसी negative framing avoid करें
 - **Work Authorization / Visa**: Indian citizens के लिए: "Indian Citizen, no visa required"। Global remote roles के लिए: timezone overlap और availability clearly बताएं
-- **Preferred Location / Relocation**: Preferred cities clearly बताएं (Bengaluru, Hyderabad, Pune, Gurugram, Chennai, Mumbai)। Remote preference हो तो mention करें
-- **Languages**: English और Hindi (और अन्य regional languages यदि applicable हों)
+- **Preferred Location / Relocation**: Preferred cities clearly बताएं (प्रमुख legal hubs: Delhi/NCR, Mumbai, Bengaluru, Kolkata, Chennai, Hyderabad, Pune)। Remote preference हो तो mention करें (litigation roles में remote लागू नहीं होता — court presence ज़रूरी)
+- **Languages**: English और Hindi (और अन्य regional languages यदि applicable हों -- कई courts/tribunals में स्थानीय भाषा का काम आना advantage है)
 
 **Output format:**
 

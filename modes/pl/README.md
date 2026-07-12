@@ -6,7 +6,7 @@ Ten folder zawiera polskie tłumaczenia głównych trybów career-ops dla kandyd
 
 Użyj `modes/pl/`, jeśli spełniony jest co najmniej jeden z poniższych warunków:
 
-- Aplikujesz głównie na **ogłoszenia o pracę po polsku** (Pracuj.pl, No Fluff Jobs, Just Join IT, LinkedIn PL, Bulldogjob, strony karierowe firm)
+- Aplikujesz głównie na **ogłoszenia o pracę prawniczej po polsku** (Pracuj.pl, LinkedIn PL, praca.gov.pl, strony kariery kancelarii, korporacyjnie.pl)
 - Twoje **CV jest po polsku** albo przełączasz się między PL i EN w zależności od ogłoszenia
 - Potrzebujesz odpowiedzi i listów motywacyjnych w **naturalnym, technicznym języku polskim**, a nie tłumaczonym maszynowo
 - Musisz ogarnąć **specyfikę umów na polskim rynku**: umowa o pracę (UoP), B2B, umowa zlecenie, okres próbny, okres wypowiedzenia, prywatna opieka medyczna, karta sportowa, premia, ZUS, PPK
@@ -41,10 +41,10 @@ Ta pierwsza iteracja obejmuje cztery tryby o najwyższym wpływie:
 
 | Plik | Przetłumaczony z | Rola |
 |---------|----------------|------|
-| `_shared.md` | `modes/_shared.md` (EN) | Wspólny kontekst, archetypy, reguły globalne, specyfika polskiego rynku |
-| `oferta.md` | `modes/oferta.md` (ES) | Pełna ocena oferty (Bloki A-F) |
-| `aplikuj.md` | `modes/apply.md` (EN) | Asystent na żywo do wypełniania formularzy aplikacyjnych |
-| `pipeline.md` | `modes/pipeline.md` (ES) | Inbox URL-i / Second Brain dla zebranych ofert |
+| `_shared.md` | `modes/_shared.md` (EN) | Wspólny kontekst, archetypy prawnicze, twarde bramki (uprawnienia/PQE/rzecznik patentowy), reguły globalne, specyfika polskiego rynku prawniczego |
+| `oferta.md` | `modes/oferta.md` (EN) | Pełna ocena oferty (Bloki A-G, z twardymi bramkami prawniczymi i legitymacją ogłoszenia) |
+| `aplikuj.md` | `modes/apply.md` (EN) | Asystent na żywo do wypełniania formularzy aplikacyjnych, z regułą blokady kanału rekrutacji |
+| `pipeline.md` | `modes/pipeline.md` (EN) | Inbox URL-i / Second Brain dla zebranych ofert |
 
 Pozostałe tryby (`scan`, `batch`, `pdf`, `tracker`, `auto-pipeline`, `deep`, `contacto`, `ofertas`, `project`, `training`) zostają w EN/ES. Ich treść to głównie tooling, ścieżki i komendy -- musi pozostać niezależna od języka.
 
@@ -94,6 +94,15 @@ Aby zachować spójny ton, jeśli modyfikujesz lub rozszerzasz tryby:
 | Employee pension scheme | PPK (Pracownicze Plany Kapitałowe) |
 | Net / Gross | Netto / Brutto |
 | Day rate (B2B) | Stawka dzienna |
+| Bar admission / license | Wpis na listę radców prawnych / adwokatów |
+| Law firm associate | Prawnik / Aplikant / Radca prawny / Adwokat (w kancelarii) |
+| Class year / PQE | Poziom doświadczenia / staż po wpisie (PQE) |
+| In-house counsel | Prawnik in-house / Radca prawny in-house |
+| General Counsel | Dyrektor działu prawnego / Radca Prawny -- Kierownik Działu Prawnego |
+| Patent attorney | Rzecznik patentowy |
+| Deal sheet / matters list | Arkusz transakcji / Lista spraw |
+| Partner track | Ścieżka partnerska |
+| Conflicts check | Weryfikacja konfliktu interesów |
 
 ## Wkład (Contribute)
 
@@ -103,4 +112,4 @@ Aby ulepszyć tłumaczenie lub dodać tryb:
 2. Trzymaj się powyższego słownika, aby zachować spójny ton
 3. Tłumacz idiomatycznie -- bez tłumaczenia słowo w słowo
 4. Zachowaj elementy strukturalne (Bloki A-F, tabele, bloki kodu, instrukcje narzędzi) identycznie
-5. Przetestuj na prawdziwej polskiej ofercie (Pracuj.pl, No Fluff Jobs, Just Join IT) przed wysłaniem PR-a
+5. Przetestuj na prawdziwej polskiej ofercie prawniczej (Pracuj.pl, LinkedIn, strona kariery kancelarii) przed wysłaniem PR-a

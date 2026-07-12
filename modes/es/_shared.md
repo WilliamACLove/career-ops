@@ -24,25 +24,23 @@
 
 ---
 
-## North Star -- Roles objetivo
+## North Star -- Arquetipos objetivo
 
-El skill trata TODOS los roles objetivo con el mismo cuidado. Ninguno es primario o secundario — cada uno es un éxito si la remuneración y las perspectivas de crecimiento son las adecuadas:
+El skill trata TODOS los arquetipos objetivo con el mismo cuidado. Ninguno es primario o secundario — cada uno es un éxito si la remuneración y las perspectivas de desarrollo profesional son las adecuadas:
 
-| Arquetipo | Ejes temáticos | Lo que la empresa compra |
-|-----------|----------------|--------------------------|
-| **AI Platform / LLMOps Engineer** | Evaluación, Observabilidad, Fiabilidad, Pipelines | Alguien que lleva la IA a producción con métricas |
-| **Agentic Workflows / Automation** | HITL, Tooling, Orchestration, Multi-Agent | Alguien que construye sistemas agénticos fiables |
-| **Technical AI Product Manager** | GenAI/Agents, PRDs, Discovery, Delivery | Alguien que traduce el negocio en productos de IA |
-| **AI Solutions Architect** | Hyperautomation, Enterprise, Integrations | Alguien que diseña arquitecturas de IA end-to-end |
-| **AI Forward Deployed Engineer** | Client-facing, Entrega rápida, Prototipado | Alguien que despliega soluciones de IA rápidamente en el cliente |
-| **AI Transformation Lead** | Gestión del cambio, Adopción, Enablement | Alguien que lidera la transformación de IA en organizaciones |
+| Arquetipo | Ejes temáticos | Lo que el empleador compra |
+|-----------|----------------|------------------------------|
+| **Abogado de Despacho — Mercantil/Transaccional** (Law Firm Associate — Transactional) | M&A, mercado de capitales, fondos, financiero, due diligence | Alguien que cierra operaciones y gestiona equipos de trabajo especializados |
+| **Abogado de Despacho — Procesal/Litigios** (Law Firm Associate — Litigation & Disputes) | Juicio, arbitraje, práctica de la prueba, recursos | Alguien que gana en sala y en los escritos |
+| **Abogado de Empresa — In-House** (In-House Counsel — Product / Commercial / Privacy) | Contratos SaaS, condiciones de servicio, protección de datos, negociación cross-functional | Alguien que ayuda al negocio a decir "sí" de forma segura |
+| **Compliance y Regulatorio** (Compliance & Regulatory) | Cumplimiento normativo, PBC/FT, investigaciones internas, licencias | Alguien que construye programas de cumplimiento defendibles ante el regulador |
+| **Abogado del Estado / Sector Público / Interés Público** (Government / Public Interest Attorney) | Oposiciones, Abogacía del Estado, judicatura, turno de oficio, interés público | Alguien con vocación de servicio público demostrada |
+| **Legal Tech / Legal Engineer** | Automatización de contratos, legal ops, IA legal, innovación jurídica | Alguien que traduce criterio jurídico senior en producto o flujo de trabajo |
 
-<!-- [PERSONALIZAR] Adapta los arquetipos anteriores a tus roles objetivo.
-     Ejemplo para backend engineering:
-     - Senior Backend Engineer
-     - Staff Platform Engineer
-     - Engineering Manager
-     etc. -->
+<!-- [PERSONALIZAR] Adapta los arquetipos anteriores a tus objetivos reales.
+     Los nombres en inglés entre paréntesis deben coincidir con
+     config/profile.yml -> target_roles.archetypes[].name, que usa
+     la taxonomía canónica del sistema (ver modes/_shared.md, EN). -->
 
 ### Framing adaptativo por arquetipo
 
@@ -50,59 +48,80 @@ El skill trata TODOS los roles objetivo con el mismo cuidado. Ninguno es primari
 
 | Si el rol es... | Destacar del candidato... | Fuentes de proof points |
 |-----------------|---------------------------|-------------------------|
-| Platform / LLMOps | Experiencia en producción, observabilidad, evals, closed-loop | article-digest.md + cv.md |
-| Agentic / Automation | Orquestación multi-agente, HITL, fiabilidad, costes | article-digest.md + cv.md |
-| Technical AI PM | Product discovery, PRDs, métricas, gestión de stakeholders | cv.md + article-digest.md |
-| Solutions Architect | Diseño de sistemas, integraciones, enterprise-ready | article-digest.md + cv.md |
-| Forward Deployed Engineer | Entrega rápida, cercanía al cliente, prototipo a producción | cv.md + article-digest.md |
-| AI Transformation Lead | Gestión del cambio, enablement de equipo, adopción | cv.md + article-digest.md |
+| Despacho — Transaccional | Operaciones cerradas al nivel de banda correcto: tipo de operación, volumen, titularidad del drafting, gestión de workstreams especializados | cv.md + article-digest.md |
+| Despacho — Procesal/Litigios | Declaraciones testificales practicadas, recursos redactados y defendidos, experiencia en juicio/arbitraje, calidad de la escritura | cv.md + article-digest.md |
+| In-House (Producto/Mercantil/Privacidad) | Volumen de contratos (SaaS/MSA/DPA), asesoramiento cross-functional, amplitud regulatoria, comunicación en lenguaje llano con equipos no jurídicos | cv.md + article-digest.md |
+| Compliance y Regulatorio | Programas de cumplimiento propios, interlocución con el regulador, investigaciones internas lideradas | cv.md + article-digest.md |
+| Sector Público / Interés Público | Volumen en sala, experiencia en apelación, compromiso demostrado con el servicio público (clínicas jurídicas, becas, experiencia previa en interés público) | cv.md + article-digest.md |
+| Legal Tech / Legal Engineer | Formación de despacho de primer nivel + fluidez real en producto/IA — playbooks construidos, flujos de trabajo automatizados | cv.md + article-digest.md |
 
-<!-- [PERSONALIZAR] Asocia tus proyectos/artículos concretos a los arquetipos anteriores -->
+<!-- [PERSONALIZAR] Asocia tus asuntos/publicaciones concretas a los arquetipos anteriores -->
 
 ### Narrativa de transición (usar en TODOS los framings)
 
 <!-- [PERSONALIZAR] Reemplaza con tu propia narrativa. Ejemplos:
-     - "SaaS construida y vendida tras 5 años. Ahora 100% enfocado en IA aplicada en empresa."
-     - "Lead de ingeniería en una Series-B durante un crecimiento x10. Buscando el siguiente reto."
-     - "Transición de consultoría a producto. En búsqueda de roles con alta responsabilidad."
+     - "Cinco años cerrando M&A tecnológico en un despacho de primer nivel. Ahora dando el salto a in-house."
+     - "Asociado senior en litigios buscando pasar a compliance regulatorio."
+     - "Opositor/a a la Abogacía del Estado tras varios años en despacho privado."
      Leído desde config/profile.yml -> narrative.exit_story -->
 
 Usar la narrativa de transición desde `config/profile.yml` para enmarcar TODOS los contenidos:
-- **En los summaries del PDF:** Tender el puente entre el pasado y el futuro — "Ahora aplico las mismas [competencias] al dominio [de la oferta]."
-- **En las stories STAR:** Hacer referencia a los proof points de `article-digest.md`.
-- **En los borradores de respuestas (Bloque G):** La narrativa de transición va en la primera respuesta.
-- **Cuando la oferta menciona "emprendedor", "autonomía", "builder", "end-to-end":** Es EL diferenciador n.º 1. Aumentar el peso del match.
+- **En los summaries del PDF:** Tender el puente entre el pasado y el futuro — "Ahora aplico las mismas [competencias] al [dominio de la oferta]."
+- **En las stories STAR+R:** Hacer referencia a los proof points de `article-digest.md`.
+- **En los borradores de carta de presentación:** La narrativa de transición va en el párrafo de apertura.
+- **Cuando la oferta menciona "autonomía", "gestión de equipos de trabajo", "end-to-end", "ownership del asunto":** Es EL diferenciador n.º 1. Aumentar el peso del match.
 
 ### Ventaja transversal
 
-Enmarcar el perfil como **"Builder técnico con una práctica demostrable"**, adaptando el framing al rol:
-- Para PM: "Builder que reduce la incertidumbre con prototipos y luego entrega en producción de forma disciplinada"
-- Para FDE: "Builder que entrega desde el día 1 con observabilidad y métricas"
-- Para SA: "Builder que diseña sistemas end-to-end con experiencia real de integración"
-- Para LLMOps: "Builder que lleva la IA a producción con sistemas de calidad en bucle cerrado"
+Enmarcar el perfil adaptando el framing al arquetipo:
+- Para in-house: "Abogado/a con criterio de negocio — ayuda a los equipos a decir 'sí' de forma segura"
+- Para compliance: "Abogado/a que construye programas de cumplimiento sólidos y defendibles ante el regulador"
+- Para litigios: "Abogado/a que gana en sala y por escrito"
+- Para transaccional: "Abogado/a que cierra operaciones y gestiona workstreams especializados"
+- Para legal tech: "Abogado/a con formación de despacho de primer nivel + fluidez real en producto/IA"
+- Para sector público: "Abogado/a con vocación de servicio público demostrada"
 
-Posicionar "Builder" como señal profesional — no como "artesano improvisado". Los proof points reales lo hacen creíble.
+Los proof points reales (asuntos, operaciones, publicaciones) lo hacen creíble — nunca inventar.
 
 ### Portfolio como proof point (usar en candidaturas de alto impacto)
 
-<!-- [PERSONALIZAR] Si tienes una demo en vivo, un dashboard o un proyecto público, configúralo aquí.
+<!-- [PERSONALIZAR] Si tienes un deal sheet / relación de asuntos público, un blog jurídico o publicaciones, configúralo aquí.
      Ejemplo:
      dashboard:
-       url: "https://tudominio.dev/demo"
+       url: "https://tudominio.law/deal-sheet"
        password: "demo-2026"
-       when_to_share: "Roles LLMOps, AI Platform, Observability"
+       when_to_share: "Roles transaccionales, in-house, legal tech"
      Leído desde config/profile.yml -> narrative.proof_points y narrative.dashboard -->
 
-Si el candidato tiene una demo en vivo / un dashboard (verificar `profile.yml`), ofrecer el acceso en las candidaturas relevantes.
+Si el candidato tiene un deal sheet / relación de asuntos, un blog jurídico o publicaciones (verificar `profile.yml`), ofrecer el acceso en las candidaturas relevantes — respetando siempre los límites de confidencialidad del asunto.
+
+### Barreras legales (pass/fail — nunca promediadas en silencio)
+
+Verificar estas barreras ANTES de ponderar las dimensiones. Se basan en el bloque `legal:` de `config/profile.yml` (`class_year`, `bar_admissions`, `patent_bar`, `practice_areas`, `recruiter_channel`). Una barrera fallida debe aparecer explícitamente en la dimensión Red flags Y como línea señalada en el report — un buen match de CV nunca debe compensar u ocultar una barrera fallida.
+
+1. **Colegiación / jurisdicción** — comparar la sede de la oferta con `legal.bar_admissions`. El rigor varía según el tipo de empleador:
+   - **Despachos: estricto.** Muchos despachos exigen colegiación en el Colegio de Abogados de la demarcación donde radica la oficina, o un compromiso realista de colegiarse a la incorporación. Una vez colegiado en España se puede ejercer en todo el territorio nacional, así que el bloqueo real suele ser la falta de colegiación en sí, no la provincia concreta.
+   - **In-house: moderado.** No siempre se exige colegiación activa para trabajar como abogado de empresa / asesor jurídico interno; señalar la ausencia como nota, no como bloqueo.
+   - **Sector público (oposiciones) y legal tech: mínimo.** Basta con el grado en Derecho y, en su caso, superar el proceso selectivo correspondiente; la colegiación activa rara vez es un requisito de entrada.
+2. **Banda de experiencia (nivel/seniority)** — las ofertas de despacho suelen indicar una banda ("3-5 años de experiencia", "asociado senior", "colaborador junior"). Si la experiencia del candidato queda fuera de la banda, tratarlo como un motivo casi automático de descarte en posiciones de asociado — recomendar no presentar la candidatura. Los despachos españoles tienen más margen de negociación de nivel que un sistema lockstep, pero el desajuste sigue siendo una señal a comunicar sin rodeos.
+3. **Agente de la Propiedad Industrial** — los roles de tramitación de patentes ante la OEPM/EPO requieren estar inscrito como Agente de la Propiedad Industrial (o titulación habilitante equivalente). Si `legal.patent_bar` es `false` para un rol de tramitación de patentes, es una barrera dura. (Litigios de marcas o propiedad intelectual no lo requieren necesariamente.)
+4. **Conflictos (roles senior/socio)** — toda incorporación lateral de nivel senior está condicionada a superar el control de conflictos de intereses del despacho. Señalar el riesgo en el report — no puntuarlo.
 
 ### Inteligencia de remuneración (Comp Intelligence)
 
-<!-- [PERSONALIZAR] Investiga los rangos salariales para tus roles objetivo y ajusta los valores -->
+<!-- [PERSONALIZAR] Investiga los rangos salariales para tus arquetipos objetivo y ajusta los valores -->
+
+**Fuentes de investigación salarial (mercado legal español) -- usar estas, no portales genéricos de tech:**
+- Guías salariales anuales de consultoras de selección con práctica legal: Hays, Michael Page / PageGroup, Robert Walters — cubren despacho e in-house
+- Secciones de empleo y mercado de medios especializados: Economist & Jurist, Iberley
+- LinkedIn Salary Insights como señal complementaria, nunca como única fuente
+- Sector público: tablas retributivas publicadas en la convocatoria de la oposición correspondiente (Abogacía del Estado, judicatura, letrados de la Administración de Justicia)
+- Si no hay dato fiable, decirlo claramente — no inventar una cifra
 
 **Consejos generales:**
-- WebSearch para datos de mercado actuales (Glassdoor, LinkedIn Salary Insights, InfoJobs Estudios Salariales, Levels.fyi, Talent.io, Indeed Salarios)
-- Enmarcar por título del puesto, no por competencias — los títulos definen las bandas salariales
-- Las tarifas freelance/autónomo en España suelen ser un 30-50% por encima del equivalente bruto por hora en nómina (cuotas de autónomo, vacaciones, baja, prospección)
+- Enmarcar por título/banda de experiencia, no solo por competencias — el título y los años post-colegiación son la palanca de remuneración en despacho; en in-house lo es el nivel del puesto (Counsel → Senior Counsel → Director/DGC → GC)
+- Los grandes despachos de referencia (mencionados aquí como categoría de mercado, no como recomendación de empleador concreto — p. ej. Garrigues, Cuatrecasas, Uría Menéndez) rara vez publican una banda salarial; el dato se conoce por referencias del sector, no por transparencia pública
+- Las tarifas de colaborador externo / of counsel en España suelen incluir la cuota de autónomo y la ausencia de vacaciones/baja retribuida — súmalo al comparar con una posición por cuenta ajena
 - El geo-arbitraje funciona en remoto: menor coste de vida = mejor neto
 
 ### Mercado hispanohablante -- Especificidades (IMPORTANTE)
@@ -115,7 +134,8 @@ En las ofertas y negociaciones en español, ciertos términos no existen en los 
 | **Contrato temporal / fijo-discontinuo** | Contrato de duración determinada o con actividad estacional | Aceptable para proyectos concretos. Si no, preguntar por qué no es indefinido |
 | **Período de prueba** | 6 meses para técnicos/directivos (España). Varía por convenio | Estándar de mercado. Señalar si supera los 6 meses |
 | **Preaviso** | 15 días a 3 meses según convenio y antigüedad | Planificar la fecha de incorporación en consecuencia |
-| **Convenio colectivo** | Acuerdo sectorial que regula condiciones mínimas (TIC, Consultoría, Metal…) | Verificar la categoría profesional para validar el salario |
+| **Convenio colectivo** | Acuerdo sectorial que regula condiciones mínimas. Para personal de despacho puede aplicar el Convenio Colectivo Estatal de Despachos de Abogados, Procuradores y Graduados Sociales (verificar caso a caso — mantenerse general si no hay certeza) | Verificar la categoría profesional para validar el salario |
+| **Colegiación y cuota colegial** | Alta en el Colegio de Abogados de la demarcación correspondiente (o vía el CGAE) más la cuota periódica asociada | Verificar si la empresa cubre o compensa la cuota; no es universal. Ver también "Barreras legales" más abajo |
 | **Pagas extra** | Habitualmente 2 pagas extra (junio/diciembre) = 14 pagas al año | Incluir en el cálculo: salario bruto anual ÷ 14 ≠ ÷ 12. NUNCA olvidar en la comparación |
 | **IRPF** | Retención fiscal sobre el salario (variable según tramo y situación personal) | Solicitar nómina estimada neta además del bruto. El neto real depende del tramo |
 | **Seguridad Social** | Cotización del trabajador (~6,35% aprox.). Descuento automático en nómina | Factor en el cálculo neto. El empleador cotiza adicionalmente ~30% aparte |
@@ -155,8 +175,8 @@ En las ofertas y negociaciones en español, ciertos términos no existen en los 
 - Score 1.0 solo si la oferta dice explícitamente "presencia obligatoria 4-5 días/semana, sin excepciones"
 
 ### Prioridad time-to-offer
-- Demo funcional + métricas > perfección
-- Aplicar rápido > seguir aprendiendo
+- Paquete de candidatura ajustado (CV + deal sheet / relación de asuntos) > perfección
+- Presentar la candidatura antes > seguir puliendo
 - Enfoque 80/20, todo tiene timebox
 
 ---
@@ -173,6 +193,7 @@ En las ofertas y negociaciones en español, ciertos términos no existen en los 
 6. Generar un PDF sin haber leído la oferta antes
 7. Usar jerga corporativa o fórmulas vacías
 8. Ignorar el tracker (cada oferta evaluada se registra)
+9. Redactar o preparar una candidatura directa a un despacho cuando un recruiter/headhunter legal ya la ha presentado (o ha sido contratado para ello) — quien presenta primero conserva la titularidad de la candidatura durante ~6-12 meses (bloqueo por canal de origen / referral-source lock), y una doble presentación suele acabar en el descarte del candidato. Comprobar SIEMPRE `legal.recruiter_channel` en `config/profile.yml` y los campos `via=` del tracker antes de redactar cualquier candidatura a un despacho
 
 ### SIEMPRE
 
@@ -186,7 +207,7 @@ En las ofertas y negociaciones en español, ciertos términos no existen en los 
 6. Generar el contenido en el idioma de la oferta (español si la oferta está en español, inglés si no)
 7. Ser directo y concreto — sin relleno
 8. Español técnico natural en los textos generados. Frases cortas, verbos de acción, evitar la voz pasiva. No forzar la traducción de términos técnicos (stack, pipeline, deployment, embedding)
-8b. **URLs de case studies en el Professional Summary del PDF:** Si el PDF menciona case studies o demos, las URLs DEBEN aparecer en el primer párrafo (Professional Summary). Los reclutadores suelen leer solo el summary. Todas las URLs en HTML con `white-space: nowrap`
+8b. **Colegiación visible en la parte superior del CV; URLs de publicaciones/bio en el Professional Summary del PDF.** El reclutador puede leer solo el summary. Todas las URLs en HTML con `white-space: nowrap`
 9. **Entradas del tracker en TSV** — NUNCA editar applications.md directamente para nuevas entradas. Escribir el TSV en `batch/tracker-additions/`, `merge-tracker.mjs` gestiona la fusión
 10. **`**URL:**` en cada cabecera de report** — entre Score y PDF
 

@@ -45,6 +45,9 @@ Esta primera iteración cubre los cuatro modos de mayor impacto:
 | `oferta.md` | `modes/oferta.md` (ES) | Evaluación completa de una oferta (Bloques A-F) |
 | `aplicar.md` | `modes/apply.md` (EN) | Asistente en vivo para rellenar formularios de candidatura |
 | `pipeline.md` | `modes/pipeline.md` (ES) | Bandeja de URLs / Second Brain para las ofertas recopiladas |
+| `interview/plan.md` | `modes/interview/plan.md` (EN) | Planificador de preparación de entrevistas con bloques de tiempo |
+| `interview/practice.md` | `modes/interview/practice.md` (EN) | Entrevistador de práctica — rondas legales (screen / hiring-partner / callback / writing-exercise / panel / business-stakeholder / behavioral) |
+| `interview/debrief.md` | `modes/interview/debrief.md` (EN) | Análisis posterior a una entrevista real, actualización del banco de preguntas |
 
 Los demás modos (`scan`, `batch`, `pdf`, `tracker`, `auto-pipeline`, `deep`, `contacto`, `ofertas`, `project`, `training`) se mantienen en EN/ES. Su contenido es principalmente tooling, rutas y comandos — debe permanecer independiente del idioma.
 
@@ -93,6 +96,14 @@ Para mantener un tono coherente si modificas o amplías los modos:
 | Disability/life insurance | Seguro de vida / Incapacidad |
 | Income tax withholding | IRPF |
 | Social security | Seguridad Social |
+| Law firm | Despacho (de abogados) |
+| Associate | Asociado/a |
+| Partner | Socio/a |
+| Bar admission / bar membership | Colegiación |
+| In-house counsel | Abogado/a de empresa / Asesor/a jurídico interno |
+| Class year / PQE band | Banda de experiencia |
+| Deal sheet / matters list | Relación de asuntos / Deal sheet |
+| Hiring partner | Socio de contratación |
 
 ## Contribuir
 

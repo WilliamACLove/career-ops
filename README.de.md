@@ -78,6 +78,8 @@
 
 ## Was ist das?
 
+> **Diese Edition ist auf juristische Karrieren zugeschnitten** -- Kanzlei-Associates, Unternehmensjurist:innen, Compliance- und Regulatorik-Counsel, Behörden-/Öffentlicher-Dienst-Jurist:innen und Legal-Tech-Rollen. Die Archetypen, die Portal-Liste, die Vergütungsquellen und die Bewertungs-Gates (Zulassung/Zuständigkeitsbereich, Berufsjahr-/PQE-Abgleich, Mandantenkonflikte) weiter unten sind auf den Rechtsmarkt zugeschnitten. Die zugrunde liegende Engine ist karriere-agnostisch und vollständig anpassbar auf jede andere Laufbahn -- frag einfach deine KI-CLI, die Archetypen zu ändern. Die ursprüngliche Edition für KI-/Engineering-Karrieren, aus der dieses Projekt entstanden ist, bleibt Open Source und wird von [santifer](https://santifer.io) gepflegt (siehe "Über den Autor" unten).
+
 Career-Ops ([career-ops.org](https://career-ops.org), auch **careerops**) macht jede KI-Coding-CLI zu einer Kommandozentrale für die Jobsuche. Statt Bewerbungen manuell in einer Tabelle zu verfolgen, bekommst du eine KI-gestützte Pipeline, die:
 
 - **Stellenanzeigen bewertet** mit einem strukturierten A-F-Scoring-System (10 gewichtete Dimensionen)
@@ -104,7 +106,7 @@ Gebaut von jemandem, der damit 740+ Stellenanzeigen bewertet, 100+ personalisier
 | **Verhandlungsskripte** | Frameworks für Gehaltsverhandlungen, Pushback gegen geografische Abschläge, Hebel durch konkurrierende Angebote |
 | **ATS-PDF-Generierung** | Lebensläufe mit Keyword-Injektion im Space-Grotesk- und DM-Sans-Design |
 | **Anschreiben-Generator** | Recherchegestützte Anschreiben mit Keyword-Mirroring, interaktiven Angle-Prompts, Freigabe im Chat und A4-PDF über dieselbe HTML- und Playwright-Pipeline wie Lebensläufe |
-| **Portal-Scanner** | 45+ vorkonfigurierte Unternehmen (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) plus eigene Queries über Ashby, Greenhouse, Lever und Wellfound |
+| **Portal-Scanner** | 45+ vorkonfigurierte Unternehmen -- Legal Tech (Harvey, Ironclad, Everlaw, Spellbook, Clio...), Inhouse-Rechtsteams bei Tech-Unternehmen (Anthropic, OpenAI, Coinbase, Databricks, Stripe...), plus Behörden (USAJOBS) und Anwaltskammer-Boards -- + eigene Queries über Ashby, Greenhouse, Lever, Workday |
 | **Batch Processing** | Parallele Bewertung mit headless CLI-Workern (`claude -p` / `opencode run`) |
 | **Dashboard TUI** | Terminal-UI zum Durchsuchen, Filtern und Sortieren deiner Pipeline |
 | **Human-in-the-Loop** | KI bewertet und empfiehlt, du entscheidest. Das System sendet niemals automatisch Bewerbungen ab |
@@ -187,7 +189,8 @@ In Codex sind Slash Commands nicht garantiert. Nutze stattdessen dieselben Modus
 Du fügst eine Stellenanzeigen-URL oder Stellenbeschreibung ein
         |
         v
-Archetyp-Erkennung
+Archetyp-Erkennung: Kanzlei-Associate (Transaktion/Litigation) /
+Unternehmensjurist:in / Compliance / Behörden / Legal Tech
         |
         v
 A-F-Bewertung (liest cv.md)
@@ -201,14 +204,11 @@ A-F-Bewertung (liest cv.md)
 
 Der Scanner bringt **45+ Unternehmen** und **19 Suchabfragen** über große Jobbörsen mit. Kopiere `templates/portals.example.yml` nach `portals.yml` und ergänze deine eigenen Quellen:
 
-**AI Labs:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
-**AI Platforms:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
-**Contact Center:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
-**Enterprise:** Salesforce, Twilio, Gong, Dialpad
-**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
-**Automation:** n8n, Zapier, Make.com
-**European:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
+**Legal Tech:** Harvey, Ironclad, Spellbook, EvenUp, Everlaw, Rocket Lawyer, Filevine, Clio, Relativity, Luminance
+**Inhouse Legal:** Anthropic, OpenAI, Coinbase, Figma, Brex, Databricks, Ramp, Notion, Perplexity, Stripe
+**Boards:** USAJOBS (US-Bundesbehörden, inkl. justice.gov), GoInhouse, Lawjobs, LawCrossing, LateralHub, ABA- und State-Bar-Career-Center. Zusätzlich über `search_queries` abgedeckt: Behörden-/AG-Office-Boards (NAAG, NDAA, NLADA, GovernmentJobs.com), Anwaltskammer- und Praxisgruppen-Career-Center inkl. einer Saved-Search-RSS-Technik für YM-Careers-Boards (ACC Jobline, AIPLA, INTA, ACEDS, FBA, AHLA, Affinity Bars), University-Counsel-Boards (NACUA, HigherEdJobs), flexible/Return-to-Work-Marktplätze (The Mom Project, Paragon Legal, Latitude Legal, Axiom) und Legal-Ops-Boards (Legal Operators, CLOC, legal.io Legal-Operations).
+
+> **Hinweis für Kanzlei-Lateral-Wechsel:** Große AmLaw-Kanzleien betreiben eigene rechtsmarktspezifische ATS-Systeme (viRecruit, LawCruit) ohne öffentliche API, daher laufen BigLaw-/AmLaw-Lateral-Stellen meist über Personalberater (Major Lindsey & Africa, Lateral Link, BCG Attorney Search) oder Aggregatoren, nicht über diesen Scanner. Der Scanner ist besonders stark bei Legal-Tech- und Inhouse-Rollen auf öffentlichen ATS-Boards, plus der einen echten Behörden-API (USAJOBS).
 
 **Durchsuchte Jobbörsen:** 21 Provider-Module decken ATS-APIs, boardweite Feeds, XML/RSS-Feeds, Markdown-Feeds und lokale Parser ab. Siehe [Supported job boards](docs/SUPPORTED_JOB_BOARDS.md) für die vollständige Tabelle.
 

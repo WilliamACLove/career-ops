@@ -23,12 +23,12 @@ Verarbeitet URLs von Stellenanzeigen, die in `data/pipeline.md` gesammelt wurden
 ```markdown
 ## Offen
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://boards.greenhouse.io/company/jobs/456 | Company GmbH | Senior PM
+- [ ] https://boards.greenhouse.io/kanzlei/jobs/456 | Kanzlei Musterberg GmbH | Associate M&A
 - [!] https://private.url/job — Fehler: Login erforderlich
 
 ## Verarbeitet
-- [x] #143 | https://jobs.example.com/posting/789 | Acme GmbH | AI PM | 4.2/5 | PDF ✅
-- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | SA | 2.1/5 | PDF ❌
+- [x] #143 | https://jobs.example.com/posting/789 | Acme GmbH | Unternehmensjurist:in | 4.2/5 | PDF ✅
+- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigLaw Kanzlei | Litigation Associate | 2.1/5 | PDF ❌
 ```
 
 > Hinweis: Die Sektion-Überschriften können auf EN ("Pending"/"Processed"), ES ("Pendientes"/"Procesadas") oder DE ("Offen"/"Verarbeitet") sein. Beim Lesen flexibel sein, beim Schreiben dem Stil der bestehenden Datei treu bleiben.
@@ -42,9 +42,10 @@ Verarbeitet URLs von Stellenanzeigen, die in `data/pipeline.md` gesammelt wurden
 **Sonderfälle:**
 - **LinkedIn**: Kann Login erfordern → mit `[!]` markieren und den Kandidaten bitten, den Text einzufügen
 - **PDF**: Wenn die URL auf ein PDF zeigt, direkt mit dem Read-Tool lesen
-- **`local:`-Präfix**: Lokale Datei lesen. Beispiel: `local:jds/linkedin-pm-ai.md` → `jds/linkedin-pm-ai.md` lesen
+- **`local:`-Präfix**: Lokale Datei lesen. Beispiel: `local:jds/associate-munda.md` → `jds/associate-munda.md` lesen
 - **StepStone / XING / kununu**: Häufig deutscher Markt, oft Cookie-Banner. Playwright kann in Snapshot scrollen, um den Anzeigentext zu erfassen
-- **Bundesagentur für Arbeit (arbeitsagentur.de)**: Strukturierte Stellenanzeigen, gut maschinenlesbar. WebFetch reicht meist
+- **LTO-Karriere / beck-stellenmarkt / JUVE-Jobbörse**: Rechtsmarkt-spezifische Boards für Kanzlei- und Inhouse-Rollen. Meist strukturierte Anzeigen mit Berufsjahr-/PQE-Angabe — WebFetch reicht meist
+- **Bundesagentur für Arbeit (arbeitsagentur.de)**: Strukturierte Stellenanzeigen, gut maschinenlesbar; auch relevant für Referendariats- und Justizverwaltungs-Stellen. WebFetch reicht meist
 
 ## Automatische Nummerierung
 

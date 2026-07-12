@@ -37,6 +37,17 @@ Modalità interattiva per quando il candidato compila un modulo di candidatura (
 4. Se il Blocco G è presente -> usare le bozze precedenti come base di partenza.
 5. Se NON c'è corrispondenza -> avvisare il candidato e proporre un auto-pipeline rapido.
 
+## Fase 2bis -- Verifica del canale (recruiter) e domande knock-out legali
+
+**Verifica del canale (referral-source lock):** prima di redigere una candidatura DIRETTA a uno studio legale, verificare se un recruiter/headhunter legale (es. Michael Page, Robert Half, Hays, boutique di settore) è già incaricato per quello studio -- controllare `legal.recruiter_channel` in `config/profile.yml` e qualsiasi riga del tracker per quel datore di lavoro con un campo `via=` valorizzato. Se un recruiter è (o potrebbe essere) già incaricato, **fermarsi e avvisare invece di generare le risposte**: chi presenta per primo il candidato ne detiene la titolarità per circa 6-12 mesi, e una candidatura diretta sopra una segnalazione in corso è motivo comune di scarto per disputa sulla fee. Instradare tramite il recruiter incaricato, oppure ottenere una decisione esplicita del candidato per procedere comunque, con il rischio riconosciuto. Per l'in-house e il settore pubblico la candidatura diretta resta la norma di default -- questo controllo scatta solo quando esiste un canale recruiter attivo.
+
+**Domande knock-out tipiche dei moduli legali:** scandagliare il modulo per domande che possono escludere automaticamente il candidato prima di generare le risposte complete:
+- **Abilitazione forense / iscrizione all'albo** (es. "È iscritto/a all'albo degli avvocati?") -- verificare contro `legal.bar_admissions`
+- **Anzianità minima** (es. "Ha almeno 3-5 anni di esperienza post-abilitazione?") -- verificare contro `legal.class_year`
+- **Consulente in Proprietà Industriale** (per ruoli su brevetti/marchi) -- verificare contro `legal.patent_bar`
+
+Se una di queste domande rivela un potenziale mismatch con il profilo del candidato, evidenziarlo subito con un avviso chiaro e attendere conferma prima di proseguire con la generazione delle risposte -- non inventare mai una risposta su questi campi.
+
 ## Fase 3 -- Rilevare variazioni nel ruolo
 
 Se il ruolo a schermo differisce da quello valutato:

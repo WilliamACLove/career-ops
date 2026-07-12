@@ -95,14 +95,16 @@ Classify the role as one or two closest archetypes:
 
 | Archetype | Signals | Buyer intent |
 |-----------|---------|--------------|
-| AI Platform / LLMOps Engineer | Evaluation, observability, reliability, pipelines | Someone who can run AI systems in production with metrics |
-| Agentic Workflows / Automation | HITL, tooling, orchestration, multi-agent | Someone who builds reliable agentic systems |
-| Technical AI Product Manager | GenAI/agents, PRDs, discovery, delivery | Someone who translates business needs into AI products |
-| AI Solutions Architect | Hyperautomation, enterprise, integrations | Someone who designs AI systems end to end |
-| AI Forward Deployed Engineer | Client-facing delivery, prototyping, deployment | Someone who delivers AI solutions for customers quickly |
-| AI Transformation Lead | Change management, adoption, enablement | Someone who leads AI adoption across an organization |
+| Law Firm Associate — Transactional | "associate", "class of 20XX", M&A, capital markets, funds, finance, deal team, transactional | Exact practice-area experience at exact class year; deal sheet decides |
+| Law Firm Associate — Litigation & Disputes | "litigation associate", trial, arbitration, depositions, motion practice, discovery | A litigator with writing, stand-up, and case-management proof at the posted class year |
+| In-House Counsel — Product / Commercial / Privacy | "product counsel", "commercial counsel", "privacy counsel", SaaS agreements, MSAs, DPAs, negotiate, cross-functional | Practice-area match to the company's risk surface plus plain-English business judgment |
+| Compliance & Regulatory | compliance, regulatory, BSA/AML, FCPA, risk, investigations, licensing | Regulator experience and industry-specific regimes; ex-government at a premium |
+| Government / Public Interest Attorney | AUSA, agency counsel, honors program, GS-, public defender, legal aid, staff attorney | Trial/appellate chops, judgment, demonstrated commitment to the mission |
+| Legal Tech / Legal Engineer | "legal engineer", "forward-deployed attorney", legal solutions, legal knowledge engineer, practice innovation, legal AI | Elite practice pedigree combined with genuine product/AI fluency |
 
-Frame the candidate as a technical builder whose positioning adapts to the role. The truth stays the same; the emphasis changes.
+Frame the candidate as a practice-area specialist with matter-backed proof whose positioning adapts to the role. The truth stays the same; the emphasis changes.
+
+**Hard-gate reminder (never averaged away):** read the `legal:` block in `config/profile.yml` and check bar admission/jurisdiction (strict gate for law firms, moderate for in-house via registered in-house counsel rules, minimal for federal government and legal tech) and class-year/PQE band on firm lateral postings (outside the stated band = recommend against applying). Surface any failed gate explicitly in the Red flags dimension and the report.
 
 #### Block A — Role Summary
 
@@ -129,7 +131,7 @@ Cover:
 
 #### Block D — Compensation and Demand
 
-Use WebSearch for salary bands, company compensation reputation, funding/hiring signals, and market demand. Cite sources when available. If data is missing, say so.
+Use WebSearch for salary bands, company compensation reputation, funding/hiring signals, and market demand. Use legal-market comp sources: Cravath/market scale + Above the Law bonus tracker + Biglaw Investor for law firms (NALP for midsize/regional); BarkerGilmore + MLA surveys, L Suite, and ACC benchmarking for in-house; OPM GS tables + agency pay plans (AD/SK/JSP) for government; Brightflag/CLOC for legal ops. Cite sources when available. If data is missing, say so. Note: no salary band at a law firm is normal ("competitive salary" is the market default) and not a red flag outside pay-transparency states (NY, CA, CO, WA).
 
 Before interpreting any salary, classify the **company type / hiring entity**. A public salary figure is a signal, not a contractual promise.
 
@@ -137,6 +139,9 @@ Before interpreting any salary, classify the **company type / hiring entity**. A
 
 | Company type | Typical comp reliability | Signals |
 |--------------|--------------------------|---------|
+| Large law firm (AmLaw / lockstep) | High — published market scale | Cravath/market-scale lockstep bases by class year, published bonus scales, structured lateral process |
+| Midsize / regional / boutique firm | Medium | Typically 60-80% of market scale, discretionary bonuses, comp rarely published; elite boutiques pay at/above scale |
+| Legal staffing / document-review agency | Low — hourly contract work posted as "attorney" roles | Agency employer-of-record, "document review" / "eDiscovery project" / "contract role" keywords, hourly rates |
 | Public big tech / mature tech | High to medium | Public company, structured levels, large engineering org, repeatable hiring process |
 | Growth-stage startup / VC-backed startup | Medium | Funded startup, competitive hiring market, may mix base + equity + bonus |
 | Early-stage startup / pre-revenue startup | Medium to low | Small team, vague role scope, equity-heavy promises, unclear bands |
@@ -384,7 +389,7 @@ Column order is important:
 | 1 | num | integer | `647` |
 | 2 | date | YYYY-MM-DD | `2026-03-14` |
 | 3 | company | string | `Datadog` |
-| 4 | role | string | `Staff AI Engineer` |
+| 4 | role | string | `Senior Commercial Counsel` |
 | 5 | status | canonical | `Evaluated` |
 | 6 | score | X.X/5 | `4.5/5` |
 | 7 | pdf | emoji | `✅` or `❌` |
