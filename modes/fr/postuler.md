@@ -13,7 +13,7 @@ Mode interactif pour le moment ou le candidat remplit un formulaire de candidatu
 1. DETECTER     -> Lire l'onglet Chrome actif (capture/URL/titre)
 2. IDENTIFIER   -> Extraire entreprise + role depuis la page
 3. RECHERCHER   -> Matcher avec les reports existants dans reports/
-4. CHARGER      -> Lire le report complet + Bloc G (si existant)
+4. CHARGER      -> Lire le report complet + Bloc H / Reponses de candidature (si existant)
 5. COMPARER     -> Le role a l'ecran correspond-il a celui evalue ? Si changement -> alerter
 6. ANALYSER     -> Identifier TOUTES les questions visibles du formulaire
 7. GENERER      -> Pour chaque question, generer une reponse personnalisee
@@ -23,7 +23,7 @@ Mode interactif pour le moment ou le candidat remplit un formulaire de candidatu
 ## Etape 0 -- Verrou du canal (verrouillage du canal recruteur)
 
 Avant de rediger toute candidature DIRECTE, verifier si l'employeur est un cabinet d'avocats et si un cabinet de recrutement juridique est deja mandate pour ce poste :
-- `config/profile.yml` -> `legal.canal_recruteur`
+- `config/profile.yml` -> `legal.recruiter_channel.engagements`
 - Toute ligne du tracker pour cet employeur portant un champ `via=`
 
 Si un cabinet de recrutement est (ou peut etre) mandate, **STOP et alerter au lieu de rediger** : le premier canal ayant soumis la candidature "possede" generalement celle-ci pendant une periode d'exclusivite (souvent plusieurs mois, variable selon le cabinet). Une candidature directe par-dessus une soumission via cabinet cree un conflit de facturation que les cabinets d'avocats resolvent souvent en ecartant simplement le candidat. Router la candidature via le cabinet de recrutement mandate, ou obtenir une decision explicite du candidat pour proceder en direct malgre le risque. Les postes de juriste d'entreprise et du secteur public sont par defaut en candidature directe -- ce verrou ne joue que lorsqu'un canal recruteur existe.
@@ -42,7 +42,7 @@ Si un cabinet de recrutement est (ou peut etre) mandate, **STOP et alerter au li
 1. Extraire le nom de l'entreprise et le titre du poste depuis la page
 2. Chercher dans `reports/` par nom d'entreprise (Grep case-insensitive)
 3. Si match -> charger le report complet
-4. Si Bloc G present -> charger les brouillons de reponses precedents comme base
+4. Si Bloc H present -> charger les brouillons de reponses precedents comme base
 5. Si PAS de match -> alerter le candidat et proposer un auto-pipeline rapide
 
 ## Etape 3 -- Detecter les changements de role
@@ -50,7 +50,7 @@ Si un cabinet de recrutement est (ou peut etre) mandate, **STOP et alerter au li
 Si le role a l'ecran differe de celui evalue :
 - **Alerter le candidat** : "Le role a change de [X] a [Y]. Souhaites-tu que je reevalue ou que j'adapte les reponses au nouveau titre ?"
 - **Si adapter** : Ajuster les reponses au nouveau role sans reevaluer
-- **Si reevaluer** : Lancer l'evaluation complete A-F, mettre a jour le report, regenerer le Bloc G
+- **Si reevaluer** : Lancer l'evaluation complete A-G, mettre a jour le report, regenerer le Bloc H
 - **Mettre a jour le tracker** : Modifier le titre du role dans applications.md si necessaire
 
 ## Etape 4 -- Analyser les questions du formulaire
@@ -63,7 +63,7 @@ Identifier TOUTES les questions visibles :
 - Champs d'upload (CV, lettre de motivation PDF, references)
 
 Classifier chaque question :
-- **Deja repondue dans le Bloc G** -> reprendre la reponse existante
+- **Deja repondue dans le Bloc H** -> reprendre la reponse existante
 - **Nouvelle question** -> generer la reponse depuis le report + `cv.md`
 
 ## Etape 5 -- Generer les reponses
@@ -71,7 +71,7 @@ Classifier chaque question :
 Pour chaque question, construire la reponse selon ce schema :
 
 1. **Contexte du report** : Utiliser les proof points du bloc B, les stories STAR du bloc F
-2. **Bloc G precedent** : Si un brouillon existe, le prendre comme base et affiner
+2. **Bloc H precedent** : Si un brouillon existe, le prendre comme base et affiner
 3. **Ton "Je vous choisis"** : meme framework que dans l'auto-pipeline -- confiant, pas suppliant
 4. **Specificite** : citer quelque chose de concret de l'offre visible a l'ecran
 5. **career-ops proof point** : inclure dans "Informations complementaires" si un tel champ existe
@@ -111,7 +111,7 @@ Notes :
 
 Si le candidat confirme que la candidature est envoyee :
 1. Mettre a jour le statut vers "Applied" via le CLI canonique : `node set-status.mjs <report#> Applied` (ne pas editer la table `applications.md` a la main)
-2. Mettre a jour le Bloc G du report avec les reponses finales
+2. Mettre a jour le Bloc H du report avec les reponses finales
 3. Suggerer l'etape suivante : `/career-ops contacto` pour du LinkedIn outreach vers le hiring manager
 
 ## Gestion du defilement
