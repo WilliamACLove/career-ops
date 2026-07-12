@@ -96,6 +96,14 @@ Para mantener un tono coherente si modificas o amplías los modos:
 | Disability/life insurance | Seguro de vida / Incapacidad |
 | Income tax withholding | IRPF |
 | Social security | Seguridad Social |
+| Law firm | Despacho (de abogados) |
+| Associate | Asociado/a |
+| Partner | Socio/a |
+| Bar admission / bar membership | Colegiación |
+| In-house counsel | Abogado/a de empresa / Asesor/a jurídico interno |
+| Class year / PQE band | Banda de experiencia |
+| Deal sheet / matters list | Relación de asuntos / Deal sheet |
+| Hiring partner | Socio de contratación |
 
 ## Contribuir
 
