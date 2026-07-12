@@ -93,6 +93,13 @@ Per mantenere un tono coerente se decidi di modificare o estendere le modalità:
 | Disability/life insurance | Assicurazione vita |
 | RTT | Permessi retribuiti |
 | Cadre status | Quadro |
+| Bar admission | Abilitazione forense / Iscrizione all'albo |
+| Law firm associate | Avvocato Associato |
+| In-house counsel | Giurista d'Impresa |
+| Class year / PQE | Anzianità (anno di praticantato / anni post-abilitazione) |
+| Practice area | Area di pratica |
+| Deal sheet / matters list | Deal sheet / elenco dei procedimenti |
+| Compliance & 231 | D.lgs. 231/2001 -- Organismo di Vigilanza (ODV) |
 
 ## Contribuire
 
